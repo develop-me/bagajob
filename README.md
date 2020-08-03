@@ -34,6 +34,12 @@ git push origin {branch}
 
 9. Ensure the branch is deleted once its merged
 
+## Running and using the App locally
+
+1. Run `npm start`
+
+1. Visit the local development server in your browser
+
 ## Gulp
 
 ### Compiling
@@ -52,7 +58,8 @@ gulp sass
 ```
 
 - To manually minify the CSS and move it to the distriubtion directory run the following command.
-  - This compiles sass, minifies and moves it to docs/css/styles.css
+  - This compiles sass, minifies and moves it to `docs/css/styles.css`
+  - The App's CSS is then read from `docs/css/styles.css`
 ```bash
 gulp sass-min
 ```
@@ -63,21 +70,11 @@ gulp sass-min
 gulp watch &
 ```
 
-### API Set Up
+## API Set Up
 - To test the front end fully you'll need to set up a local instance of the API on a VM. Follow the instructions on this gitHub repo to install:
   - (https://github.com/develop-me/bagajob-api)
   
-
-## Deploying
-```bash
-npm run deploy
-```
-
-- The above command uses the gh-pages package to deploy to gitHub pages. Script lives in package.json and runs:
-```
-react-scripts build
-gh-pages -d build
-```
+--
 
 # Create React App Documentation
 
