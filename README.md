@@ -34,6 +34,35 @@ git push origin {branch}
 
 9. Ensure the branch is deleted once its merged
 
+## Gulp
+
+### Compiling
+#### Manual
+- To execute all gulp functions run:
+```bash
+gulp
+```
+
+### CSS
+- Changes should be made in SCSS files under src/scss/
+  - E.g. add _feature.scss to follow OOCSS, make sure to @import your new _feature.css file in src/scss/main.scss
+- Run the following command to immediately compile the SASS into src/css/styles.css which is liked to the html
+```bash
+gulp sass
+```
+
+- To manually minify the CSS and move it to the distriubtion directory run the following command.
+  - This compiles sass, minifies and moves it to docs/css/styles.css
+```bash
+gulp sass-min
+```
+
+#### Watcher
+- To set up gulp to "watch" for any changes and auto-compile on save let the following run:
+```bash
+gulp watch &
+```
+
 ### API Set Up
 - To test the front end fully you'll need to set up a local instance of the API on a VM. Follow the instructions on this gitHub repo to install:
   - (https://github.com/develop-me/bagajob-api)
