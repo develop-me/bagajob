@@ -15,7 +15,8 @@ gulp.task('sass', function () {
 gulp.task('minify-css', () => {
     return gulp.src('./src/css/styles.css')
       .pipe(cleanCSS({compatibility: 'ie8'}))
-      .pipe(gulp.dest('./docs/css/'));
+      .pipe(rename('styles.min.css'))
+      .pipe(gulp.dest('./src/css/'));
 });
 
 // Series task for sass compilation then minifying the css
