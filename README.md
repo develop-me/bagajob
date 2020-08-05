@@ -4,7 +4,7 @@ Job Hunting App built by Develop Me students for Develop Me students.
 
 ### Collaborating:
 
-**Never commit directly to the master branch. Create a new feature branch from the development branch, and make a pull request for a team-mate to review and merge.**
+**Never commit directly to the master branch. Create a new feature branch - (NOW INITIALISED) from the development branch, and make a pull request for a team-mate to review and merge.**
 
 ### Getting Started:
 
