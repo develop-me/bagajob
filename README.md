@@ -1,5 +1,5 @@
 # Bagajob App
-Job Management App built by Develop Me students for Develop Me students.
+Job Hunting Management App built by Develop Me students for Develop Me students.
 ## Front-end Architecture - React Redux
 
 ### Collaborating:
