@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/bagajob/static/css/main.2aca5599.chunk.css",
+    "main.js": "/bagajob/static/js/main.059b9e37.chunk.js",
+    "main.js.map": "/bagajob/static/js/main.059b9e37.chunk.js.map",
+    "runtime-main.js": "/bagajob/static/js/runtime-main.b0c4014b.js",
+    "runtime-main.js.map": "/bagajob/static/js/runtime-main.b0c4014b.js.map",
+    "static/js/2.c24a221a.chunk.js": "/bagajob/static/js/2.c24a221a.chunk.js",
+    "static/js/2.c24a221a.chunk.js.map": "/bagajob/static/js/2.c24a221a.chunk.js.map",
+    "index.html": "/bagajob/index.html",
+    "precache-manifest.c10bdfc38a99f5b01afb041f92242e57.js": "/bagajob/precache-manifest.c10bdfc38a99f5b01afb041f92242e57.js",
+    "service-worker.js": "/bagajob/service-worker.js",
+    "static/css/main.2aca5599.chunk.css.map": "/bagajob/static/css/main.2aca5599.chunk.css.map",
+    "static/js/2.c24a221a.chunk.js.LICENSE.txt": "/bagajob/static/js/2.c24a221a.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/bagajob/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b0c4014b.js",
+    "static/js/2.c24a221a.chunk.js",
+    "static/css/main.2aca5599.chunk.css",
+    "static/js/main.059b9e37.chunk.js"
+  ]
+}
