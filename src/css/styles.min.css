@@ -1,1 +1,131 @@
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}code{font-family:source-code-pro,Menlo,Monaco,Consolas,'Courier New',monospace}.App{text-align:center}.App-logo{height:40vmin;pointer-events:none}@media (prefers-reduced-motion:no-preference){.App-logo{animation:App-logo-spin infinite 20s linear}}.App-header{background-color:#282c34;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:calc(10px + 2vmin);color:#fff}.App-link{color:#61dafb}@keyframes App-logo-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+/* Atomic Design CSS methodology */
+/* setup */
+:root {
+  --black: #1d242d;
+  --darkblue: #303d4d;
+  --red: #cc3600;
+  --beige: #f5efe0;
+  --blue: #1c96d9;
+  --white: #fafafa;
+}
+
+@font-face {
+  font-family: "LatoBlack";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBlackItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-BlackItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBold";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBoldItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoLight";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoLightItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Merriweather";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherBold";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherBoldItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-BoldItalic.ttf") format("truetype");
+}
+/* atoms */
+.brandtitle {
+  font-family: "LatoBlackItalic";
+  color: var(--black);
+  text-transform: lowercase;
+  font-size: 48px;
+}
+
+.brandtext {
+  font-family: "LatoBlackItalic";
+  color: var(--black);
+}
+
+.headline {
+  font-family: "LatoBlack";
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.paraheader {
+  font-family: "LatoBold";
+  color: var(--black);
+}
+
+.parahighlight {
+  font-family: "LatoLight";
+  color: var(--black);
+}
+
+.paragraph {
+  font-family: "MerriWeather";
+  color: var(--darkblue);
+}
+
+.primarybtn {
+  background-color: var(--red);
+  color: white;
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "LatoBold";
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.secondarybtn {
+  background-color: var(--blue);
+  color: white;
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "LatoBold";
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+/* molecules */
+/* organisms */
+/* templates */
+.app {
+  background-color: var(--beige);
+}
+
+/*# sourceMappingURL=styles.min.css.map */

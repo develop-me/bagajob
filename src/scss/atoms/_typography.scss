@@ -1,0 +1,33 @@
+.brandtitle {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+    text-transform: lowercase;
+    font-size: 48px;
+}
+
+.brandtext {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+}
+
+.headline {
+    font-family: 'LatoBlack';
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.paraheader {
+    font-family: 'LatoBold';
+    color: var(--black);
+}
+
+.parahighlight {
+    font-family: 'LatoLight';
+    color: var(--black);
+}
+
+.paragraph {
+    font-family: 'MerriWeather';
+    color: var(--darkblue);
+}
+
