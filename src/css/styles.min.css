@@ -121,6 +121,17 @@
   font-size: 1.2rem;
 }
 
+input[type=text], input[type=password], input[type=email] {
+  font-family: "Merriweather";
+  width: 33vm;
+  padding: 1rem 1rem 0.25rem 0rem;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0px;
+  border-bottom: 1px solid var(--black);
+  box-sizing: border-box;
+}
+
 /* molecules */
 /* organisms */
 /* templates */
