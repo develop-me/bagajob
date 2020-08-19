@@ -34,7 +34,7 @@ export const loginUser = (data, history) => dispatch => {
             }, 500);
         }
         else {
-            dispatch({ type: LOGIN_ERROR, res })
+            dispatch({ type: LOGIN_ERROR, payload: res })
         }
     })
 }
