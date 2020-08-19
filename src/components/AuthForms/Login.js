@@ -31,18 +31,16 @@ const Login = ({ history }) => {
     return (
         <>
             <h1 className="brand_text">bagajob</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <span><img src={email_icon} alt="an @ symbol" /></span>
+            <form onSubmit={handleSubmit} className="login_form">
+                <div className="login_form_input_container">
+                    <img className="email_icon" src={email_icon} alt="an @ symbol" />
                     <input
                         value={email}
                         placeholder="Email address"
                         type="text"
                         onChange={e => setEmail(e.target.value)}
                     />
-                </div>
-                <div>
-                    <span><img src={lock_icon} alt="a padlock symbol" /></span>
+                    <img className="password_icon" src={lock_icon} alt="a padlock symbol" />
                     <input
                         value={password}
                         placeholder="Password"
