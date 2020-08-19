@@ -1,3 +1,4 @@
+/* Sign Up Component */
 .signup_container {
     background-color: var(--white);
     border-radius: 20px;
@@ -5,20 +6,6 @@
     padding: 50px 20px 20px 20px;;
     display: flex;
     justify-content: center;
-}
-
-.signup_form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.signup_form_input_container {
-    display: flex;
-    justify-content: center;
-    padding: 0 2vw 0 2vw;
-    margin-top: 10px;
 }
 
 #createacc_prompt {

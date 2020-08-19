@@ -136,6 +136,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 /* molecules */
+/* Forms: */
+/* Log In: */
 .login_form {
   background-color: var(--white);
   display: flex;
@@ -158,40 +160,8 @@ input[type=text], input[type=password], input[type=email] {
   margin: 1rem 1rem 0 0;
 }
 
-/* organisms */
-#login_btn {
-  margin: 2rem 0 0 0;
-  height: 2.5rem;
-}
-
-#signup_btn {
-  margin: 2rem 0 0 0;
-  height: 2.5rem;
-}
-
-.login_container {
-  background-color: var(--white);
-  border-radius: 20px;
-  margin: 0 32vw 0 32vw;
-  padding: 50px 0 50px 0;
-  display: flex;
-  justify-content: center;
-}
-
-#password_forgot {
-  text-align: right;
-  text-decoration: underline;
-}
-
-.signup_container {
-  background-color: var(--white);
-  border-radius: 20px;
-  margin: 0 32vw 3vw 32vw;
-  padding: 50px 20px 20px 20px;
-  display: flex;
-  justify-content: center;
-}
-
+/* Forms: */
+/* Sign Up: */
 .signup_form {
   width: 100%;
   display: flex;
@@ -204,6 +174,42 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
   padding: 0 2vw 0 2vw;
   margin-top: 10px;
+}
+
+/* organisms */
+/* Login Component */
+.login_container {
+  background-color: var(--white);
+  border-radius: 20px;
+  margin: 0 32vw 0 32vw;
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+#login_btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+#signup_btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+#password_forgot {
+  text-align: right;
+  text-decoration: underline;
+}
+
+/* Sign Up Component */
+.signup_container {
+  background-color: var(--white);
+  border-radius: 20px;
+  margin: 0 32vw 3vw 32vw;
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 #createacc_prompt {
