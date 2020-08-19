@@ -27,14 +27,16 @@
 }
 
 .paragraph {
-    font-family: 'MerriWeather';
+    font-family: 'Merriweather';
     color: var(--darkblue);
 }
 
-.password_forgot {
-    font-family: 'MerriWeather';
+.login_prompt {
+    font-family: 'Merriweather';
     color: var(--darkblue);
-    text-decoration: underline;
     font-size: 0.6rem;
-    text-align: right;
+}
+
+a {
+    text-decoration: none;
 }
