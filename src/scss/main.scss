@@ -2,15 +2,17 @@
 
 /* setup */
 @import '_settings.scss';
-@import '__temporary.scss';
 
 /* atoms */
-@import '_typography.scss';
-@import '_color.scss'; 
-@import '_buttons.scss';
+@import './atoms/typography';
+@import './atoms/buttons';
+@import './atoms/inputs';
 
 /* molecules */
-@import '_buttons.scss';
+@import './molecules/forms';
 
 /* organisms */
-@import '_cards.scss'; 
+@import './organisms/login';
+
+/* templates */
+@import './templates/_app.scss'; 
