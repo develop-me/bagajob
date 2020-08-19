@@ -18,7 +18,7 @@ const SignUp = ({ history }) => {
             email: email,
             password: password,
         }
-        console.log(state)
+
         dispatch(registerUser(state, history));
     }
 
