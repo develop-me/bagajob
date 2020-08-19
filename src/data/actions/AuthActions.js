@@ -1,4 +1,4 @@
-import axios from "../../axios";
+import axios from "../axios";
 
 import {
     LOGIN_ERROR,
@@ -9,7 +9,7 @@ import {
     SIGNUP_ERROR,
     SIGNUP_SUCCESS,
     CODE_ERROR
-} from '../../constants'
+} from '../constants'
 
 // register user
 export const registerUser = data => dispatch => {

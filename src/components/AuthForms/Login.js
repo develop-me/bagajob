@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginUser } from '../../data/actions/UserActions/loginUserActions';
+import { loginUser } from '../../data/actions/AuthActions';
 import { resetAuthResponse } from '../../data/actions/UserActions/resetAuthResponse';
 import email_icon from '../../assets/images/email_icon.svg';
 import lock_icon from '../../assets/images/lock_icon.svg';
