@@ -1,0 +1,17 @@
+.logout_container {
+    background-color: var(--white);
+    border-radius: 20px;
+    margin: 0 32vw 0 32vw;
+    padding: 50px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#check-icon {
+    height: 100px;
+}
+
+#login_rtn_btn {
+    margin: 80px 50px 0 50px;
+    height: 3rem;
+}
