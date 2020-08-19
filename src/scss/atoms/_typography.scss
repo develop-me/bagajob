@@ -1,11 +1,11 @@
-.brandtitle {
+.brand_title {
     font-family: 'LatoBlackItalic';
     color: var(--black);
     text-transform: lowercase;
     font-size: 48px;
 }
 
-.brandtext {
+.brand_text {
     font-family: 'LatoBlackItalic';
     color: var(--black);
 }
@@ -16,12 +16,12 @@
     text-transform: uppercase;
 }
 
-.paraheader {
+.para_header {
     font-family: 'LatoBold';
     color: var(--black);
 }
 
-.parahighlight {
+.para_highlight {
     font-family: 'LatoLight';
     color: var(--black);
 }
@@ -31,3 +31,10 @@
     color: var(--darkblue);
 }
 
+.password_forgot {
+    font-family: 'MerriWeather';
+    color: var(--darkblue);
+    text-decoration: underline;
+    font-size: 0.6rem;
+    text-align: right;
+}
