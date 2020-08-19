@@ -33,9 +33,9 @@ const SignUp = ({ history }) => {
     return (
         <>
             <h1 className="brand_text">bagajob</h1>
-            <div class="signup_container">
-                <form class="signup_form" onSubmit={handleSubmit}>
-                    <div class="signup_form_input_container">
+            <div className="signup_container">
+                <form className="signup_form" onSubmit={handleSubmit}>
+                    <div className="signup_form_input_container">
                         <input
                             type="text"
                             id="fullname"
@@ -44,7 +44,7 @@ const SignUp = ({ history }) => {
                             onChange={e => setFullName(e.target.value)}
                         />
                     </div>
-                    <div class="signup_form_input_container">
+                    <div className="signup_form_input_container">
                         <input
                             type="text"
                             id="email"
@@ -53,7 +53,7 @@ const SignUp = ({ history }) => {
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
-                    <div class="signup_form_input_container">
+                    <div className="signup_form_input_container">
                         <input
                             type="password"
                             id="password"
@@ -62,10 +62,10 @@ const SignUp = ({ history }) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button class="primarybtn" type="submit" id="createacc_btn">
+                    <button className="primarybtn" type="submit" id="createacc_btn">
                         CREATE ACCOUNT
                     </button>
-                    <p class="login_prompt">Already have an account? <Link to="/home/login">Log in</Link></p>
+                    <p className="login_prompt">Already have an account? <Link to="/home/login">Log in</Link></p>
                     <b>{authResponse !== null && authResponse}</b>
                 </form>
 
