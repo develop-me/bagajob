@@ -1,0 +1,21 @@
+.login_form {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login_form_input_container {
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email_icon {
+    margin: 1rem 1rem 0 0;
+}
+
+.password_icon {
+    margin: 1rem 1rem 0 0;
+}

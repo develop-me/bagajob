@@ -1,0 +1,40 @@
+.brand_title {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+    text-transform: lowercase;
+    font-size: 48px;
+}
+
+.brand_text {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+}
+
+.headline {
+    font-family: 'LatoBlack';
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.para_header {
+    font-family: 'LatoBold';
+    color: var(--black);
+}
+
+.para_highlight {
+    font-family: 'LatoLight';
+    color: var(--black);
+}
+
+.paragraph {
+    font-family: 'MerriWeather';
+    color: var(--darkblue);
+}
+
+.password_forgot {
+    font-family: 'MerriWeather';
+    color: var(--darkblue);
+    text-decoration: underline;
+    font-size: 0.6rem;
+    text-align: right;
+}

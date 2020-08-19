@@ -1,1 +1,188 @@
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}code{font-family:source-code-pro,Menlo,Monaco,Consolas,'Courier New',monospace}.App{text-align:center}.App-logo{height:40vmin;pointer-events:none}@media (prefers-reduced-motion:no-preference){.App-logo{animation:App-logo-spin infinite 20s linear}}.App-header{background-color:#282c34;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:calc(10px + 2vmin);color:#fff}.App-link{color:#61dafb}@keyframes App-logo-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+/* Atomic Design CSS methodology */
+/* setup */
+:root {
+  --black: #1d242d;
+  --darkblue: #303d4d;
+  --red: #cc3600;
+  --beige: #f5efe0;
+  --blue: #1c96d9;
+  --white: #fafafa;
+}
+
+@font-face {
+  font-family: "LatoBlack";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBlackItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-BlackItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBold";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoBoldItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoLight";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LatoLightItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Merriweather";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherBold";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MerriweatherBoldItalic";
+  font-weight: normal;
+  src: url("../assets/fonts/Merriweather/Merriweather-BoldItalic.ttf") format("truetype");
+}
+/* atoms */
+.brand_title {
+  font-family: "LatoBlackItalic";
+  color: var(--black);
+  text-transform: lowercase;
+  font-size: 48px;
+}
+
+.brand_text {
+  font-family: "LatoBlackItalic";
+  color: var(--black);
+}
+
+.headline {
+  font-family: "LatoBlack";
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.para_header {
+  font-family: "LatoBold";
+  color: var(--black);
+}
+
+.para_highlight {
+  font-family: "LatoLight";
+  color: var(--black);
+}
+
+.paragraph {
+  font-family: "MerriWeather";
+  color: var(--darkblue);
+}
+
+.password_forgot {
+  font-family: "MerriWeather";
+  color: var(--darkblue);
+  text-decoration: underline;
+  font-size: 0.6rem;
+  text-align: right;
+}
+
+.primarybtn {
+  background-color: var(--red);
+  color: white;
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "LatoBold";
+  padding: 3px 0 3px 0;
+  font-size: 1.2rem;
+}
+
+.secondarybtn {
+  background-color: var(--blue);
+  color: white;
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "LatoBold";
+  padding: 3px 0 3px 0;
+  font-size: 1.2rem;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  font-family: "Merriweather";
+  padding: 1rem 1rem 0.25rem 0rem;
+  margin: 8px 0;
+  border: 0px;
+  border-bottom: 1px solid var(--black);
+  background-color: var(--white);
+}
+
+/* molecules */
+.login_form {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login_form_input_container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email_icon {
+  margin: 1rem 1rem 0 0;
+}
+
+.password_icon {
+  margin: 1rem 1rem 0 0;
+}
+
+/* organisms */
+#login_btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+#signup_btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+.login_container {
+  background-color: var(--white);
+  border-radius: 20px;
+  max-width: 300px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* templates */
+.app {
+  background-color: var(--beige);
+  line-height: 1.2;
+}
+
+/*# sourceMappingURL=styles.min.css.map */
