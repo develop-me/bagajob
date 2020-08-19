@@ -2,12 +2,18 @@ import {
     RESET_AUTH_RESPONSE,
     LOADING,
     LOGIN_SUCCESS,
-    LOGIN_ERROR
+    LOGIN_ERROR,
+    SHORT_PASSWORD
 } from '../../constants'
 
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case SHORT_PASSWORD:
+            return {
+                ...state,
+                authResponse: 'Password is too short.'
+            }
         case RESET_AUTH_RESPONSE:
             return {
                 ...state,
