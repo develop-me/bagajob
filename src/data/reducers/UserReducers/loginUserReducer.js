@@ -1,6 +1,16 @@
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case 'RESET_AUTH_RESPONSE':
+            return {
+                ...state,
+                authResponse: null
+            }
+        case 'LOADING':
+            return {
+                ...state,
+                authResponse: 'loading...'
+            }
         case 'LOGIN_SUCCESS':
             return {
                 ...state,
