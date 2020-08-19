@@ -9,8 +9,10 @@
 @import './atoms/inputs';
 
 /* molecules */
+@import './molecules/forms';
 
 /* organisms */
+@import './organisms/login';
 
 /* templates */
 @import './templates/_app.scss'; 
