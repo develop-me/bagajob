@@ -13,7 +13,7 @@ import {
 
 // register user
 export const registerUser = data => dispatch => {
-    dispatch({ type: RESET_AUTH_RESPONSE });
+    dispatch(resetAuthResponse());
     dispatch({ type: LOADING });
     if (data.password < 6) {
         return dispatch({ type: SHORT_PASSWORD })
@@ -37,7 +37,7 @@ export const registerUser = data => dispatch => {
 
 // login user
 export const loginUser = (data, history) => dispatch => {
-    dispatch({ type: RESET_AUTH_RESPONSE });
+    dispatch(resetAuthResponse());
     dispatch({ type: LOADING });
     if (data.password.length < 6) {
         return dispatch({ type: SHORT_PASSWORD })
@@ -65,4 +65,11 @@ export const loginUser = (data, history) => dispatch => {
             dispatch({ type: LOGIN_ERROR, payload: res })
         }
     })
+}
+
+// reset authResponse
+export const resetAuthResponse = () => {
+    return (dispatch) => {
+        dispatch({ type: RESET_AUTH_RESPONSE });
+    }
 }
