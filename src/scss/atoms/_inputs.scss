@@ -5,4 +5,5 @@ input[type=text], input[type=password], input[type=email] {
     border: 0px;
     border-bottom: 1px solid var(--black);
     background-color: var(--white);
+    width: 100%;
 }

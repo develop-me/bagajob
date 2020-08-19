@@ -11,8 +11,13 @@
 .login_container {
     background-color: var(--white);
     border-radius: 20px;
-    max-width: 300px;
+    margin: 0 250px 0 250px;
     padding: 20px;
     display: flex;
     justify-content: center;
+}
+
+#password_forgot {
+  text-align: right;
+  text-decoration: underline;
 }
