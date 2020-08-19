@@ -56,7 +56,7 @@
         SIGN UP
     </button>
     <!-- Login Prompt -->
-    <a href="/"><p class="login_prompt" id="password_forgot">Forgot password?</p></a>
+    <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
 
     <!-- MOLECULES -->
     <!-- Form Fields with Icons -->
@@ -83,11 +83,11 @@
                 <span><img class="password_icon" src="../src/assets/images/lock-icon-24px.svg" alt="password-icon"></span>
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <a href="/"><p class="login_prompt" id="password_forgot">Forgot password?</p></a>
+            <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
             <button class="primarybtn" type="submit" id="login_btn">
                 LOG IN
             </button>
-            <button class="secondarybtn" type="submit" id="signup_btn">
+            <button class="secondarybtn signup_btn" type="submit">
                 SIGN UP
             </button>
         </form>
@@ -105,18 +105,18 @@
             <div class="signup_form_input_container">
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <button class="primarybtn" type="submit" id="createacc_btn">
+            <button class="primarybtn createacc_btn" type="submit">
                 CREATE ACCOUNT
             </button>
         </form>
     </div>
-    <p class="login_prompt">Already have an account? <a id="createacc_prompt" href="/">Log in</a></p>
+    <p class="login_prompt">Already have an account? <a class="createacc_prompt" href="/">Log in</a></p>
 
     <!-- Logged Out Message -->
     <div class="logout_container">
-        <img id="check-icon" src="assets/images/done-24px.svg" alt="green checkmark">
+        <img class="check-icon" src="assets/images/done-24px.svg" alt="green checkmark">
         <h1 class="headline">Logged Out</h1>
-        <button class="primarybtn" type="submit" id="login_rtn_btn">
+        <button class="primarybtn login_rtn_btn" type="submit">
             LOG IN
         </button>
     </div>

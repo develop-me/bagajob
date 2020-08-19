@@ -192,12 +192,12 @@ input[type=text], input[type=password], input[type=email] {
   height: 2.5rem;
 }
 
-#signup_btn {
+.signup_btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
 }
 
-#password_forgot {
+.password_forgot {
   text-align: right;
   text-decoration: underline;
 }
@@ -212,12 +212,12 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
 }
 
-#createacc_prompt {
+.createacc_prompt {
   text-decoration: underline;
   color: var(--darkblue);
 }
 
-#createacc_btn {
+.createacc_btn {
   margin: 8vw 0 3vw 0;
   height: 2.5rem;
 }
@@ -231,11 +231,11 @@ input[type=text], input[type=password], input[type=email] {
   flex-direction: column;
 }
 
-#check-icon {
+.check-icon {
   height: 100px;
 }
 
-#login_rtn_btn {
+.login_rtn_btn {
   margin: 80px 50px 0 50px;
   height: 3rem;
 }
