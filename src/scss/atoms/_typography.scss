@@ -32,7 +32,11 @@
 }
 
 .login_prompt {
-    font-family: 'MerriweatherBold';
+    font-family: 'Merriweather';
     color: var(--darkblue);
     font-size: 0.6rem;
+}
+
+a {
+    text-decoration: none;
 }

@@ -13,50 +13,53 @@
 </head>
 <body class="app">
 
+    <!-- ATOMS -->
+    <!-- Brand Title -->
     <h1 class="brand_title">
         Bagajob
     </h1>
-
+    <!-- Brand Text (Subheader) -->
     <h3 class="brand_text">
         Track job applications from start to finish
     </h3>
-
+    <!-- Headline -->
     <h1 class="headline">
         Lato Black Caps -- Headline (h1)
     </h1>
-
+    <!-- Paragraph Header -->
     <h2 class="para_header">
         Lato Bold -- Paragraph Heading (h2)
     </h2>
-
     <h3 class="para_header">
         Lato Bold -- Paragraph Heading (h3)
     </h3>
-
+    <!-- Paragraph Highlight/PullQuote -->
     <h2 class="para_highlight">
         Lato Light -- Pull Quotes/Highlights (h2)
     </h2>
-
     <h3 class="para_highlight">
         Lato Light -- Pull Quotes/Highlights (h3)
     </h3>
-
+    <!-- Paragraph  -->
     <p class="paragraph">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam excepturi optio nisi, eaque velit quos rem quaerat veritatis fugit laudantium possimus illum mollitia incidunt ab placeat laboriosam beatae aperiam consequatur?
     </p>
-
+    <!-- Inputs -->
     <input type="text" id="fullname" name="fullname" placeholder="Full name">
     <input type="text" id="email" name="email" placeholder="Email address">
     <input type="password" id="password" name="password" placeholder="Password">
-
+    <!-- Buttons -->
     <button class="primarybtn">
         LOG IN
     </button>
     <button class="secondarybtn">
         SIGN UP
     </button>
+    <!-- Login Prompt -->
     <a href="/"><p class="login_prompt" id="password_forgot">Forgot password?</p></a>
 
+    <!-- MOLECULES -->
+    <!-- Form Fields with Icons -->
     <form class="login_form">
         <div class="login_form_input_container">
             <span><img class="email_icon" src="../src/assets/images/email-icon-24px.svg" alt="email-icon"></span>
@@ -68,6 +71,8 @@
         </div>
     </form>
     <br>
+    <!-- ORGANISMS -->
+    <!-- Login Form -->
     <div class="login_container">
         <form class="login_form">
             <div class="login_form_input_container">
@@ -88,7 +93,24 @@
         </form>
     </div>
     <br>
-
+    <!-- Signup Form -->
+    <div class="signup_container">
+        <form class="signup_form">
+            <div class="signup_form_input_container">
+                <input type="text" id="fullname" name="fullname" placeholder="Full name">
+            </div>
+            <div class="signup_form_input_container">
+                <input type="text" id="email" name="email" placeholder="Email address">
+            </div>
+            <div class="signup_form_input_container">
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <button class="primarybtn" type="submit" id="createacc_btn">
+                CREATE ACCOUNT
+            </button>
+        </form>
+    </div>
+    <p class="login_prompt">Already have an account? <a id="createacc_prompt" href="/">Log in</a></p>
 
 
 </body>
