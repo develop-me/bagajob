@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser } from '../../data/actions/UserActions/loginUserActions';
 import { resetAuthResponse } from '../../data/actions/UserActions/resetAuthResponse';
+import email_icon from '../../assets/images/email_icon.svg';
+import lock_icon from '../../assets/images/lock_icon.svg';
 
 const Login = ({ history }) => {
     const [email, setEmail] = useState('');
@@ -28,10 +30,10 @@ const Login = ({ history }) => {
 
     return (
         <>
-            <h1>bagajob</h1>
+            <h1 className="brand_text">bagajob</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <span>@</span>
+                    <span><img src={email_icon} alt="an @ symbol" /></span>
                     <input
                         value={email}
                         placeholder="Email address"
@@ -40,7 +42,7 @@ const Login = ({ history }) => {
                     />
                 </div>
                 <div>
-                    <span>lock icon</span>
+                    <span><img src={lock_icon} alt="a padlock symbol" /></span>
                     <input
                         value={password}
                         placeholder="Password"
@@ -49,9 +51,9 @@ const Login = ({ history }) => {
                     />
                 </div>
                 <div>
-                    <small>Forgot password?</small>
+                    <small className="password_forgot">Forgot password?</small>
                 </div>
-                <button>LOG IN</button>
+                <button className="primarybtn">LOG IN</button>
             </form>
             <b>{authResponse !== null && authResponse}</b>
         </>
