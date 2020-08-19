@@ -1,11 +1,13 @@
 import {
+    RESET_AUTH_RESPONSE,
+    LOADING,
+    LOGIN_SUCCESS,
+    LOGIN_ERROR,
+    SIGNUP_SUCCESS,
     SIGNUP_ERROR,
     CODE_ERROR,
-    SIGNUP_SUCCESS,
-    RESET_AUTH_RESPONSE,
-    SHORT_PASSWORD,
-    LOADING
-} from '../../constants'
+    SHORT_PASSWORD
+} from '../constants'
 
 export default (state, action) => {
     const { type, payload } = action
@@ -25,6 +27,17 @@ export default (state, action) => {
                 ...state,
                 authResponse: 'Loading...'
             }
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                authResponse: 'Redirecting you to dashboard...',
+                user: { ...payload }
+            }
+        case LOGIN_ERROR:
+            return {
+                ...state,
+                authResponse: payload,
+            }
         case SIGNUP_SUCCESS:
             return {
                 ...state,
@@ -40,7 +53,7 @@ export default (state, action) => {
         case CODE_ERROR:
             return {
                 ...state,
-                authResponse: 'there seems to be a problem please try again later',
+                authResponse: 'There seems to be a problem, please try again later.',
             }
         default:
             return state

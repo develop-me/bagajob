@@ -4,10 +4,8 @@ import editJobReducer from './JobReducers/editJobReducer'
 import listJobsReducer from './JobReducers/listJobsReducer'
 import viewJobReducer from './JobReducers/viewJobReducer'
 import deleteJobReducer from './JobReducers/deleteJobReducer'
-// user reducers
-import loginUserReducer from './UserReducers/loginUserReducer'
-import editUserReducer from './UserReducers/editUserReducer'
-import removeUserReducer from './UserReducers/removeUserReducer'
+// auth reducer
+import AuthReducer from './AuthReducer'
 
 const initialState = {
     fetching: false,
@@ -27,9 +25,7 @@ const reducer = (state = initialState, action) => ({
     ...listJobsReducer(state, action, initialState),
     ...viewJobReducer(state, action, initialState),
     ...deleteJobReducer(state, action, initialState),
-    ...loginUserReducer(state, action, initialState),
-    ...editUserReducer(state, action, initialState),
-    ...removeUserReducer(state, action, initialState),
+    ...AuthReducer(state, action, initialState),
 })
 
 export default reducer
