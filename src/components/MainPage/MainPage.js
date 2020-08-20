@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Job from './Job';
+import JobPreview from './JobPreview';
 
 const MainPage = () => {
 
@@ -17,7 +17,7 @@ const MainPage = () => {
 
             <div>
                 {jobs.map((job, index) => (
-                    <Job job={job} key={index}></Job>
+                    <JobPreview job={job} key={index}></JobPreview>
                 ))}
             </div>
         </>
