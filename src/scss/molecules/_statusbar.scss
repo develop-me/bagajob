@@ -10,8 +10,20 @@
     border: 1.5px solid var(--darkblue);
 }
 
+/* Large screens >1200px */
 @media only screen and (min-width: 1200px) {
     .status_line {
         width: 27vw;
+    }
+}
+
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+    .status_line {
+        width: 32vw;
+        transform: translate(30px, -60px);
+    }
+    .status_bar {
+        margin: 0 0px 0 0px;
     }
 }

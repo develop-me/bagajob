@@ -160,6 +160,14 @@ input[type=text], input[type=password], input[type=email] {
   margin: 25px 5vw 25px 5vw;
 }
 
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+  .status_circle {
+    height: 40px;
+    width: 40px;
+    margin: 30px 5vw 30px 5vw;
+  }
+}
 .status_complete {
   background-color: #003c00;
 }
@@ -221,6 +229,23 @@ input[type=text], input[type=password], input[type=email] {
   border: 1.5px solid var(--darkblue);
 }
 
+/* Large screens >1200px */
+@media only screen and (min-width: 1200px) {
+  .status_line {
+    width: 27vw;
+  }
+}
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+  .status_line {
+    width: 32vw;
+    transform: translate(30px, -60px);
+  }
+
+  .status_bar {
+    margin: 0 0px 0 0px;
+  }
+}
 /* organisms */
 /* Login Component */
 .login_container {
@@ -232,6 +257,21 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
 }
 
+@media only screen and (max-width: 767px) {
+  .login_container {
+    margin: 0 10vw 0 10vw;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .login_container {
+    margin: 0 20vw 0 20vw;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .login_container {
+    margin: 0 35vw 0vw 35vw;
+  }
+}
 .login_btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
@@ -257,6 +297,21 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
 }
 
+@media only screen and (max-width: 767px) {
+  .signup_container {
+    margin: 0 10vw 3vw 10vw;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .signup_container {
+    margin: 0 20vw 3vw 20vw;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .signup_container {
+    margin: 0 35vw 3vw 35vw;
+  }
+}
 .createacc_prompt {
   text-decoration: underline;
   color: var(--darkblue);
@@ -276,6 +331,21 @@ input[type=text], input[type=password], input[type=email] {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 767px) {
+  .logout_container {
+    margin: 0 10vw 0 10vw;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .logout_container {
+    margin: 0 20vw 0 20vw;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .logout_container {
+    margin: 0 35vw 0vw 35vw;
+  }
+}
 .check-icon {
   height: 100px;
 }
@@ -301,6 +371,16 @@ input[type=text], input[type=password], input[type=email] {
   margin-left: 50px;
 }
 
+@media only screen and (max-width: 888px) {
+  .job_card_text {
+    margin: 7px 0 0 10px;
+    font-size: 0.85rem;
+  }
+
+  .job_card_container {
+    margin: 5px;
+  }
+}
 /* templates */
 .app {
   background-color: var(--beige);

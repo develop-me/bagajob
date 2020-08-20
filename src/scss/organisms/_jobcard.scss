@@ -9,7 +9,19 @@
     flex-wrap: wrap;
 }
 
+
 .job_card_text {
     text-align: left;
     margin-left: 50px;
+}
+
+@media only screen and (max-width: 888px) {
+    .job_card_text {
+        margin: 7px 0 0 10px;
+        font-size: .85rem;
+    }
+
+    .job_card_container {
+        margin: 5px;
+    }
 }
