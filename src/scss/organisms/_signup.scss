@@ -8,6 +8,25 @@
     justify-content: center;
 }
 
+@media only screen and (max-width: 767px) {
+    .signup_container {
+      margin: 0 10vw 3vw 10vw;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .signup_container {
+      margin: 0 20vw 3vw 20vw;
+    }
+}
+
+
+@media only screen and (min-width: 1440px) {
+    .signup_container {
+      margin: 0 35vw 3vw 35vw;
+    }
+}
+
 .createacc_prompt {
     text-decoration: underline;
     color: var(--darkblue)

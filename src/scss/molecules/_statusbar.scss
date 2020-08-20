@@ -9,3 +9,9 @@
     transform: translate(45px, -70px);
     border: 1.5px solid var(--darkblue);
 }
+
+@media only screen and (min-width: 1200px) {
+    .status_line {
+        width: 27vw;
+    }
+}
