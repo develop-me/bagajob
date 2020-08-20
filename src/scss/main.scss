@@ -1,20 +1,23 @@
 /* Atomic Design CSS methodology */
 
 /* setup */
-@import '_settings.scss';
+@import '_settings';
 
 /* atoms */
 @import './atoms/typography';
 @import './atoms/buttons';
 @import './atoms/inputs';
+@import './atoms/shapes';
 
 /* molecules */
 @import './molecules/forms';
+@import './molecules/statusbar';
 
 /* organisms */
 @import './organisms/login';
 @import './organisms/signup';
 @import './organisms/logout';
+@import './organisms/jobcard';
 
 /* templates */
-@import './templates/_app.scss'; 
+@import './templates/_app';

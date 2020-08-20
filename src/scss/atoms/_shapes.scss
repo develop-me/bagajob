@@ -1,0 +1,16 @@
+.status_circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: lightgrey;
+    z-index: 2;
+    margin: 25px 5vw 25px 5vw;
+}
+
+.status_complete {
+    background-color: rgb(0, 60, 0);
+}
+
+.status_active {
+    background-color: lightgreen;
+}

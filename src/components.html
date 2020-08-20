@@ -6,7 +6,6 @@
 <meta name="Bagajob Job Hunting App" content="The definitive job hunting app">
 <meta http-equiv="x-ua-compatible" content="ie-edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="site.webmanifest">
 <link rel="apple-touch-icon" href="./logo.svg">
 <link rel="stylesheet" href="./css/styles.min.css">
 <meta name="theme-color" content="#fafafa">
@@ -55,8 +54,13 @@
     <button class="secondarybtn">
         SIGN UP
     </button>
+    <a href="#" class="expand_btn">&#8250;</a>
     <!-- Login Prompt -->
-    <a href="/"><p class="login_prompt" id="password_forgot">Forgot password?</p></a>
+    <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
+    <!-- Main Page Status Indicators -->
+    <div class="status_circle"></div>
+    <div class="status_circle status_complete"></div>
+    <div class="status_circle status_active"></div>
 
     <!-- MOLECULES -->
     <!-- Form Fields with Icons -->
@@ -70,6 +74,14 @@
             <input type="password" id="password" name="password" placeholder="Password">
         </div>
     </form>
+    <!-- Status Indicator -->
+    <div class="status_bar">
+        <div class="status_circle status_complete"></div>
+        <div class="status_circle status_active"></div>
+        <div class="status_circle"></div>
+    </div>
+    <hr class="status_line">
+
     <br>
     <!-- ORGANISMS -->
     <!-- Login Form -->
@@ -83,11 +95,11 @@
                 <span><img class="password_icon" src="../src/assets/images/lock-icon-24px.svg" alt="password-icon"></span>
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <a href="/"><p class="login_prompt" id="password_forgot">Forgot password?</p></a>
-            <button class="primarybtn" type="submit" id="login_btn">
+            <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
+            <button class="primarybtn login_btn" type="submit">
                 LOG IN
             </button>
-            <button class="secondarybtn" type="submit" id="signup_btn">
+            <button class="secondarybtn signup_btn" type="submit">
                 SIGN UP
             </button>
         </form>
@@ -105,22 +117,42 @@
             <div class="signup_form_input_container">
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <button class="primarybtn" type="submit" id="createacc_btn">
+            <button class="primarybtn createacc_btn" type="submit">
                 CREATE ACCOUNT
             </button>
         </form>
     </div>
-    <p class="login_prompt">Already have an account? <a id="createacc_prompt" href="/">Log in</a></p>
+    <p class="login_prompt">Already have an account? <a class="createacc_prompt" href="/">Log in</a></p>
 
     <!-- Logged Out Message -->
     <div class="logout_container">
-        <img id="check-icon" src="assets/images/done-24px.svg" alt="green checkmark">
+        <img class="check-icon" src="assets/images/done-24px.svg" alt="green checkmark">
         <h1 class="headline">Logged Out</h1>
-        <button class="primarybtn" type="submit" id="login_rtn_btn">
+        <button class="primarybtn login_rtn_btn" type="submit">
             LOG IN
         </button>
     </div>
 
+    <!-- Main Page - Single Job Card -->
+
+    <div class="job_card_container">
+        <div class="job_card_text">
+            <h4 class="para_highlight">
+                Junior Web Developer
+            </h4>
+            <h4 class="para_header">
+                Software Company Inc.
+            </h4>
+        </div>
+        <div class="status_bar">
+            <div class="status_circle status_complete"></div>
+            <div class="status_circle status_active"></div>
+            <div class="status_circle"></div>
+        </div>
+        <a href="#" class="expand_btn">&#8250;</a>
+    
+    </div>
+    <hr class="status_line">
 </body>
 </html>
 

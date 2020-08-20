@@ -1,0 +1,11 @@
+.status_bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px 0 50px;
+}
+
+.status_line {
+    width: 30vw;
+    transform: translate(45px, -70px);
+    border: 1.5px solid var(--darkblue);
+}

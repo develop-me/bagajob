@@ -88,7 +88,7 @@
   color: var(--black);
 }
 
-.paragraph {
+.paragraph, p {
   font-family: "Merriweather";
   color: var(--darkblue);
 }
@@ -125,6 +125,22 @@ a {
   font-size: 1.2rem;
 }
 
+.expand_btn {
+  background-color: var(--red);
+  color: var(--white);
+  display: inline-block;
+  border-radius: 50%;
+  margin: 25px;
+  width: 50px;
+  height: 50px;
+  font-size: 38px;
+}
+
+.expand_btn:hover {
+  background-color: #e69e9e;
+  color: var(--white);
+}
+
 input[type=text], input[type=password], input[type=email] {
   font-family: "Merriweather";
   padding: 1rem 1rem 0.25rem 0rem;
@@ -133,6 +149,23 @@ input[type=text], input[type=password], input[type=email] {
   border-bottom: 1px solid var(--black);
   background-color: var(--white);
   width: 100%;
+}
+
+.status_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  z-index: 2;
+  margin: 25px 5vw 25px 5vw;
+}
+
+.status_complete {
+  background-color: #003c00;
+}
+
+.status_active {
+  background-color: lightgreen;
 }
 
 /* molecules */
@@ -176,6 +209,18 @@ input[type=text], input[type=password], input[type=email] {
   margin-top: 10px;
 }
 
+.status_bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px 0 50px;
+}
+
+.status_line {
+  width: 30vw;
+  transform: translate(45px, -70px);
+  border: 1.5px solid var(--darkblue);
+}
+
 /* organisms */
 /* Login Component */
 .login_container {
@@ -187,17 +232,17 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
 }
 
-#login_btn {
+.login_btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
 }
 
-#signup_btn {
+.signup_btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
 }
 
-#password_forgot {
+.password_forgot {
   text-align: right;
   text-decoration: underline;
 }
@@ -212,12 +257,12 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
 }
 
-#createacc_prompt {
+.createacc_prompt {
   text-decoration: underline;
   color: var(--darkblue);
 }
 
-#createacc_btn {
+.createacc_btn {
   margin: 8vw 0 3vw 0;
   height: 2.5rem;
 }
@@ -231,13 +276,29 @@ input[type=text], input[type=password], input[type=email] {
   flex-direction: column;
 }
 
-#check-icon {
+.check-icon {
   height: 100px;
 }
 
-#login_rtn_btn {
+.login_rtn_btn {
   margin: 80px 50px 0 50px;
   height: 3rem;
+}
+
+.job_card_container {
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+  height: 100px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.job_card_text {
+  text-align: left;
+  margin-left: 50px;
 }
 
 /* templates */
