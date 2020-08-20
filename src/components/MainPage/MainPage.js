@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import JobPreview from './JobPreview';
 
@@ -11,7 +12,7 @@ const MainPage = () => {
         <>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <a>Sort by</a>
-                <a>Add new application</a>
+                <Link to="/addjob">Add new application</Link>
                 <h1>My Applications</h1>
             </div>
 
