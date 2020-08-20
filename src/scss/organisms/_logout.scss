@@ -7,6 +7,24 @@
     flex-direction: column;
 }
 
+@media only screen and (max-width: 767px) {
+    .logout_container {
+      margin: 0 10vw 0 10vw;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .logout_container {
+      margin: 0 20vw 0 20vw;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .logout_container {
+      margin: 0 35vw 0vw 35vw;
+    }
+}
+
 .check-icon {
     height: 100px;
 }
