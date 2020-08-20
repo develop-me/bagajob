@@ -1,0 +1,15 @@
+.job_card_container {
+    background-color: var(--white);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+    height: 100px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.job_card_text {
+    text-align: left;
+    margin-left: 50px;
+}

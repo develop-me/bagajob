@@ -88,7 +88,7 @@
   color: var(--black);
 }
 
-.paragraph {
+.paragraph, p {
   font-family: "Merriweather";
   color: var(--darkblue);
 }
@@ -125,6 +125,22 @@ a {
   font-size: 1.2rem;
 }
 
+.expand_btn {
+  background-color: var(--red);
+  color: var(--white);
+  display: inline-block;
+  border-radius: 50%;
+  margin: 25px;
+  width: 50px;
+  height: 50px;
+  font-size: 38px;
+}
+
+.expand_btn:hover {
+  background-color: #e69e9e;
+  color: var(--white);
+}
+
 input[type=text], input[type=password], input[type=email] {
   font-family: "Merriweather";
   padding: 1rem 1rem 0.25rem 0rem;
@@ -133,6 +149,23 @@ input[type=text], input[type=password], input[type=email] {
   border-bottom: 1px solid var(--black);
   background-color: var(--white);
   width: 100%;
+}
+
+.status_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  z-index: 2;
+  margin: 25px 5vw 25px 5vw;
+}
+
+.status_complete {
+  background-color: #003c00;
+}
+
+.status_active {
+  background-color: lightgreen;
 }
 
 /* molecules */
@@ -174,6 +207,18 @@ input[type=text], input[type=password], input[type=email] {
   justify-content: center;
   padding: 0 2vw 0 2vw;
   margin-top: 10px;
+}
+
+.status_bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px 0 50px;
+}
+
+.status_line {
+  width: 30vw;
+  transform: translate(45px, -70px);
+  border: 1.5px solid var(--darkblue);
 }
 
 /* organisms */
@@ -238,6 +283,22 @@ input[type=text], input[type=password], input[type=email] {
 .login_rtn_btn {
   margin: 80px 50px 0 50px;
   height: 3rem;
+}
+
+.job_card_container {
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+  height: 100px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.job_card_text {
+  text-align: left;
+  margin-left: 50px;
 }
 
 /* templates */
