@@ -4,6 +4,7 @@ import Home from './Home';
 import Login from './AuthForms/Login';
 import SignUp from './AuthForms/SignUp';
 import MainPage from './MainPage/MainPage';
+import AddJobForm from './AddJobForm';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/home/login" component={Login} />
           <Route path="/home/signup" component={SignUp} />
           <Route path="/mainpage" component={MainPage} />
+          <Route path="/addjob" component={AddJobForm} />
         </Switch>
       </div>
     </BrowserRouter>
