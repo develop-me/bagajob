@@ -7,6 +7,16 @@
     margin: 25px 5vw 25px 5vw;
 }
 
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+    .status_circle {
+        height: 40px;
+        width: 40px;
+        margin: 30px 5vw 30px 5vw;
+    }
+}
+
+
 .status_complete {
     background-color: rgb(0, 60, 0);
 }
