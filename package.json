@@ -14,7 +14,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux-localstorage": "^0.4.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.10"
   },
   "scripts": {
     "start": "react-scripts start",
