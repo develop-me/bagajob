@@ -1,5 +1,5 @@
 /* Login Component */
-.login_container {
+.login-container {
   background-color: var(--white);
   border-radius: 20px;
   margin: 0 32vw 0 32vw;
@@ -9,34 +9,34 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .login_container {
+  .login-container {
     margin: 0 10vw 0 10vw;
   }
 }
 
 @media only screen and (max-width: 960px) {
-  .login_container {
+  .login-container {
     margin: 0 20vw 0 20vw;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .login_container {
+  .login-container {
     margin: 0 35vw 0vw 35vw;
   }
 }
 
-.login_btn {
+.login-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
 }
 
-.signup_btn {
+.signup-btn {
     margin: 2rem 0 0 0;
     height: 2.5rem;
 }
 
-.password_forgot {
+.password-forgot {
   text-align: right;
   text-decoration: underline;
 }

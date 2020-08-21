@@ -1,9 +1,9 @@
 import React from 'react';
 
 const StageTracker = ({ active }) => {
-    let currentStage = active ? "status_active" : ""
+    let currentStage = active ? "status-active" : ""
     return (
-        <div class={"status_circle " + currentStage}></div>
+        <div class={"status-circle " + currentStage}></div>
     );
 };
 

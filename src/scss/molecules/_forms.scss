@@ -10,38 +10,38 @@
 }
 
 /* Log In: */
-.login_form {
+.login-form {
     background-color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.login_form_input_container {
+.login-form-input-container {
     background-color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.email_icon {
+.email-icon {
     margin: 1rem 1rem 0 0;
 }
 
-.password_icon {
+.password-icon {
     margin: 1rem 1rem 0 0;
 }
 
 /* Forms: */
 /* Sign Up: */
-.signup_form {
+.signup-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.signup_form_input_container {
+.signup-form-input-container {
     display: flex;
     justify-content: center;
     padding: 0 2vw 0 2vw;
