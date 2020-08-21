@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import StageTracker from './StageTracker';
+import { MY_ROUTE } from '../App';
 
 const Job = ({ job }) => {
     return (
@@ -18,8 +20,7 @@ const Job = ({ job }) => {
                     <StageTracker active={job.stage === 2} />
                     <StageTracker active={job.stage === 3} />
                 </div>
-                <a href="#" class="expand_btn">&#8250;</a>
-
+                <Link to={MY_ROUTE(job.id)} params={{ jobId: job.id }} className="expand_btn">&#8250;</Link>
             </div>
             <hr class="status_line"></hr>
         </>
