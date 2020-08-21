@@ -1,18 +1,9 @@
 import React from 'react';
 
 const StageTracker = ({ active }) => {
-    let currentStage = active ? "green" : "none"
+    let currentStage = active ? "status_active" : ""
     return (
-        <div
-            style={{
-                width: "3rem",
-                height: "3rem",
-                borderRadius: "50%",
-                border: "2px solid black",
-                backgroundColor: currentStage
-            }} >
-
-        </div >
+        <div class={"status_circle " + currentStage}></div>
     );
 };
 
