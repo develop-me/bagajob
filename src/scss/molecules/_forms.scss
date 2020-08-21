@@ -1,4 +1,14 @@
 /* Forms: */
+.form-container {
+    background-color: var(--white);
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 3rem;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
 /* Log In: */
 .login_form {
     background-color: var(--white);

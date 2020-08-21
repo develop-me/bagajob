@@ -7,3 +7,37 @@ input[type=text], input[type=password], input[type=email] {
     background-color: var(--white);
     width: 100%;
 }
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group-application-stages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.input-group-application-stages label:first-child {
+    justify-self: end;
+}
+
+.input-group-application-stages label:nth-child(2) {
+    justify-self: start;
+}
+
+.input-group-application-stages label:nth-child(3) {
+    justify-self: end;
+}
+
+.input-group-application-stages label:last-child {
+    justify-self: start;
+}
+
+.label {
+    font-family: 'Merriweather';
+}
+
+.radio {
+    margin-right: 0.5rem;
+}
