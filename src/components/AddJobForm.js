@@ -82,9 +82,9 @@ const AddJobForm = () => {
     }
 
     return (
-        <div className="form-container">
+        <div className="form-container-large">
             <form onSubmit={handleSubmit}>
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="jobTitle"
@@ -98,7 +98,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="company"
@@ -112,7 +112,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="jobDescription"
@@ -127,7 +127,7 @@ const AddJobForm = () => {
 
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label mr-1"
                         htmlFor="salary"
@@ -141,7 +141,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="location"
@@ -155,7 +155,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label mr-1"
                         htmlFor="dateApplied"
@@ -169,7 +169,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label mr-1"
                         htmlFor="closingDate"
@@ -184,7 +184,7 @@ const AddJobForm = () => {
                 </div >
 
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="recruiterName"
@@ -198,7 +198,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="recruiterEmail"
@@ -212,7 +212,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group">
                     <label
                         className="label"
                         htmlFor="recruiterPhone"
@@ -227,7 +227,7 @@ const AddJobForm = () => {
                 </div >
 
                 <label style={{ display: "block" }} className="label mb-1" htmlFor="">Application Stage</label>
-                <div className="input-group input-group-stages">
+                <div className="form-input-group addjob-input-group-stages">
                     <label className="label" htmlFor="0">
                         <input
                             className="radio"
@@ -270,7 +270,7 @@ const AddJobForm = () => {
                     </label>
                 </div >
                 <button
-                    className="primarybtn"
+                    className="primarybtn addjob-btn"
                     type="submit">Add job
                 </button>
             </form >

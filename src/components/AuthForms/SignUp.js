@@ -33,7 +33,7 @@ const SignUp = ({ history }) => {
     return (
         <>
             <h1 className="brand-text">bagajob</h1>
-            <div className="signup-container">
+            <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="signup-form-input-container">
                         <input
@@ -62,7 +62,7 @@ const SignUp = ({ history }) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button className="primarybtn" type="submit" id="createacc-btn">
+                    <button className="primarybtn createacc-btn" type="submit" id="">
                         CREATE ACCOUNT
                     </button>
                     <p className="login-prompt">Already have an account? <Link to="/home/login">Log in</Link></p>
