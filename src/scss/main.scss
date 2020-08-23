@@ -14,8 +14,9 @@
 @import './molecules/statusbar';
 
 /* organisms */
-@import './organisms/login';
-@import './organisms/signup';
+@import './organisms/forms/login';
+@import './organisms/forms/signup';
+@import './organisms/forms/addjob';
 @import './organisms/logout';
 @import './organisms/jobcard';
 
