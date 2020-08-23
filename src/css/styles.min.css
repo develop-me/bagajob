@@ -160,6 +160,7 @@ input {
 
 .label {
   font-family: "Merriweather";
+  font-size: 0.8rem;
 }
 
 .radio {
@@ -207,10 +208,9 @@ input {
   background-color: var(--white);
   border-radius: 20px;
   margin: 1vw 5vw 1vw 5vw;
-  padding: 50px 120px 50px 120px;
+  padding: 3vw;
 }
 
-/* Forms: */
 .status-bar {
   display: flex;
   justify-content: space-between;
@@ -349,14 +349,10 @@ input {
   height: 2.5rem;
 }
 
-.addjob-input-group {
-  margin-bottom: 1.5rem;
-}
-
-.addjob-input-group-stages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+/* On all screens: */
+.addjob-form-headerjob {
+  font-family: "LatoBlack";
+  font-size: 1.2rem;
 }
 
 .addjob-input-group-stages label:first-child {
@@ -373,6 +369,142 @@ input {
 
 .addjob-input-group-stages label:last-child {
   justify-self: start;
+}
+
+/* On screens smaller than 1024px: */
+.addjob-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addjob-btn {
+  margin: 5vw 10vw 2vw 10vw;
+  padding: 2vw 0 2vw 0;
+}
+
+/* On screens larger than 1024px: */
+@media only screen and (min-width: 1024px) {
+  .addjob-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
+  }
+
+  .addjob-form-headercontact {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 5;
+    grid-row-end: span 1;
+  }
+
+  .addjob-form-headerstages {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 8;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+  }
+
+  .addjob-input-jobtitle {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-company {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-salary {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-location {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-jobdescription {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-appdate {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-closedate {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactname {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttitle {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactemail {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttel {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-btn {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 11;
+    grid-row-end: span 1;
+    margin: 2vw 25vw 2vw 25vw;
+  }
+}
+.addjob-input-group-stages {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 9;
+  grid-row-end: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 
 .logout-container {
