@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <>
-            <h1 className="brand-title">bagajob</h1>
+            <Link to="/home/">
+                <h1 className="brand-title">bagajob</h1>
+            </Link>
             <h3 className="brand-text">
                 Track job applications from start to finish
             </h3>
