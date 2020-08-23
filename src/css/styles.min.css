@@ -349,32 +349,16 @@ input {
   height: 2.5rem;
 }
 
-/* On all screens: */
-.addjob-form-headerjob {
-  font-family: "LatoBlack";
-  font-size: 1.2rem;
-}
-
-.addjob-input-group-stages label:first-child {
-  justify-self: end;
-}
-
-.addjob-input-group-stages label:nth-child(2) {
-  justify-self: start;
-}
-
-.addjob-input-group-stages label:nth-child(3) {
-  justify-self: end;
-}
-
-.addjob-input-group-stages label:last-child {
-  justify-self: start;
-}
-
 /* On screens smaller than 1024px: */
 .addjob-form {
   display: flex;
   flex-direction: column;
+}
+
+.addjob-input-group {
+  margin: 0 1.5vw 2vw 1.5vw;
+  padding: 0 20px;
+  transform: translateX(-5px);
 }
 
 .addjob-btn {
@@ -388,6 +372,11 @@ input {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(11, 1fr);
+  }
+
+  .addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+    padding: 2vw 0 2vw 0;
   }
 
   .addjob-form-headercontact {
@@ -406,10 +395,6 @@ input {
     grid-column-end: span 2;
     grid-row-start: 8;
     grid-row-end: span 1;
-  }
-
-  .addjob-input-group {
-    margin: 0 1.5vw 2vw 1.5vw;
   }
 
   .addjob-input-jobtitle {
@@ -497,6 +482,12 @@ input {
     margin: 2vw 25vw 2vw 25vw;
   }
 }
+/* On all screens: */
+.addjob-form-headerjob {
+  font-family: "LatoBlack";
+  font-size: 1.2rem;
+}
+
 .addjob-input-group-stages {
   grid-column-start: 1;
   grid-column-end: span 2;
@@ -505,6 +496,22 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+}
+
+.addjob-input-group-stages label:first-child {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+  justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+  justify-self: start;
 }
 
 .logout-container {
