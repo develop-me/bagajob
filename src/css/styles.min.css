@@ -64,7 +64,7 @@
   font-family: "LatoBlackItalic";
   color: var(--black);
   text-transform: lowercase;
-  font-size: 48px;
+  font-size: 4rem;
 }
 
 .brand-text {
@@ -72,7 +72,7 @@
   color: var(--black);
   margin-top: 0;
   padding-top: 20px;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .headline {
@@ -209,6 +209,23 @@ input {
   border-radius: 20px;
   margin: 1vw 5vw 1vw 5vw;
   padding: 3vw;
+}
+
+.button-container {
+  margin: 8vw 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.login-btn-home {
+  width: 50%;
+  height: 5vw;
+}
+
+.signup-btn-home {
+  width: 50%;
+  height: 5vw;
 }
 
 .status-bar {
