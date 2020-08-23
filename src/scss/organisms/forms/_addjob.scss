@@ -1,0 +1,31 @@
+
+
+.addjob-input-group {
+    margin-bottom: 1.5rem;
+}
+
+.addjob-input-group-stages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.addjob-input-group-stages label:first-child {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+    justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+    justify-self: start;
+}
+
+.addjob-btn {
+
+}
