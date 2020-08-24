@@ -1,0 +1,16 @@
+.button-container {
+    margin: 8vw 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.login-btn-home {
+    width: 50%;
+    height: 5vw;
+}
+
+.signup-btn-home {
+    width: 50%;
+    height: 5vw;
+}

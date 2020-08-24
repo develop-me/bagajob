@@ -1,49 +1,18 @@
 /* Forms: */
-.form-container {
+.form-container-small {
     background-color: var(--white);
     border-radius: 20px;
-    margin: 0 auto;
-    padding: 3rem;
-    width: 30%;
+    margin: 0 32vw 0 32vw;
+    padding: 50px 0 50px 0;
     display: flex;
     justify-content: center;
-}
-
-/* Log In: */
-.login-form {
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.login-form-input-container {
-    background-color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.email-icon {
-    margin: 1rem 1rem 0 0;
-}
-
-.password-icon {
-    margin: 1rem 1rem 0 0;
 }
 
 /* Forms: */
-/* Sign Up: */
-.signup-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.form-container-large {
+    background-color: var(--white);
+    border-radius: 20px;
+    margin: 1vw 5vw 1vw 5vw;
+    padding: 3vw;
 }
 
-.signup-form-input-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 2vw 0 2vw;
-    margin-top: 10px;
-}

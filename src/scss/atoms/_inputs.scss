@@ -1,4 +1,4 @@
-input[type=text], input[type=password], input[type=email] {
+input {
     font-family: 'Merriweather';
     padding: 1rem 1rem .25rem 0rem;
     margin: 8px 0;
@@ -12,30 +12,9 @@ input[type=text], input[type=password], input[type=email] {
     margin-bottom: 1.5rem;
 }
 
-.input-group-application-stages {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-}
-
-.input-group-application-stages label:first-child {
-    justify-self: end;
-}
-
-.input-group-application-stages label:nth-child(2) {
-    justify-self: start;
-}
-
-.input-group-application-stages label:nth-child(3) {
-    justify-self: end;
-}
-
-.input-group-application-stages label:last-child {
-    justify-self: start;
-}
-
 .label {
     font-family: 'Merriweather';
+    font-size: 0.8rem;
 }
 
 .radio {

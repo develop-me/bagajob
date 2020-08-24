@@ -1,0 +1,166 @@
+/* On screens smaller than 1024px: */
+.addjob-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+    padding: 0 20px;
+    transform: translateX(-5px);
+}
+
+.addjob-btn {
+    margin: 5vw 10vw 2vw 10vw;
+    padding: 2vw 0 2vw 0;
+}
+
+/* On screens larger than 1024px: */
+@media only screen and (min-width: 1024px) {
+    .addjob-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(11, 1fr);
+    }
+
+    .addjob-input-group {
+        margin: 0 1.5vw 2vw 1.5vw;
+        padding: 2vw 0 2vw 0;
+    }
+
+    .addjob-form-headercontact {
+        font-family: 'LatoBlack';
+        font-size: 1.2rem;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 5;
+        grid-row-end: span 1;
+
+    }
+
+    .addjob-form-headerstages {
+        font-family: 'LatoBlack';
+        font-size: 1.2rem;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 8;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-jobtitle {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-company {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-salary {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-location {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-jobdescription {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 3;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-appdate {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 4;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-closedate {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 4;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-contactname {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 6;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-contacttitle {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 6;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-contactemail {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 7;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-contacttel {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 7;
+        grid-row-end: span 1;
+    }
+
+    .addjob-btn {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 11;
+        grid-row-end: span 1;
+        margin: 2vw 25vw 2vw 25vw;
+    }
+}
+
+/* On all screens: */
+.addjob-form-headerjob {
+    font-family: 'LatoBlack';
+    font-size: 1.2rem;
+}
+
+.addjob-input-group-stages {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 9;
+    grid-row-end: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.addjob-input-group-stages label:first-child {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+    justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+    justify-self: start;
+}

@@ -64,12 +64,15 @@
   font-family: "LatoBlackItalic";
   color: var(--black);
   text-transform: lowercase;
-  font-size: 48px;
+  font-size: 4rem;
 }
 
 .brand-text {
   font-family: "LatoBlackItalic";
   color: var(--black);
+  margin-top: 0;
+  padding-top: 20px;
+  font-size: 2rem;
 }
 
 .headline {
@@ -141,7 +144,7 @@ a {
   color: var(--white);
 }
 
-input[type=text], input[type=password], input[type=email] {
+input {
   font-family: "Merriweather";
   padding: 1rem 1rem 0.25rem 0rem;
   margin: 8px 0;
@@ -155,30 +158,9 @@ input[type=text], input[type=password], input[type=email] {
   margin-bottom: 1.5rem;
 }
 
-.input-group-application-stages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-}
-
-.input-group-application-stages label:first-child {
-  justify-self: end;
-}
-
-.input-group-application-stages label:nth-child(2) {
-  justify-self: start;
-}
-
-.input-group-application-stages label:nth-child(3) {
-  justify-self: end;
-}
-
-.input-group-application-stages label:last-child {
-  justify-self: start;
-}
-
 .label {
   font-family: "Merriweather";
+  font-size: 0.8rem;
 }
 
 .radio {
@@ -212,53 +194,38 @@ input[type=text], input[type=password], input[type=email] {
 
 /* molecules */
 /* Forms: */
-.form-container {
+.form-container-small {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 auto;
-  padding: 3rem;
-  width: 30%;
+  margin: 0 32vw 0 32vw;
+  padding: 50px 0 50px 0;
   display: flex;
   justify-content: center;
-}
-
-/* Log In: */
-.login-form {
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-form-input-container {
-  background-color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.email-icon {
-  margin: 1rem 1rem 0 0;
-}
-
-.password-icon {
-  margin: 1rem 1rem 0 0;
 }
 
 /* Forms: */
-/* Sign Up: */
-.signup-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.form-container-large {
+  background-color: var(--white);
+  border-radius: 20px;
+  margin: 1vw 5vw 1vw 5vw;
+  padding: 3vw;
 }
 
-.signup-form-input-container {
-  display: flex;
-  justify-content: center;
-  padding: 0 2vw 0 2vw;
-  margin-top: 10px;
+.button-container {
+  margin: 8vw 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.login-btn-home {
+  width: 50%;
+  height: 5vw;
+}
+
+.signup-btn-home {
+  width: 50%;
+  height: 5vw;
 }
 
 .status-bar {
@@ -291,31 +258,57 @@ input[type=text], input[type=password], input[type=email] {
   }
 }
 /* organisms */
-/* Login Component */
+/* Login Container */
 .login-container {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 32vw 0 32vw;
-  padding: 50px 0 50px 0;
   display: flex;
   justify-content: center;
 }
 
 @media only screen and (max-width: 767px) {
   .login-container {
-    margin: 0 10vw 0 10vw;
+    margin: 0 10vw 3vw 10vw;
   }
 }
 @media only screen and (max-width: 960px) {
   .login-container {
-    margin: 0 20vw 0 20vw;
+    margin: 0 20vw 3vw 20vw;
   }
 }
 @media only screen and (min-width: 1440px) {
   .login-container {
-    margin: 0 35vw 0vw 35vw;
+    margin: 0 35vw 3vw 35vw;
   }
 }
+/* Log In Form: */
+.login-form {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form-input-container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-forgot {
+  text-align: right;
+  text-decoration: underline;
+}
+
+.email-icon {
+  margin: 1rem 1rem 0 0;
+}
+
+.password-icon {
+  margin: 1rem 1rem 0 0;
+}
+
 .login-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
@@ -326,17 +319,10 @@ input[type=text], input[type=password], input[type=email] {
   height: 2.5rem;
 }
 
-.password-forgot {
-  text-align: right;
-  text-decoration: underline;
-}
-
 /* Sign Up Component */
 .signup-container {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 32vw 3vw 32vw;
-  padding: 50px 20px 20px 20px;
   display: flex;
   justify-content: center;
 }
@@ -356,6 +342,20 @@ input[type=text], input[type=password], input[type=email] {
     margin: 0 35vw 3vw 35vw;
   }
 }
+/* Sign Up: */
+.signup-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-form-input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .createacc-prompt {
   text-decoration: underline;
   color: var(--darkblue);
@@ -366,11 +366,174 @@ input[type=text], input[type=password], input[type=email] {
   height: 2.5rem;
 }
 
+/* On screens smaller than 1024px: */
+.addjob-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addjob-input-group {
+  margin: 0 1.5vw 2vw 1.5vw;
+  padding: 0 20px;
+  transform: translateX(-5px);
+}
+
+.addjob-btn {
+  margin: 5vw 10vw 2vw 10vw;
+  padding: 2vw 0 2vw 0;
+}
+
+/* On screens larger than 1024px: */
+@media only screen and (min-width: 1024px) {
+  .addjob-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
+  }
+
+  .addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+    padding: 2vw 0 2vw 0;
+  }
+
+  .addjob-form-headercontact {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 5;
+    grid-row-end: span 1;
+  }
+
+  .addjob-form-headerstages {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 8;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-jobtitle {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-company {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-salary {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-location {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-jobdescription {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-appdate {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-closedate {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactname {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttitle {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactemail {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttel {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-btn {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 11;
+    grid-row-end: span 1;
+    margin: 2vw 25vw 2vw 25vw;
+  }
+}
+/* On all screens: */
+.addjob-form-headerjob {
+  font-family: "LatoBlack";
+  font-size: 1.2rem;
+}
+
+.addjob-input-group-stages {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 9;
+  grid-row-end: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.addjob-input-group-stages label:first-child {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+  justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+  justify-self: start;
+}
+
 .logout-container {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 32vw 0 32vw;
-  padding: 50px 0 50px 0;
   display: flex;
   flex-direction: column;
 }
@@ -426,12 +589,15 @@ input[type=text], input[type=password], input[type=email] {
   }
 }
 /* templates */
-.app {
-  background-color: var(--beige);
-  line-height: 1.2;
-  text-align: center;
+body {
   padding: 0;
   margin: 0;
+  background-color: var(--beige);
+  line-height: 1.2;
+}
+
+.app {
+  text-align: center;
 }
 
 .mr-1 {
