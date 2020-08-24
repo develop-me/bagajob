@@ -60,16 +60,19 @@
   src: url("../assets/fonts/Merriweather/Merriweather-BoldItalic.ttf") format("truetype");
 }
 /* atoms */
-.brand_title {
+.brand-title {
   font-family: "LatoBlackItalic";
   color: var(--black);
   text-transform: lowercase;
-  font-size: 48px;
+  font-size: 4rem;
 }
 
-.brand_text {
+.brand-text {
   font-family: "LatoBlackItalic";
   color: var(--black);
+  margin-top: 0;
+  padding-top: 20px;
+  font-size: 2rem;
 }
 
 .headline {
@@ -78,12 +81,12 @@
   text-transform: uppercase;
 }
 
-.para_header {
+.para-header {
   font-family: "LatoBold";
   color: var(--black);
 }
 
-.para_highlight {
+.para-highlight {
   font-family: "LatoLight";
   color: var(--black);
 }
@@ -93,7 +96,7 @@
   color: var(--darkblue);
 }
 
-.login_prompt {
+.login-prompt {
   font-family: "Merriweather";
   color: var(--darkblue);
   font-size: 0.6rem;
@@ -125,7 +128,7 @@ a {
   font-size: 1.2rem;
 }
 
-.expand_btn {
+.expand-btn {
   background-color: var(--red);
   color: var(--white);
   display: inline-block;
@@ -136,12 +139,12 @@ a {
   font-size: 38px;
 }
 
-.expand_btn:hover {
+.expand-btn:hover {
   background-color: #e69e9e;
   color: var(--white);
 }
 
-input[type=text], input[type=password], input[type=email] {
+input {
   font-family: "Merriweather";
   padding: 1rem 1rem 0.25rem 0rem;
   margin: 8px 0;
@@ -155,37 +158,16 @@ input[type=text], input[type=password], input[type=email] {
   margin-bottom: 1.5rem;
 }
 
-.input-group-application-stages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-}
-
-.input-group-application-stages label:first-child {
-  justify-self: end;
-}
-
-.input-group-application-stages label:nth-child(2) {
-  justify-self: start;
-}
-
-.input-group-application-stages label:nth-child(3) {
-  justify-self: end;
-}
-
-.input-group-application-stages label:last-child {
-  justify-self: start;
-}
-
 .label {
   font-family: "Merriweather";
+  font-size: 0.8rem;
 }
 
 .radio {
   margin-right: 0.5rem;
 }
 
-.status_circle {
+.status-circle {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -196,78 +178,63 @@ input[type=text], input[type=password], input[type=email] {
 
 /* Mobile screens <768px */
 @media only screen and (max-width: 888px) {
-  .status_circle {
+  .status-circle {
     height: 40px;
     width: 40px;
     margin: 30px 5vw 30px 5vw;
   }
 }
-.status_complete {
+.status-complete {
   background-color: #003c00;
 }
 
-.status_active {
+.status-active {
   background-color: lightgreen;
 }
 
 /* molecules */
 /* Forms: */
-.form-container {
+.form-container-small {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 auto;
-  padding: 3rem;
-  width: 30%;
+  margin: 0 32vw 0 32vw;
+  padding: 50px 0 50px 0;
   display: flex;
   justify-content: center;
-}
-
-/* Log In: */
-.login_form {
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login_form_input_container {
-  background-color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.email_icon {
-  margin: 1rem 1rem 0 0;
-}
-
-.password_icon {
-  margin: 1rem 1rem 0 0;
 }
 
 /* Forms: */
-/* Sign Up: */
-.signup_form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.form-container-large {
+  background-color: var(--white);
+  border-radius: 20px;
+  margin: 1vw 5vw 1vw 5vw;
+  padding: 3vw;
 }
 
-.signup_form_input_container {
-  display: flex;
-  justify-content: center;
-  padding: 0 2vw 0 2vw;
-  margin-top: 10px;
+.button-container {
+  margin: 8vw 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-.status_bar {
+.login-btn-home {
+  width: 50%;
+  height: 5vw;
+}
+
+.signup-btn-home {
+  width: 50%;
+  height: 5vw;
+}
+
+.status-bar {
   display: flex;
   justify-content: space-between;
   margin: 0 50px 0 50px;
 }
 
-.status_line {
+.status-line {
   width: 30vw;
   transform: translate(45px, -70px);
   border: 1.5px solid var(--darkblue);
@@ -275,118 +242,314 @@ input[type=text], input[type=password], input[type=email] {
 
 /* Large screens >1200px */
 @media only screen and (min-width: 1200px) {
-  .status_line {
+  .status-line {
     width: 27vw;
   }
 }
 /* Mobile screens <768px */
 @media only screen and (max-width: 888px) {
-  .status_line {
+  .status-line {
     width: 32vw;
     transform: translate(30px, -60px);
   }
 
-  .status_bar {
+  .status-bar {
     margin: 0 0px 0 0px;
   }
 }
 /* organisms */
-/* Login Component */
-.login_container {
+/* Login Container */
+.login-container {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 32vw 0 32vw;
-  padding: 50px 0 50px 0;
   display: flex;
   justify-content: center;
 }
 
 @media only screen and (max-width: 767px) {
-  .login_container {
-    margin: 0 10vw 0 10vw;
-  }
-}
-@media only screen and (max-width: 960px) {
-  .login_container {
-    margin: 0 20vw 0 20vw;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .login_container {
-    margin: 0 35vw 0vw 35vw;
-  }
-}
-.login_btn {
-  margin: 2rem 0 0 0;
-  height: 2.5rem;
-}
-
-.signup_btn {
-  margin: 2rem 0 0 0;
-  height: 2.5rem;
-}
-
-.password_forgot {
-  text-align: right;
-  text-decoration: underline;
-}
-
-/* Sign Up Component */
-.signup_container {
-  background-color: var(--white);
-  border-radius: 20px;
-  margin: 0 32vw 3vw 32vw;
-  padding: 50px 20px 20px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 767px) {
-  .signup_container {
+  .login-container {
     margin: 0 10vw 3vw 10vw;
   }
 }
 @media only screen and (max-width: 960px) {
-  .signup_container {
+  .login-container {
     margin: 0 20vw 3vw 20vw;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .signup_container {
+  .login-container {
     margin: 0 35vw 3vw 35vw;
   }
 }
-.createacc_prompt {
+/* Log In Form: */
+.login-form {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form-input-container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-forgot {
+  text-align: right;
+  text-decoration: underline;
+}
+
+.email-icon {
+  margin: 1rem 1rem 0 0;
+}
+
+.password-icon {
+  margin: 1rem 1rem 0 0;
+}
+
+.login-btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+.signup-btn {
+  margin: 2rem 0 0 0;
+  height: 2.5rem;
+}
+
+/* Sign Up Component */
+.signup-container {
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .signup-container {
+    margin: 0 10vw 3vw 10vw;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .signup-container {
+    margin: 0 20vw 3vw 20vw;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .signup-container {
+    margin: 0 35vw 3vw 35vw;
+  }
+}
+/* Sign Up: */
+.signup-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-form-input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.createacc-prompt {
   text-decoration: underline;
   color: var(--darkblue);
 }
 
-.createacc_btn {
+.createacc-btn {
   margin: 8vw 0 3vw 0;
   height: 2.5rem;
 }
 
-.logout_container {
+/* On screens smaller than 1024px: */
+.addjob-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addjob-input-group {
+  margin: 0 1.5vw 2vw 1.5vw;
+  padding: 0 20px;
+  transform: translateX(-5px);
+}
+
+.addjob-btn {
+  margin: 5vw 10vw 2vw 10vw;
+  padding: 2vw 0 2vw 0;
+}
+
+/* On screens larger than 1024px: */
+@media only screen and (min-width: 1024px) {
+  .addjob-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
+  }
+
+  .addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+    padding: 2vw 0 2vw 0;
+  }
+
+  .addjob-form-headercontact {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 5;
+    grid-row-end: span 1;
+  }
+
+  .addjob-form-headerstages {
+    font-family: "LatoBlack";
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 8;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-jobtitle {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-company {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-salary {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-location {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-jobdescription {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-appdate {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-closedate {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactname {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttitle {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 6;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contactemail {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-input-contacttel {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 7;
+    grid-row-end: span 1;
+  }
+
+  .addjob-btn {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 11;
+    grid-row-end: span 1;
+    margin: 2vw 25vw 2vw 25vw;
+  }
+}
+/* On all screens: */
+.addjob-form-headerjob {
+  font-family: "LatoBlack";
+  font-size: 1.2rem;
+}
+
+.addjob-input-group-stages {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 9;
+  grid-row-end: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.addjob-input-group-stages label:first-child {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+  justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+  justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+  justify-self: start;
+}
+
+.logout-container {
   background-color: var(--white);
   border-radius: 20px;
-  margin: 0 32vw 0 32vw;
-  padding: 50px 0 50px 0;
   display: flex;
   flex-direction: column;
 }
 
 @media only screen and (max-width: 767px) {
-  .logout_container {
+  .logout-container {
     margin: 0 10vw 0 10vw;
   }
 }
 @media only screen and (max-width: 960px) {
-  .logout_container {
+  .logout-container {
     margin: 0 20vw 0 20vw;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .logout_container {
+  .logout-container {
     margin: 0 35vw 0vw 35vw;
   }
 }
@@ -394,12 +557,12 @@ input[type=text], input[type=password], input[type=email] {
   height: 100px;
 }
 
-.login_rtn_btn {
+.login-rtn-btn {
   margin: 80px 50px 0 50px;
   height: 3rem;
 }
 
-.job_card_container {
+.job-card-container {
   background-color: var(--white);
   border-radius: 20px;
   display: flex;
@@ -410,30 +573,30 @@ input[type=text], input[type=password], input[type=email] {
   flex-wrap: wrap;
 }
 
-.job_card_text {
+.job-card-text {
   text-align: left;
   margin-left: 50px;
 }
 
 @media only screen and (max-width: 888px) {
-  .job_card_text {
+  .job-card-text {
     margin: 7px 0 0 10px;
     font-size: 0.85rem;
   }
 
-  .job_card_container {
+  .job-card-container {
     margin: 5px;
   }
 }
 /* templates */
-* {
+body {
   padding: 0;
   margin: 0;
+  background-color: var(--beige);
+  line-height: 1.2;
 }
 
 .app {
-  background-color: var(--beige);
-  line-height: 1.2;
   text-align: center;
 }
 

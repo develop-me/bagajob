@@ -1,26 +1,24 @@
-.logout_container {
+.logout-container {
     background-color: var(--white);
     border-radius: 20px;
-    margin: 0 32vw 0 32vw;
-    padding: 50px 0 50px 0;
     display: flex;
     flex-direction: column;
 }
 
 @media only screen and (max-width: 767px) {
-    .logout_container {
+    .logout-container {
       margin: 0 10vw 0 10vw;
     }
 }
 
 @media only screen and (max-width: 960px) {
-    .logout_container {
+    .logout-container {
       margin: 0 20vw 0 20vw;
     }
 }
 
 @media only screen and (min-width: 1440px) {
-    .logout_container {
+    .logout-container {
       margin: 0 35vw 0vw 35vw;
     }
 }
@@ -29,7 +27,7 @@
     height: 100px;
 }
 
-.login_rtn_btn {
+.login-rtn-btn {
     margin: 80px 50px 0 50px;
     height: 3rem;
 }

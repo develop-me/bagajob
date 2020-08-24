@@ -14,11 +14,11 @@
 
     <!-- ATOMS -->
     <!-- Brand Title -->
-    <h1 class="brand_title">
+    <h1 class="brand-title">
         Bagajob
     </h1>
     <!-- Brand Text (Subheader) -->
-    <h3 class="brand_text">
+    <h3 class="brand-text">
         Track job applications from start to finish
     </h3>
     <!-- Headline -->
@@ -26,17 +26,17 @@
         Lato Black Caps -- Headline (h1)
     </h1>
     <!-- Paragraph Header -->
-    <h2 class="para_header">
+    <h2 class="para-header">
         Lato Bold -- Paragraph Heading (h2)
     </h2>
-    <h3 class="para_header">
+    <h3 class="para-header">
         Lato Bold -- Paragraph Heading (h3)
     </h3>
     <!-- Paragraph Highlight/PullQuote -->
-    <h2 class="para_highlight">
+    <h2 class="para-highlight">
         Lato Light -- Pull Quotes/Highlights (h2)
     </h2>
-    <h3 class="para_highlight">
+    <h3 class="para-highlight">
         Lato Light -- Pull Quotes/Highlights (h3)
     </h3>
     <!-- Paragraph  -->
@@ -54,105 +54,288 @@
     <button class="secondarybtn">
         SIGN UP
     </button>
-    <a href="#" class="expand_btn">&#8250;</a>
+    <a href="#" class="expand-btn">&#8250;</a>
     <!-- Login Prompt -->
-    <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
+    <a href="/"><p class="login-prompt password-forgot">Forgot password?</p></a>
     <!-- Main Page Status Indicators -->
-    <div class="status_circle"></div>
-    <div class="status_circle status_complete"></div>
-    <div class="status_circle status_active"></div>
+    <div class="status-circle"></div>
+    <div class="status-circle status-complete"></div>
+    <div class="status-circle status-active"></div>
 
     <!-- MOLECULES -->
-    <!-- Form Fields with Icons -->
-    <form class="login_form">
-        <div class="login_form_input_container">
-            <span><img class="email_icon" src="../src/assets/images/email-icon-24px.svg" alt="email-icon"></span>
+    <!-- Small Form Container -->
+    <form class="form-container-small">
+        <div class="form-input-group">
+            <span><img class="email-icon" src="../src/assets/images/email_icon.svg" alt="email-icon"></span>
             <input type="text" id="email" name="email" placeholder="Email address">
         </div>
-        <div class="login_form_input_container">
-            <span><img class="password_icon" src="../src/assets/images/lock-icon-24px.svg" alt="password-icon"></span>
+        <div class="form-input-group">
+            <span><img class="password_icon" src="../src/assets/images/lock_icon.svg" alt="password-icon"></span>
             <input type="password" id="password" name="password" placeholder="Password">
         </div>
     </form>
+    <!-- Large Form Container -->
+    <div class="form-container-large addjob-form-container">
+        <h4 class="addjob-form-headerjob">Job Details</h4>
+        <form class="addjob-form">
+            <div class="form-input-group addjob-input-group addjob-input-jobtitle">
+                <label
+                    class="label"
+                    htmlFor="jobTitle"
+                >Job Title
+                </label>
+                <input
+                    id="jobTitle"
+                    type="text"
+                />
+            </div>
+
+            <div class="form-input-group addjob-input-group addjob-input-company">
+                <label
+                    class="label"
+                    htmlFor="company"
+                >Company
+                    </label>
+                <input
+                    id="company"
+                    type="text"
+                />
+            </div>
+
+            <div class="form-input-group addjob-input-group addjob-input-salary">
+                <label
+                    class="label mr-1"
+                    htmlFor="salary"
+                >Salary p/a
+                </label>
+                <input
+                    id="salary"
+                    type="number"
+                />
+            </div>
+
+            <div class="form-input-group addjob-input-group addjob-input-location">
+                <label
+                    class="label"
+                    htmlFor="location"
+                >Location
+                </label>
+                <input
+                    id="location"
+                    type="text"
+                />
+            </div >
+
+            <div class="form-input-group addjob-input-group addjob-input-jobdescription">
+                <label
+                    class="label"
+                    htmlFor="jobDescription"
+                >Job Description
+                </label>
+                <input
+                    id="jobDescription"
+                    type="text"
+                />
+
+            </div>
+
+            <div class="form-input-group addjob-input-group addjob-input-appdate">
+                <label
+                    class="label mr-1"
+                    htmlFor="dateApplied"
+                >Date Applied
+                </label>
+                <input
+                    id="dateApplied"
+                    type="date"
+                />
+            </div >
+
+            <div class="form-input-group addjob-input-group addjob-input-closedate">
+                <label
+                    class="label mr-1"
+                    htmlFor="closingDate"
+                >Closing Date
+                </label>
+                <input
+                    id="closingDate"
+                    type="date"
+                />
+            </div >
+
+            <h4 class="addjob-form-headercontact">Contact</h4>
+            <div class="form-input-group addjob-input-group addjob-input-contactname">
+                <label
+                    class="label"
+                    htmlFor="recruiterName"
+                >Contact Name
+                </label>
+                <input
+                    id="recruiterName"
+                    type="text"
+                />
+            </div >
+
+            <div class="form-input-group addjob-input-group addjob-input-contacttitle">
+                <label
+                    class="label"
+                    htmlFor="recruiterName"
+                >Contact Title
+                </label>
+                <input
+                    id=""
+                    type="text"
+                />
+            </div >
+
+            <div class="form-input-group addjob-input-group addjob-input-contactemail">
+                <label
+                    class="label"
+                    htmlFor="recruiterEmail"
+                >Recruiter Email
+                </label>
+                <input
+                    id="recruiterEmail"
+                    type="email"
+                />
+            </div >
+
+            <div class="form-input-group addjob-input-group addjob-input-contacttel">
+                <label
+                    class="label"
+                    htmlFor="recruiterPhone"
+                >Recruiter Phone
+                </label>
+                <input
+                    id="recruiterPhone"
+                    type="text"
+                />
+            </div >
+
+            <h4 class="addjob-form-headerstages">Application Stage</h4>
+            <div class="form-input-group addjob-input-group-stages">
+                <label class="label" htmlFor="0">
+                    <input
+                        class="radio"
+                        name="stage"
+                        type="radio"
+                        value="0"
+                        id="0"
+                    />Not applied
+                </label>
+                <label class="label" htmlFor="1">
+                    <input
+                        class="radio"
+                        name="stage"
+                        type="radio"
+                        value="1"
+                        id="1"
+                    />Applied
+                </label>
+                <label class="label" htmlFor="2">
+                    <input
+                        class="radio"
+                        name="stage"
+                        type="radio"
+                        value="2"
+                        id="2"
+                    />Interview
+                </label>
+                <label class="label" htmlFor="3">
+                    <input
+                        class="radio"
+                        name="stage"
+                        type="radio"
+                        value="3"
+                        id="3"
+                        />Offer
+                </label>
+            </div >
+            <button
+                class="primarybtn addjob-btn"
+                type="submit">Add job
+            </button>
+        </form >
+    </div >
     <!-- Status Indicator -->
-    <div class="status_bar">
-        <div class="status_circle status_complete"></div>
-        <div class="status_circle status_active"></div>
-        <div class="status_circle"></div>
+    <div class="status-bar">
+        <div class="status-circle status-complete"></div>
+        <div class="status-circle status-active"></div>
+        <div class="status-circle"></div>
     </div>
-    <hr class="status_line">
+    <hr class="status-line">
 
     <br>
     <!-- ORGANISMS -->
     <!-- Login Form -->
-    <div class="login_container">
-        <form class="login_form">
-            <div class="login_form_input_container">
-                <span><img class="email_icon" src="../src/assets/images/email-icon-24px.svg" alt="email-icon"></span>
+    <div class="form-container-small login-container">
+        <form class="login-form">
+            <div class="login-form-input-container">
+                <span><img class="email-icon" src="../src/assets/images/email_icon.svg" alt="email-icon"></span>
                 <input type="text" id="email" name="email" placeholder="Email address">
             </div>
-            <div class="login_form_input_container">
-                <span><img class="password_icon" src="../src/assets/images/lock-icon-24px.svg" alt="password-icon"></span>
+            <div class="login-form-input-container">
+                <span><img class="password-icon" src="../src/assets/images/lock_icon.svg" alt="password-icon"></span>
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <a href="/"><p class="login_prompt password_forgot">Forgot password?</p></a>
-            <button class="primarybtn login_btn" type="submit">
+            <a href="/"><p class="login-prompt password-forgot">Forgot password?</p></a>
+            <button class="primarybtn login-btn" type="submit">
                 LOG IN
             </button>
-            <button class="secondarybtn signup_btn" type="submit">
+            <button class="secondarybtn signup-btn" type="submit">
                 SIGN UP
             </button>
         </form>
     </div>
     <br>
     <!-- Signup Form -->
-    <div class="signup_container">
-        <form class="signup_form">
-            <div class="signup_form_input_container">
+    <div class="form-container-small signup-container">
+        <form class="signup-form">
+            <div class="signup-form-input-container">
                 <input type="text" id="fullname" name="fullname" placeholder="Full name">
             </div>
-            <div class="signup_form_input_container">
+            <div class="signup-form-input-container">
                 <input type="text" id="email" name="email" placeholder="Email address">
             </div>
-            <div class="signup_form_input_container">
+            <div class="signup-form-input-container">
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <button class="primarybtn createacc_btn" type="submit">
+            <button class="primarybtn createacc-btn" type="submit">
                 CREATE ACCOUNT
             </button>
         </form>
     </div>
-    <p class="login_prompt">Already have an account? <a class="createacc_prompt" href="/">Log in</a></p>
+    <p class="login-prompt">Already have an account? <a class="createacc-prompt" href="/">Log in</a></p>
 
     <!-- Logged Out Message -->
-    <div class="logout_container">
+    <div class="form-container-small logout-container">
         <img class="check-icon" src="assets/images/done-24px.svg" alt="green checkmark">
         <h1 class="headline">Logged Out</h1>
-        <button class="primarybtn login_rtn_btn" type="submit">
+        <button class="primarybtn login-rtn-btn" type="submit">
             LOG IN
         </button>
     </div>
 
     <!-- Main Page - Single Job Card -->
 
-    <div class="job_card_container">
-        <div class="job_card_text">
-            <h4 class="para_highlight">
+    <div class="job-card-container">
+        <div class="job-card-text">
+            <h4 class="para-highlight">
                 Junior Web Developer
             </h4>
-            <h4 class="para_header">
+            <h4 class="para-header">
                 Software Company Inc.
             </h4>
         </div>
-        <div class="status_bar">
-            <div class="status_circle status_complete"></div>
-            <div class="status_circle status_active"></div>
-            <div class="status_circle"></div>
+        <div class="status-bar">
+            <div class="status-circle status-complete"></div>
+            <div class="status-circle status-active"></div>
+            <div class="status-circle"></div>
         </div>
-        <a href="#" class="expand_btn">&#8250;</a>
+        <a href="#" class="expand-btn">&#8250;</a>
     
     </div>
-    <hr class="status_line">
+    <hr class="status-line">
 </body>
 </html>
 

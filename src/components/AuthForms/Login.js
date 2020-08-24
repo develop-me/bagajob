@@ -31,11 +31,11 @@ const Login = ({ history }) => {
 
     return (
         <>
-            <h1 className="brand_text">bagajob</h1>
-            <div className="login_container">
-                <form className="login_form" onSubmit={handleSubmit}>
-                    <div className="login_form_input_container">
-                        <span><img className="email_icon" src={email_icon} alt="email-icon" /></span>
+            <h1 className="brand-text">bagajob</h1>
+            <div className="form-container-small login-container">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <div className="login-form-input-container">
+                        <span><img className="email-icon" src={email_icon} alt="email-icon" /></span>
                         <input
                             value={email}
                             type="text"
@@ -45,8 +45,8 @@ const Login = ({ history }) => {
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="login_form_input_container">
-                        <span><img className="password_icon" src={lock_icon} alt="password-icon" /></span>
+                    <div className="login-form-input-container">
+                        <span><img className="password-icon" src={lock_icon} alt="password-icon" /></span>
                         <input
                             value={password}
                             type="password"
@@ -56,11 +56,11 @@ const Login = ({ history }) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <p className="password_forgot">Forgot password?</p>
-                    <button className="primarybtn" type="submit" id="login_btn">
+                    <p className="login-prompt password-forgot">Forgot password?</p>
+                    <button className="primarybtn login-btn" type="submit" id="">
                         LOG IN
                     </button>
-                    <button className="secondarybtn" type="submit" id="signup_btn">
+                    <button className="secondarybtn signup-btn" type="submit" id="">
                         SIGN UP
                     </button>
                     <b>{authResponse !== null && authResponse}</b>

@@ -1,10 +1,10 @@
-.status_bar {
+.status-bar {
     display: flex;
     justify-content: space-between;
     margin: 0 50px 0 50px;
 }
 
-.status_line {
+.status-line {
     width: 30vw;
     transform: translate(45px, -70px);
     border: 1.5px solid var(--darkblue);
@@ -12,18 +12,18 @@
 
 /* Large screens >1200px */
 @media only screen and (min-width: 1200px) {
-    .status_line {
+    .status-line {
         width: 27vw;
     }
 }
 
 /* Mobile screens <768px */
 @media only screen and (max-width: 888px) {
-    .status_line {
+    .status-line {
         width: 32vw;
         transform: translate(30px, -60px);
     }
-    .status_bar {
+    .status-bar {
         margin: 0 0px 0 0px;
     }
 }

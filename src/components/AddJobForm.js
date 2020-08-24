@@ -82,9 +82,12 @@ const AddJobForm = () => {
     }
 
     return (
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <div className="input-group">
+        <React.Fragment>
+            <h1 className="brand-text">bagajob</h1>
+            <div className="form-container-large addjob-form-container">
+            <h4 className="addjob-form-headerjob">Job Details</h4>
+            <form className="addjob-form" onSubmit={handleSubmit}>
+                <div className="form-input-group addjob-input-group addjob-input-jobtitle">
                     <label
                         className="label"
                         htmlFor="jobTitle"
@@ -98,7 +101,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-company">
                     <label
                         className="label"
                         htmlFor="company"
@@ -112,7 +115,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-jobdescription">
                     <label
                         className="label"
                         htmlFor="jobDescription"
@@ -127,7 +130,7 @@ const AddJobForm = () => {
 
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-salary">
                     <label
                         className="label mr-1"
                         htmlFor="salary"
@@ -141,7 +144,7 @@ const AddJobForm = () => {
                     />
                 </div>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-location">
                     <label
                         className="label"
                         htmlFor="location"
@@ -155,7 +158,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-appdate">
                     <label
                         className="label mr-1"
                         htmlFor="dateApplied"
@@ -169,7 +172,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-closedate">
                     <label
                         className="label mr-1"
                         htmlFor="closingDate"
@@ -183,12 +186,13 @@ const AddJobForm = () => {
                     />
                 </div >
 
+                <h4 className="addjob-form-headercontact">Contact</h4>
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-contactname">
                     <label
                         className="label"
                         htmlFor="recruiterName"
-                    >Recruiter Name
+                    >Contact Name
                     </label>
                     <input
                         id="recruiterName"
@@ -198,7 +202,19 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-contacttitle">
+                    <label
+                        className="label"
+                        htmlFor="contactTitle"
+                    >Contact Title
+                    </label>
+                    <input
+                        id="contactName"
+                        type="text"
+                    />
+                </div >
+
+                <div className="form-input-group addjob-input-group addjob-input-contactemail">
                     <label
                         className="label"
                         htmlFor="recruiterEmail"
@@ -212,7 +228,7 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <div className="input-group">
+                <div className="form-input-group addjob-input-group addjob-input-contacttel">
                     <label
                         className="label"
                         htmlFor="recruiterPhone"
@@ -226,8 +242,8 @@ const AddJobForm = () => {
                     />
                 </div >
 
-                <label style={{ display: "block" }} className="label mb-1" htmlFor="">Application Stage</label>
-                <div className="input-group input-group-stages">
+                <h4 class="addjob-form-headerstages">Application Stage</h4>
+                <div className="form-input-group addjob-input-group-stages">
                     <label className="label" htmlFor="0">
                         <input
                             className="radio"
@@ -270,11 +286,12 @@ const AddJobForm = () => {
                     </label>
                 </div >
                 <button
-                    className="primarybtn"
+                    className="primarybtn addjob-btn"
                     type="submit">Add job
                 </button>
             </form >
-        </div >
+            </div >
+        </React.Fragment>
     );
 };
 
