@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { saveInterview } from '../../data/actions/JobActions/editJobActions';
+import { useDispatch } from 'react-redux';
+import { updateInterview } from '../../data/actions/JobActions/editJobActions';
 
 const Interview = ({ interview }) => {
     let [editing, setEditing] = useState(true)
@@ -11,24 +11,25 @@ const Interview = ({ interview }) => {
 
     const dispatch = useDispatch()
 
-    const handleSave = e => {
+    const handleInterviewUpdate = e => {
         e.preventDefault()
 
         const interview = {
+            id: interview.id,
             interviewDate: interviewDate,
             format: format,
             interviewer: interviewer,
             notes: notes
         }
 
-        dispatch(saveInterview(interview))
+        dispatch(updateInterview(interview))
 
         setEditing(false)
     }
 
     return (
         <>
-            <form onSubmit={saveInterview}>
+            <form onSubmit={handleInterviewUpdate}>
                 <label
                     className="label"
                     htmlFor="date"
@@ -66,7 +67,7 @@ const Interview = ({ interview }) => {
                     }</label>
 
                 {editing ?
-                    <button onSubmit={saveInterview}>Save</button>
+                    <button onSubmit={handleInterviewUpdate}>Save</button>
                     :
                     <button onClick={() => setEditing(true)}>Edit</button>
                 }
