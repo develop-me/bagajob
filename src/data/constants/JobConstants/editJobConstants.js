@@ -1,0 +1,1 @@
+export const SAVE_INTERVIEW = 'SAVE_INTERVIEW'
