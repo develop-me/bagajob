@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
 
@@ -15,17 +16,13 @@ const ApplicationCard = ({ job }) => {
             <p>Cover letter:</p>
             <button>APPLIED</button>
             <button onClick={() => addNote()}>Add note</button>
-
-            {/* {
-                job.application.notes.map((note, i) => {
+            {
+                job.application_notes.map(note => {
                     return (
-                        <>
-                            <textarea key={i} name="" id="" cols="30" rows="10">{note.noteData}</textarea>
-                            <button key={i} onClick={() => deleteNote(note.id)}>Delete</button>
-                        </>
+                        <ApplicationNote key={note.id} applicationNote={note} />
                     )
                 })
-            } */}
+            }
         </div>
 
 
