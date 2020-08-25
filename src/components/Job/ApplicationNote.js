@@ -24,28 +24,29 @@ const ApplicationNote = ({ applicationNote }) => {
     }
 
     return (
-        <form onSubmit={submitNote}>
-            <p>{applicationNote.note_date}</p>
-            {editing ?
-                <textarea
-                    value={note}
-                    onChange={e => setNote(e.target.value)}
-                    id="note"
-                    cols="30"
-                    rows="10"
-                />
-                :
-                <p>{note}</p>
+        <form onSubmit={e => submitNote(e)}>
+            {
+                editing ?
+                    <textarea
+                        value={note}
+                        onChange={e => setNote(e.target.value)
+                        }
+                        id="note"
+                        cols="30"
+                        rows="10"
+                    />
+                    :
+                    <p>{note} {applicationNote.note_date}</p>
             }
 
             {
                 editing ?
-                    <button onClick={submitNote}>Save</button>
+                    <button type="submit" onClick={() => setEditing(false)}>Save</button>
                     :
-                    <button onClick={setEditing(true)}>Edit</button>
+                    <button onClick={() => setEditing(true)}>Edit</button>
             }
             <button onClick={() => deleteNote(note.id)}>Delete</button>
-        </form>
+        </form >
     );
 };
 
