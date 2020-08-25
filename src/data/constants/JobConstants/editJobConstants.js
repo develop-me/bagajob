@@ -1,3 +1,6 @@
+// job details card contants
+export const UPDATE_JOB_DETAILS = 'UPDATE_JOB_DETAILS'
+
 // application card constants
 export const ADD_NEW_APPLICATION_NOTE = 'ADD_NEW_APPLICATION_NOTE'
 

@@ -6,11 +6,42 @@ import {
     DELETE_APPLICATION_NOTE,
     ADD_NEW_INTERVIEW,
     UPDATE_INTERVIEW,
-    DELETE_INTERVIEW
+    DELETE_INTERVIEW,
+    UPDATE_JOB_DETAILS
 } from '../../constants/JobConstants/editJobConstants'
 
 // get user's bearer token from local storage
 const token = localStorage.getItem('user')
+
+// updates the details for a specific job's details card
+export const updateJobDetails = job => dispatch => {
+    const { id } = job
+    axios.patch(`user/job/${id}`, {
+        title: job.jobTitle,
+        company: job.company,
+        description: job.jobDescription,
+        salary: job.salary,
+        location: job.location,
+        date_applied: job.dateApplied,
+        closing_date: job.closingDate,
+        recruiter_name: job.recruiterName,
+        recruiter_email: job.recruiterEmail,
+        recruiter_phone: job.recruiterPhone
+    }, {
+        headers: {
+            'Authorization': token
+        }
+    }).then(data => {
+        dispatch(reducerJobDetails(data.data))
+    });
+}
+
+const reducerJobDetails = data => {
+    return {
+        type: UPDATE_JOB_DETAILS,
+        payload: data,
+    };
+};
 
 // adds new application card note for specific job
 export const addNewAppNote = () => dispatch => {

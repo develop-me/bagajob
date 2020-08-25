@@ -1,4 +1,5 @@
 import {
+    UPDATE_JOB_DETAILS,
     ADD_NEW_INTERVIEW,
     UPDATE_INTERVIEW,
     DELETE_INTERVIEW,
@@ -10,6 +11,11 @@ import {
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case UPDATE_JOB_DETAILS:
+            return {
+                ...state,
+                job: { ...payload }
+            }
         case ADD_NEW_APPLICATION_NOTE:
             return {
                 ...state,

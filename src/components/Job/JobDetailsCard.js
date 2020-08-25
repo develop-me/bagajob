@@ -1,4 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from 'react'
+import { useDispatch } from 'react-redux'
+import { updateJobDetails } from '../../data/actions/JobActions/editJobActions'
 
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
 const movieFormReducer = (state, action) => {
@@ -51,7 +53,9 @@ const JobDetailsCard = ({ job }) => {
         editing: false
     }
 
-    const [state, dispatch] = useReducer(movieFormReducer, initialState);
+    const [state, dispatch] = useReducer(movieFormReducer, initialState)
+
+    const dispatchAction = useDispatch()
 
     const handleChange = e => {
         dispatch({
@@ -75,195 +79,203 @@ const JobDetailsCard = ({ job }) => {
         }
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        dispatchAction(updateJobDetails(state))
+    }
+
     return (
         <>
             <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
                 <h1 className="para_header">Job Details</h1>
-                {state.editing ?
-                    <button onClick={e => handleEdit(e)}>Save</button>
-                    :
-                    <button onClick={e => handleEdit(e)}>Edit</button>
-                }
-
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="jobTitle"
-                    >Job Title
-                    </label>
+                <form onSubmit={handleSubmit}>
                     {state.editing ?
-                        <input
-                            id="jobTitle"
-                            value={jobTitle}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
+                        <button type="submit" onClick={e => handleEdit(e)}>Save</button>
                         :
-                        <p>foobar{state.jobTitle}</p>
+                        <button onClick={e => handleEdit(e)}>Edit</button>
                     }
-                </div>
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="company"
-                    >Company
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="jobTitle"
+                        >Job Title
+                    </label>
+                        {state.editing ?
+                            <input
+                                id="jobTitle"
+                                value={jobTitle}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.jobTitle}</p>
+                        }
+                    </div>
+
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="company"
+                        >Company
                         </label>
-                    {state.editing ?
-                        <input
-                            id="company"
-                            value={company}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.company}</p>
-                    }
-                </div>
+                        {state.editing ?
+                            <input
+                                id="company"
+                                value={company}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.company}</p>
+                        }
+                    </div>
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="jobDescription"
-                    >Job Description
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="jobDescription"
+                        >Job Description
                     </label>
-                    {state.editing ?
-                        <input
-                            id="jobDescription"
-                            value={jobDescription}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.jobDescription}</p>
-                    }
-                </div>
+                        {state.editing ?
+                            <input
+                                id="jobDescription"
+                                value={jobDescription}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.jobDescription}</p>
+                        }
+                    </div>
 
-                <div className="input-group">
-                    <label
-                        className="label mr-1"
-                        htmlFor="salary"
-                    >Salary p/a
+                    <div className="input-group">
+                        <label
+                            className="label mr-1"
+                            htmlFor="salary"
+                        >Salary p/a
                     </label>
-                    {state.editing ?
-                        <input
-                            id="salary"
-                            value={salary}
-                            type="number"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.salary}</p>
-                    }
-                </div>
+                        {state.editing ?
+                            <input
+                                id="salary"
+                                value={salary}
+                                type="number"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.salary}</p>
+                        }
+                    </div>
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="location"
-                    >Location
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="location"
+                        >Location
                     </label>
-                    {state.editing ?
-                        <input
-                            id="location"
-                            value={location}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.location}</p>
-                    }
-                </div >
+                        {state.editing ?
+                            <input
+                                id="location"
+                                value={location}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.location}</p>
+                        }
+                    </div >
 
-                <div className="input-group">
-                    <label
-                        className="label mr-1"
-                        htmlFor="dateApplied"
-                    >Date Applied
+                    <div className="input-group">
+                        <label
+                            className="label mr-1"
+                            htmlFor="dateApplied"
+                        >Date Applied
                     </label>
-                    {state.editing ?
-                        <input
-                            id="dateApplied"
-                            value={dateApplied}
-                            type="date"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.dateApplied}</p>
-                    }
-                </div >
+                        {state.editing ?
+                            <input
+                                id="dateApplied"
+                                value={dateApplied}
+                                type="date"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.dateApplied}</p>
+                        }
+                    </div >
 
-                <div className="input-group">
-                    <label
-                        className="label mr-1"
-                        htmlFor="closingDate"
-                    >Closing Date
+                    <div className="input-group">
+                        <label
+                            className="label mr-1"
+                            htmlFor="closingDate"
+                        >Closing Date
                     </label>
-                    {state.editing ?
-                        <input
-                            id="closingDate"
-                            value={closingDate}
-                            type="date"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.closingDate}</p>
-                    }
-                </div >
+                        {state.editing ?
+                            <input
+                                id="closingDate"
+                                value={closingDate}
+                                type="date"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.closingDate}</p>
+                        }
+                    </div >
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="recruiterName"
-                    >Recruiter Name
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="recruiterName"
+                        >Recruiter Name
                     </label>
-                    {state.editing ?
-                        <input
-                            id="recruiterName"
-                            value={recruiterName}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.recruiterName}</p>
-                    }
-                </div >
+                        {state.editing ?
+                            <input
+                                id="recruiterName"
+                                value={recruiterName}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.recruiterName}</p>
+                        }
+                    </div >
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="recruiterEmail"
-                    >Recruiter Email
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="recruiterEmail"
+                        >Recruiter Email
                     </label>
-                    {state.editing ?
-                        <input
-                            id="recruiterEmail"
-                            value={recruiterEmail}
-                            type="email"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.recruiterEmail}</p>
-                    }
-                </div >
+                        {state.editing ?
+                            <input
+                                id="recruiterEmail"
+                                value={recruiterEmail}
+                                type="email"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.recruiterEmail}</p>
+                        }
+                    </div >
 
-                <div className="input-group">
-                    <label
-                        className="label"
-                        htmlFor="recruiterPhone"
-                    >Recruiter Phone
+                    <div className="input-group">
+                        <label
+                            className="label"
+                            htmlFor="recruiterPhone"
+                        >Recruiter Phone
                     </label>
-                    {state.editing ?
-                        <input
-                            id="recruiterPhone"
-                            value={recruiterPhone}
-                            type="text"
-                            onChange={e => handleChange(e)}
-                        />
-                        :
-                        <p>foobar{state.recruiterPhone}</p>
-                    }
-                </div>
+                        {state.editing ?
+                            <input
+                                id="recruiterPhone"
+                                value={recruiterPhone}
+                                type="text"
+                                onChange={e => handleChange(e)}
+                            />
+                            :
+                            <p>foobar{state.recruiterPhone}</p>
+                        }
+                    </div>
+                </form>
             </div>
         </>
     );
