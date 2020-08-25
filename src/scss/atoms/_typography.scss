@@ -2,15 +2,16 @@
     font-family: 'LatoBlackItalic';
     color: var(--black);
     text-transform: lowercase;
-    font-size: 4rem;
+    font-size: 5rem;
+    margin: 2rem 0 2rem 0;
 }
 
 .brand-text {
     font-family: 'LatoBlackItalic';
     color: var(--black);
-    margin-top: 0;
+    margin: 0 1rem 0 0;
     padding-top: 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .headline {
@@ -30,6 +31,7 @@
 }
 
 .paragraph, p {
+    font-size: .9rem;
     font-family: 'Merriweather';
     color: var(--darkblue);
 }
