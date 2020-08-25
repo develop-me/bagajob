@@ -6,7 +6,6 @@ body {
 }
 
 .app {
-
     text-align: center;
 }
 
@@ -16,4 +15,20 @@ body {
 
 .mb-1 {
     margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .brand-title {
+        font-size: 6rem;
+    }
+
+    .brand-text {
+        font-size: 2.5rem;
+    }
+
+    .paragraph {
+        font-size: 1rem;
+    }
+
 }
