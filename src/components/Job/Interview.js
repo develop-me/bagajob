@@ -14,7 +14,7 @@ const Interview = ({ interview }) => {
     const handleInterviewUpdate = e => {
         e.preventDefault()
 
-        const interview = {
+        const data = {
             id: interview.id,
             interviewDate: interviewDate,
             format: format,
@@ -22,9 +22,7 @@ const Interview = ({ interview }) => {
             notes: notes
         }
 
-        dispatch(updateInterview(interview))
-
-        setEditing(false)
+        dispatch(updateInterview(data))
     }
 
     const handleDelete = id => {
@@ -71,7 +69,7 @@ const Interview = ({ interview }) => {
                     }</label>
 
                 {editing ?
-                    <button onSubmit={handleInterviewUpdate}>Save</button>
+                    <button type="submit" onClick={() => setEditing(false)}>Save</button>
                     :
                     <button onClick={() => setEditing(true)}>Edit</button>
                 }
