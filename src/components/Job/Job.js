@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getSingleJob } from '../../data/actions/JobActions/viewJobActions'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
-const Job = (props) => {
+const Job = () => {
 
     // brings in single job fetched from database
     const job = useSelector(state => state.job)
