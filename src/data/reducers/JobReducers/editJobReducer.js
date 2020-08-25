@@ -1,24 +1,19 @@
 import {
-    UPDATE_INTERVIEW,
     SAVE_INTERVIEW,
+    UPDATE_INTERVIEW,
+    ADD_NEW_APPLICATION_NOTE,
     UPDATE_APPLICATION_NOTE
 } from '../../constants/JobConstants/editJobConstants'
 
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
-        case UPDATE_INTERVIEW:
+        case ADD_NEW_APPLICATION_NOTE:
             return {
                 ...state,
                 job: {
                     ...state.job,
-                    interviews: state.job.interviews.map(
-                        interview => interview.id === payload.id
-                            ?
-                            payload
-                            :
-                            interview
-                    )
+                    application_notes: [...state.application_notes, payload]
                 },
             }
         case UPDATE_APPLICATION_NOTE:
@@ -26,13 +21,15 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    application_notes: state.application_notes.map(
-                        note => note.id === payload.id
-                            ?
-                            payload
-                            :
-                            note
-                    )
+                    application_notes: state.application_notes.map(note => note.id === payload.id ? payload : note)
+                },
+            }
+        case UPDATE_INTERVIEW:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    interviews: state.job.interviews.map(interview => interview.id === payload.id ? payload : interview)
                 },
             }
         default:

@@ -1,12 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addNewAppNote } from '../../data/actions/JobActions/editJobActions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
+    const dispatch = useDispatch()
 
     const addNote = () => {
-    }
-
-    const deleteNote = () => {
+        dispatch(addNewAppNote())
     }
 
     return (
@@ -14,8 +15,7 @@ const ApplicationCard = ({ job }) => {
             <h1 className="para_header">Application</h1>
             <p>CV:</p>
             <p>Cover letter:</p>
-            <button>APPLIED</button>
-            <button onClick={() => addNote()}>Add note</button>
+            <button onClick={addNote}>Add note</button>
             {
                 job.application_notes.map(note => {
                     return (
@@ -24,9 +24,6 @@ const ApplicationCard = ({ job }) => {
                 })
             }
         </div>
-
-
-
     );
 };
 
