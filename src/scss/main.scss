@@ -8,11 +8,13 @@
 @import './atoms/buttons';
 @import './atoms/inputs';
 @import './atoms/shapes';
+@import './atoms/images';
 
 /* molecules */
 @import './molecules/forms';
 @import './molecules/homebuttons';
 @import './molecules/statusbar';
+@import './molecules/homeimages';
 
 /* organisms */
 @import './organisms/forms/login';
@@ -20,6 +22,7 @@
 @import './organisms/forms/addjob';
 @import './organisms/logout';
 @import './organisms/jobcard';
+@import './organisms/homeinfo';
 
 /* templates */
-@import './templates/_app';
+@import './templates/app';
