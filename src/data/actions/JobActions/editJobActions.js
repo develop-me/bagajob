@@ -1,6 +1,7 @@
 import axios from '../../axios'
 
 import {
+    ADD_NEW_INTERVIEW,
     UPDATE_INTERVIEW,
     UPDATE_APPLICATION_NOTE,
     ADD_NEW_APPLICATION_NOTE
@@ -8,30 +9,6 @@ import {
 
 // get user's bearer token from local storage
 const token = localStorage.getItem('user')
-
-// updates a specific job interview's details
-export const updateInterview = interview => dispatch => {
-    const { id } = interview
-    axios.patch(`user/job/interview/${id}`, {
-        interview_date: interview.interviewDate,
-        format: interview.format,
-        interviewer: interview.interviewer,
-        notes: interview.notes
-    }, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(data => {
-        dispatch(reducerUpdateInterview(data.data))
-    });
-}
-
-const reducerUpdateInterview = data => {
-    return {
-        type: UPDATE_INTERVIEW,
-        payload: data
-    };
-};
 
 // adds new application stage note for specific job
 export const addNewAppNote = () => dispatch => {
@@ -70,5 +47,47 @@ const reducerUpdateAppNote = data => {
     return {
         type: UPDATE_APPLICATION_NOTE,
         payload: data,
+    };
+};
+
+// adds new interview for specific job
+export const addNewInterview = () => dispatch => {
+    axios.post(`user/job/interview`, null, {
+        headers: {
+            'Authorization': token
+        }
+    }).then(data => {
+        dispatch(reducerAddNewInterview(data.data))
+    });
+}
+
+const reducerAddNewInterview = data => {
+    return {
+        type: ADD_NEW_INTERVIEW,
+        payload: data
+    };
+};
+
+// updates a specific job interview's details
+export const updateInterview = interview => dispatch => {
+    const { id } = interview
+    axios.patch(`user/job/interview/${id}`, {
+        interview_date: interview.interviewDate,
+        format: interview.format,
+        interviewer: interview.interviewer,
+        notes: interview.notes
+    }, {
+        headers: {
+            'Authorization': token
+        }
+    }).then(data => {
+        dispatch(reducerUpdateInterview(data.data))
+    });
+}
+
+const reducerUpdateInterview = data => {
+    return {
+        type: UPDATE_INTERVIEW,
+        payload: data
     };
 };

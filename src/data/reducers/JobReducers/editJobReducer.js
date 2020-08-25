@@ -1,5 +1,5 @@
 import {
-    SAVE_INTERVIEW,
+    ADD_NEW_INTERVIEW,
     UPDATE_INTERVIEW,
     ADD_NEW_APPLICATION_NOTE,
     UPDATE_APPLICATION_NOTE
@@ -22,6 +22,14 @@ export default (state, action) => {
                 job: {
                     ...state.job,
                     application_notes: state.application_notes.map(note => note.id === payload.id ? payload : note)
+                },
+            }
+        case ADD_NEW_INTERVIEW:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    interviews: [...state.interviews, payload]
                 },
             }
         case UPDATE_INTERVIEW:
