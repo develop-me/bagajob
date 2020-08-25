@@ -48,7 +48,6 @@ const JobDetailsCard = ({ job }) => {
         recruiterName: recruiterName,
         recruiterEmail: recruiterEmail,
         recruiterPhone: recruiterPhone,
-        stage: 1,
         editing: false
     }
 
