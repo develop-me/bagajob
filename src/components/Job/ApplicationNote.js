@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateAppNote } from '../../data/actions/JobActions/editJobActions'
+import { updateAppNote, deleteAppNote } from '../../data/actions/JobActions/editJobActions'
 
 const ApplicationNote = ({ applicationNote }) => {
     let [editing, setEditing] = useState(true)
@@ -19,8 +19,8 @@ const ApplicationNote = ({ applicationNote }) => {
         dispatch(updateAppNote(note))
     }
 
-    const deleteNote = e => {
-        e.preventDefault()
+    const handleDelete = note_id => {
+        dispatch(deleteAppNote(note_id))
     }
 
     return (
@@ -45,7 +45,7 @@ const ApplicationNote = ({ applicationNote }) => {
                     :
                     <button onClick={() => setEditing(true)}>Edit</button>
             }
-            <button onClick={() => deleteNote(note.id)}>Delete</button>
+            <button onClick={() => handleDelete(note.id)}>Delete</button>
         </form >
     );
 };

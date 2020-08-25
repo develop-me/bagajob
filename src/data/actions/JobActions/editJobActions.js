@@ -1,10 +1,11 @@
 import axios from '../../axios'
 
 import {
-    ADD_NEW_INTERVIEW,
-    UPDATE_INTERVIEW,
+    ADD_NEW_APPLICATION_NOTE,
     UPDATE_APPLICATION_NOTE,
-    ADD_NEW_APPLICATION_NOTE
+    DELETE_APPLICATION_NOTE,
+    ADD_NEW_INTERVIEW,
+    UPDATE_INTERVIEW
 } from '../../constants/JobConstants/editJobConstants'
 
 // get user's bearer token from local storage
@@ -47,6 +48,24 @@ const reducerUpdateAppNote = data => {
     return {
         type: UPDATE_APPLICATION_NOTE,
         payload: data,
+    };
+};
+
+// deletes a single note for a specific job's application card
+export const deleteAppNote = id => dispatch => {
+    axios.patch(`user/job/app_notes/${id}`, null, {
+        headers: {
+            'Authorization': token
+        }
+    }).then(() => {
+        dispatch(reducerDeleteAppNote(id))
+    });
+}
+
+const reducerDeleteAppNote = id => {
+    return {
+        type: DELETE_APPLICATION_NOTE,
+        payload: id
     };
 };
 
