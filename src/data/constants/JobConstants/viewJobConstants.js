@@ -1,1 +1,1 @@
-export const SAVE_JOB = 'SAVE_JOB'
+export const VIEW_SINGLE_JOB = 'VIEW_SINGLE_JOB'

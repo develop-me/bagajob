@@ -1,6 +1,6 @@
 import axios from '../../axios'
 
-import { SAVE_JOB } from '../../constants/JobConstants/viewJobConstants'
+import { VIEW_SINGLE_JOB } from '../../constants/JobConstants/viewJobConstants'
 
 export const getSingleJob = job_id => dispatch => {
     const token = localStorage.getItem('user')
@@ -9,13 +9,13 @@ export const getSingleJob = job_id => dispatch => {
             'Authorization': token
         }
     }).then(data => {
-        dispatch(saveJob(data))
+        dispatch(saveJob(data.data))
     });
 }
 
-export const saveJob = (data) => {
+export const saveJob = data => {
     return {
-        type: SAVE_JOB,
+        type: VIEW_SINGLE_JOB,
         payload: data,
     };
 };

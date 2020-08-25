@@ -1,11 +1,11 @@
 import {
-    SAVE_JOB,
+    VIEW_SINGLE_JOB,
 } from '../../constants/JobConstants/viewJobConstants'
 
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
-        case SAVE_JOB:
+        case VIEW_SINGLE_JOB:
             return {
                 ...state,
                 job: {
