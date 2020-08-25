@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getSingleJob } from '../../data/actions/JobActions/viewJobActions'
 
 const LoadingJob = (props) => {
-    console.log(props)
     const { job_id } = props.computedMatch.params
+    const { children } = props
 
     const dispatch = useDispatch()
 
@@ -13,8 +13,6 @@ const LoadingJob = (props) => {
     }, []);
 
     const jobLoaded = useSelector(state => state.jobLoaded)
-
-    const { children } = props
 
     return jobLoaded ? children : (
         <div className="loader">Loading</div>
