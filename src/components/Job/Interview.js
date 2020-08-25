@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateInterview } from '../../data/actions/JobActions/editJobActions';
+import { updateInterview, deleteInterview } from '../../data/actions/JobActions/editJobActions';
 
 const Interview = ({ interview }) => {
     let [editing, setEditing] = useState(true)
@@ -25,6 +25,10 @@ const Interview = ({ interview }) => {
         dispatch(updateInterview(interview))
 
         setEditing(false)
+    }
+
+    const handleDelete = id => {
+        dispatch(deleteInterview(id))
     }
 
     return (
@@ -72,6 +76,7 @@ const Interview = ({ interview }) => {
                     <button onClick={() => setEditing(true)}>Edit</button>
                 }
             </form>
+            <button onClick={() => handleDelete(interview.id)}>Delete</button>
         </>
     );
 };

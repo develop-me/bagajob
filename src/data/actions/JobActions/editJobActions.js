@@ -5,13 +5,14 @@ import {
     UPDATE_APPLICATION_NOTE,
     DELETE_APPLICATION_NOTE,
     ADD_NEW_INTERVIEW,
-    UPDATE_INTERVIEW
+    UPDATE_INTERVIEW,
+    DELETE_INTERVIEW
 } from '../../constants/JobConstants/editJobConstants'
 
 // get user's bearer token from local storage
 const token = localStorage.getItem('user')
 
-// adds new application stage note for specific job
+// adds new application card note for specific job
 export const addNewAppNote = () => dispatch => {
     axios.post(`user/job/app_notes`, null, {
         headers: {
@@ -51,7 +52,7 @@ const reducerUpdateAppNote = data => {
     };
 };
 
-// deletes a single note for a specific job's application card
+// deletes a single note from a specific job's application card
 export const deleteAppNote = id => dispatch => {
     axios.patch(`user/job/app_notes/${id}`, null, {
         headers: {
@@ -108,5 +109,23 @@ const reducerUpdateInterview = data => {
     return {
         type: UPDATE_INTERVIEW,
         payload: data
+    };
+};
+
+// deletes a single interview from a specific job's interview card
+export const deleteInterview = id => dispatch => {
+    axios.patch(`user/job/interview/${id}`, null, {
+        headers: {
+            'Authorization': token
+        }
+    }).then(() => {
+        dispatch(reducerDeleteInterview(id))
+    });
+}
+
+const reducerDeleteInterview = id => {
+    return {
+        type: DELETE_INTERVIEW,
+        payload: id
     };
 };

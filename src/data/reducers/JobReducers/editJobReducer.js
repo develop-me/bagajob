@@ -1,6 +1,7 @@
 import {
     ADD_NEW_INTERVIEW,
     UPDATE_INTERVIEW,
+    DELETE_INTERVIEW,
     ADD_NEW_APPLICATION_NOTE,
     UPDATE_APPLICATION_NOTE,
     DELETE_APPLICATION_NOTE
@@ -47,6 +48,14 @@ export default (state, action) => {
                 job: {
                     ...state.job,
                     interviews: state.job.interviews.map(interview => interview.id === payload.id ? payload : interview)
+                },
+            }
+        case DELETE_INTERVIEW:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    interviews: state.interviews.filter(interview => interview.id !== payload)
                 },
             }
         default:
