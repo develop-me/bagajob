@@ -18,7 +18,10 @@ const MainPage = () => {
 
             <div>
                 {jobs.map((job, index) => (
-                    <JobPreview job={job} key={index}></JobPreview>
+                    job.active ?
+                        <JobPreview job={job} key={index}></JobPreview>
+                        :
+                        null
                 ))}
             </div>
         </>
