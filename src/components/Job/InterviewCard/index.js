@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addNewInterview } from '../../data/actions/JobActions/editJobActions'
+import { addNewInterview } from '../../../data/actions/JobActions/editJobActions'
 import Interview from './Interview'
 
 const InterviewCard = ({ job }) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateInterview, deleteInterview } from '../../data/actions/JobActions/editJobActions'
+import { updateInterview, deleteInterview } from '../../../data/actions/JobActions/editJobActions'
 
 const Interview = ({ interview }) => {
     let [editing, setEditing] = useState(true)

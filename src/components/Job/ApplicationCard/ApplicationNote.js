@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateAppNote, deleteAppNote } from '../../data/actions/JobActions/editJobActions'
+import { updateAppNote, deleteAppNote } from '../../../data/actions/JobActions/editJobActions'
 
 const ApplicationNote = ({ applicationNote }) => {
     let [editing, setEditing] = useState(true)

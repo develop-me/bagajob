@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateJobDetails } from '../../data/actions/JobActions/editJobActions'
+import { updateJobDetails } from '../../../data/actions/JobActions/editJobActions'
 
 const JobDetail = ({ job, value, inputType, jobProperty, label }) => {
     const [jobInput, setJobInput] = useState(value)
