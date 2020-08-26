@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import JobPreview from './JobPreview';
+import React from 'react'
+import { Link } from "react-router-dom"
+import { useSelector } from 'react-redux'
+import JobPreview from './JobPreview'
 
 const MainPage = () => {
 
@@ -18,7 +18,10 @@ const MainPage = () => {
 
             <div>
                 {jobs.map((job, index) => (
-                    <JobPreview job={job} key={index}></JobPreview>
+                    job.active ?
+                        <JobPreview job={job} key={index}></JobPreview>
+                        :
+                        null
                 ))}
             </div>
         </>

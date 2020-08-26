@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { resetAuthResponse, loginUser } from '../../data/actions/AuthActions';
-import email_icon from '../../assets/images/email_icon.svg';
-import lock_icon from '../../assets/images/lock_icon.svg';
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetAuthResponse, loginUser } from '../../data/actions/AuthActions'
+import email_icon from '../../assets/images/email_icon.svg'
+import lock_icon from '../../assets/images/lock_icon.svg'
 
 const Login = ({ history }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         const state = {
             email: email,
             password: password,
         }
 
-        dispatch(loginUser(state, history));
+        dispatch(loginUser(state, history))
     }
 
     // brings in authResponse global state property
@@ -26,8 +26,8 @@ const Login = ({ history }) => {
 
     // resets authResponse every time component renders
     useEffect(() => {
-        dispatch(resetAuthResponse());
-    }, []);
+        dispatch(resetAuthResponse())
+    }, [])
 
     return (
         <>

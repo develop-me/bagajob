@@ -1,10 +1,14 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Login from './AuthForms/Login';
-import SignUp from './AuthForms/SignUp';
-import MainPage from './MainPage/MainPage';
-import AddJobForm from './AddJobForm';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './Home'
+import Login from './AuthForms/Login'
+import SignUp from './AuthForms/SignUp'
+import MainPage from './MainPage/MainPage'
+import AddJobForm from './AddJobForm'
+import Job from './Job/Job'
+import LoadingJob from './LoadingComponents/LoadingJob'
+
+export const MY_ROUTE = job_id => `/jobs/${job_id}`
 
 function App() {
   return (
@@ -17,10 +21,13 @@ function App() {
           <Route path="/home/signup" component={SignUp} />
           <Route path="/mainpage" component={MainPage} />
           <Route path="/addjob" component={AddJobForm} />
+          <LoadingJob path={MY_ROUTE(':job_id')}>
+            <Route component={Job} />
+          </LoadingJob>
         </Switch>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

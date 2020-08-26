@@ -1,9 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-const StageTracker = ({ active }) => {
-    let currentStage = active ? "status-active" : ""
+const StageTracker = ({ selected, handleClick, label }) => {
+    let currentStage = selected ? "status-active" : ""
     return (
-        <div class={"status-circle " + currentStage}></div>
+        <>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <div onClick={handleClick} className={"status-circle " + currentStage}></div>
+                <small>{label}</small>
+            </div>
+        </>
     );
 };
 
