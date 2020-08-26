@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { resetAuthResponse, registerUser } from '../../data/actions/AuthActions';
+import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { resetAuthResponse, registerUser } from '../../data/actions/AuthActions'
 
 const SignUp = ({ history }) => {
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         const state = {
             fullName: fullName,
@@ -19,7 +19,7 @@ const SignUp = ({ history }) => {
             password: password,
         }
 
-        dispatch(registerUser(state, history));
+        dispatch(registerUser(state, history))
     }
 
     // brings in authResponse global state property
@@ -27,8 +27,8 @@ const SignUp = ({ history }) => {
 
     // resets authResponse every time component renders
     useEffect(() => {
-        dispatch(resetAuthResponse());
-    }, []);
+        dispatch(resetAuthResponse())
+    }, [])
 
     return (
         <>

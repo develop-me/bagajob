@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from "react-router-dom"
 
 const Home = () => {
     return (
@@ -15,11 +15,11 @@ const Home = () => {
                     <button className="primarybtn login-btn-home" type="submit" id="">
                         LOG IN
                     </button>
-                    </Link>
+                </Link>
                 <Link to="/home/signup">
                     <button className="secondarybtn signup-btn-home" type="submit" id="">
                         SIGN UP
-                    </button>  
+                    </button>
                 </Link>
             </div>
         </>

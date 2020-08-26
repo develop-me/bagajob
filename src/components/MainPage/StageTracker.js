@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const StageTracker = ({ selected, handleClick, label }) => {
     let currentStage = selected ? "status-active" : ""

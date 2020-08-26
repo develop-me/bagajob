@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import StageTracker from './StageTracker';
-import { MY_ROUTE } from '../App';
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
+import StageTracker from './StageTracker'
+import { MY_ROUTE } from '../App'
 
 const JobPreview = ({ job }) => {
     const [active, setActive] = useState(1)
