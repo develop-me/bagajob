@@ -1,30 +1,9 @@
-import React, { useReducer } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateJobDetails } from '../../data/actions/JobActions/editJobActions'
-
-// local reducer that handles updating local state properties (initialised in the initialState variable below)
-const movieFormReducer = (state, action) => {
-    switch (action.type) {
-        case 'textFieldNameChange':
-            return {
-                ...state,
-                [action.payload.fieldName]: action.payload.value
-            }
-        case 'startEditing':
-            return {
-                ...state,
-                editing: true
-            }
-        case 'stopEditing':
-            return {
-                ...state,
-                editing: false
-            }
-        default: return;
-    }
-}
+import React from 'react'
+import JobDetail from './JobDetail'
 
 const JobDetailsCard = ({ job }) => {
+
+    // destructure job object properties
     const {
         jobTitle,
         company,
@@ -38,244 +17,79 @@ const JobDetailsCard = ({ job }) => {
         recruiterPhone
     } = job
 
-    // initial state of component
-    const initialState = {
-        jobTitle: jobTitle,
-        company: company,
-        jobDescription: jobDescription,
-        salary: salary,
-        location: location,
-        dateApplied: dateApplied,
-        closingDate: closingDate,
-        recruiterName: recruiterName,
-        recruiterEmail: recruiterEmail,
-        recruiterPhone: recruiterPhone,
-        editing: false
-    }
-
-    const [state, dispatch] = useReducer(movieFormReducer, initialState)
-
-    const dispatchAction = useDispatch()
-
-    const handleChange = e => {
-        dispatch({
-            type: 'textFieldNameChange',
-            payload: {
-                fieldName: e.target.id,
-                value: e.target.value
-            }
-        })
-    }
-
-    const handleEdit = e => {
-        if (e.target.innerText === 'Edit') {
-            dispatch({
-                type: 'startEditing',
-            })
-        } else {
-            dispatch({
-                type: 'stopEditing',
-            })
-        }
-    }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-
-        dispatchAction(updateJobDetails(state))
-    }
-
     return (
         <>
             <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
                 <h1 className="para_header">Job Details</h1>
-                <form onSubmit={handleSubmit}>
-                    {state.editing ?
-                        <button type="submit" onClick={e => handleEdit(e)}>Save</button>
-                        :
-                        <button onClick={e => handleEdit(e)}>Edit</button>
-                    }
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="jobTitle"
-                        >Job Title
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="jobTitle"
-                                value={jobTitle}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.jobTitle}</p>
-                        }
-                    </div>
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="company"
-                        >Company
-                        </label>
-                        {state.editing ?
-                            <input
-                                id="company"
-                                value={company}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.company}</p>
-                        }
-                    </div>
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="jobDescription"
-                        >Job Description
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="jobDescription"
-                                value={jobDescription}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.jobDescription}</p>
-                        }
-                    </div>
-
-                    <div className="input-group">
-                        <label
-                            className="label mr-1"
-                            htmlFor="salary"
-                        >Salary p/a
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="salary"
-                                value={salary}
-                                type="number"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.salary}</p>
-                        }
-                    </div>
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="location"
-                        >Location
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="location"
-                                value={location}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.location}</p>
-                        }
-                    </div >
-
-                    <div className="input-group">
-                        <label
-                            className="label mr-1"
-                            htmlFor="dateApplied"
-                        >Date Applied
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="dateApplied"
-                                value={dateApplied}
-                                type="date"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.dateApplied}</p>
-                        }
-                    </div >
-
-                    <div className="input-group">
-                        <label
-                            className="label mr-1"
-                            htmlFor="closingDate"
-                        >Closing Date
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="closingDate"
-                                value={closingDate}
-                                type="date"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.closingDate}</p>
-                        }
-                    </div >
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="recruiterName"
-                        >Recruiter Name
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="recruiterName"
-                                value={recruiterName}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.recruiterName}</p>
-                        }
-                    </div >
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="recruiterEmail"
-                        >Recruiter Email
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="recruiterEmail"
-                                value={recruiterEmail}
-                                type="email"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.recruiterEmail}</p>
-                        }
-                    </div >
-
-                    <div className="input-group">
-                        <label
-                            className="label"
-                            htmlFor="recruiterPhone"
-                        >Recruiter Phone
-                    </label>
-                        {state.editing ?
-                            <input
-                                id="recruiterPhone"
-                                value={recruiterPhone}
-                                type="text"
-                                onChange={e => handleChange(e)}
-                            />
-                            :
-                            <p>foobar{state.recruiterPhone}</p>
-                        }
-                    </div>
-                </form>
+                <JobDetail
+                    label="Job Title"
+                    job={job}
+                    value={jobTitle}
+                    inputType="text"
+                    jobProperty="jobTitle"
+                />
+                <JobDetail
+                    label="Company"
+                    job={job}
+                    value={company}
+                    inputType="text"
+                    jobProperty="company"
+                />
+                <JobDetail
+                    label="Job Description"
+                    job={job}
+                    value={jobDescription}
+                    inputType="text"
+                    jobProperty="jobDescription"
+                />
+                <JobDetail
+                    label="Salary p/a"
+                    job={job}
+                    value={salary}
+                    inputType="number"
+                    jobProperty="salary"
+                />
+                <JobDetail
+                    label="Location"
+                    job={job}
+                    value={location}
+                    inputType="text"
+                    jobProperty="location"
+                />
+                <JobDetail
+                    label="Date Applied"
+                    job={job}
+                    value={dateApplied}
+                    inputType="date"
+                    jobProperty="dateApplied"
+                />
+                <JobDetail
+                    label="Closing Date"
+                    job={job}
+                    value={closingDate}
+                    inputType="date"
+                    jobProperty="closingDate"
+                />
+                <JobDetail
+                    label="Recruiter Name"
+                    job={job} value={recruiterName}
+                    inputType="text"
+                    jobProperty="recruiterName"
+                />
+                <JobDetail
+                    label="Recruiter Email"
+                    job={job}
+                    value={recruiterEmail}
+                    inputType="email"
+                    jobProperty="recruiterEmail"
+                />
+                <JobDetail
+                    label="Recruiter Phone"
+                    job={job}
+                    value={recruiterPhone}
+                    inputType="text"
+                    jobProperty="recruiterPhone"
+                />
             </div>
         </>
     );
