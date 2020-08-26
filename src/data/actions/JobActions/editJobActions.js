@@ -16,7 +16,7 @@ const token = localStorage.getItem('user')
 // updates the details for a specific job's details card
 export const updateJobDetails = job => dispatch => {
     const { id } = job
-    axios.patch(`user/job/${id}`, {
+    axios.put(`user/job/${id}`, {
         title: job.jobTitle,
         company: job.company,
         description: job.jobDescription,
@@ -26,7 +26,9 @@ export const updateJobDetails = job => dispatch => {
         closing_date: job.closingDate,
         recruiter_name: job.recruiterName,
         recruiter_email: job.recruiterEmail,
-        recruiter_phone: job.recruiterPhone
+        recruiter_phone: job.recruiterPhone,
+        cover_letter: job.coverLetter,
+        cv: job.cv
     }, {
         headers: {
             'Authorization': token
