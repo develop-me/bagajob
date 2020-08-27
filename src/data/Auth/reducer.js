@@ -7,9 +7,9 @@ import {
     SIGNUP_ERROR,
     CODE_ERROR,
     SHORT_PASSWORD
-} from '../constants'
+} from './constants'
 
-export default (state, action) => {
+export const reducer = (state, action) => {
     const { type, payload } = action
     switch (type) {
         case SHORT_PASSWORD:
