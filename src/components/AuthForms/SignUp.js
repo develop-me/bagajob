@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, registerUser } from '../../data/actions/AuthActions'
+import { resetAuthResponse, registerUser } from '../../data/Auth/actions'
 
 const SignUp = ({ history }) => {
     const [fullName, setFullName] = useState('')
