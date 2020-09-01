@@ -4,11 +4,8 @@ import Home from './Home'
 import Login from './AuthForms/Login'
 import SignUp from './AuthForms/SignUp'
 import MainPage from './MainPage/MainPage'
-import AddJobForm from './AddJobForm'
+import JobForm from './JobForms/JobForm'
 import Job from './Job/Job'
-import LoadingJob from './LoadingComponents/LoadingJob'
-
-export const MY_ROUTE = job_id => `/jobs/${job_id}`
 
 function App() {
   return (
@@ -20,10 +17,10 @@ function App() {
           <Route path="/home/login" component={Login} />
           <Route path="/home/signup" component={SignUp} />
           <Route path="/mainpage" component={MainPage} />
-          <Route path="/addjob" component={AddJobForm} />
-          <LoadingJob path={MY_ROUTE(':job_id')}>
-            <Route component={Job} />
-          </LoadingJob>
+          <Route path="/addjob" component={JobForm} />
+          <Route path="/jobs/:id" render={({ match }) => (
+            <Job jobId={match.params.id} />
+          )} />
         </Switch>
       </div>
     </BrowserRouter>
