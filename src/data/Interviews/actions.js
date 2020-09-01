@@ -6,6 +6,8 @@ import {
     INTERVIEW_DELETE_REQUEST,
 } from './constants'
 
+const token = localStorage.getItem('user')
+
 // adds new interview for specific job
 export const addNewInterview = () => dispatch => {
     axios.post(`user/job/interview`, null, {
