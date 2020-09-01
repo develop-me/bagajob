@@ -9,6 +9,8 @@ import {
     APPLICATION_NOTE_DELETE_SUCCESS
 } from './constants'
 
+const token = localStorage.getItem('user')
+
 // adds new application card note for specific job
 export const addNewAppNote = () => dispatch => {
     axios.post(`user/job/app_notes`, null, {
