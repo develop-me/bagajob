@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateInterview, deleteInterview } from '../../../data/actions/JobActions/editJobActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateInterview, deleteInterview } from '../../../data/Interviews/actions'
 
 const Interview = ({ interview }) => {
     let [editing, setEditing] = useState(true)
@@ -10,19 +10,27 @@ const Interview = ({ interview }) => {
     let [notes, setNotes] = useState(interview.notes)
 
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+    const job = useSelector(state => state.job)
 
     const handleInterviewUpdate = e => {
         e.preventDefault()
 
         const data = {
-            id: interview.id,
-            interviewDate: interviewDate,
+            interview_id: interview.id,
+            interview_date: interviewDate,
             format: format,
             interviewer: interviewer,
             notes: notes
         }
 
-        dispatch(updateInterview(data))
+        dispatch(updateInterview({
+            userId: user.id,
+            interviewId: interview.id,
+            jobId: job.id,
+            interviewData: data,
+        }))
+
     }
 
     const handleDelete = id => {
