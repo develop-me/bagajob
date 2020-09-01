@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addNewJob } from '../data/actions/JobActions/addJobActions'
 
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
-const movieFormReducer = (state, action) => {
+const jobFormReducer = (state, action) => {
     switch (action.type) {
         case 'textFieldNameChange':
             return {
@@ -35,11 +35,11 @@ const initialState = {
     recruiterName: "",
     recruiterEmail: "",
     recruiterPhone: "",
-    stage: 0,
+    step: 1,
 }
 
 const AddJobForm = () => {
-    const [state, dispatch] = useReducer(movieFormReducer, initialState);
+    const [state, dispatch] = useReducer(jobFormReducer, initialState);
     const dispatchAction = useDispatch();
 
     let {
