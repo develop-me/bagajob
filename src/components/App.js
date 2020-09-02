@@ -4,7 +4,6 @@ import Home from './Home'
 import Login from './AuthForms/Login'
 import SignUp from './AuthForms/SignUp'
 import MainPage from './MainPage/MainPage'
-import JobForm from './JobForms/JobForm'
 import Job from './Job/Job'
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
           <Route path="/home/login" component={Login} />
           <Route path="/home/signup" component={SignUp} />
           <Route path="/mainpage" component={MainPage} />
-          <Route path="/addjob" component={JobForm} />
           <Route path="/jobs/:id" render={({ match }) => (
             <Job jobId={match.params.id} />
           )} />
