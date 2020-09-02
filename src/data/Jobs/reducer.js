@@ -5,7 +5,26 @@ import {
     SINGLE_JOB_POST_SUCCESS,
 } from './constants'
 
-export const reducer = (state, action) => {
+const initial = {
+    jobs: [{
+        id: 1,
+        jobTitle: "Job 1",
+        company: "company 1",
+        stage: 2,
+        active: true
+    },
+    {
+        id: 2,
+        jobTitle: "Job 2",
+        company: "company 2",
+        stage: 3,
+        active: true
+    },],
+    job: {},
+    loaded: true
+}
+
+export default (state = initial, action) => {
     const { type, payload } = action
     switch (type) {
         case SINGLE_JOB_POST_SUCCESS:
@@ -25,11 +44,9 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 job: {
-                    job: {
-                        ...payload
-                    },
-                    loaded: true
-                }
+                    ...payload
+                },
+                loaded: true
             }
         case SINGLE_JOB_PUT_SUCCESS:
             return {
@@ -38,6 +55,6 @@ export const reducer = (state, action) => {
                 loaded: true
             }
         default:
-            return {}
+            return state
     }
 }

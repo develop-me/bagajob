@@ -9,7 +9,12 @@ import {
     SHORT_PASSWORD
 } from './constants'
 
-export const reducer = (state, action) => {
+const initial = {
+    authResponse: null,
+    user: {}
+}
+
+export default (state = initial, action) => {
     const { type, payload } = action
     switch (type) {
         case SHORT_PASSWORD:
