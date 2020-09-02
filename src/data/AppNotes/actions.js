@@ -3,8 +3,8 @@ import axios from '../axios'
 import {
     APPLICATION_NOTE_POST_REQUEST,
     APPLICATION_NOTE_POST_SUCCESS,
-    APPLICATION_NOTE_PUT_REQUEST,
-    APPLICATION_NOTE_PUT_SUCCESS,
+    APPLICATION_NOTE_PATCH_REQUEST,
+    APPLICATION_NOTE_PATCH_SUCCESS,
     APPLICATION_NOTE_DELETE_REQUEST,
     APPLICATION_NOTE_DELETE_SUCCESS
 } from './constants'
@@ -30,12 +30,9 @@ const reducerAddNewAppNote = data => {
 };
 
 // updates a single note for a specific job's application card
-export const updateAppNote = note => dispatch => {
-    const { id } = note
-    axios.patch(`user/job/app_notes/${id}`, {
-        note_date: note.note_date,
-        note_data: note.note_data
-    }, {
+export const updateAppNote = data => dispatch => {
+    const { user_id, job_id, note_id, note_data } = data
+    axios.patch(`user/${user_id}/job/${job_id}/app_notes/${note_id}`, note_data, {
         headers: {
             'Authorization': token
         }
@@ -46,19 +43,20 @@ export const updateAppNote = note => dispatch => {
 
 const reducerUpdateAppNote = data => {
     return {
-        type: APPLICATION_NOTE_PUT_SUCCESS,
+        type: APPLICATION_NOTE_PATCH_SUCCESS,
         payload: data,
     };
 };
 
 // deletes a single note from a specific job's application card
-export const deleteAppNote = id => dispatch => {
-    axios.patch(`user/job/app_notes/${id}`, null, {
+export const deleteAppNote = data => dispatch => {
+    const { user_id, job_id, note_id } = data
+    axios.patch(`user/${user_id}/job/${job_id}/app_notes/${note_id}`, null, {
         headers: {
             'Authorization': token
         }
     }).then(() => {
-        dispatch(reducerDeleteAppNote(id))
+        dispatch(reducerDeleteAppNote(note_id))
     });
 }
 
