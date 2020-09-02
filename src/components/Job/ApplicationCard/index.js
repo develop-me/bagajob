@@ -1,15 +1,20 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ApplicationInput from './ApplicationInput'
 import { addNewAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
+    const { id: user_id } = useSelector(state => state.auth.user)
+    const { id: job_id } = job
     const dispatch = useDispatch()
 
     // adds new empty note in application card
     const addNote = () => {
-        dispatch(addNewAppNote())
+        dispatch(addNewAppNote({
+            user_id,
+            job_id
+        }))
     }
 
     return (

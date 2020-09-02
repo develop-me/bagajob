@@ -12,8 +12,9 @@ import {
 const token = localStorage.getItem('user')
 
 // adds new application card note for specific job
-export const addNewAppNote = () => dispatch => {
-    axios.post(`user/job/app_notes`, null, {
+export const addNewAppNote = data => dispatch => {
+    const { user_id, job_id } = data
+    axios.post(`user/${user_id}/job/${job_id}/app_notes`, null, {
         headers: {
             'Authorization': token
         }
