@@ -1,7 +1,12 @@
 import React from 'react'
 
-const JobDetailsForm = ({ values, handleChange, nextStep }) => {
-    return (
+const JobDetailsForm = ({
+    currentStep,
+    nextStep,
+    values,
+    handleChange
+}) => {
+    return currentStep && (
         <>
             <h1 className="addjob-form-headerjob">Step 1: Job Details</h1>
             <h3>Here you can add details of the job you are applying for.</h3>
@@ -9,14 +14,14 @@ const JobDetailsForm = ({ values, handleChange, nextStep }) => {
                 <div className="form-input-group addjob-input-group addjob-input-jobtitle">
                     <label
                         className="label"
-                        htmlFor="jobTitle"
+                        htmlFor="title"
                     >Job Title
                     </label>
                     <input
-                        id="jobTitle"
-                        value={values.jobTitle}
                         type="text"
-                        onChange={e => handleChange(e)}
+                        id="title"
+                        value={values.title}
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -27,10 +32,10 @@ const JobDetailsForm = ({ values, handleChange, nextStep }) => {
                     >Company
                         </label>
                     <input
+                        type="text"
                         id="company"
                         value={values.company}
-                        type="text"
-                        onChange={e => handleChange(e)}
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -41,10 +46,10 @@ const JobDetailsForm = ({ values, handleChange, nextStep }) => {
                     >Salary p/a
                     </label>
                     <input
+                        type="number"
                         id="salary"
                         value={values.salary}
-                        type="number"
-                        onChange={e => handleChange(e)}
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -55,52 +60,52 @@ const JobDetailsForm = ({ values, handleChange, nextStep }) => {
                     >Location
                     </label>
                     <input
+                        type="text"
                         id="location"
                         value={values.location}
-                        type="text"
-                        onChange={e => handleChange(e)}
+                        onChange={handleChange}
                     />
                 </div >
 
                 <div className="form-input-group addjob-input-group addjob-input-appdate">
                     <label
                         className="label mr-1"
-                        htmlFor="dateApplied"
+                        htmlFor="date_applied"
                     >Date Applied
                     </label>
                     <input
-                        id="dateApplied"
-                        value={values.dateApplied}
                         type="date"
-                        onChange={e => handleChange(e)}
+                        id="date_applied"
+                        value={values.date_applied}
+                        onChange={handleChange}
                     />
                 </div >
 
                 <div className="form-input-group addjob-input-group addjob-input-closedate">
                     <label
                         className="label mr-1"
-                        htmlFor="closingDate"
+                        htmlFor="closing_date"
                     >Closing Date
                     </label>
                     <input
-                        id="closingDate"
-                        value={values.closingDate}
                         type="date"
-                        onChange={e => handleChange(e)}
+                        id="closing_date"
+                        value={values.closing_date}
+                        onChange={handleChange}
                     />
                 </div >
 
                 <div className="form-input-group addjob-input-group addjob-input-jobdescription">
                     <label
                         className="label"
-                        htmlFor="jobDescription"
+                        htmlFor="description"
                     >Job Description
                     </label>
                     <input
-                        id="jobDescription"
-                        value={values.description}
                         type="text"
-                        onChange={e => handleChange(e)}
+                        id="description"
+                        value={values.description}
+                        onChange={handleChange}
                     />
                 </div>
             </form>
