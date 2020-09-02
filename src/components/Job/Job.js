@@ -8,7 +8,7 @@ import InterviewCard from './InterviewCard'
 
 const Job = ({ jobId }) => {
     // brings in single job fetched from database
-    const { job, loaded } = useSelector(state => state)
+    const { job, loaded } = useSelector(state => state.job)
 
     const dispatch = useDispatch()
 
