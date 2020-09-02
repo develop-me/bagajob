@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Modal from 'react-modal'
 import JobPreview from './JobPreview'
-import JobForm from '../JobForms/JobForm'
+import JobForms from '../JobForms/JobForms'
 
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
@@ -36,7 +36,7 @@ const MainPage = () => {
                 onClose={closeModal}
                 onRequestClose={closeModal}
             >
-                <JobForm />
+                <JobForms />
             </Modal>
         </>
     );
