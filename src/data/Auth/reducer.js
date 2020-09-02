@@ -11,7 +11,11 @@ import {
 
 const initial = {
     authResponse: null,
-    user: {}
+    user: {
+        id: 7,
+        fullname: "Father Christmas",
+        token: "hnsluigmxhosum"
+    }
 }
 
 export default (state = initial, action) => {
