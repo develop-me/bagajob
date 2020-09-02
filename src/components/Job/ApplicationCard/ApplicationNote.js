@@ -1,26 +1,34 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateAppNote, deleteAppNote } from '../../../data/actions/JobActions/editJobActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateAppNote, deleteAppNote } from '../../../data/AppNotes/actions'
 
 const ApplicationNote = ({ applicationNote }) => {
     let [editing, setEditing] = useState(true)
     let [note, setNote] = useState(applicationNote.note_data)
 
     const dispatch = useDispatch()
+    // the necessary ids to make updateInterview put request
+    const { id: user_id } = useSelector(state => state.auth.user)
+    const { id: job_id } = useSelector(state => state.job.job)
+    const { id: note_id } = applicationNote
 
     const submitNote = e => {
         e.preventDefault()
 
-        let note = {
-            id: applicationNote.id,
-            note_data: applicationNote.note_data
-        }
-
-        dispatch(updateAppNote(note))
+        dispatch(updateAppNote({
+            user_id,
+            job_id,
+            note_id,
+            note_data: note
+        }))
     }
 
-    const handleDelete = note_id => {
-        dispatch(deleteAppNote(note_id))
+    const handleDelete = () => {
+        dispatch(deleteAppNote({
+            user_id,
+            job_id,
+            note_id
+        }))
     }
 
     return (
@@ -28,12 +36,12 @@ const ApplicationNote = ({ applicationNote }) => {
             {
                 editing ?
                     <textarea
+                        cols="30"
+                        rows="10"
+                        id="note"
                         value={note}
                         onChange={e => setNote(e.target.value)
                         }
-                        id="note"
-                        cols="30"
-                        rows="10"
                     />
                     :
                     <p>{note} {applicationNote.note_date}</p>
@@ -45,7 +53,7 @@ const ApplicationNote = ({ applicationNote }) => {
                     :
                     <button onClick={() => setEditing(true)}>Edit</button>
             }
-            <button onClick={() => handleDelete(note.id)}>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </form >
     );
 };

@@ -1,21 +1,27 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateJobDetails } from '../../../data/actions/JobActions/editJobActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateJobDetails } from '../../../data/Jobs/actions'
 
 const JobDetail = ({ job, value, inputType, jobProperty, label }) => {
     const [jobInput, setJobInput] = useState(value)
     const [editing, setEditing] = useState(false)
-
+    const { id: user_id } = useSelector(state => state.auth.user)
+    const { id: job_id } = job
     const dispatch = useDispatch()
 
     // dispatches action with updated job detail
     const handleSave = () => {
-        let updatedJob = {
+        let data = {
             ...job,
             [jobProperty]: jobInput,
         }
 
-        dispatch(updateJobDetails(updatedJob))
+        dispatch(updateJobDetails({
+            job_id,
+            user_id,
+            job_data: data
+        }))
+
         setEditing(false)
     }
 

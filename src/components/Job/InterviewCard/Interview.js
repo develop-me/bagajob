@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { updateInterview, deleteInterview } from '../../../data/actions/JobActions/editJobActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateInterview, deleteInterview } from '../../../data/Interviews/actions'
 
 const Interview = ({ interview }) => {
     let [editing, setEditing] = useState(true)
@@ -11,22 +11,35 @@ const Interview = ({ interview }) => {
 
     const dispatch = useDispatch()
 
+    // the necessary ids to make updateInterview put and delete requests
+    const { id: user_id } = useSelector(state => state.auth.user)
+    const { id: job_id } = useSelector(state => state.job.job)
+    const { id: interview_id } = interview
+
     const handleInterviewUpdate = e => {
         e.preventDefault()
 
         const data = {
-            id: interview.id,
-            interviewDate: interviewDate,
-            format: format,
-            interviewer: interviewer,
-            notes: notes
+            interview_date: interviewDate,
+            format,
+            interviewer,
+            notes
         }
 
-        dispatch(updateInterview(data))
+        dispatch(updateInterview({
+            user_id,
+            job_id,
+            interview_id,
+            interview_data: { ...data },
+        }))
     }
 
-    const handleDelete = id => {
-        dispatch(deleteInterview(id))
+    const handleDelete = () => {
+        dispatch(deleteInterview({
+            user_id,
+            job_id,
+            interview_id
+        }))
     }
 
     return (
@@ -36,37 +49,63 @@ const Interview = ({ interview }) => {
                     className="label"
                     htmlFor="date"
                 >Date: {editing ?
-                    <input onChange={e => setInterviewDate(e.target.value)} value={interviewDate} type="date" name="" id="date" />
+                    <input
+                        type="date"
+                        id="date"
+                        value={interviewDate}
+                        onChange={e => setInterviewDate(e.target.value)}
+                    />
                     :
                     interviewDate
-                    }</label>
+                    }
+                </label>
 
                 <label
                     className="label"
                     htmlFor="format"
                 >Format: {editing ?
-                    <input onChange={e => setFormat(e.target.value)} value={format} type="text" name="" id="format" />
+                    <input
+                        type="text"
+                        id="format"
+                        value={format}
+                        onChange={e => setFormat(e.target.value)}
+                    />
                     :
                     format
-                    }</label>
+                    }
+                </label>
 
                 <label
                     className="label"
                     htmlFor="interviewer"
                 >Interviewer: {editing ?
-                    <input onChange={e => setInterviewer(e.target.value)} value={interviewer} type="text" name="" id="interviewer" />
+                    <input
+                        type="text"
+                        id="interviewer"
+                        value={interviewer}
+                        onChange={e => setInterviewer(e.target.value)}
+                    />
                     :
                     interviewer
-                    }</label>
+                    }
+                </label>
 
                 <label
                     className="label"
                     htmlFor="notes"
                 >Notes: {editing ?
-                    <textarea onChange={e => setNotes(e.target.value)} value={notes} type="text" name="" id="notes" />
+                    <textarea
+                        cols="30"
+                        rows="10"
+                        type="text"
+                        id="notes"
+                        value={notes}
+                        onChange={e => setNotes(e.target.value)}
+                    />
                     :
                     notes
-                    }</label>
+                    }
+                </label>
 
                 {editing ?
                     <button type="submit" onClick={() => setEditing(false)}>Save</button>
@@ -74,7 +113,7 @@ const Interview = ({ interview }) => {
                     <button onClick={() => setEditing(true)}>Edit</button>
                 }
             </form>
-            <button onClick={() => handleDelete(interview.id)}>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </>
     );
 };

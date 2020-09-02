@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 import StageTracker from './StageTracker'
-import { MY_ROUTE } from '../App'
 
 const JobPreview = ({ job }) => {
     const [active, setActive] = useState(1)
+
     return (
         <>
             <div className="job-card-container">
@@ -38,7 +38,7 @@ const JobPreview = ({ job }) => {
                         label="Offer"
                     />
                 </div>
-                <Link to={MY_ROUTE(job.id)} params={{ jobId: job.id }} className="expand_btn">&#8250;</Link>
+                <Link to={`/jobs/${job.id}`} className="expand_btn">&#8250;</Link>
             </div>
             <hr className="status-line"></hr>
         </>

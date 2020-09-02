@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, loginUser } from '../../data/actions/AuthActions'
+import { resetAuthResponse, loginUser } from '../../data/Auth/actions'
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
 

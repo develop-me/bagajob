@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import ApplicationInput from './ApplicationInput'
-import { addNewAppNote } from '../../../data/actions/JobActions/editJobActions'
+import { addNewAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {

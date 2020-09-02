@@ -1,29 +1,43 @@
-import React from 'react'
-import { Link } from "react-router-dom"
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import Modal from 'react-modal'
 import JobPreview from './JobPreview'
+import JobForms from '../JobForms/JobForms'
 
 const MainPage = () => {
+    const [showModal, setOpen] = useState(false)
+    const jobs = useSelector(state => state.job.jobs)
 
-    // brings in jobs global state property
-    const jobs = useSelector(state => state.jobs)
+    // opens job form modal
+    const openModal = () => {
+        setOpen(true)
+    }
+
+    // closes jobs form modal
+    const closeModal = () => {
+        setOpen(false)
+    }
 
     return (
         <>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <a>Sort by</a>
-                <Link to="/addjob">Add new application</Link>
-                <h1>My Applications</h1>
-            </div>
+                <button onClick={openModal}>Add new application</button>
 
+            </div>
+            <h1>My Applications</h1>
             <div>
                 {jobs.map((job, index) => (
-                    job.active ?
-                        <JobPreview job={job} key={index}></JobPreview>
-                        :
-                        null
+                    job.active && <JobPreview job={job} key={index} />
                 ))}
             </div>
+            <Modal
+                isOpen={showModal}
+                onClose={closeModal}
+                onRequestClose={closeModal}
+            >
+                <JobForms />
+            </Modal>
         </>
     );
 };

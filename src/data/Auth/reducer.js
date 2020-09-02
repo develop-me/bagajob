@@ -7,9 +7,18 @@ import {
     SIGNUP_ERROR,
     CODE_ERROR,
     SHORT_PASSWORD
-} from '../constants'
+} from './constants'
 
-export default (state, action) => {
+const initial = {
+    authResponse: null,
+    user: {
+        id: 7,
+        fullname: "Father Christmas",
+        token: "hnsluigmxhosum"
+    }
+}
+
+export default (state = initial, action) => {
     const { type, payload } = action
     switch (type) {
         case SHORT_PASSWORD:
