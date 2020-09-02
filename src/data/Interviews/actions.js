@@ -8,7 +8,7 @@ import {
 
 const token = localStorage.getItem('user')
 
-// adds new interview for specific job
+// adds new empty interview row for specific job
 export const addNewInterview = () => dispatch => {
     axios.post(`user/job/interview`, null, {
         headers: {
