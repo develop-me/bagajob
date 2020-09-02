@@ -4,7 +4,7 @@ import {
     // APPLICATION_NOTE_DELETE_REQUEST,
 } from './constants'
 
-export const reducer = (state, action) => {
+export default (state, action) => {
     const { type, payload } = action
     switch (type) {
         // case APPLICATION_NOTE_POST_REQUEST:
