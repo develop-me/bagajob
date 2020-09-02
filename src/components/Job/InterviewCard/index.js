@@ -1,13 +1,18 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addNewInterview } from '../../../data/Interviews/actions'
 import Interview from './Interview'
 
 const InterviewCard = ({ job }) => {
+    const { id: user_id } = useSelector(state => state.auth.user)
+    const { id: job_id } = job
     const dispatch = useDispatch()
 
     const addInterview = () => {
-        dispatch(addNewInterview())
+        dispatch(addNewInterview({
+            user_id,
+            job_id
+        }))
     }
 
     return (

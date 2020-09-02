@@ -9,8 +9,9 @@ import {
 const token = localStorage.getItem('user')
 
 // adds new empty interview row for specific job
-export const addNewInterview = () => dispatch => {
-    axios.post(`user/job/interview`, null, {
+export const addNewInterview = data => dispatch => {
+    const { user_id, job_id } = data
+    axios.post(`user/${user_id}/job/${job_id}/interview`, null, {
         headers: {
             'Authorization': token
         }
