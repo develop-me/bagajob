@@ -28,11 +28,11 @@ const reducerAddNewInterview = data => {
 
 // updates a specific job interview's details
 export const updateInterview = data => dispatch => {
-    const { userId, jobId, interviewData } = data
+    const { user_id, job_id, interview_data } = data
     // only destructure the id as we want to preserve the interviewData object to send through to the db
-    const { interviewId } = interviewData
+    const { id: interview_id } = interview_data
     // make sure keys are the same as in the database, can just pass in the interviewData object. create the object when dispatching the action and simply pass it through.
-    axios.patch(`user/${userId}/job/${jobId}/interview/${interviewId}`, interviewData, {
+    axios.put(`user/${user_id}/job/${job_id}/interview/${interview_id}`, interview_data, {
         headers: {
             'Authorization': token
         }
