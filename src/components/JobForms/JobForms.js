@@ -69,7 +69,7 @@ const initialState = {
 const JobForm = () => {
     const [state, dispatch] = useReducer(jobFormReducer, initialState);
     const dispatchAction = useDispatch();
-    const user = useSelector(state => state.auth.user)
+    const { id: user_id } = useSelector(state => state.user)
     const {
         job: {
             title,
@@ -153,11 +153,11 @@ const JobForm = () => {
 
         // dispatches object with user id and job data
         dispatchAction(addNewJob({
-            user_id: user.id,
-            job_data: state.data
+            user_id,
+            job_data: data
         }))
 
-        dispatch({ type: 'resetForm' })
+        dispatch({ type: 'RESET_FORM' })
     }
     return (
         <form onSubmit={handleSubmit}>
