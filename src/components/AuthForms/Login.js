@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, loginUser } from '../../data/Auth/actions'
+import { resetAuthResponse, login } from '../../data/Auth/actions'
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
 
 const Login = ({ history }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const { authResponse } = useSelector(state => state)
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+    const handleLogin = e => {
         e.preventDefault()
 
-        const state = {
-            email: email,
-            password: password,
+        const data = {
+            email,
+            password
         }
 
-        dispatch(loginUser(state, history))
+        dispatch(login(data, history))
     }
 
-    // brings in authResponse global state property
-    const authResponse = useSelector(state => state.authResponse)
-
-    // resets authResponse every time component renders
+    // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
     }, [])
@@ -33,26 +30,38 @@ const Login = ({ history }) => {
         <>
             <h1 className="brand-text">bagajob</h1>
             <div className="form-container-small login-container">
-                <form className="login-form" onSubmit={handleSubmit}>
+                <form className="login-form" onSubmit={handleLogin}>
                     <div className="login-form-input-container">
-                        <span><img className="email-icon" src={email_icon} alt="email-icon" /></span>
+                        <span>
+                            <img
+                                className="email-icon"
+                                src={email_icon}
+                                alt="An icon representing an email"
+                            />
+                        </span>
                         <input
-                            value={email}
                             type="text"
                             id="email"
                             name="email"
                             placeholder="Email address"
+                            value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="login-form-input-container">
-                        <span><img className="password-icon" src={lock_icon} alt="password-icon" /></span>
+                        <span>
+                            <img
+                                className="password-icon"
+                                src={lock_icon}
+                                alt="An icon representing a password"
+                            />
+                        </span>
                         <input
-                            value={password}
                             type="password"
                             id="password"
                             name="password"
                             placeholder="Password"
+                            value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
@@ -67,7 +76,7 @@ const Login = ({ history }) => {
                 </form>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login
