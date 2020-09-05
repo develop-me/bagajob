@@ -5,6 +5,7 @@ import Login from './AuthForms/Login'
 import SignUp from './AuthForms/SignUp'
 import MainPage from './MainPage/MainPage'
 import Job from './Job/Job'
+import Account from './Account/Account'
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <div className="app">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
+          <Route path="/home" component={Home} />
           <Route path="/home/login" component={Login} />
           <Route path="/home/signup" component={SignUp} />
           <Route path="/mainpage" component={MainPage} />
+          <Route path="/account" component={Account} />
           <Route path="/jobs/:id" render={({ match }) => (
             <Job jobId={match.params.id} />
           )} />
