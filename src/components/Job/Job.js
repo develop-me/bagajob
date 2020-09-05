@@ -7,11 +7,10 @@ import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
 const Job = ({ jobId }) => {
-    // brings in single job fetched from database
-    const { job, loaded } = useSelector(state => state.job)
-
+    const { job, loaded } = useSelector(state => state)
     const dispatch = useDispatch()
 
+    // single job is fetched when component renders
     useEffect(() => {
         dispatch(getSingleJob(jobId));
     }, []);
@@ -23,6 +22,6 @@ const Job = ({ jobId }) => {
             <InterviewCard job={job} />
         </div>
     )
-};
+}
 
-export default Job;
+export default Job
