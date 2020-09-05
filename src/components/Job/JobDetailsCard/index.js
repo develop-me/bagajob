@@ -3,16 +3,13 @@ import JobDetail from './JobDetail'
 
 const JobDetailsCard = ({ job }) => {
     const {
-        jobTitle,
+        title,
         company,
-        jobDescription,
+        description,
         salary,
         location,
-        dateApplied,
-        closingDate,
-        recruiterName,
-        recruiterEmail,
-        recruiterPhone
+        date_applied,
+        closing_date
     } = job
 
     return (
@@ -21,8 +18,8 @@ const JobDetailsCard = ({ job }) => {
             <JobDetail
                 label="Job Title"
                 inputType="text"
-                jobProperty="jobTitle"
-                value={jobTitle}
+                jobProperty="title"
+                value={title}
             />
             <JobDetail
                 label="Company"
@@ -33,8 +30,8 @@ const JobDetailsCard = ({ job }) => {
             <JobDetail
                 label="Job Description"
                 inputType="text"
-                jobProperty="jobDescription"
-                value={jobDescription}
+                jobProperty="description"
+                value={description}
             />
             <JobDetail
                 label="Salary p/a"
@@ -51,32 +48,14 @@ const JobDetailsCard = ({ job }) => {
             <JobDetail
                 label="Date Applied"
                 inputType="date"
-                jobProperty="dateApplied"
-                value={dateApplied}
+                jobProperty="date_applied"
+                value={date_applied}
             />
             <JobDetail
                 label="Closing Date"
                 inputType="date"
-                jobProperty="closingDate"
-                value={closingDate}
-            />
-            <JobDetail
-                label="Recruiter Name"
-                inputType="text"
-                jobProperty="recruiterName"
-                value={recruiterName}
-            />
-            <JobDetail
-                label="Recruiter Email"
-                inputType="email"
-                jobProperty="recruiterEmail"
-                value={recruiterEmail}
-            />
-            <JobDetail
-                label="Recruiter Phone"
-                inputType="text"
-                jobProperty="recruiterPhone"
-                value={recruiterPhone}
+                jobProperty="closing_date"
+                value={closing_date}
             />
         </div>
     )
