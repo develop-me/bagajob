@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux'
 import { default as JobReducer } from './Jobs/reducer'
 import { default as AuthReducer } from './Auth/reducer'
+import { default as AccountReducer } from './Account/reducer'
+import { default as AppNotesReducer } from './AppNotes/reducer'
+import { default as InterviewsReducer } from './Interviews/reducer'
 
 const initialState = {
     fetching: false,
@@ -50,12 +52,19 @@ const initialState = {
     },
     authResponse: null,
     loaded: true,
-    user: {}
+    user: {
+        id: 5,
+        fullname: "Adam Gardner",
+        password: "kad93u0jdjda"
+    }
 }
 
-const RootReducer = combineReducers({
-    job: JobReducer,
-    auth: AuthReducer,
+const RootReducer = (state = initialState, action) => ({
+    ...state,
+    ...JobReducer(state, action, initialState),
+    ...AuthReducer(state, action, initialState),
+    ...AccountReducer(state, action, initialState),
+    ...AppNotesReducer(state, action, initialState),
+    ...InterviewsReducer(state, action, initialState),
 })
-
 export default RootReducer
