@@ -6,13 +6,13 @@ import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
-const Job = ({ jobId }) => {
+const Job = ({ job_id }) => {
     const { job, loaded } = useSelector(state => state)
     const dispatch = useDispatch()
 
     // single job is fetched when component renders
     useEffect(() => {
-        dispatch(getSingleJob(jobId));
+        dispatch(getSingleJob(job_id));
     }, []);
 
     return !loaded ? <Loading /> : (
