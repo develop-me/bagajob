@@ -8,15 +8,13 @@ const Interview = ({ interview }) => {
     let [format, setFormat] = useState(interview.format)
     let [interviewer, setInterviewer] = useState(interview.interviewer)
     let [notes, setNotes] = useState(interview.notes)
-
     const dispatch = useDispatch()
-
     // the necessary ids to make updateInterview put and delete requests
-    const { id: user_id } = useSelector(state => state.auth.user)
-    const { id: job_id } = useSelector(state => state.job.job)
+    const { id: user_id } = useSelector(state => state.user)
+    const { id: job_id } = useSelector(state => state.job)
     const { id: interview_id } = interview
 
-    const handleInterviewUpdate = e => {
+    const handleUpdateInterview = e => {
         e.preventDefault()
 
         const data = {
@@ -34,7 +32,7 @@ const Interview = ({ interview }) => {
         }))
     }
 
-    const handleDelete = () => {
+    const handleDeleteInterview = () => {
         dispatch(deleteInterview({
             user_id,
             job_id,
@@ -44,7 +42,7 @@ const Interview = ({ interview }) => {
 
     return (
         <>
-            <form onSubmit={handleInterviewUpdate}>
+            <form onSubmit={handleUpdateInterview}>
                 <label
                     className="label"
                     htmlFor="date"
@@ -98,7 +96,6 @@ const Interview = ({ interview }) => {
                         cols="30"
                         rows="10"
                         type="text"
-                        id="notes"
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
                     />
@@ -113,9 +110,9 @@ const Interview = ({ interview }) => {
                     <button onClick={() => setEditing(true)}>Edit</button>
                 }
             </form>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDeleteInterview}>Delete</button>
         </>
-    );
-};
+    )
+}
 
-export default Interview;
+export default Interview
