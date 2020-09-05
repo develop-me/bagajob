@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewJob } from '../../data/Jobs/actions'
+import { addJob } from '../../data/Jobs/actions'
 import JobDetailsForm from './JobDetailsForm'
 import ApplicationDetailsForm from './ApplicationDetailsForm'
 import InterviewDetailsForm from './InterviewDetailsForm'
@@ -152,7 +152,7 @@ const JobForm = () => {
         const data = { ...state.job }
 
         // dispatches object with user id and job data
-        dispatchAction(addNewJob({
+        dispatchAction(addJob({
             user_id,
             job_data: data
         }))
