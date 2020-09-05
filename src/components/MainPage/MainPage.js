@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal'
 import JobPreview from './JobPreview'
 import JobForms from '../JobForms/JobForms'
+import { getJobs } from '../../data/Jobs/actions'
 
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
-    const jobs = useSelector(state => state.job.jobs)
+    const { jobs, user: { id: user_id } } = useSelector(state => state)
+    const dispatch = useDispatch()
 
     // opens job form modal
     const openModal = () => {
@@ -17,6 +19,10 @@ const MainPage = () => {
     const closeModal = () => {
         setOpen(false)
     }
+
+    useEffect(() => {
+        dispatch(getJobs(user_id));
+    }, []);
 
     return (
         <>
@@ -39,7 +45,7 @@ const MainPage = () => {
                 <JobForms />
             </Modal>
         </>
-    );
-};
+    )
+}
 
-export default MainPage;
+export default MainPage
