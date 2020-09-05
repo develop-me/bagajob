@@ -1,15 +1,17 @@
 export const RESET_AUTH_RESPONSE = 'RESET_AUTH_RESPONSE'
 
-export const LOADING = 'LOADING'
-
 export const SHORT_PASSWORD = 'SHORT_PASSWORD'
 
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+// signup post request
+export const SIGNUP_POST_REQUEST = 'SIGNUP_POST_REQUEST'
 
-export const LOGIN_ERROR = 'LOGIN_ERROR'
+export const SIGNUP_POST_SUCCESS = 'SIGNUP_POST_SUCCESS'
 
-export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
+export const SIGNUP_POST_FAILURE = 'SIGNUP_POST_FAILURE'
 
-export const SIGNUP_ERROR = 'SIGNUP_ERROR'
+// login post request
+export const LOGIN_POST_REQUEST = 'LOGIN_POST_REQUEST'
 
-export const CODE_ERROR = 'CODE_ERROR'
+export const LOGIN_POST_SUCCESS = 'LOGIN_POST_SUCCESS'
+
+export const LOGIN_POST_FAILURE = 'LOGIN_POST_FAILURE'
