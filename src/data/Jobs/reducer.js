@@ -1,63 +1,40 @@
 import {
+    JOBS_GET_REQUEST,
+    JOBS_GET_SUCCESS,
+    JOBS_GET_FAILURE,
     SINGLE_JOB_GET_REQUEST,
     SINGLE_JOB_GET_SUCCESS,
-    SINGLE_JOB_PUT_SUCCESS,
+    SINGLE_JOB_GET_FAILURE,
+    SINGLE_JOB_POST_REQUEST,
     SINGLE_JOB_POST_SUCCESS,
+    SINGLE_JOB_POST_FAILURE,
+    SINGLE_JOB_PATCH_REQUEST,
+    SINGLE_JOB_PATCH_SUCCESS,
+    SINGLE_JOB_PATCH_FAILURE,
+    SINGLE_JOB_DELETE_REQUEST,
+    SINGLE_JOB_DELETE_SUCCESS,
+    SINGLE_JOB_DELETE_FAILURE
 } from './constants'
 
-const initial = {
-    jobs: [{
-        id: 1,
-        jobTitle: "Job 1",
-        company: "company 1",
-        stage: 2,
-        active: true
-    },
-    {
-        id: 2,
-        jobTitle: "Job 2",
-        company: "company 2",
-        stage: 3,
-        active: true
-    },],
-    job: {
-        id: 2,
-        jobTitle: "Job 2",
-        company: "company 2",
-        stage: 3,
-        cv: "///",
-        cover_letter: "foobar",
-        interviews: [
-            {
-                id: 3,
-                date: "05/09/2020 16:00",
-                format: "video",
-                interviewer: "Elon Musk",
-                notes: "Elon Musk is scary and the interview didn't go well"
-            }
-        ],
-        application_notes: [
-            {
-                id: 5,
-                note_category: "text",
-                note_date: "06 / 04 / 2020",
-                note_data: "I spoke to Ben today and then I had a ham sandwich"
-            }
-        ]
-    },
-    loaded: true
-}
-
-export default (state = initial, action) => {
+export default (state, action) => {
     const { type, payload } = action
     switch (type) {
-        case SINGLE_JOB_POST_SUCCESS:
+        case JOBS_GET_REQUEST:
             return {
                 ...state,
-                jobs: [
-                    ...state.jobs,
-                    ...payload
-                ]
+                loaded: false
+            }
+        case JOBS_GET_SUCCESS:
+            return {
+                ...state,
+                jobs: [...payload],
+                loaded: true
+            }
+        case JOBS_GET_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
             }
         case SINGLE_JOB_GET_REQUEST:
             return {
@@ -72,11 +49,66 @@ export default (state = initial, action) => {
                 },
                 loaded: true
             }
-        case SINGLE_JOB_PUT_SUCCESS:
+        case SINGLE_JOB_GET_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case SINGLE_JOB_POST_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case SINGLE_JOB_POST_SUCCESS:
+            return {
+                ...state,
+                jobs: [
+                    ...state.jobs,
+                    ...payload
+                ],
+                loaded: true
+            }
+        case SINGLE_JOB_POST_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case SINGLE_JOB_PATCH_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case SINGLE_JOB_PATCH_SUCCESS:
             return {
                 ...state,
                 job: { ...payload },
                 loaded: true
+            }
+        case SINGLE_JOB_PATCH_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case SINGLE_JOB_DELETE_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case SINGLE_JOB_DELETE_SUCCESS:
+            return {
+                ...state,
+                job: state.jobs.filter(job => job.id !== payload),
+                job: {},
+                loaded: true
+            }
+        case SINGLE_JOB_DELETE_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
             }
         default:
             return state

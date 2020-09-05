@@ -1,8 +1,8 @@
 import {
     APPLICATION_NOTE_POST_REQUEST,
     APPLICATION_NOTE_POST_SUCCESS,
-    APPLICATION_NOTE_PUT_REQUEST,
-    APPLICATION_NOTE_PUT_SUCCESS,
+    APPLICATION_NOTE_PATCH_REQUEST,
+    APPLICATION_NOTE_PATCH_SUCCESS,
     APPLICATION_NOTE_DELETE_REQUEST,
     APPLICATION_NOTE_DELETE_SUCCESS
 } from './constants'
@@ -19,7 +19,7 @@ export default (state, action) => {
                 },
                 loaded: true
             }
-        case APPLICATION_NOTE_PUT_SUCCESS:
+        case APPLICATION_NOTE_PATCH_SUCCESS:
             return {
                 ...state,
                 job: {
