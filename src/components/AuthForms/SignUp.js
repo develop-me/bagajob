@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, registerUser } from '../../data/Auth/actions'
+import { resetAuthResponse, signUp } from '../../data/Auth/actions'
 
 const SignUp = ({ history }) => {
-    const [fullName, setFullName] = useState('')
+    const [name, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const { authResponse } = useSelector(state => state)
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+    const handleSignUp = e => {
         e.preventDefault()
 
-        const state = {
-            fullName: fullName,
-            email: email,
-            password: password,
+        const data = {
+            name,
+            email,
+            password
         }
 
-        dispatch(registerUser(state, history))
+        dispatch(signUp(data, history))
     }
 
-    // brings in authResponse global state property
-    const authResponse = useSelector(state => state.authResponse)
-
-    // resets authResponse every time component renders
+    // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
     }, [])
@@ -34,13 +31,14 @@ const SignUp = ({ history }) => {
         <>
             <h1 className="brand-text">bagajob</h1>
             <div className="form-container-small signup-container">
-                <form className="signup-form" onSubmit={handleSubmit}>
+                <form className="signup-form" onSubmit={handleSignUp}>
                     <div className="signup-form-input-container">
                         <input
                             type="text"
                             id="fullname"
                             name="fullname"
                             placeholder="Full name"
+                            value={name}
                             onChange={e => setFullName(e.target.value)}
                         />
                     </div>
@@ -50,6 +48,7 @@ const SignUp = ({ history }) => {
                             id="email"
                             name="email"
                             placeholder="Email address"
+                            value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
@@ -59,19 +58,21 @@ const SignUp = ({ history }) => {
                             id="password"
                             name="password"
                             placeholder="Password"
+                            value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button className="primarybtn createacc-btn" type="submit" id="">
+                    <button className="primarybtn createacc-btn" type="submit">
                         CREATE ACCOUNT
                     </button>
-                    <p className="login-prompt">Already have an account? <Link to="/home/login">Log in</Link></p>
+                    <p className="login-prompt">
+                        Already have an account? <Link to="/home/login">Log in</Link>
+                    </p>
                     <b>{authResponse !== null && authResponse}</b>
                 </form>
-
             </div>
         </>
-    );
-};
+    )
+}
 
-export default SignUp;
+export default SignUp
