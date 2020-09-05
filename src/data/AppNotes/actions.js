@@ -1,69 +1,125 @@
-import axios from '../axios'
+import {
+    addAppNote as apiAddAppNote,
+    updateAppNote as apiUpdateAppNote,
+    deleteAppNote as apiDeleteAppNote
+} from '../ApiRequests/appNotes'
 
 import {
     APPLICATION_NOTE_POST_REQUEST,
     APPLICATION_NOTE_POST_SUCCESS,
+    APPLICATION_NOTE_POST_FAILURE,
     APPLICATION_NOTE_PATCH_REQUEST,
     APPLICATION_NOTE_PATCH_SUCCESS,
+    APPLICATION_NOTE_PATCH_FAILURE,
     APPLICATION_NOTE_DELETE_REQUEST,
-    APPLICATION_NOTE_DELETE_SUCCESS
+    APPLICATION_NOTE_DELETE_SUCCESS,
+    APPLICATION_NOTE_DELETE_FAILURE
 } from './constants'
 
-const token = localStorage.getItem('user')
-
-// adds new application card note for specific job
-export const addNewAppNote = data => dispatch => {
-    const { user_id, job_id } = data
-    axios.post(`user/${user_id}/job/${job_id}/app_notes`, null, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(data => {
-        dispatch(reducerAddNewAppNote(data.data))
-    });
+// adds new application note for specific job
+export const addAppNote = data => dispatch => {
+    return new Promise((resolve, reject) => {
+        dispatch(addAppNoteRequest())
+        apiAddAppNote(data)
+            .then(successResponse => {
+                dispatch(addAppNoteSuccess(successResponse))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(addAppNoteFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-const reducerAddNewAppNote = data => {
-    return {
+const addAppNoteRequest = () => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_POST_REQUEST,
+    })
+)
+
+const addAppNoteSuccess = data => dispatch => (
+    dispatch({
         type: APPLICATION_NOTE_POST_SUCCESS,
         payload: data
-    };
-};
+    })
+)
 
-// updates a single note for a specific job's application card
+const addAppNoteFailure = error => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_POST_FAILURE,
+        payload: error
+    })
+)
+
+// updates a specific application card note for a specific job
 export const updateAppNote = data => dispatch => {
-    const { user_id, job_id, note_id, note_data } = data
-    axios.patch(`user/${user_id}/job/${job_id}/app_notes/${note_id}`, note_data, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(data => {
-        dispatch(reducerUpdateAppNote(data.data))
-    });
+    return new Promise((resolve, reject) => {
+        dispatch(updateAppNoteRequest())
+        apiUpdateAppNote(data)
+            .then(successResponse => {
+                dispatch(updateAppNoteSuccess(successResponse))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(updateAppNoteFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-const reducerUpdateAppNote = data => {
-    return {
+const updateAppNoteRequest = () => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_PATCH_REQUEST,
+    })
+)
+
+const updateAppNoteSuccess = data => dispatch => (
+    dispatch({
         type: APPLICATION_NOTE_PATCH_SUCCESS,
-        payload: data,
-    };
-};
+        payload: data
+    })
+)
+
+const updateAppNoteFailure = error => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_PATCH_FAILURE,
+        payload: error
+    })
+)
 
 // deletes a single note from a specific job's application card
 export const deleteAppNote = data => dispatch => {
-    const { user_id, job_id, note_id } = data
-    axios.patch(`user/${user_id}/job/${job_id}/app_notes/${note_id}`, null, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(() => {
-        dispatch(reducerDeleteAppNote(note_id))
-    });
+    return new Promise((resolve, reject) => {
+        dispatch(deleteAppNoteRequest())
+        apiDeleteAppNote(data)
+            .then(successResponse => {
+                dispatch(deleteAppNoteSuccess(data.note_id))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(deleteAppNoteFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-const reducerDeleteAppNote = id => {
-    return {
+const deleteAppNoteRequest = () => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_DELETE_REQUEST,
+    })
+)
+
+const deleteAppNoteSuccess = data => dispatch => (
+    dispatch({
         type: APPLICATION_NOTE_DELETE_SUCCESS,
-        payload: id
-    };
-};
+        payload: data
+    })
+)
+
+const deleteAppNoteFailure = error => dispatch => (
+    dispatch({
+        type: APPLICATION_NOTE_DELETE_FAILURE,
+        payload: error
+    })
+)

@@ -1,75 +1,101 @@
-import axios from "../axios";
+import {
+    signUp as apiSignUp,
+    login as apiLogin
+} from '../ApiRequests/auth'
 
 import {
-    LOGIN_ERROR,
-    LOGIN_SUCCESS,
     RESET_AUTH_RESPONSE,
     SHORT_PASSWORD,
-    LOADING,
-    SIGNUP_ERROR,
-    SIGNUP_SUCCESS,
-    CODE_ERROR
+    SIGNUP_POST_REQUEST,
+    SIGNUP_POST_SUCCESS,
+    SIGNUP_POST_FAILURE,
+    LOGIN_POST_REQUEST,
+    LOGIN_POST_SUCCESS,
+    LOGIN_POST_FAILURE,
 } from './constants'
 
-// register user
-export const registerUser = data => dispatch => {
-    dispatch(resetAuthResponse());
-    dispatch({ type: LOADING });
+// sign up user
+export const signUp = (data, history) => dispatch => {
     if (data.password < 6) {
         return dispatch({ type: SHORT_PASSWORD })
     }
-    axios.post("user/register", {
-        fullname: data.fullName,
-        email: data.email,
-        password: data.password
-    }).then(res => {
-        const { token } = res.data;
-        if (token !== null) {
-            localStorage.setItem("user", 'Bearer ' + token);
-            dispatch({ type: SIGNUP_SUCCESS })
-        } else {
-            dispatch({ type: SIGNUP_ERROR, payload: res })
-        }
-    }, error => {
-        dispatch({ type: CODE_ERROR, payload: error });
-    });
-}
-
-// login user
-export const loginUser = (data, history) => dispatch => {
-    dispatch(resetAuthResponse());
-    dispatch({ type: LOADING });
-    if (data.password.length < 6) {
-        return dispatch({ type: SHORT_PASSWORD })
-    }
-    axios.post("user/login", {
-        email: data.email,
-        password: data.password
-    }).then(res => {
-        const { success } = res.data;
-        console.log(success)
-        localStorage.setItem('user', 'Bearer ' + res.data.token)
-        if (success) {
-            const user = {
-                token: res.data.token,
-                id: res.data.id,
-                name: res.data.firstname,
-                email: res.data.email
-            }
-            dispatch({ type: LOGIN_SUCCESS, payload: user })
-            setTimeout(() => {
-                history.push("/dashboard");
-            }, 500);
-        }
-        else {
-            dispatch({ type: LOGIN_ERROR, payload: res })
-        }
+    return new Promise((resolve, reject) => {
+        dispatch(signUpRequest())
+        apiSignUp(data)
+            .then(successResponse => {
+                dispatch(signUpSuccess(successResponse))
+                setTimeout(() => {
+                    history.push("/dashboard");
+                }, 300)
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(signUpFailure(errorResponse))
+                reject(errorResponse)
+            })
     })
 }
 
+const signUpRequest = () => dispatch => (
+    dispatch({
+        type: SIGNUP_POST_REQUEST,
+    })
+)
+
+const signUpSuccess = data => dispatch => (
+    dispatch({
+        type: SIGNUP_POST_SUCCESS,
+        payload: data
+    })
+)
+
+const signUpFailure = error => dispatch => (
+    dispatch({
+        type: SIGNUP_POST_FAILURE,
+        payload: error
+    })
+)
+
+// login user
+export const login = (data, history) => dispatch => {
+    return new Promise((resolve, reject) => {
+        dispatch(loginRequest())
+        apiLogin(data)
+            .then(successResponse => {
+                dispatch(loginSuccess(successResponse))
+                setTimeout(() => {
+                    history.push("/dashboard");
+                }, 300)
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(loginFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
+}
+
+const loginRequest = () => dispatch => (
+    dispatch({
+        type: LOGIN_POST_REQUEST,
+    })
+)
+
+const loginSuccess = data => dispatch => (
+    dispatch({
+        type: LOGIN_POST_SUCCESS,
+        payload: data
+    })
+)
+
+const loginFailure = error => dispatch => (
+    dispatch({
+        type: LOGIN_POST_FAILURE,
+        payload: error
+    })
+)
+
 // reset authResponse
-export const resetAuthResponse = () => {
-    return (dispatch) => {
-        dispatch({ type: RESET_AUTH_RESPONSE });
-    }
+export const resetAuthResponse = () => dispatch => {
+    dispatch({ type: RESET_AUTH_RESPONSE })
 }

@@ -1,70 +1,125 @@
-import axios from '../axios'
+import {
+    addInterview as apiAddInterview,
+    updateInterview as apiUpdateInterview,
+    deleteInterview as apiDeleteInterview
+} from '../ApiRequests/interviews'
 
 import {
     INTERVIEW_POST_REQUEST,
-    INTERVIEW_PUT_REQUEST,
+    INTERVIEW_POST_SUCCESS,
+    INTERVIEW_POST_FAILURE,
+    INTERVIEW_PATCH_REQUEST,
+    INTERVIEW_PATCH_SUCCESS,
+    INTERVIEW_PATCH_FAILURE,
     INTERVIEW_DELETE_REQUEST,
+    INTERVIEW_DELETE_SUCCESS,
+    INTERVIEW_DELETE_FAILURE,
 } from './constants'
 
-const token = localStorage.getItem('user')
-
-// adds new empty interview row for specific job
-export const addNewInterview = data => dispatch => {
-    const { user_id, job_id } = data
-    axios.post(`user/${user_id}/job/${job_id}/interview`, null, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(data => {
-        dispatch(reducerAddNewInterview(data.data))
-    });
+// adds new empty interview for specific job
+export const addInterview = data => dispatch => {
+    return new Promise((resolve, reject) => {
+        dispatch(addInterviewRequest())
+        apiAddInterview(data)
+            .then(successResponse => {
+                dispatch(addInterviewSuccess(successResponse))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(addInterviewFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-const reducerAddNewInterview = data => {
-    return {
+const addInterviewRequest = () => dispatch => (
+    dispatch({
         type: INTERVIEW_POST_REQUEST,
+    })
+)
+
+const addInterviewSuccess = data => dispatch => (
+    dispatch({
+        type: INTERVIEW_POST_SUCCESS,
         payload: data
-    };
-};
+    })
+)
+
+const addInterviewFailure = error => dispatch => (
+    dispatch({
+        type: INTERVIEW_POST_FAILURE,
+        payload: error
+    })
+)
 
 // updates a specific job interview's details
 export const updateInterview = data => dispatch => {
-    const { user_id, job_id, interview_data } = data
-    // only destructure the id as we want to preserve the interviewData object to send through to the db
-    const { id: interview_id } = interview_data
-    // make sure keys are the same as in the database, can just pass in the interviewData object. create the object when dispatching the action and simply pass it through.
-    axios.put(`user/${user_id}/job/${job_id}/interview/${interview_id}`, interview_data, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(data => {
-        dispatch(reducerUpdateInterview(data.data))
-    });
+    return new Promise((resolve, reject) => {
+        dispatch(updateInterviewRequest())
+        apiUpdateInterview(data)
+            .then(successResponse => {
+                dispatch(updateInterviewSuccess(successResponse))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(updateInterviewFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-// need to verify that the user owns the job and the job owns the interview, but this can be dealt with as the bearer token is verified on the backend to prove it's the user making the request
+const updateInterviewRequest = () => dispatch => (
+    dispatch({
+        type: INTERVIEW_PATCH_REQUEST,
+    })
+)
 
-const reducerUpdateInterview = data => {
-    return {
-        type: INTERVIEW_PUT_REQUEST,
+const updateInterviewSuccess = data => dispatch => (
+    dispatch({
+        type: INTERVIEW_PATCH_SUCCESS,
         payload: data
-    };
-};
+    })
+)
+
+const updateInterviewFailure = error => dispatch => (
+    dispatch({
+        type: INTERVIEW_PATCH_FAILURE,
+        payload: error
+    })
+)
 
 // deletes a single interview from a specific job's interview card
-export const deleteInterview = id => dispatch => {
-    axios.patch(`user/job/interview/${id}`, null, {
-        headers: {
-            'Authorization': token
-        }
-    }).then(() => {
-        dispatch(reducerDeleteInterview(id))
-    });
+export const deleteInterview = data => dispatch => {
+    return new Promise((resolve, reject) => {
+        dispatch(deleteInterviewRequest())
+        apiDeleteInterview(data)
+            .then(successResponse => {
+                dispatch(deleteInterviewSuccess(data.interview_id))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(deleteInterviewFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
 }
 
-const reducerDeleteInterview = id => {
-    return {
+const deleteInterviewRequest = () => dispatch => (
+    dispatch({
         type: INTERVIEW_DELETE_REQUEST,
-        payload: id
-    };
-};
+    })
+)
+
+const deleteInterviewSuccess = data => dispatch => (
+    dispatch({
+        type: INTERVIEW_DELETE_SUCCESS,
+        payload: data
+    })
+)
+
+const deleteInterviewFailure = error => dispatch => (
+    dispatch({
+        type: INTERVIEW_DELETE_FAILURE,
+        payload: error
+    })
+)
