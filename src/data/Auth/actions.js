@@ -5,20 +5,16 @@ import {
 
 import {
     RESET_AUTH_RESPONSE,
-    SHORT_PASSWORD,
     SIGNUP_POST_REQUEST,
     SIGNUP_POST_SUCCESS,
     SIGNUP_POST_FAILURE,
     LOGIN_POST_REQUEST,
     LOGIN_POST_SUCCESS,
-    LOGIN_POST_FAILURE,
+    LOGIN_POST_FAILURE
 } from './constants'
 
-// sign up user
+// sign up user then redirect them to dashboard
 export const signUp = (data, history) => dispatch => {
-    if (data.password < 6) {
-        return dispatch({ type: SHORT_PASSWORD })
-    }
     return new Promise((resolve, reject) => {
         dispatch(signUpRequest())
         apiSignUp(data)
@@ -38,7 +34,7 @@ export const signUp = (data, history) => dispatch => {
 
 const signUpRequest = () => dispatch => (
     dispatch({
-        type: SIGNUP_POST_REQUEST,
+        type: SIGNUP_POST_REQUEST
     })
 )
 
@@ -77,7 +73,7 @@ export const login = (data, history) => dispatch => {
 
 const loginRequest = () => dispatch => (
     dispatch({
-        type: LOGIN_POST_REQUEST,
+        type: LOGIN_POST_REQUEST
     })
 )
 
@@ -97,5 +93,7 @@ const loginFailure = error => dispatch => (
 
 // reset authResponse
 export const resetAuthResponse = () => dispatch => {
-    dispatch({ type: RESET_AUTH_RESPONSE })
+    dispatch({
+        type: RESET_AUTH_RESPONSE
+    })
 }
