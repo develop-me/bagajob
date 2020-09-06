@@ -1,6 +1,5 @@
 import {
     RESET_AUTH_RESPONSE,
-    SHORT_PASSWORD,
     SIGNUP_POST_REQUEST,
     SIGNUP_POST_SUCCESS,
     SIGNUP_POST_FAILURE,
@@ -16,11 +15,6 @@ export default (state, action) => {
             return {
                 ...state,
                 authResponse: null
-            }
-        case SHORT_PASSWORD:
-            return {
-                ...state,
-                authResponse: 'Password must be at least 6 characters.'
             }
         case SIGNUP_POST_REQUEST:
             return {
@@ -51,7 +45,7 @@ export default (state, action) => {
         case LOGIN_POST_FAILURE:
             return {
                 ...state,
-                erros: payload
+                errors: payload
             }
         default:
             return state
