@@ -1,36 +1,41 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, login } from '../../data/Auth/actions'
+import { resetAuthResponse, login, forgotPasswordInit } from '../../data/Auth/actions'
+import useFormValidation from "../../customHooks/useFormValidation"
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
 
+const initialState = {
+    email: "",
+    password: ""
+}
+
 const Login = ({ history }) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const { authResponse } = useSelector(state => state)
     const dispatch = useDispatch()
-
-    const handleLogin = e => {
-        e.preventDefault()
-
-        const data = {
-            email,
-            password
-        }
-
-        dispatch(login(data, history))
-    }
+    // destructuring the properties returned from the custom hook
+    const {
+        handleSubmit,
+        handleChange,
+        values,
+        errors,
+        isSubmitting
+    } = useFormValidation(initialState, login, history)
 
     // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
     }, [])
 
+    const handleForgotPassword = () => {
+        dispatch(forgotPasswordInit())
+    }
+
     return (
         <>
             <h1 className="brand-text">bagajob</h1>
             <div className="form-container-small login-container">
-                <form className="login-form" onSubmit={handleLogin}>
+                <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-form-input-container">
                         <span>
                             <img
@@ -44,10 +49,11 @@ const Login = ({ history }) => {
                             id="email"
                             name="email"
                             placeholder="Email address"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            value={values.email}
+                            onChange={handleChange}
                         />
                     </div>
+                    {errors.email && <p className="error-text">{errors.email}</p>}
                     <div className="login-form-input-container">
                         <span>
                             <img
@@ -61,15 +67,23 @@ const Login = ({ history }) => {
                             id="password"
                             name="password"
                             placeholder="Password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
+                            value={values.password}
+                            onChange={handleChange}
                         />
                     </div>
-                    <p className="login-prompt password-forgot">Forgot password?</p>
-                    <button className="primarybtn login-btn" type="submit" id="">
-                        LOG IN
+                    {errors.password && <p className="error-text">{errors.password}</p>}
+                    <button
+                        className="login-prompt password-forgot"
+                        onClick={handleForgotPassword}
+                    >Forgot password?
                     </button>
-                    <button className="secondarybtn signup-btn" type="submit" id="">
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="primarybtn login-btn"
+                    >LOG IN
+                    </button>
+                    <button className="secondarybtn signup-btn" type="submit">
                         SIGN UP
                     </button>
                     <b>{authResponse !== null && authResponse}</b>
