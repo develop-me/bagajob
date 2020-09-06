@@ -100,7 +100,7 @@ export default (state, action) => {
         case SINGLE_JOB_DELETE_SUCCESS:
             return {
                 ...state,
-                job: state.jobs.filter(job => job.id !== payload),
+                jobs: state.jobs.filter(job => job.id !== payload),
                 job: {},
                 loaded: true
             }
