@@ -1,7 +1,5 @@
 export const RESET_AUTH_RESPONSE = 'RESET_AUTH_RESPONSE'
 
-export const SHORT_PASSWORD = 'SHORT_PASSWORD'
-
 // signup post request
 export const SIGNUP_POST_REQUEST = 'SIGNUP_POST_REQUEST'
 
