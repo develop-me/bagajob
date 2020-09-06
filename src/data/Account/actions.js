@@ -64,26 +64,22 @@ export const deleteAccount = data => dispatch => {
     })
 }
 
-const deleteAccountRequest = () => {
-    return (dispatch) => {
-        dispatch({
-            type: ACCOUNT_DELETE_REQUEST,
-        })
-    }
+const deleteAccountRequest = () => dispatch => {
+    dispatch({
+        type: ACCOUNT_DELETE_REQUEST
+    })
 }
-const deleteAccountSuccess = data => {
-    return (dispatch) => {
-        dispatch({
-            type: ACCOUNT_DELETE_SUCCESS,
-            payload: data,
-        })
-    }
+
+const deleteAccountSuccess = data => dispatch => {
+    dispatch({
+        type: ACCOUNT_DELETE_SUCCESS,
+        payload: data
+    })
 }
-const deleteAccountFailure = error => {
-    return (dispatch) => {
-        dispatch({
-            type: ACCOUNT_DELETE_FAILURE,
-            payload: error,
-        })
-    }
+
+const deleteAccountFailure = error => dispatch => {
+    dispatch({
+        type: ACCOUNT_DELETE_FAILURE,
+        payload: error
+    })
 }
