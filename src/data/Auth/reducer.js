@@ -5,7 +5,10 @@ import {
     SIGNUP_POST_FAILURE,
     LOGIN_POST_REQUEST,
     LOGIN_POST_SUCCESS,
-    LOGIN_POST_FAILURE
+    LOGIN_POST_FAILURE,
+    FORGOT_PASSWORD_INIT_POST_REQUEST,
+    FORGOT_PASSWORD_INIT_POST_SUCCESS,
+    FORGOT_PASSWORD_INIT_POST_FAILURE
 } from './constants'
 
 export default (state, action) => {
@@ -43,6 +46,21 @@ export default (state, action) => {
                 user: { ...payload }
             }
         case LOGIN_POST_FAILURE:
+            return {
+                ...state,
+                errors: payload
+            }
+        case FORGOT_PASSWORD_INIT_POST_REQUEST:
+            return {
+                ...state,
+                authResponse: 'Loading...'
+            }
+        case FORGOT_PASSWORD_INIT_POST_SUCCESS:
+            return {
+                ...state,
+                authResponse: 'Password reset request successful. Please check your email.'
+            }
+        case FORGOT_PASSWORD_INIT_POST_FAILURE:
             return {
                 ...state,
                 errors: payload
