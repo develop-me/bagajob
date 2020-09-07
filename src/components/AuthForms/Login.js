@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, login, forgotPasswordInit } from '../../data/Auth/actions'
-import useFormValidation from "../../customHooks/useFormValidation"
+import { resetAuthResponse, login } from '../../data/Auth/actions'
+import useFormValidation from '../../customHooks/useFormValidation'
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
 
@@ -27,10 +28,6 @@ const Login = ({ history }) => {
         dispatch(resetAuthResponse())
     }, [])
 
-    const handleForgotPassword = () => {
-        dispatch(forgotPasswordInit())
-    }
-
     return (
         <>
             <h1 className="brand-text">bagajob</h1>
@@ -45,7 +42,7 @@ const Login = ({ history }) => {
                             />
                         </span>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
                             placeholder="Email address"
@@ -53,7 +50,7 @@ const Login = ({ history }) => {
                             onChange={handleChange}
                         />
                     </div>
-                    {errors.email && <p className="error-text">{errors.email}</p>}
+                    {errors.email && <p>{errors.email}</p>}
                     <div className="login-form-input-container">
                         <span>
                             <img
@@ -71,12 +68,12 @@ const Login = ({ history }) => {
                             onChange={handleChange}
                         />
                     </div>
-                    {errors.password && <p className="error-text">{errors.password}</p>}
-                    <button
+                    {errors.password && <p>{errors.password}</p>}
+                    <Link
+                        to="/home/forgot-password"
                         className="login-prompt password-forgot"
-                        onClick={handleForgotPassword}
                     >Forgot password?
-                    </button>
+                    </Link>
                     <button
                         type="submit"
                         disabled={isSubmitting}
