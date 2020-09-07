@@ -14,8 +14,8 @@ export const getJobs = data => {
 
 // single job get request
 export const getJob = data => {
-    const job_id = data
-    return axios.get(`user/jobs/${job_id}`, null, {
+    const { user_id, job_id } = data
+    return axios.get(`user/${user_id}/jobs/${job_id}`, null, {
         headers: {
             'Authorization': token
         }
