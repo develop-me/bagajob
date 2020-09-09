@@ -35,7 +35,7 @@ export const addJob = data => {
 // single job patch request
 export const updateJob = data => {
     const { user_id, job_id, job_data } = data
-    return axios.patch(`user/${user_id}job/${job_id}`, job_data, {
+    return axios.patch(`user/${user_id}jobs/${job_id}`, job_data, {
         headers: {
             'Authorization': token
         }
@@ -45,7 +45,7 @@ export const updateJob = data => {
 // single job delete request
 export const deleteJob = data => {
     const { user_id, job_id } = data
-    return axios.delete(`user/${user_id}job/${job_id}`, null, {
+    return axios.delete(`user/${user_id}jobs/${job_id}`, null, {
         headers: {
             'Authorization': token
         }
