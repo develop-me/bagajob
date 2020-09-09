@@ -48,7 +48,7 @@ export default (state, action) => {
         case LOGIN_POST_FAILURE:
             return {
                 ...state,
-                errors: payload
+                authResponse: payload.message
             }
         case FORGOT_PASSWORD_INIT_POST_REQUEST:
             return {
@@ -66,6 +66,6 @@ export default (state, action) => {
                 errors: payload
             }
         default:
-            return state
+            return {}
     }
 }

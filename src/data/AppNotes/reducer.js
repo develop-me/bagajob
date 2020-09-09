@@ -74,6 +74,6 @@ export default (state, action) => {
                 errors: payload
             }
         default:
-            return state
+            return {}
     }
 }
