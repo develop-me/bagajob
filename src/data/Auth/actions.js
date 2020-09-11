@@ -1,7 +1,8 @@
 import {
     signUp as apiSignUp,
     login as apiLogin,
-    forgotPasswordInit as apiForgotPasswordInit
+    forgotPasswordInit as apiForgotPasswordInit,
+    passwordReset as apiPasswordReset
 } from '../ApiRequests/auth'
 
 import {
@@ -14,7 +15,10 @@ import {
     LOGIN_POST_FAILURE,
     FORGOT_PASSWORD_INIT_POST_REQUEST,
     FORGOT_PASSWORD_INIT_POST_SUCCESS,
-    FORGOT_PASSWORD_INIT_POST_FAILURE
+    FORGOT_PASSWORD_INIT_POST_FAILURE,
+    PASSWORD_RESET_POST_REQUEST,
+    PASSWORD_RESET_POST_SUCCESS,
+    PASSWORD_RESET_POST_FAILURE
 } from './constants'
 
 // sign up user then redirect them to dashboard
@@ -127,6 +131,42 @@ const forgotPasswordInitSuccess = data => dispatch => (
 const forgotPasswordInitFailure = error => dispatch => (
     dispatch({
         type: FORGOT_PASSWORD_INIT_POST_FAILURE,
+        payload: error
+    })
+)
+
+// password reset request
+export const passwordReset = () => dispatch => {
+    return new Promise((resolve, reject) => {
+        dispatch(passwordResetRequest())
+        apiPasswordReset()
+            .then(successResponse => {
+                dispatch(passwordResetSuccess(successResponse))
+                resolve(successResponse)
+            })
+            .catch(errorResponse => {
+                dispatch(passwordResetFailure(errorResponse))
+                reject(errorResponse)
+            })
+    })
+}
+
+const passwordResetRequest = () => dispatch => (
+    dispatch({
+        type: PASSWORD_RESET_POST_REQUEST
+    })
+)
+
+const passwordResetSuccess = data => dispatch => (
+    dispatch({
+        type: PASSWORD_RESET_POST_SUCCESS,
+        payload: data
+    })
+)
+
+const passwordResetFailure = error => dispatch => (
+    dispatch({
+        type: PASSWORD_RESET_POST_FAILURE,
         payload: error
     })
 )
