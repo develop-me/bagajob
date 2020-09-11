@@ -18,8 +18,8 @@ const App = () => (
       <Route exact path="/home" component={Home} />
       <Route exact path="/home/login" component={Login} />
       <Route exact path="/home/signup" component={SignUp} />
-      <Route path="/home/forgot-password" component={ForgotPassword} />
-      <Route path="/home/password-reset/:token" component={PasswordReset} />
+      <Route path="/forgot-password" component={ForgotPassword} />
+      <Route path="/password-reset/:token" component={PasswordReset} />
       <PrivateRoute path="/mainpage" component={MainPage} />
       <PrivateRoute path="/jobs/:id" component={Job} />
       <PrivateRoute path="/account" component={Account} />
