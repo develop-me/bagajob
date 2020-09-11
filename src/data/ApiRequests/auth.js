@@ -18,3 +18,8 @@ export const login = data => {
 export const forgotPasswordInit = () => {
     return axios.post('reset-password-without-token')
 }
+
+// password reset request with password reset token
+export const passwordReset = data => {
+    return axios.post('reset-password-with-token', data)
+}
