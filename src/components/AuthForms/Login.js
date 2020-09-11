@@ -80,9 +80,12 @@ const Login = ({ history }) => {
                         className="primarybtn login-btn"
                     >LOG IN
                     </button>
-                    <button className="secondarybtn signup-btn" type="submit">
+                    <Link
+                        to="/home/signup"
+                        className="secondarybtn signup-btn"
+                    >
                         SIGN UP
-                    </button>
+                    </Link>
                     <b>{authResponse !== null && authResponse}</b>
                 </form>
             </div>
