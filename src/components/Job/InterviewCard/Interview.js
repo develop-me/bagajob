@@ -30,6 +30,8 @@ const Interview = ({ interview }) => {
             interview_id,
             interview_data: { ...data },
         }))
+
+        setEditing(false)
     }
 
     const handleDeleteInterview = () => {
@@ -103,13 +105,9 @@ const Interview = ({ interview }) => {
                     notes
                     }
                 </label>
-
-                {editing ?
-                    <button type="submit" onClick={() => setEditing(false)}>Save</button>
-                    :
-                    <button onClick={() => setEditing(true)}>Edit</button>
-                }
+                <button type="submit">Save</button>
             </form>
+            {!editing && <button onClick={() => setEditing(true)}>Edit</button>}
             <button onClick={handleDeleteInterview}>Delete</button>
         </>
     )
