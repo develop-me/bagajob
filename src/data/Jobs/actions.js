@@ -62,6 +62,8 @@ const getJobsFailure = error => dispatch => (
 
 // gets single job from user's jobs table
 export const getSingleJob = data => dispatch => {
+    // can put if statement to check existing state
+    // typical and good practice to instantiate initial state with a null, allows you to check if something is null, then do the get request, prevents need to then make request
     return new Promise((resolve, reject) => {
         dispatch(getJobRequest())
         apiGetJob(data)
