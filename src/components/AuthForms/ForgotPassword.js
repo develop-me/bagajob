@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { forgotPasswordInit } from '../../data/Auth/actions'
 import useFormValidation from '../../customHooks/useFormValidation'
 
@@ -8,7 +7,6 @@ const initialState = {
 }
 
 const ForgotPassword = () => {
-    const { authResponse } = useSelector(state => state)
     // destructuring the properties returned from the custom hook
     const {
         handleSubmit,

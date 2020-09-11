@@ -4,10 +4,10 @@ const token = localStorage.getItem('user')
 
 // jobs get request
 export const getJobs = data => {
-    const user_id = data
+    const { user_id, access_token } = data
     return axios.get(`user/${user_id}/jobs`, null, {
         headers: {
-            'Authorization': token
+            'Authorization': access_token
         }
     })
 }

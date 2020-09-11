@@ -70,7 +70,7 @@ const Login = ({ history }) => {
                     </div>
                     {errors.password && <p>{errors.password}</p>}
                     <Link
-                        to="/home/forgot-password"
+                        to="/forgot-password"
                         className="login-prompt password-forgot"
                     >Forgot password?
                     </Link>

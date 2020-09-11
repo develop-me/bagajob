@@ -21,7 +21,7 @@ import {
     PASSWORD_RESET_POST_FAILURE
 } from './constants'
 
-// sign up user then redirect them to dashboard
+// sign up user then redirect them to mainpage
 export const signUp = (data, history) => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(signUpRequest())
@@ -29,7 +29,7 @@ export const signUp = (data, history) => dispatch => {
             .then(successResponse => {
                 dispatch(signUpSuccess(successResponse))
                 setTimeout(() => {
-                    history.push("/dashboard");
+                    history.push("/mainpage");
                 }, 300)
                 resolve(successResponse)
             })
@@ -68,7 +68,7 @@ export const login = (data, history) => dispatch => {
             .then(successResponse => {
                 dispatch(loginSuccess(successResponse))
                 setTimeout(() => {
-                    history.push("/dashboard");
+                    history.push("/mainpage");
                 }, 300)
                 resolve(successResponse)
             })
@@ -88,7 +88,7 @@ const loginRequest = () => dispatch => (
 const loginSuccess = data => dispatch => (
     dispatch({
         type: LOGIN_POST_SUCCESS,
-        payload: data
+        payload: data.data
     })
 )
 
@@ -100,10 +100,10 @@ const loginFailure = error => dispatch => (
 )
 
 // forgot password initial request
-export const forgotPasswordInit = () => dispatch => {
+export const forgotPasswordInit = data => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(forgotPasswordInitRequest())
-        apiForgotPasswordInit()
+        apiForgotPasswordInit(data)
             .then(successResponse => {
                 dispatch(forgotPasswordInitSuccess(successResponse))
                 resolve(successResponse)

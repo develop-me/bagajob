@@ -7,7 +7,8 @@ import { getJobs } from '../../data/Jobs/actions'
 
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
-    const { jobs, user: { id: user_id } } = useSelector(state => state)
+    // we are destructuring the user's access token (bearer token) and their id from global state, so when this component loads they can be used in the get request for the user's jobs
+    const { jobs, user: { access_token, user: { id: user_id } } } = useSelector(state => state)
     const dispatch = useDispatch()
 
     // opens job form modal
@@ -20,8 +21,15 @@ const MainPage = () => {
         setOpen(false)
     }
 
+    // when component mounts, send an object with the user's access token and id to the action
     useEffect(() => {
-        dispatch(getJobs(user_id));
+        const data = {
+            access_token,
+            user_id
+        }
+
+        // will have to dispatch 3 actions here, one to get jobs, one to get interviews and one to get application notes
+        dispatch(getJobs(data));
     }, []);
 
     return (

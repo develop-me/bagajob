@@ -11,12 +11,12 @@ export const login = data => {
         username: data.email,
         password: data.password
     }
-    return axios.post('user/login', login_data)
+    return axios.post('login', login_data)
 }
 
 // initial forgot password post request, responds with an email to the user
-export const forgotPasswordInit = () => {
-    return axios.post('reset-password-without-token')
+export const forgotPasswordInit = data => {
+    return axios.post('reset-password-without-token', data)
 }
 
 // password reset request with password reset token

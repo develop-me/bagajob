@@ -8,14 +8,14 @@ const initialState = {
     jobs: [
         {
             id: 1,
-            jobTitle: "Job 1",
+            title: "Job 1",
             company: "company 1",
             stage: 2,
             active: true
         },
         {
             id: 2,
-            jobTitle: "Job 2",
+            title: "Job 2",
             company: "company 2",
             stage: 3,
             active: true
@@ -57,10 +57,16 @@ const initialState = {
         ]
     },
     user: {
-        id: 5,
-        name: "Adam Gardner",
-        email: "adam@mail.com",
-        password: "kad93u0jdjda"
+        token_type: "Bearer",
+        expires_in: "31536000",
+        access_token: "<token>",
+        refresh_token: "<token>",
+        user: {
+            id: 5,
+            name: "Adam Gardner",
+            email: "adam@mail.com",
+            created_at: "2020-09-01 14:22:46"
+        }
     },
     authResponse: null,
     loaded: true,
