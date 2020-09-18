@@ -148,8 +148,16 @@ const JobForm = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
+        const user_id = { ...state.user.id}
+        
+        // Issue #50 - user_id = null
+        console.log(user_id)
+
         // assigns the job object in state to data variable
         const data = { ...state.job }
+
+        // Works correctly
+        console.log(data)
 
         // dispatches object with user id and job data
         dispatchAction(addJob({
