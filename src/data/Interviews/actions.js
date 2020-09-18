@@ -41,7 +41,7 @@ const addInterviewRequest = () => dispatch => (
 const addInterviewSuccess = data => dispatch => (
     dispatch({
         type: INTERVIEW_POST_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -77,7 +77,7 @@ const updateInterviewRequest = () => dispatch => (
 const updateInterviewSuccess = data => dispatch => (
     dispatch({
         type: INTERVIEW_PATCH_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -113,7 +113,7 @@ const deleteInterviewRequest = () => dispatch => (
 const deleteInterviewSuccess = data => dispatch => (
     dispatch({
         type: INTERVIEW_DELETE_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 

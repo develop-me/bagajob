@@ -5,7 +5,7 @@ const token = localStorage.getItem('user')
 // interview post request
 export const addInterview = data => {
     const { user_id, job_id, access_token } = data
-    return axios.post(`user/${user_id}/jobs/${job_id}/interviews`, null, {
+    return axios.post(`user/${user_id}/jobs/${job_id}/interviews`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
@@ -27,7 +27,7 @@ export const updateInterview = data => {
 // interview delete request
 export const deleteInterview = data => {
     const { user_id, job_id, interview_id, access_token } = data
-    return axios.delete(`user/${user_id}/jobs/${job_id}/interviews/${interview_id}`, null, {
+    return axios.delete(`user/${user_id}/jobs/${job_id}/interviews/${interview_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }

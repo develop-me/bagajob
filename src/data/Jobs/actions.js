@@ -87,14 +87,14 @@ const getJobRequest = () => dispatch => (
 const getJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_GET_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
 const getJobFailure = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_GET_FAILURE,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -123,7 +123,7 @@ const addJobRequest = () => dispatch => (
 const addJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_POST_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -159,7 +159,7 @@ const updateJobRequest = () => dispatch => (
 const updateJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_PATCH_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -195,7 +195,7 @@ const deleteJobRequest = () => dispatch => (
 const deleteJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_DELETE_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 

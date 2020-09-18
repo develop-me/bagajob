@@ -37,7 +37,7 @@ const updateAccountRequest = () => dispatch => {
 const updateAccountSuccess = data => dispatch => {
     dispatch({
         type: ACCOUNT_PATCH_SUCCESS,
-        payload: data,
+        payload: data.data.data,
     })
 }
 
@@ -73,7 +73,7 @@ const deleteAccountRequest = () => dispatch => {
 const deleteAccountSuccess = data => dispatch => {
     dispatch({
         type: ACCOUNT_DELETE_SUCCESS,
-        payload: data
+        payload: data.data.data,
     })
 }
 

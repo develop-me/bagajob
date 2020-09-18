@@ -41,7 +41,7 @@ const addAppNoteRequest = () => dispatch => (
 const addAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_POST_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -77,7 +77,7 @@ const updateAppNoteRequest = () => dispatch => (
 const updateAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_PATCH_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -113,7 +113,7 @@ const deleteAppNoteRequest = () => dispatch => (
 const deleteAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_DELETE_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 

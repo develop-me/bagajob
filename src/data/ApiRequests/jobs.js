@@ -15,7 +15,7 @@ export const getJobs = data => {
 // single job get request
 export const getJob = data => {
     const { user_id, job_id, access_token } = data
-    return axios.get(`user/${user_id}/jobs/${job_id}`, null, {
+    return axios.get(`user/${user_id}/jobs/${job_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
@@ -25,7 +25,7 @@ export const getJob = data => {
 // single job post request
 export const addJob = data => {
     const { user_id, job_data, access_token } = data
-    return axios.post(`user/${user_id}/jobs`, job_data, {
+    return axios.post(`user/${user_id}/jobs`, job_data,  {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
@@ -45,7 +45,7 @@ export const updateJob = data => {
 // single job delete request
 export const deleteJob = data => {
     const { user_id, job_id, access_token } = data
-    return axios.delete(`user/${user_id}jobs/${job_id}`, null, {
+    return axios.delete(`user/${user_id}jobs/${job_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
