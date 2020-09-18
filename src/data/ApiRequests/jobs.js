@@ -24,7 +24,8 @@ export const getJob = data => {
 
 // single job post request
 export const addJob = data => {
-    const { user_id, job_data, access_token } = data
+    // access_token is not in data, it is in state
+    const { user_id, access_token, job_data, } = data
     return axios.post(`user/${user_id}/jobs`, job_data, {
         headers: {
             'Authorization': `Bearer ${access_token}`

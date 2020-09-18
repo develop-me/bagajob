@@ -70,7 +70,7 @@ const JobForm = () => {
     const [state, dispatch] = useReducer(jobFormReducer, initialState);
     const dispatchAction = useDispatch();
     const user_id = useSelector(state => state.user.user.id);
-    console.log(user_id)
+    const access_token = useSelector(state => state.user.access_token);
     const {
         job: {
             title,
@@ -157,6 +157,7 @@ const JobForm = () => {
         // dispatches object with user id and job data
         dispatchAction(addJob({
             user_id,
+            access_token,
             job_data: data
         }))
 
