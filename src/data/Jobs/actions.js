@@ -123,7 +123,7 @@ const addJobRequest = () => dispatch => (
 const addJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_POST_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
