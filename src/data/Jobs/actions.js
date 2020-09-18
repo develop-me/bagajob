@@ -27,8 +27,8 @@ import {
 // gets all jobs from user's jobs table (only the properties needed for job preview component)
 export const getJobs = data => dispatch => {
     return new Promise((resolve, reject) => {
-        dispatch(getJobsRequest())
-        apiGetJobs(data)
+        dispatch(getJobsRequest()) // modifies value of 'loaded'
+        apiGetJobs(data) // axios "get"
             .then(successResponse => {
                 dispatch(getJobsSuccess(successResponse))
                 resolve(successResponse)
@@ -49,7 +49,7 @@ const getJobsRequest = () => dispatch => (
 const getJobsSuccess = data => dispatch => (
     dispatch({
         type: JOBS_GET_SUCCESS,
-        payload: data,
+        payload: data.data.data, //three levels deep
     })
 )
 

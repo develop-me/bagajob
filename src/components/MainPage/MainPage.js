@@ -22,7 +22,7 @@ const MainPage = () => {
     }
 
     // when component mounts, send an object with the user's access token and id to the action
-    useEffect(() => {
+    useEffect(() => { // (ie componentdidmount)
         const data = {
             access_token,
             user_id
