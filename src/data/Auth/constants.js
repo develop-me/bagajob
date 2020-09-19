@@ -1,5 +1,7 @@
 export const RESET_AUTH_RESPONSE = 'RESET_AUTH_RESPONSE'
 
+export const RESET_ERRORS = 'RESET_ERRORS'
+
 // signup post request
 export const SIGNUP_POST_REQUEST = 'SIGNUP_POST_REQUEST'
 

@@ -1,5 +1,6 @@
 import {
     RESET_AUTH_RESPONSE,
+    RESET_ERRORS,
     SIGNUP_POST_REQUEST,
     SIGNUP_POST_SUCCESS,
     SIGNUP_POST_FAILURE,
@@ -17,6 +18,11 @@ import {
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case RESET_ERRORS:
+            return {
+                ...state,
+                errors: null
+            }
         case RESET_AUTH_RESPONSE:
             return {
                 ...state,

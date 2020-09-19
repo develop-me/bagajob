@@ -7,6 +7,7 @@ import {
 
 import {
     RESET_AUTH_RESPONSE,
+    RESET_ERRORS,
     SIGNUP_POST_REQUEST,
     SIGNUP_POST_SUCCESS,
     SIGNUP_POST_FAILURE,
@@ -175,5 +176,12 @@ const passwordResetFailure = error => dispatch => (
 export const resetAuthResponse = () => dispatch => {
     dispatch({
         type: RESET_AUTH_RESPONSE
+    })
+}
+
+// reset errors
+export const resetErrors = () => dispatch => {
+    dispatch({
+        type: RESET_ERRORS
     })
 }

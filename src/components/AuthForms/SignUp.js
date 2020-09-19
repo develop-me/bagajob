@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import useFormValidation from "../../customHooks/useFormValidation"
-import { resetAuthResponse } from '../../data/Auth/actions'
-import { signUp } from '../../data/Auth/actions'
+import { resetAuthResponse, signUp } from '../../data/Auth/actions'
+import { resetErrors } from '../../data/Auth/actions'
 
 const initialState = {
     name: "",
@@ -12,7 +12,12 @@ const initialState = {
 }
 
 const SignUp = ({ history }) => {
+    const { loaded } = useSelector(state => state)
+    console.log(loaded)
     const { authResponse } = useSelector(state => state)
+    console.log("Auth Response: " + authResponse)
+    const authErrors = useSelector(state => state.errors)
+    console.log(authErrors)
     const dispatch = useDispatch()
     // destructuring the properties returned from the custom hook
     const {
@@ -26,6 +31,11 @@ const SignUp = ({ history }) => {
     // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
+    }, [])
+
+    // resets errors global state property every time component renders
+    useEffect(() => {
+        dispatch(resetErrors())
     }, [])
 
     return (
@@ -73,7 +83,9 @@ const SignUp = ({ history }) => {
                     >
                         CREATE ACCOUNT
                     </button>
-                    {authResponse !== null && <p>{authResponse}</p>}
+                    {authResponse !== null && loaded === false ? <p>{authResponse}</p> : null}
+                    {/* the below error can be modified later for a more user friendly message */}
+                    {authErrors !== null ? <p>{authErrors.message}</p> : null}
                     <p className="login-prompt">
                         Already have an account? <Link to="/home/login">Log in</Link>
                     </p>
