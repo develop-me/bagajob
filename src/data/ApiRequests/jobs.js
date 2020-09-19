@@ -1,5 +1,6 @@
 import axios from '../axios'
 
+// access_token is instead taken from 'data'
 // const token = localStorage.getItem('user')
 
 // jobs get request

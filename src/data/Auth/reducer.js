@@ -16,8 +16,6 @@ import {
     LOGOUT
 } from './constants'
 
-const usersDefaultState = []
-
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
