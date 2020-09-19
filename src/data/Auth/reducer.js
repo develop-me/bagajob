@@ -95,7 +95,6 @@ export default (state, action) => {
                 loaded: true
             }
         case LOGOUT:
-            //loggin out too soon (on component load)
             return {
                 authResponse: 'Successfully logged out',
                 user: {},

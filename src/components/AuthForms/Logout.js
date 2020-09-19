@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { resetAuthResponse, logout } from '../../data/Auth/actions'
+import checkmark from '../../assets/images/done-24px.svg'
 
 const initialState = {
     email: "",
@@ -25,27 +26,33 @@ const Logout = () => {
 
     return (
         <>
-            {/* requires styling */}
-            <h1 className="brand-text">bagajob</h1>
+        {/* requires styling */}
+        <h1 className="brand-text">bagajob</h1>
 
-            <div className="form-container-small logout-container">
+        <div className="form-container-small logout-container">
+
+            { access_token ? 
+            <>
                 <h1 className="para-header">Are you sure you want to log out?</h1>
-                
-                { access_token ? 
-                    <button className="primarybtn" type="submit" onClick={handleClick}>
-                        LOG OUT
+                <button className="primarybtn" type="submit" onClick={handleClick}>
+                    LOG OUT
+                </button>
+                </>
+                :
+                <>
+                <img class="check-icon" src={checkmark} alt="green checkmark"></img>
+                <h1 class="headline">Logged Out</h1>
+                <Link to="/home/login"> 
+                    <button className="primarybtn">
+                        RETURN TO LOGIN
                     </button>
-                    :
-                    <Link to="/home/login"> 
-                        <button className="primarybtn">
-                            RETURN TO LOGIN
-                        </button>
-                    </Link>
-                    }
+                </Link>
+                </>
+                }
 
-                <b>{authResponse !== null && authResponse}</b>
-            </div>
-        </>
+            <b>{authResponse !== null && authResponse}</b>
+        </div>
+    </>
     )
 }
 
