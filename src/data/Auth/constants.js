@@ -1,5 +1,7 @@
+// clear authResponse from global state
 export const RESET_AUTH_RESPONSE = 'RESET_AUTH_RESPONSE'
 
+// clear errors from global state
 export const RESET_ERRORS = 'RESET_ERRORS'
 
 // signup post request
