@@ -12,8 +12,11 @@ import {
     FORGOT_PASSWORD_INIT_POST_FAILURE,
     PASSWORD_RESET_POST_REQUEST,
     PASSWORD_RESET_POST_SUCCESS,
-    PASSWORD_RESET_POST_FAILURE
+    PASSWORD_RESET_POST_FAILURE,
+    LOGOUT
 } from './constants'
+
+const usersDefaultState = []
 
 export default (state, action) => {
     const { type, payload } = action
@@ -89,6 +92,14 @@ export default (state, action) => {
             return {
                 ...state,
                 errors: payload,
+                loaded: true
+            }
+        case LOGOUT:
+            //loggin out too soon (on component load)
+            return {
+                authResponse: 'Successfully logged out',
+                user: {},
+                errors: null,
                 loaded: true
             }
         default:

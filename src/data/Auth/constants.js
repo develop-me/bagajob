@@ -18,6 +18,9 @@ export const LOGIN_POST_SUCCESS = 'LOGIN_POST_SUCCESS'
 
 export const LOGIN_POST_FAILURE = 'LOGIN_POST_FAILURE'
 
+// logout (no request, clears state)
+export const LOGOUT = 'LOGOUT'
+
 // initial forgot password post request
 export const FORGOT_PASSWORD_INIT_POST_REQUEST = 'FORGOT_PASSWORD_INIT_POST_REQUEST'
 

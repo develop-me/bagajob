@@ -19,7 +19,8 @@ import {
     FORGOT_PASSWORD_INIT_POST_FAILURE,
     PASSWORD_RESET_POST_REQUEST,
     PASSWORD_RESET_POST_SUCCESS,
-    PASSWORD_RESET_POST_FAILURE
+    PASSWORD_RESET_POST_FAILURE,
+    LOGOUT
 } from './constants'
 
 // sign up user then redirect them to mainpage
@@ -183,5 +184,12 @@ export const resetAuthResponse = () => dispatch => {
 export const resetErrors = () => dispatch => {
     dispatch({
         type: RESET_ERRORS
+    })
+}
+
+// Log Out
+export const logout = () => dispatch => {
+    dispatch({
+        type: LOGOUT
     })
 }

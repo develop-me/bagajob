@@ -1,6 +1,6 @@
 import axios from '../axios'
 
-const token = localStorage.getItem('user')
+// const token = localStorage.getItem('user')
 
 // jobs get request
 export const getJobs = data => {
