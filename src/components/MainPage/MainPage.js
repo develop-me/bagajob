@@ -35,7 +35,7 @@ const MainPage = () => {
     return (
         <>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <a>Sort by</a>
+                <a href="">Sort by</a>
                 <button onClick={openModal}>Add new application</button>
 
             </div>

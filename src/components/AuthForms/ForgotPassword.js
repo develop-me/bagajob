@@ -1,6 +1,7 @@
-import React from 'react'
-import { forgotPasswordInit } from '../../data/Auth/actions'
+import React, { useEffect } from 'react'
+import { forgotPasswordInit, resetAuthResponse } from '../../data/Auth/actions'
 import useFormValidation from '../../customHooks/useFormValidation'
+import { useSelector, useDispatch } from 'react-redux'
 
 const initialState = {
     email: ""
@@ -15,6 +16,15 @@ const ForgotPassword = () => {
         errors,
         isSubmitting
     } = useFormValidation(initialState, forgotPasswordInit)
+
+    const dispatch = useDispatch()
+    // resets authResponse global state property every time component renders
+    useEffect(() => {
+        dispatch(resetAuthResponse())
+    }, [])
+    
+    const { authResponse } = useSelector(state => state)
+    const { loaded } = useSelector(state => state)
 
     return (
         <div style={{
@@ -38,6 +48,7 @@ const ForgotPassword = () => {
                     disabled={isSubmitting}
                 >Submit
                 </button>
+                {authResponse !== null && loaded !== false ? <p>{authResponse}</p> : null}
             </form>
         </div>
     )
