@@ -40,8 +40,8 @@ const Logout = () => {
                 </>
                 :
                 <>
-                <img class="check-icon" src={checkmark} alt="green checkmark"></img>
-                <h1 class="headline">Logged Out</h1>
+                <img className="check-icon" src={checkmark} alt="green checkmark"></img>
+                <h1 className="headline">Logged Out</h1>
                 <Link to="/home/login"> 
                     <button className="primarybtn">
                         RETURN TO LOGIN
