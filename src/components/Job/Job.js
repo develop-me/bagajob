@@ -7,7 +7,6 @@ import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
 const Job = ({ match }) => {
-    console.log(match)
     const { job, loaded, user: { id: user_id } } = useSelector(state => state)
     const dispatch = useDispatch()
     const job_id = match.params.id
