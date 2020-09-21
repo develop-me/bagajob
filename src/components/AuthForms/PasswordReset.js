@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { passwordReset } from '../../data/Auth/actions'
-import { useQueryParam, NumberParam, StringParam } from 'use-query-params'
+import { useQueryParam, StringParam } from 'use-query-params'
 
 const PasswordReset = (props) => {
     const [password, setPassword] = useState('')
