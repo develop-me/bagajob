@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { forgotPasswordInit, resetAuthResponse } from '../../data/Auth/actions'
+import { forgotPasswordInit, resetAuthResponse, resetErrors } from '../../data/Auth/actions'
 import useFormValidation from '../../customHooks/useFormValidation'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -21,6 +21,10 @@ const ForgotPassword = () => {
     // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
+    }, [])
+    // resets errors property in global state every time component renders
+    useEffect(() => {
+        dispatch(resetErrors())
     }, [])
     
     const { authResponse } = useSelector(state => state)
