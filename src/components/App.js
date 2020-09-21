@@ -27,7 +27,7 @@ const App = () => (
         <PrivateRoute path="/mainpage" component={MainPage} />
         <PrivateRoute path="/jobs/:id" component={Job} />
         <PrivateRoute path="/account" component={Account} />
-        {/* <Route component={FourOhFour} /> */}
+        <Route component={FourOhFour} />
       </Switch>
     </QueryParamProvider>
   </BrowserRouter>
