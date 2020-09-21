@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { QueryParamProvider } from 'use-query-params'
 import PrivateRoute from './PrivateRoute'
 import Home from './Home'
 import Login from './AuthForms/Login'
@@ -14,19 +15,21 @@ import FourOhFour from './FourOhFour'
 
 const App = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/home/login" component={Login} />
-      <Route exact path="/home/signup" component={SignUp} />
-      <Route exact path="/home/logout" component={Logout} />
-      <Route path="/forgot-password" component={ForgotPassword} />
-      <Route path="/password-reset/:token" component={PasswordReset} />
-      <PrivateRoute path="/mainpage" component={MainPage} />
-      <PrivateRoute path="/jobs/:id" component={Job} />
-      <PrivateRoute path="/account" component={Account} />
-      <Route component={FourOhFour} />
-    </Switch>
+    <QueryParamProvider ReactRouterRoute={Route}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/home/login" component={Login} />
+        <Route exact path="/home/signup" component={SignUp} />
+        <Route exact path="/home/logout" component={Logout} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/password-reset/" component={PasswordReset} />
+        <PrivateRoute path="/mainpage" component={MainPage} />
+        <PrivateRoute path="/jobs/:id" component={Job} />
+        <PrivateRoute path="/account" component={Account} />
+        {/* <Route component={FourOhFour} /> */}
+      </Switch>
+    </QueryParamProvider>
   </BrowserRouter>
 )
 

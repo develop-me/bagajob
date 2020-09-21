@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { passwordReset } from '../../data/Auth/actions'
+import { useQueryParam, NumberParam, StringParam } from 'use-query-params'
 
 const PasswordReset = (props) => {
     const [password, setPassword] = useState('')
@@ -8,10 +9,10 @@ const PasswordReset = (props) => {
     const [lengthWarning, setLengthWarning] = useState(null)
     const [matchWarning, setMatchWarning] = useState(null)
     const dispatch = useDispatch()
+
     // get the email and reset token from the incoming url
-    const query = new URLSearchParams(props.location.search)
-    const email = query.get('email')
-    const token = query.get('token')
+    const [email, setEmail] = useQueryParam('email', StringParam)
+    const [token, setToken] = useQueryParam('token', StringParam)
 
     const handleSubmit = e => {
         e.preventDefault()
