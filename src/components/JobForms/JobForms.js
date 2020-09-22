@@ -62,6 +62,8 @@ const initialState = {
         interview_notes: "",
         interview_format: "select",
         interviewer: "",
+        active: "1",
+        stage: "1"
     },
     step: 1
 }
@@ -86,7 +88,9 @@ const JobForm = () => {
             interview_date,
             interview_notes,
             interview_format,
-            interviewer
+            interviewer,
+            active,
+            stage
         },
         step
     } = state
@@ -148,8 +152,6 @@ const JobForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-
-        console.log(user_id)
 
         // assigns the job object in state to data variable
         const data = { ...state.job }
