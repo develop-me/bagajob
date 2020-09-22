@@ -8,7 +8,7 @@ import { getJobs } from '../../data/Jobs/actions'
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
     // we are destructuring the user's access token (bearer token) and their id from global state, so when this component loads they can be used in the get request for the user's jobs
-    const { jobs, user: { access_token, user: { id: user_id } } } = useSelector(state => state)
+    const { jobs, user: { access_token,  id: user_id } } = useSelector(state => state)
     const dispatch = useDispatch()
 
     // opens job form modal

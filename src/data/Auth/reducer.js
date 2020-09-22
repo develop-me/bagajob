@@ -35,9 +35,12 @@ export default (state, action) => {
                 authResponse: 'Loading...'
             }
         case SIGNUP_POST_SUCCESS:
+        const data = { ...payload.data }
+        const access_token = payload.data.success.token
             return {
                 ...state,
-                authResponse: 'Signup successful! Logging in...'
+                authResponse: 'Signup successful! Logging in...',
+                user: { ...data.user, access_token }
             }
         case SIGNUP_POST_FAILURE:
             return {
@@ -97,7 +100,7 @@ export default (state, action) => {
                 authResponse: 'Successfully logged out',
                 user: {},
                 errors: null,
-                loaded: true
+                loaded: true,
             }
         default:
             return {}
