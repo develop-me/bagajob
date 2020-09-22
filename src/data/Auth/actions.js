@@ -37,7 +37,6 @@ export const signUp = (data, history) => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(signUpFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -76,7 +75,6 @@ export const login = (data, history) => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(loginFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -138,17 +136,16 @@ const forgotPasswordInitFailure = error => dispatch => (
 )
 
 // password reset request
-export const passwordReset = () => dispatch => {
+export const passwordReset = (data) => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(passwordResetRequest())
-        apiPasswordReset()
+        apiPasswordReset(data)
             .then(successResponse => {
                 dispatch(passwordResetSuccess(successResponse))
                 resolve(successResponse)
             })
             .catch(errorResponse => {
                 dispatch(passwordResetFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }

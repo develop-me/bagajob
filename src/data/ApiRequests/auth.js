@@ -3,6 +3,10 @@ import axios from '../axios'
 // sign up user post request
 export const signUp = data => {
     return axios.post('register', data)
+    // return new Promise((resolve, reject) => { 
+    //     resolve(axios.post('register', data))
+        
+    // })
 }
 
 // login user post request
