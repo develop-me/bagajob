@@ -13,7 +13,7 @@ const Nav = () => {
                 <h1 className="navbar-brand">bagajob</h1>
             </Link>
 
-        { access_token ?
+        { access_token && name !== "" ?
         <>   
             <div className="dropdown">
                 <button className="dropbtn">
