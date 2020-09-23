@@ -2,11 +2,12 @@ import axios from '../axios'
 
 // sign up user post request
 export const signUp = data => {
-    return axios.post('register', data)
-    // return new Promise((resolve, reject) => { 
-    //     resolve(axios.post('register', data))
-        
-    // })
+    const { access_token } = data
+    return axios.post('register', data, {
+        headers: {
+            'Authorization': `Bearer ${access_token}`
+        }
+    })
 }
 
 // login user post request
