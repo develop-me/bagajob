@@ -39,7 +39,6 @@ export default (state, action) => {
             return {
                 ...state,
                 authResponse: 'Signup successful! Logging in...',
-                payload: { ...payload },
                 user: { ...payload.data.user, access_token },
                 user_id: payload.data.user.id
             }
