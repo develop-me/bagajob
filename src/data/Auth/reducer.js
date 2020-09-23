@@ -32,12 +32,16 @@ export default (state, action) => {
         case SIGNUP_POST_REQUEST:
             return {
                 ...state,
-                authResponse: 'Loading...'
+                authResponse: 'Loading...',
             }
         case SIGNUP_POST_SUCCESS:
+            const access_token = payload.data.success.token
             return {
                 ...state,
-                authResponse: 'Signup successful! Logging in...'
+                authResponse: 'Signup successful! Logging in...',
+                payload: { ...payload },
+                user: { ...payload.data.user, access_token },
+                user_id: payload.data.user.id
             }
         case SIGNUP_POST_FAILURE:
             return {
@@ -53,7 +57,8 @@ export default (state, action) => {
             return {
                 ...state,
                 authResponse: 'Redirecting you to dashboard...',
-                user: { ...payload }
+                user: { ...payload },
+                user_id: payload.user.id
             }
         case LOGIN_POST_FAILURE:
             return {
@@ -97,7 +102,7 @@ export default (state, action) => {
                 authResponse: 'Successfully logged out',
                 user: {},
                 errors: null,
-                loaded: true
+                loaded: true,
             }
         default:
             return {}
