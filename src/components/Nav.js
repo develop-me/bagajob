@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 const Nav = () => {
     const { name } = useSelector(state => state) 
-    const initials = name.split(" ").map((n)=>n[0]).join(".").toUpperCase()
+    const initials = name.split(" ").map((n)=>n[0]).join("").toUpperCase()
     const access_token = useSelector(state => state.user.access_token)
     return (
         <>
