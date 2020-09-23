@@ -27,7 +27,6 @@ export const addAppNote = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(addAppNoteFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -63,7 +62,6 @@ export const updateAppNote = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(updateAppNoteFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -99,7 +97,6 @@ export const deleteAppNote = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(deleteAppNoteFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
