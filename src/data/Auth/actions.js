@@ -110,7 +110,6 @@ export const forgotPasswordInit = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(forgotPasswordInitFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }

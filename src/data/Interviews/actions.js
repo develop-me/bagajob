@@ -27,7 +27,6 @@ export const addInterview = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(addInterviewFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -63,7 +62,6 @@ export const updateInterview = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(updateInterviewFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -99,7 +97,6 @@ export const deleteInterview = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(deleteInterviewFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
