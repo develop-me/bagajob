@@ -23,7 +23,6 @@ export const updateAccount = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(updateAccountFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -59,7 +58,6 @@ export const deleteAccount = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(deleteAccountFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }

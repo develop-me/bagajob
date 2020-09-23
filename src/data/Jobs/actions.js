@@ -35,7 +35,6 @@ export const getJobs = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(getJobsFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -73,7 +72,6 @@ export const getSingleJob = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(getJobFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -109,7 +107,6 @@ export const addJob = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(addJobFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -145,7 +142,6 @@ export const updateJob = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(updateJobFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
@@ -181,7 +177,6 @@ export const deleteJob = data => dispatch => {
             })
             .catch(errorResponse => {
                 dispatch(deleteJobFailure(errorResponse))
-                reject(errorResponse)
             })
     })
 }
