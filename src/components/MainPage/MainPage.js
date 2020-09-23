@@ -4,6 +4,7 @@ import Modal from 'react-modal'
 import JobPreview from './JobPreview'
 import JobForms from '../JobForms/JobForms'
 import { getJobs } from '../../data/Jobs/actions'
+import Nav from '../Nav'
 
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
@@ -34,6 +35,7 @@ const MainPage = () => {
 
     return (
         <>
+        <Nav />
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <a href="">Sort by</a>
                 <button onClick={openModal}>Add new application</button>

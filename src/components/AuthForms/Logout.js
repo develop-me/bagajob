@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { resetAuthResponse, logout } from '../../data/Auth/actions'
 import checkmark from '../../assets/images/done-24px.svg'
+import Nav from '../Nav'
 
 const initialState = {
     email: "",
@@ -27,7 +28,7 @@ const Logout = () => {
     return (
         <>
         {/* requires styling */}
-        <h1 className="brand-text">bagajob</h1>
+        <Nav />
 
         <div className="form-container-small logout-container">
 

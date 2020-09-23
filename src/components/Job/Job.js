@@ -20,12 +20,22 @@ const Job = ({ match }) => {
         dispatch(getSingleJob(data));
     }, []);
 
-    return !loaded ? <Loading /> : (
+    return (
+        <>
+        { !loaded ?
+            <> 
+            <Loading /> 
+            </>
+        : 
+        <>
         <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
             <JobDetailsCard job={job} />
             <ApplicationCard job={job} />
             <InterviewCard job={job} />
         </div>
+        </>
+        }
+        </>
     )
 }
 

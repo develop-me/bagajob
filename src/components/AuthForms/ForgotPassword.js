@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { forgotPasswordInit, resetAuthResponse, resetErrors } from '../../data/Auth/actions'
 import useFormValidation from '../../customHooks/useFormValidation'
 import { useSelector, useDispatch } from 'react-redux'
+import Nav from '../Nav'
 
 const initialState = {
     email: ""
@@ -31,6 +32,8 @@ const ForgotPassword = () => {
     const { loaded } = useSelector(state => state)
 
     return (
+        <>
+        <Nav />
         <div style={{
             height: "100vh",
             display: "flex",
@@ -55,6 +58,7 @@ const ForgotPassword = () => {
                 {authResponse !== null && loaded !== false ? <p>{authResponse}</p> : null}
             </form>
         </div>
+        </>
     )
 }
 

@@ -5,6 +5,7 @@ import { resetAuthResponse, login } from '../../data/Auth/actions'
 import useFormValidation from '../../customHooks/useFormValidation'
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
+import Nav from '../Nav'
 
 const initialState = {
     email: "",
@@ -30,7 +31,7 @@ const Login = ({ history }) => {
 
     return (
         <>
-            <h1 className="brand-text">bagajob</h1>
+        <Nav />
             <div className="form-container-small login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-form-input-container">

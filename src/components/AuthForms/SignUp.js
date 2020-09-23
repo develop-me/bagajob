@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import useFormValidation from "../../customHooks/useFormValidation"
 import { resetAuthResponse, signUp, resetErrors } from '../../data/Auth/actions'
+import Nav from '../Nav'
 
 const initialState = {
     name: "",
@@ -38,7 +39,7 @@ const SignUp = ({ history }) => {
 
     return (
         <>
-            <h1 className="brand-text">bagajob</h1>
+        <Nav />
             <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="signup-form-input-container">

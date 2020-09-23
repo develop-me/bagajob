@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { passwordReset } from '../../data/Auth/actions'
 import { useQueryParam, StringParam } from 'use-query-params'
+import Nav from '../Nav'
 
 const PasswordReset = (props) => {
     const [password, setPassword] = useState('')
@@ -32,6 +33,7 @@ const PasswordReset = (props) => {
     }
 
     return (
+        <> <Nav />
         <form onSubmit={handleSubmit}>
             <h1>Password Reset</h1>
             <h3>Please enter your new password (at least 6 characters).</h3>
@@ -49,7 +51,7 @@ const PasswordReset = (props) => {
             />
             {matchWarning !== null && matchWarning}
             <button type="submit">Submit</button>
-        </form>
+        </form> </>
     )
 }
 
