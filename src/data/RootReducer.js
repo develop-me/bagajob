@@ -70,7 +70,8 @@ const initialState = {
     },
     authResponse: null,
     loaded: true,
-    errors: null
+    errors: null,
+    name: ""
 }
 
 const RootReducer = (state = initialState, action) => ({
