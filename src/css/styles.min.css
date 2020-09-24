@@ -724,6 +724,11 @@ input {
   text-decoration: none;
 }
 
+.navbar p {
+  color: var(--white);
+  font-family: "LatoLight";
+}
+
 /* The dropdown container */
 .dropdown {
   float: right;

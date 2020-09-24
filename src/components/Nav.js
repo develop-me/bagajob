@@ -20,9 +20,9 @@ const Nav = () => {
                     { initials }
                 </button>
                 <div className="dropdown-content">
-                <Link to="/mainpage"><a href="#">My Applications</a></Link>
-                <Link to="/account"> <a href="#">My Account</a></Link>
-                <Link to="/home/logout"> <a href="#">Logout</a></Link>
+                <Link to="/mainpage"><p href="#">My Applications</p></Link>
+                <Link to="/account"> <p href="#">My Account</p></Link>
+                <Link to="/home/logout"> <p href="#">Logout</p></Link>
                 </div>
             </div>
             </>
