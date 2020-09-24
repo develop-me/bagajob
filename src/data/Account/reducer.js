@@ -20,17 +20,18 @@ export default (state, action) => {
             return {
                 ...state,
                 loaded: true,
-                user: { ...payload.user },
-                user_id: payload.user.id,
-                name: payload.user.name,
-                email: payload.user.email,
-                access_token: payload.user.access_token,
+                // user: { ...payload.user },
+                // user_id: payload.user.id,
+                // name: payload.user.name,
+                // email: payload.user.email,
+                // access_token: payload.user.access_token,
             }
         case ACCOUNT_PATCH_FAILURE:
             return {
                 ...state,
+                errors: payload,
                 loaded: true,
-                errors: payload
+
             }
         case ACCOUNT_DELETE_REQUEST:
             return {
@@ -43,7 +44,7 @@ export default (state, action) => {
                 ...state,
                 user: "",
                 name: "",
-                authResponse: "",
+                authResponse: "Account Deleted!",
                 user_id: "",
                 access_token: "", 
                 loaded: true

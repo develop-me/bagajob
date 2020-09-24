@@ -22,7 +22,7 @@ export default (state, action) => {
         case RESET_ERRORS:
             return {
                 ...state,
-                errors: null
+                errors: {}
             }
         case RESET_AUTH_RESPONSE:
             return {
@@ -107,7 +107,7 @@ export default (state, action) => {
             return {
                 authResponse: 'Successfully logged out',
                 user: {},
-                errors: null,
+                errors: {},
                 loaded: true,
             }
         default:

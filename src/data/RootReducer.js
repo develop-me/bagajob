@@ -70,7 +70,7 @@ const initialState = {
     },
     authResponse: null,
     loaded: true,
-    errors: null,
+    errors: {},
     name: "",
     email: ""
 }

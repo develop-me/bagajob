@@ -32,20 +32,20 @@ const Account = ( data ) => {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", width: "30rem", margin: "0 auto" }}>
                 <AccountDetail
                     accountDetailName="email"
-                    value={ name }
+                    value={ email }
                 />
                 <AccountDetail
                     accountDetailName="name"
-                    value={ email }
+                    value={ name }
                 />
-                <button onClick={ handleDeleteAccount }>DELETE MY ACCOUNT</button>
+                <button onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
             </div>
                             
 
         </>
         :  
         <>
-            <img className="check-icon" src={ checkmark } alt="green checkmark"></img>
+            <img className="check-icon" src={checkmark} alt="green checkmark"></img>
             <h1 className="headline">Account Deleted</h1>
             <Link to="/home"> 
                 <button className="primarybtn">
