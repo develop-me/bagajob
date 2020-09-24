@@ -62,6 +62,7 @@ export default (state, action) => {
                 user: payload,
                 user_id: payload.user.id,
                 name: payload.user.name,
+                email: payload.user.email,
                 access_token: payload.access_token
      
             }

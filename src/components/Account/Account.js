@@ -8,9 +8,7 @@ import { resetAuthResponse } from '../../data/Auth/actions'
 import checkmark from '../../assets/images/done-24px.svg'
 
 const Account = ( data ) => {
-    const { user_id } = useSelector(state => state)
-    const { access_token } = useSelector(state => state)
-    const { loaded } = useSelector(state => state)
+    const { user_id, access_token, loaded, name, email } = useSelector(state => state)
     const errors = useSelector(state => state.errors)
 
     const dispatch = useDispatch()
@@ -34,20 +32,20 @@ const Account = ( data ) => {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", width: "30rem", margin: "0 auto" }}>
                 <AccountDetail
                     accountDetailName="email"
-                    value={1}
+                    value={ name }
                 />
                 <AccountDetail
                     accountDetailName="name"
-                    value={2}
+                    value={ email }
                 />
-                <button onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
+                <button onClick={ handleDeleteAccount }>DELETE MY ACCOUNT</button>
             </div>
                             
 
         </>
         :  
         <>
-            <img className="check-icon" src={checkmark} alt="green checkmark"></img>
+            <img className="check-icon" src={ checkmark } alt="green checkmark"></img>
             <h1 className="headline">Account Deleted</h1>
             <Link to="/home"> 
                 <button className="primarybtn">
