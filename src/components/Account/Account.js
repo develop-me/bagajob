@@ -2,21 +2,25 @@ import React from 'react'
 import AccountHeader from './AccountHeader'
 import AccountDetail from './AccountDetail'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { deleteAccount } from '../../data/Account/actions'
+import checkmark from '../../assets/images/done-24px.svg'
 
 const Account = ( data ) => {
     const { user_id } = useSelector(state => state)
     const { access_token } = useSelector(state => state)
-    console.log(access_token)
-    console.log(user_id)
+    const { loaded } = useSelector(state => state)
+    const authErrors = useSelector(state => state.errors)
     const dispatch = useDispatch()
 
     // disptaches action to delete user's account
     const handleDeleteAccount = () => {
-        dispatch(deleteAccount({ user_id }))
+        dispatch(deleteAccount({ user_id, access_token }))
     }
 
     return (
+        <>
+        { access_token ? 
         <>
             <AccountHeader />
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", width: "30rem", margin: "0 auto" }}>
@@ -30,6 +34,19 @@ const Account = ( data ) => {
                 />
                 <button onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
             </div>
+        </>
+        :  
+        <>
+            <img className="check-icon" src={checkmark} alt="green checkmark"></img>
+            <h1 className="headline">Account Deleted</h1>
+            <Link to="/home"> 
+                <button className="primarybtn">
+                    RETURN HOME
+                </button>
+            </Link>
+            </>
+        }
+        
         </>
     )
 }

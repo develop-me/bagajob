@@ -15,7 +15,7 @@ export const updateAccount = data => {
 // user delete request
 export const deleteAccount = data => {
     const { user_id, access_token } = data
-    return axios.delete(`user/${user_id}`, null, {
+    return axios.delete(`user/${user_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }

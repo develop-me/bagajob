@@ -13,16 +13,16 @@ export default (state, action) => {
         case ACCOUNT_PATCH_REQUEST:
             return {
                 ...state,
-                loaded: false
+                loaded: false,
             }
         case ACCOUNT_PATCH_SUCCESS:
             return {
                 ...state,
+                loaded: true,
                 user: { ...payload.user },
                 user_id: payload.user.id,
                 name: payload.user.name,
                 email: payload.user.email,
-                loaded: true,
                 access_token: payload.user.access_token,
             }
         case ACCOUNT_PATCH_FAILURE:
@@ -39,7 +39,11 @@ export default (state, action) => {
         case ACCOUNT_DELETE_SUCCESS:
             return {
                 ...state,
-                user: {},
+                user: "",
+                name: "",
+                authResponse: "",
+                user_id: "",
+                access_token: "", 
                 loaded: true
             }
         case ACCOUNT_DELETE_FAILURE:
