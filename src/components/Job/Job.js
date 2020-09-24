@@ -6,23 +6,37 @@ import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
-const Job = ({ jobId }) => {
-    // brings in single job fetched from database
-    const { job, loaded } = useSelector(state => state.job)
-
+const Job = ({ match }) => {
+    const { job, loaded, user: { id: user_id } } = useSelector(state => state)
     const dispatch = useDispatch()
+    const job_id = match.params.id
 
+    // single job is fetched when component renders
     useEffect(() => {
-        dispatch(getSingleJob(jobId));
+        const data = {
+            user_id,
+            job_id
+        }
+        dispatch(getSingleJob(data));
     }, []);
 
-    return !loaded ? <Loading /> : (
+    return (
+        <>
+        { !loaded ?
+            <> 
+            <Loading /> 
+            </>
+        : 
+        <>
         <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
             <JobDetailsCard job={job} />
             <ApplicationCard job={job} />
             <InterviewCard job={job} />
         </div>
+        </>
+        }
+        </>
     )
-};
+}
 
-export default Job;
+export default Job

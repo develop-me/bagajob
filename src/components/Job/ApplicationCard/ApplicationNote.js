@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateAppNote, deleteAppNote } from '../../../data/AppNotes/actions'
 
 const ApplicationNote = ({ applicationNote }) => {
-    let [editing, setEditing] = useState(true)
-    let [note, setNote] = useState(applicationNote.note_data)
-
+    const [editing, setEditing] = useState(true)
+    const [note, setNote] = useState(applicationNote.data)
     const dispatch = useDispatch()
-    // the necessary ids to make updateInterview put request
-    const { id: user_id } = useSelector(state => state.auth.user)
-    const { id: job_id } = useSelector(state => state.job.job)
+    // the necessary ids to make updateAppNote patch request
+    const { id: user_id } = useSelector(state => state.user)
+    const { id: job_id } = useSelector(state => state.job)
     const { id: note_id } = applicationNote
 
-    const submitNote = e => {
+    // updates single application card note
+    const handleUpdateAppNote = e => {
         e.preventDefault()
 
         dispatch(updateAppNote({
@@ -23,7 +23,8 @@ const ApplicationNote = ({ applicationNote }) => {
         }))
     }
 
-    const handleDelete = () => {
+    // deletes single application card note
+    const handleDeleteAppNote = () => {
         dispatch(deleteAppNote({
             user_id,
             job_id,
@@ -32,30 +33,24 @@ const ApplicationNote = ({ applicationNote }) => {
     }
 
     return (
-        <form onSubmit={e => submitNote(e)}>
-            {
-                editing ?
-                    <textarea
+        <>
+            {editing ?
+                <form onSubmit={handleUpdateAppNote}>
+                    < textarea
                         cols="30"
                         rows="10"
-                        id="note"
                         value={note}
-                        onChange={e => setNote(e.target.value)
-                        }
+                        onChange={e => setNote(e.target.value)}
                     />
-                    :
-                    <p>{note} {applicationNote.note_date}</p>
+                    <button type="submit" onClick={setEditing(false)}>Save</button>
+                </form >
+                :
+                <p>{note} {applicationNote.date}</p>
             }
+            {!editing && <button onClick={() => setEditing(true)}>Edit</button>}
+            <button onClick={handleDeleteAppNote}>Delete</button>
+        </>
+    )
+}
 
-            {
-                editing ?
-                    <button type="submit" onClick={() => setEditing(false)}>Save</button>
-                    :
-                    <button onClick={() => setEditing(true)}>Edit</button>
-            }
-            <button onClick={handleDelete}>Delete</button>
-        </form >
-    );
-};
-
-export default ApplicationNote;
+export default ApplicationNote

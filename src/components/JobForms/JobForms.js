@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewJob } from '../../data/Jobs/actions'
+import { addJob } from '../../data/Jobs/actions'
 import JobDetailsForm from './JobDetailsForm'
 import ApplicationDetailsForm from './ApplicationDetailsForm'
 import InterviewDetailsForm from './InterviewDetailsForm'
@@ -62,6 +62,8 @@ const initialState = {
         interview_notes: "",
         interview_format: "select",
         interviewer: "",
+        active: "1",
+        stage: "1"
     },
     step: 1
 }
@@ -69,7 +71,8 @@ const initialState = {
 const JobForm = () => {
     const [state, dispatch] = useReducer(jobFormReducer, initialState);
     const dispatchAction = useDispatch();
-    const user = useSelector(state => state.auth.user)
+    const user_id = useSelector(state => state.user.user.id);
+    const access_token = useSelector(state => state.user.access_token);
     const {
         job: {
             title,
@@ -85,7 +88,9 @@ const JobForm = () => {
             interview_date,
             interview_notes,
             interview_format,
-            interviewer
+            interviewer,
+            active,
+            stage
         },
         step
     } = state
@@ -152,12 +157,13 @@ const JobForm = () => {
         const data = { ...state.job }
 
         // dispatches object with user id and job data
-        dispatchAction(addNewJob({
-            user_id: user.id,
-            job_data: state.data
+        dispatchAction(addJob({
+            user_id,
+            access_token,
+            job_data: data
         }))
 
-        dispatch({ type: 'resetForm' })
+        dispatch({ type: 'RESET_FORM' })
     }
     return (
         <form onSubmit={handleSubmit}>

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import Nav from './Nav'
 
 const Home = () => {
     return (
         <>
+        <Nav />
             <Link to="/home/">
                 <h1 className="brand-title">bagajob</h1>
             </Link>

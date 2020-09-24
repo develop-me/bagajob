@@ -2,97 +2,63 @@ import React from 'react'
 import JobDetail from './JobDetail'
 
 const JobDetailsCard = ({ job }) => {
-
-    // destructure job object properties
     const {
-        jobTitle,
+        title,
         company,
-        jobDescription,
+        description,
         salary,
         location,
-        dateApplied,
-        closingDate,
-        recruiterName,
-        recruiterEmail,
-        recruiterPhone
+        date_applied,
+        closing_date
     } = job
 
     return (
-        <>
-            <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
-                <h1 className="para_header">Job Details</h1>
-                <JobDetail
-                    label="Job Title"
-                    job={job}
-                    value={jobTitle}
-                    inputType="text"
-                    jobProperty="jobTitle"
-                />
-                <JobDetail
-                    label="Company"
-                    job={job}
-                    value={company}
-                    inputType="text"
-                    jobProperty="company"
-                />
-                <JobDetail
-                    label="Job Description"
-                    job={job}
-                    value={jobDescription}
-                    inputType="text"
-                    jobProperty="jobDescription"
-                />
-                <JobDetail
-                    label="Salary p/a"
-                    job={job}
-                    value={salary}
-                    inputType="number"
-                    jobProperty="salary"
-                />
-                <JobDetail
-                    label="Location"
-                    job={job}
-                    value={location}
-                    inputType="text"
-                    jobProperty="location"
-                />
-                <JobDetail
-                    label="Date Applied"
-                    job={job}
-                    value={dateApplied}
-                    inputType="date"
-                    jobProperty="dateApplied"
-                />
-                <JobDetail
-                    label="Closing Date"
-                    job={job}
-                    value={closingDate}
-                    inputType="date"
-                    jobProperty="closingDate"
-                />
-                <JobDetail
-                    label="Recruiter Name"
-                    job={job} value={recruiterName}
-                    inputType="text"
-                    jobProperty="recruiterName"
-                />
-                <JobDetail
-                    label="Recruiter Email"
-                    job={job}
-                    value={recruiterEmail}
-                    inputType="email"
-                    jobProperty="recruiterEmail"
-                />
-                <JobDetail
-                    label="Recruiter Phone"
-                    job={job}
-                    value={recruiterPhone}
-                    inputType="text"
-                    jobProperty="recruiterPhone"
-                />
-            </div>
-        </>
-    );
-};
+        <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
+            <h1 className="para_header">Job Details</h1>
+            <JobDetail
+                label="Job Title"
+                inputType="text"
+                jobProperty="title"
+                value={title}
+            />
+            <JobDetail
+                label="Company"
+                inputType="text"
+                jobProperty="company"
+                value={company}
+            />
+            <JobDetail
+                label="Job Description"
+                inputType="text"
+                jobProperty="description"
+                value={description}
+            />
+            <JobDetail
+                label="Salary p/a"
+                inputType="number"
+                jobProperty="salary"
+                value={salary}
+            />
+            <JobDetail
+                label="Location"
+                inputType="text"
+                jobProperty="location"
+                value={location}
+            />
+            <JobDetail
+                label="Date Applied"
+                inputType="date"
+                jobProperty="date_applied"
+                value={date_applied}
+            />
+            <JobDetail
+                label="Closing Date"
+                inputType="date"
+                jobProperty="closing_date"
+                value={closing_date}
+            />
+        </div>
+    )
+}
 
-export default JobDetailsCard;
+export default JobDetailsCard

@@ -1,26 +1,24 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateJobDetails } from '../../../data/Jobs/actions'
+import { updateJob } from '../../../data/Jobs/actions'
 
-const JobDetail = ({ job, value, inputType, jobProperty, label }) => {
-    const [jobInput, setJobInput] = useState(value)
+const JobDetail = ({ label, inputType, jobProperty, value }) => {
+    const [jobInputValue, setJobInputValue] = useState(value)
     const [editing, setEditing] = useState(false)
-    const { id: user_id } = useSelector(state => state.auth.user)
-    const { id: job_id } = job
     const dispatch = useDispatch()
+    const { user: { id: user_id }, job: { id: job_id } } = useSelector(state => state)
 
     // dispatches action with updated job detail
-    const handleSave = () => {
-        let data = {
-            ...job,
-            [jobProperty]: jobInput,
+    const handleUpdateJob = () => {
+        const data = {
+            user_id,
+            job_id,
+            job_data: {
+                [jobProperty]: jobInputValue
+            }
         }
 
-        dispatch(updateJobDetails({
-            job_id,
-            user_id,
-            job_data: data
-        }))
+        dispatch(updateJob(data))
 
         setEditing(false)
     }
@@ -36,19 +34,19 @@ const JobDetail = ({ job, value, inputType, jobProperty, label }) => {
                 {editing ?
                     <input
                         id={jobProperty}
-                        value={jobInput}
+                        value={jobInputValue}
                         type={inputType}
-                        onChange={e => setJobInput(e.target.value)}
+                        onChange={e => setJobInputValue(e.target.value)}
                     />
                     :
-                    <p>{jobInput}</p>
+                    <p>{jobInputValue}</p>
                 }
             </div>
             {editing ?
                 <button
                     style={{ height: "2rem" }}
                     type="submit"
-                    onClick={() => handleSave()}
+                    onClick={handleUpdateJob}
                 >Save
                 </button>
                 :
@@ -59,7 +57,7 @@ const JobDetail = ({ job, value, inputType, jobProperty, label }) => {
                 </button>
             }
         </div>
-    );
-};
+    )
+}
 
-export default JobDetail;
+export default JobDetail

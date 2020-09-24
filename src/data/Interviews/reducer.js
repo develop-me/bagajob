@@ -1,39 +1,78 @@
 import {
-    // APPLICATION_NOTE_POST_REQUEST,
-    // APPLICATION_NOTE_PUT_REQUEST,
-    // APPLICATION_NOTE_DELETE_REQUEST,
+    INTERVIEW_POST_REQUEST,
+    INTERVIEW_POST_SUCCESS,
+    INTERVIEW_POST_FAILURE,
+    INTERVIEW_PATCH_REQUEST,
+    INTERVIEW_PATCH_SUCCESS,
+    INTERVIEW_PATCH_FAILURE,
+    INTERVIEW_DELETE_REQUEST,
+    INTERVIEW_DELETE_SUCCESS,
+    INTERVIEW_DELETE_FAILURE
 } from './constants'
 
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
-        // case APPLICATION_NOTE_POST_REQUEST:
-        //     return {
-        //         ...state,
-        //         job: {
-        //             ...state.job,
-        //             application_notes: [...state.application_notes, payload]
-        //         },
-        //         loa
-        //     }
-        // case APPLICATION_NOTE_PUT_REQUEST:
-        //     return {
-        //         ...state,
-        //         job: {
-        //             ...state.job,
-        //             application_notes: state.job.application_notes.map(note => note.id === payload.id ? payload : note)
-        //         },
-        //         loaded: true
-        //     }
-        // case APPLICATION_NOTE_DELETE_REQUEST:
-        //     return {
-        //         ...state,
-        //         job: {
-        //             ...state.job.job,
-        //             application_notes: state.job.application_notes.filter(note => note.id !== payload)
-        //         },
-        //         loaded: true
-        //     }
+        case INTERVIEW_POST_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case INTERVIEW_POST_SUCCESS:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    interviews: [...state.interviews, payload]
+                },
+                loaded: true
+            }
+        case INTERVIEW_POST_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case INTERVIEW_PATCH_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case INTERVIEW_PATCH_SUCCESS:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    interviews: state.job.interviews.map(interview => interview.id === payload.id ? payload : interview)
+                },
+                loaded: true
+            }
+        case INTERVIEW_PATCH_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case INTERVIEW_DELETE_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case INTERVIEW_DELETE_SUCCESS:
+            return {
+                ...state,
+                job: {
+                    ...state.job,
+                    INTERVIEWs: state.job.interviews.filter(interview => interview.id !== payload)
+                },
+                loaded: true
+            }
+        case INTERVIEW_DELETE_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
         default:
             return {}
     }

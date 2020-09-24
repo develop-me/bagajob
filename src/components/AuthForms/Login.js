@@ -1,73 +1,97 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { resetAuthResponse, loginUser } from '../../data/Auth/actions'
+import { resetAuthResponse, login } from '../../data/Auth/actions'
+import useFormValidation from '../../customHooks/useFormValidation'
 import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
+import Nav from '../Nav'
+
+const initialState = {
+    email: "",
+    password: ""
+}
 
 const Login = ({ history }) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
+    const { authResponse } = useSelector(state => state)
     const dispatch = useDispatch()
+    // destructuring the properties returned from the custom hook
+    const {
+        handleSubmit,
+        handleChange,
+        values,
+        errors,
+        isSubmitting
+    } = useFormValidation(initialState, login, history)
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        const state = {
-            email: email,
-            password: password,
-        }
-
-        dispatch(loginUser(state, history))
-    }
-
-    // brings in authResponse global state property
-    const authResponse = useSelector(state => state.authResponse)
-
-    // resets authResponse every time component renders
+    // resets authResponse global state property every time component renders
     useEffect(() => {
         dispatch(resetAuthResponse())
     }, [])
 
     return (
         <>
-            <h1 className="brand-text">bagajob</h1>
+        <Nav />
             <div className="form-container-small login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-form-input-container">
-                        <span><img className="email-icon" src={email_icon} alt="email-icon" /></span>
+                        <span>
+                            <img
+                                className="email-icon"
+                                src={email_icon}
+                                alt="An icon representing an email"
+                            />
+                        </span>
                         <input
-                            value={email}
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
                             placeholder="Email address"
-                            onChange={e => setEmail(e.target.value)}
+                            value={values.email}
+                            onChange={handleChange}
                         />
                     </div>
+                    {errors.email && <p>{errors.email}</p>}
                     <div className="login-form-input-container">
-                        <span><img className="password-icon" src={lock_icon} alt="password-icon" /></span>
+                        <span>
+                            <img
+                                className="password-icon"
+                                src={lock_icon}
+                                alt="An icon representing a password"
+                            />
+                        </span>
                         <input
-                            value={password}
                             type="password"
                             id="password"
                             name="password"
                             placeholder="Password"
-                            onChange={e => setPassword(e.target.value)}
+                            value={values.password}
+                            onChange={handleChange}
                         />
                     </div>
-                    <p className="login-prompt password-forgot">Forgot password?</p>
-                    <button className="primarybtn login-btn" type="submit" id="">
-                        LOG IN
+                    {errors.password && <p>{errors.password}</p>}
+                    <Link
+                        to="/forgot-password"
+                        className="login-prompt password-forgot"
+                    >Forgot password?
+                    </Link>
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="primarybtn login-btn"
+                    >LOG IN
                     </button>
-                    <button className="secondarybtn signup-btn" type="submit" id="">
+                    <Link
+                        to="/home/signup"
+                        className="secondarybtn signup-btn"
+                    >
                         SIGN UP
-                    </button>
+                    </Link>
                     <b>{authResponse !== null && authResponse}</b>
                 </form>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login

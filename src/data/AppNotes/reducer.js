@@ -1,15 +1,23 @@
 import {
     APPLICATION_NOTE_POST_REQUEST,
     APPLICATION_NOTE_POST_SUCCESS,
-    APPLICATION_NOTE_PUT_REQUEST,
-    APPLICATION_NOTE_PUT_SUCCESS,
+    APPLICATION_NOTE_POST_FAILURE,
+    APPLICATION_NOTE_PATCH_REQUEST,
+    APPLICATION_NOTE_PATCH_SUCCESS,
+    APPLICATION_NOTE_PATCH_FAILURE,
     APPLICATION_NOTE_DELETE_REQUEST,
-    APPLICATION_NOTE_DELETE_SUCCESS
+    APPLICATION_NOTE_DELETE_SUCCESS,
+    APPLICATION_NOTE_DELETE_FAILURE
 } from './constants'
 
 export default (state, action) => {
     const { type, payload } = action
     switch (type) {
+        case APPLICATION_NOTE_POST_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
         case APPLICATION_NOTE_POST_SUCCESS:
             return {
                 ...state,
@@ -19,7 +27,18 @@ export default (state, action) => {
                 },
                 loaded: true
             }
-        case APPLICATION_NOTE_PUT_SUCCESS:
+        case APPLICATION_NOTE_POST_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case APPLICATION_NOTE_PATCH_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
+        case APPLICATION_NOTE_PATCH_SUCCESS:
             return {
                 ...state,
                 job: {
@@ -28,14 +47,31 @@ export default (state, action) => {
                 },
                 loaded: true
             }
+        case APPLICATION_NOTE_PATCH_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
+            }
+        case APPLICATION_NOTE_DELETE_REQUEST:
+            return {
+                ...state,
+                loaded: false
+            }
         case APPLICATION_NOTE_DELETE_SUCCESS:
             return {
                 ...state,
                 job: {
-                    ...state.job.job,
+                    ...state.job,
                     application_notes: state.job.application_notes.filter(note => note.id !== payload)
                 },
                 loaded: true
+            }
+        case APPLICATION_NOTE_DELETE_FAILURE:
+            return {
+                ...state,
+                loaded: true,
+                errors: payload
             }
         default:
             return {}

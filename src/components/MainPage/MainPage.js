@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal'
 import JobPreview from './JobPreview'
 import JobForms from '../JobForms/JobForms'
+import { getJobs } from '../../data/Jobs/actions'
+import Nav from '../Nav'
 
 const MainPage = () => {
     const [showModal, setOpen] = useState(false)
-    const jobs = useSelector(state => state.job.jobs)
+    // we are destructuring the user's access token (bearer token) and their id from global state, so when this component loads they can be used in the get request for the user's jobs
+    const { jobs, user: { access_token }, user_id } = useSelector(state => state)
+    const dispatch = useDispatch()
 
     // opens job form modal
     const openModal = () => {
@@ -18,10 +22,22 @@ const MainPage = () => {
         setOpen(false)
     }
 
+    // when component mounts, send an object with the user's access token and id to the action
+    useEffect(() => { // (ie componentdidmount)
+        const data = {
+            access_token,
+            user_id
+        }
+
+        // will have to dispatch 3 actions here, one to get jobs, one to get interviews and one to get application notes
+        dispatch(getJobs(data));
+    }, []);
+
     return (
         <>
+        <Nav />
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <a>Sort by</a>
+                <a href="">Sort by</a>
                 <button onClick={openModal}>Add new application</button>
 
             </div>
@@ -39,7 +55,7 @@ const MainPage = () => {
                 <JobForms />
             </Modal>
         </>
-    );
-};
+    )
+}
 
-export default MainPage;
+export default MainPage

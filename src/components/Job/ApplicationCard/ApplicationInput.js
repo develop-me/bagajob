@@ -1,40 +1,59 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateJobDetails } from '../../../data/Jobs/actions'
+import { updateJob } from '../../../data/Jobs/actions'
 
-const ApplicationInput = ({ appInput, jobProperty, job }) => {
-    const [input, setInput] = useState(appInput)
+const ApplicationInput = ({ appCardInput, jobProperty }) => {
+    const [inputValue, setInput] = useState(appCardInput)
     const [editing, setEditing] = useState(false)
-
     const dispatch = useDispatch()
 
     // dispatches action with updated cv or cover letter
-    const handleSave = () => {
-        let updatedJob = {
-            ...job,
-            [jobProperty]: input,
+    const handleUpdateJob = () => {
+        const job_data = {
+            [jobProperty]: inputValue
         }
 
-        dispatch(updateJobDetails(updatedJob))
+        dispatch(updateJob(job_data))
+
         setEditing(false)
     }
 
     return (
-        <div>
+        <>
+            <label htmlFor={jobProperty}>
+                {jobProperty === "cv"
+                    ?
+                    "CV:"
+                    :
+                    "Cover Letter:"
+                }
+            </label>
             {editing
                 ?
-                <input id={input} type="text" value={input} onChange={e => setInput(e.target.value)} />
+                <input
+                    type="text"
+                    id={jobProperty}
+                    value={inputValue}
+                    onChange={e => setInput(e.target.value)}
+                />
                 :
-                <p>{jobProperty === "cv" ? "CV:" : "Cover Letter:"} {input === null ? "-" : input}</p>
+                <p>
+                    {inputValue === null
+                        ?
+                        "-"
+                        :
+                        inputValue
+                    }
+                </p>
             }
             {editing
                 ?
-                <button onClick={() => handleSave()}>Save</button>
+                <button onClick={handleUpdateJob}>Save</button>
                 :
                 <button onClick={() => setEditing(true)}>Edit</button>
             }
-        </div>
-    );
-};
+        </>
+    )
+}
 
-export default ApplicationInput;
+export default ApplicationInput
