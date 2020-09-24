@@ -13,6 +13,7 @@ export default (state, action) => {
         case ACCOUNT_PATCH_REQUEST:
             return {
                 ...state,
+                errors: {},
                 loaded: false,
             }
         case ACCOUNT_PATCH_SUCCESS:
@@ -34,6 +35,7 @@ export default (state, action) => {
         case ACCOUNT_DELETE_REQUEST:
             return {
                 ...state,
+                errors: {},
                 loaded: false
             }
         case ACCOUNT_DELETE_SUCCESS:

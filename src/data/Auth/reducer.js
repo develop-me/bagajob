@@ -27,7 +27,8 @@ export default (state, action) => {
         case RESET_AUTH_RESPONSE:
             return {
                 ...state,
-                authResponse: null
+                authResponse: null,
+                errors: {}
             }
         case SIGNUP_POST_REQUEST:
             return {
@@ -58,7 +59,7 @@ export default (state, action) => {
             return {
                 ...state,
                 authResponse: 'Redirecting you to dashboard...',
-                user: { ...payload },
+                user: payload,
                 user_id: payload.user.id,
                 name: payload.user.name,
                 access_token: payload.access_token
