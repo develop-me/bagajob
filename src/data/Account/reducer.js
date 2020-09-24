@@ -18,8 +18,12 @@ export default (state, action) => {
         case ACCOUNT_PATCH_SUCCESS:
             return {
                 ...state,
-                user: { ...payload },
-                loaded: true
+                user: { ...payload.user },
+                user_id: payload.user.id,
+                name: payload.user.name,
+                email: payload.user.email,
+                loaded: true,
+                access_token: payload.user.access_token,
             }
         case ACCOUNT_PATCH_FAILURE:
             return {

@@ -62,16 +62,17 @@ const initialState = {
         access_token: "<token>",
         refresh_token: "<token>",
         user: {
-            id: 5,
-            name: "Adam Gardner",
-            email: "adam@mail.com",
+            id: "",
+            name: "",
+            email: "",
             created_at: "2020-09-01 14:22:46"
         }
     },
     authResponse: null,
     loaded: true,
     errors: null,
-    name: ""
+    name: "",
+    email: ""
 }
 
 const RootReducer = (state = initialState, action) => ({

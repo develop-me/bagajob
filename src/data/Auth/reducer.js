@@ -41,7 +41,8 @@ export default (state, action) => {
                 authResponse: 'Signup successful! Logging in...',
                 user: { ...payload.data.user, access_token },
                 user_id: payload.data.user.id,
-                name: payload.data.user.name
+                name: payload.data.user.name,
+                access_token: access_token
             }
         case SIGNUP_POST_FAILURE:
             return {
@@ -60,6 +61,8 @@ export default (state, action) => {
                 user: { ...payload },
                 user_id: payload.user.id,
                 name: payload.user.name,
+                access_token: payload.access_token
+     
             }
         case LOGIN_POST_FAILURE:
             return {

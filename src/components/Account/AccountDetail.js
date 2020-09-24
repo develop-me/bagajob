@@ -5,13 +5,15 @@ import { updateAccount } from '../../data/Account/actions'
 const AccountDetail = ({ accountDetailName, value }) => {
     const [editing, setEditing] = useState(false)
     const [accountInputValue, setAccountInputValue] = useState(value)
-    const { id: user_id } = useSelector(state => state.user)
+    const { user_id } = useSelector(state => state)
+    const { access_token } = useSelector(state => state)
     const dispatch = useDispatch()
 
     // dispatches action that updates user's account details
     const handleUpdateAccount = () => {
         dispatch(updateAccount({
             user_id,
+            access_token,
             account_data: {
                 [accountDetailName]: accountInputValue
             }
