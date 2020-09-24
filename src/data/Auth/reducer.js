@@ -43,6 +43,7 @@ export default (state, action) => {
                 user: { ...payload.data.user, access_token },
                 user_id: payload.data.user.id,
                 name: payload.data.user.name,
+                email: payload.data.user.email,
                 access_token: access_token
             }
         case SIGNUP_POST_FAILURE:
