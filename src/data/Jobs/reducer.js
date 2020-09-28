@@ -39,7 +39,7 @@ export default (state, action) => {
         case SINGLE_JOB_GET_REQUEST:
             return {
                 ...state,
-                loaded: false
+
             }
         case SINGLE_JOB_GET_SUCCESS:
             return {
@@ -58,15 +58,18 @@ export default (state, action) => {
         case SINGLE_JOB_POST_REQUEST:
             return {
                 ...state,
-                loaded: false
+                loaded: false,
+                loaded: false,
+                job_id: "",
             }
         case SINGLE_JOB_POST_SUCCESS:
             return {
                 ...state,
                 jobs: [
                     ...state.jobs,
-                    ...payload
+                    payload
                 ],
+                job_id: payload.data.data.id,
                 loaded: true
             }
         case SINGLE_JOB_POST_FAILURE:

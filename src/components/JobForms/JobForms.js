@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addJob } from '../../data/Jobs/actions'
+import { addAppNote } from '../../data/AppNotes/actions'
+import { addInterview } from '../../data/Interviews/actions'
 import JobDetailsForm from './JobDetailsForm'
 import ApplicationDetailsForm from './ApplicationDetailsForm'
 import InterviewDetailsForm from './InterviewDetailsForm'
@@ -45,37 +47,42 @@ const jobFormReducer = (state, action) => {
 // initial state of component
 const initialState = {
     job: {
-        title: "",
+        job_title: "",
         company: "",
         description: "",
         salary: 0,
         location: "",
         date_applied: "",
         closing_date: "",
-        recruiter_name: "",
-        recruiter_email: "",
-        recruiter_phone: "",
         cv: "",
         cover_letter: "",
         application_notes: "",
-        interview_date: "",
-        interview_notes: "",
-        interview_format: "select",
-        interviewer: "",
         active: "1",
         stage: "1"
+    },
+    interview : {
+        interview_date: "",
+        format: "select",
+        interviewer: "",
+        notes: ""
+    },
+    application_notes : {
+        date: "",
+        data: ""
     },
     step: 1
 }
 
 const JobForm = () => {
-    const [state, dispatch] = useReducer(jobFormReducer, initialState);
-    const dispatchAction = useDispatch();
-    const user_id = useSelector(state => state.user.user.id);
-    const access_token = useSelector(state => state.user.access_token);
+    const [state, dispatch] = useReducer(jobFormReducer, initialState)
+    const dispatchAction = useDispatch()
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+        console.log(job_id)
+    const access_token = useSelector(state => state.user.access_token)
     const {
         job: {
-            title,
+            job_title,
             company,
             description,
             salary,
@@ -84,20 +91,25 @@ const JobForm = () => {
             closing_date,
             cv,
             cover_letter,
-            application_notes,
-            interview_date,
-            interview_notes,
-            interview_format,
-            interviewer,
             active,
             stage
+        },
+        interview : {
+            interview_date,
+            format,
+            interviewer,
+            notes
+        },
+        application_notes : {
+            date,
+            data
         },
         step
     } = state
 
     // form fields for first step
     const firstFormValues = {
-        title,
+        job_title,
         company,
         description,
         salary,
@@ -110,15 +122,15 @@ const JobForm = () => {
     const secondFormValues = {
         cv,
         cover_letter,
-        application_notes
+        data
     }
 
     // form fields for third step
     const thirdFormValues = {
         interview_date,
-        interview_notes,
-        interview_format,
-        interviewer
+        format,
+        interviewer,
+        notes
     }
 
     // proceed to next step
@@ -150,29 +162,64 @@ const JobForm = () => {
         })
     }
 
-    const handleSubmit = e => {
+    const handleFirstSubmit = e => {
         e.preventDefault()
 
+        // 
+
         // assigns the job object in state to data variable
-        const data = { ...state.job }
+        const job_data = { ...state.job }
+
 
         // dispatches object with user id and job data
+        // Jobs/actions.js Line 100
         dispatchAction(addJob({
             user_id,
             access_token,
-            job_data: data
+            job_data: job_data,
         }))
+
+    }
+
+    const handleSecondSubmit = e => {
+        e.preventDefault()
+
+        // assigns the job object in state to data variable
+        const interview_data = { ...state.interview }
+        const notes_data = { ...state.application_notes }
+
+
+
+        dispatchAction(addAppNote({
+            user_id,
+            job_id,
+            access_token,
+            notes_data: notes_data,
+        }))
+
+
+        dispatchAction(addInterview({
+            user_id,
+            job_id,
+            access_token,
+            interview_data: interview_data,
+        }))
+
 
         dispatch({ type: 'RESET_FORM' })
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+        <form onSubmit={handleFirstSubmit}>
             <JobDetailsForm
                 currentStep={step === 1}
                 nextStep={nextStep}
+                handleFirstSubmit={handleFirstSubmit}
                 handleChange={handleChange}
                 values={firstFormValues}
             />
+        </form>
+        <form onSubmit={handleSecondSubmit}>
             <ApplicationDetailsForm
                 currentStep={step === 2}
                 nextStep={nextStep}
@@ -184,12 +231,13 @@ const JobForm = () => {
                 currentStep={step === 3}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                handleSubmit={handleSubmit}
+                handleSecondSubmit={handleSecondSubmit}
                 handleChange={handleChange}
                 handleInterviewFormat={handleInterviewFormat}
                 values={thirdFormValues}
             />
         </form>
+        </>
     )
 }
 

@@ -4,23 +4,24 @@ const JobDetailsForm = ({
     currentStep,
     nextStep,
     values,
-    handleChange
+    handleChange,
+    handleFirstSubmit
 }) => {
     return currentStep && (
         <>
             <h1 className="addjob-form-headerjob">Step 1: Job Details</h1>
             <h3>Here you can add details of the job you are applying for.</h3>
-            <form>
+            <form onSubmit={handleFirstSubmit, nextStep}>
                 <div className="form-input-group addjob-input-group addjob-input-jobtitle">
                     <label
                         className="label"
-                        htmlFor="title"
+                        htmlFor="job_title"
                     >Job Title
                     </label>
                     <input
                         type="text"
-                        id="title"
-                        value={values.title}
+                        id="job_title"
+                        value={values.job_title}
                         onChange={handleChange}
                     />
                 </div>
@@ -108,8 +109,9 @@ const JobDetailsForm = ({
                         onChange={handleChange}
                     />
                 </div>
+                <input type="submit" value="Next Step"/>
             </form>
-            <button onClick={nextStep}>Next step</button>
+
         </>
     );
 };
