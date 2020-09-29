@@ -15,13 +15,13 @@ const JobDetailsForm = ({
                 <div className="form-input-group addjob-input-group addjob-input-jobtitle">
                     <label
                         className="label"
-                        htmlFor="job_title"
+                        htmlFor="title"
                     >Job Title
                     </label>
                     <input
                         type="text"
-                        id="job_title"
-                        value={values.job_title}
+                        id="title"
+                        value={values.title}
                         onChange={handleJobChange}
                     />
                 </div>

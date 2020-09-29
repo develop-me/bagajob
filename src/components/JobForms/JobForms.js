@@ -72,7 +72,7 @@ today = yyyy + '-' + mm + '-' + dd
 // initial state of component
 const initialState = {
     job: {
-        job_title: "",
+        title: "",
         company: "",
         description: "",
         salary: 0,
@@ -105,7 +105,7 @@ const JobForm = () => {
     const access_token = useSelector(state => state.user.access_token)
     const {
         job: {
-            job_title,
+            title,
             company,
             description,
             salary,
@@ -132,7 +132,7 @@ const JobForm = () => {
 
     // form fields for first step
     const firstFormValues = {
-        job_title,
+        title,
         company,
         description,
         salary,
@@ -226,13 +226,10 @@ const JobForm = () => {
     const handleSecondSubmit = e => {
         e.preventDefault()
 
-        console.log("second submit")
-
         // assigns the invterview and notes objects in state to data variables
         const interview_data = { ...state.interview }
         const notes_data = { ...state.application_notes }
 
-        console.log(interview_data)
         console.log(notes_data)
 
 
