@@ -4,7 +4,7 @@ const JobDetailsForm = ({
     currentStep,
     nextStep,
     values,
-    handleChange,
+    handleJobChange,
     handleFirstSubmit
 }) => {
     return currentStep && (
@@ -22,7 +22,7 @@ const JobDetailsForm = ({
                         type="text"
                         id="job_title"
                         value={values.job_title}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div>
 
@@ -36,7 +36,7 @@ const JobDetailsForm = ({
                         type="text"
                         id="company"
                         value={values.company}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div>
 
@@ -50,7 +50,7 @@ const JobDetailsForm = ({
                         type="number"
                         id="salary"
                         value={values.salary}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div>
 
@@ -64,7 +64,7 @@ const JobDetailsForm = ({
                         type="text"
                         id="location"
                         value={values.location}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div >
 
@@ -78,7 +78,7 @@ const JobDetailsForm = ({
                         type="date"
                         id="date_applied"
                         value={values.date_applied}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div >
 
@@ -92,7 +92,7 @@ const JobDetailsForm = ({
                         type="date"
                         id="closing_date"
                         value={values.closing_date}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div >
 
@@ -106,7 +106,7 @@ const JobDetailsForm = ({
                         type="text"
                         id="description"
                         value={values.description}
-                        onChange={handleChange}
+                        onChange={handleJobChange}
                     />
                 </div>
                 <input type="submit" value="Next Step"/>

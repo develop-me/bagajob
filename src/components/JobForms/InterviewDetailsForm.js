@@ -3,9 +3,9 @@ import React from 'react';
 const InterviewDetailsForm = ({
     currentStep,
     prevStep,
-    handleSubmit,
+    handleSecondSubmit,
     values,
-    handleChange,
+    handleInterviewChange,
     handleInterviewFormat
 }) => {
     return currentStep && (
@@ -17,7 +17,7 @@ const InterviewDetailsForm = ({
                 type="date"
                 id="interview_date"
                 value={values.interview_date}
-                onChange={handleChange}
+                onChange={handleInterviewChange}
             />
 
             <label htmlFor="interview_format">Interview format</label>
@@ -36,19 +36,19 @@ const InterviewDetailsForm = ({
                 type="text"
                 id="interviewer"
                 value={values.interviewer}
-                onChange={handleChange}
+                onChange={handleInterviewChange}
             />
 
             <textarea
                 cols="30"
                 rows="10"
                 placeholder="Interview notes"
-                id="interview_notes"
-                value={values.interview_notes}
-                onChange={handleChange}
+                id="notes"
+                value={values.notes}
+                onChange={handleInterviewChange}
             />
             <button onClick={prevStep}>Go back</button>
-            <button type="submit" onClick={handleSubmit}>Finish &amp; Save</button>
+            <button type="submit" onClick={handleSecondSubmit}>Finish &amp; Save</button>
         </>
     );
 };

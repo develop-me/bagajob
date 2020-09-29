@@ -59,7 +59,6 @@ export default (state, action) => {
             return {
                 ...state,
                 loaded: false,
-                loaded: false,
                 job_id: "",
             }
         case SINGLE_JOB_POST_SUCCESS:

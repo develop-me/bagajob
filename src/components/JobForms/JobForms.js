@@ -10,20 +10,38 @@ import InterviewDetailsForm from './InterviewDetailsForm'
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
 const jobFormReducer = (state, action) => {
     switch (action.type) {
-        case 'FIELD_CHANGE':
+        case 'JOB_FIELD_CHANGE':
             return {
+                // only works on field names that exist within job object
                 ...state,
                 job: {
                     ...state.job,
                     [action.payload.fieldName]: action.payload.value
                 }
             }
+        case 'APPLICATION_FIELD_CHANGE':
+            return {
+                ...state,
+                application_notes : {
+                    ...state.application_notes,
+                    [action.payload.fieldName]: action.payload.value
+                }
+            }
+        case 'INTERVIEW_FIELD_CHANGE':
+            return {
+                ...state,
+                interview : {
+                    ...state.interview,
+                    [action.payload.fieldName]: action.payload.value
+                }
+            }
+            
         case 'INTERVIEW_STAGE_CHANGE':
             return {
                 ...state,
-                job: {
-                    ...state.job,
-                    interview_format: action.payload
+                interview : {
+                    ...state.interview,
+                    format: action.payload
                 }
             }
         case 'NEXT_STEP':
@@ -44,6 +62,13 @@ const jobFormReducer = (state, action) => {
     }
 }
 
+let today = new Date()
+let dd = String(today.getDate()).padStart(2, '0')
+let mm = String(today.getMonth() + 1).padStart(2, '0')
+let yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd
+
 // initial state of component
 const initialState = {
     job: {
@@ -56,7 +81,6 @@ const initialState = {
         closing_date: "",
         cv: "",
         cover_letter: "",
-        application_notes: "",
         active: "1",
         stage: "1"
     },
@@ -67,7 +91,7 @@ const initialState = {
         notes: ""
     },
     application_notes : {
-        date: "",
+        date: today,
         data: ""
     },
     step: 1
@@ -78,7 +102,6 @@ const JobForm = () => {
     const dispatchAction = useDispatch()
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job_id)
-        console.log(job_id)
     const access_token = useSelector(state => state.user.access_token)
     const {
         job: {
@@ -144,9 +167,29 @@ const JobForm = () => {
     };
 
     // handles changing input field
-    const handleChange = e => {
+    const handleJobChange = e => {
         dispatch({
-            type: 'FIELD_CHANGE',
+            type: 'JOB_FIELD_CHANGE',
+            payload: {
+                fieldName: e.target.id,
+                value: e.target.value
+            }
+        })
+    }
+
+    const handleAppChange = e => {
+        dispatch({
+            type: 'APPLICATION_FIELD_CHANGE',
+            payload: {
+                fieldName: e.target.id,
+                value: e.target.value
+            }
+        })
+    }
+
+    const handleInterviewChange = e => {
+        dispatch({
+            type: 'INTERVIEW_FIELD_CHANGE',
             payload: {
                 fieldName: e.target.id,
                 value: e.target.value
@@ -165,7 +208,6 @@ const JobForm = () => {
     const handleFirstSubmit = e => {
         e.preventDefault()
 
-        // 
 
         // assigns the job object in state to data variable
         const job_data = { ...state.job }
@@ -184,9 +226,14 @@ const JobForm = () => {
     const handleSecondSubmit = e => {
         e.preventDefault()
 
-        // assigns the job object in state to data variable
+        console.log("second submit")
+
+        // assigns the invterview and notes objects in state to data variables
         const interview_data = { ...state.interview }
         const notes_data = { ...state.application_notes }
+
+        console.log(interview_data)
+        console.log(notes_data)
 
 
 
@@ -215,7 +262,7 @@ const JobForm = () => {
                 currentStep={step === 1}
                 nextStep={nextStep}
                 handleFirstSubmit={handleFirstSubmit}
-                handleChange={handleChange}
+                handleJobChange={handleJobChange}
                 values={firstFormValues}
             />
         </form>
@@ -224,7 +271,8 @@ const JobForm = () => {
                 currentStep={step === 2}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                handleChange={handleChange}
+                handleJobChange={handleJobChange}
+                handleAppChange={handleAppChange}
                 values={secondFormValues}
             />
             <InterviewDetailsForm
@@ -232,7 +280,7 @@ const JobForm = () => {
                 nextStep={nextStep}
                 prevStep={prevStep}
                 handleSecondSubmit={handleSecondSubmit}
-                handleChange={handleChange}
+                handleInterviewChange={handleInterviewChange}
                 handleInterviewFormat={handleInterviewFormat}
                 values={thirdFormValues}
             />
