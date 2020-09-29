@@ -26,9 +26,10 @@ const InterviewDetailsForm = ({
                 value={values.interview_format}
                 onChange={handleInterviewFormat}
             >
-                <option value="person">In person</option>
-                <option value="phone">Telephone</option>
-                <option value="online">Online</option>
+                <option value="in_person">In person</option>
+                <option value="telephone">Telephone</option>
+                <option value="video_call">Video Call</option>
+                <option value="online_testing">Online Test</option>
             </select>
 
             <label htmlFor="interviewer">Interview name</label>
