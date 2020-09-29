@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addJob } from '../../data/Jobs/actions'
+import { addJob, updateJob } from '../../data/Jobs/actions'
 import { addAppNote } from '../../data/AppNotes/actions'
 import { addInterview } from '../../data/Interviews/actions'
 import JobDetailsForm from './JobDetailsForm'
@@ -234,6 +234,7 @@ const JobForm = () => {
         // assigns the invterview and notes objects in state to data variables
         const interview_data = { ...state.interview }
         const notes_data = { ...state.application_notes }
+        const job_data = { ...state.job }
 
         // dispatches notes_data to API (POST user/${user_id}/jobs/${job_id}/app-notes)
         dispatchAction(addAppNote({
@@ -249,6 +250,14 @@ const JobForm = () => {
             job_id,
             access_token,
             interview_data: interview_data,
+        }))
+
+        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+        dispatchAction(updateJob({
+            user_id,
+            job_id,
+            access_token,
+            job_data: job_data,
         }))
 
         // resets form fields
