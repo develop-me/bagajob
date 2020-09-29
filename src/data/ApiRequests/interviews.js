@@ -4,9 +4,7 @@ const token = localStorage.getItem('user')
 
 // interview post request
 export const addInterview = data => {
-    console.log(data)
     const { user_id, job_id, access_token, interview_data } = data
-    console.log(data)
     return axios.post(`user/${user_id}/jobs/${job_id}/interviews`, interview_data, {
         headers: {
             'Authorization': `Bearer ${access_token}`

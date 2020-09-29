@@ -10,23 +10,16 @@ import InterviewDetailsForm from './InterviewDetailsForm'
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
 const jobFormReducer = (state, action) => {
     switch (action.type) {
+        // for values within the job object
         case 'JOB_FIELD_CHANGE':
             return {
-                // only works on field names that exist within job object
                 ...state,
                 job: {
                     ...state.job,
                     [action.payload.fieldName]: action.payload.value
                 }
             }
-        case 'APPLICATION_FIELD_CHANGE':
-            return {
-                ...state,
-                application_notes : {
-                    ...state.application_notes,
-                    [action.payload.fieldName]: action.payload.value
-                }
-            }
+        // for values within the interview object
         case 'INTERVIEW_FIELD_CHANGE':
             return {
                 ...state,
@@ -35,13 +28,22 @@ const jobFormReducer = (state, action) => {
                     [action.payload.fieldName]: action.payload.value
                 }
             }
-            
+        // specifically for the interview.format value    
         case 'INTERVIEW_STAGE_CHANGE':
             return {
                 ...state,
                 interview : {
                     ...state.interview,
                     format: action.payload
+                }
+            }
+        // for values within the application_notes object
+        case 'APPLICATION_FIELD_CHANGE':
+            return {
+                ...state,
+                application_notes : {
+                    ...state.application_notes,
+                    [action.payload.fieldName]: action.payload.value
                 }
             }
         case 'NEXT_STEP':
@@ -62,6 +64,7 @@ const jobFormReducer = (state, action) => {
     }
 }
 
+// calculate today's date for application_notes
 let today = new Date()
 let dd = String(today.getDate()).padStart(2, '0')
 let mm = String(today.getMonth() + 1).padStart(2, '0')
@@ -205,6 +208,7 @@ const JobForm = () => {
         })
     }
 
+    // Form must submit twice: the job_id is returned after the first submission (POST user/${user_id}/jobs) and is required in the URL of the second submission (POST user/${user_id}/jobs/${job_id}/interviews & POST user/${user_id}/jobs/${job_id}/app-notes)
     const handleFirstSubmit = e => {
         e.preventDefault()
 
@@ -213,8 +217,8 @@ const JobForm = () => {
         const job_data = { ...state.job }
 
 
-        // dispatches object with user id and job data
-        // Jobs/actions.js Line 100
+        // dispatches job_data to API (POST user/${user_id}/jobs)
+        // job_id is returned and stored in global state
         dispatchAction(addJob({
             user_id,
             access_token,
@@ -223,6 +227,7 @@ const JobForm = () => {
 
     }
 
+    // Second submission now that job_id has been returned from API
     const handleSecondSubmit = e => {
         e.preventDefault()
 
@@ -230,10 +235,7 @@ const JobForm = () => {
         const interview_data = { ...state.interview }
         const notes_data = { ...state.application_notes }
 
-        console.log(notes_data)
-
-
-
+        // dispatches notes_data to API (POST user/${user_id}/jobs/${job_id}/app-notes)
         dispatchAction(addAppNote({
             user_id,
             job_id,
@@ -241,7 +243,7 @@ const JobForm = () => {
             notes_data: notes_data,
         }))
 
-
+        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
         dispatchAction(addInterview({
             user_id,
             job_id,
@@ -249,7 +251,7 @@ const JobForm = () => {
             interview_data: interview_data,
         }))
 
-
+        // resets form fields
         dispatch({ type: 'RESET_FORM' })
     }
     return (
