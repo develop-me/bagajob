@@ -29,7 +29,7 @@ const jobFormReducer = (state, action) => {
                 }
             }
         // specifically for the interview.format value    
-        case 'INTERVIEW_STAGE_CHANGE':
+        case 'INTERVIEW_FORMAT_CHANGE':
             return {
                 ...state,
                 interview : {
@@ -203,7 +203,7 @@ const JobForm = () => {
     // handles changing the interview format in the interview details component
     const handleInterviewFormat = e => {
         dispatch({
-            type: 'INTERVIEW_STAGE_CHANGE',
+            type: 'INTERVIEW_FORMAT_CHANGE',
             payload: e.target.value
         })
     }
