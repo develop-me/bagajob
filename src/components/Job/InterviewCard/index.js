@@ -16,9 +16,6 @@ const InterviewCard = ({ job }) => {
         }))
     }
 
-    console.log("Interviews:")
-    console.log(job_data.interviews)
-
     return (
         <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
             <h1 className="para_header">Interviews</h1>
