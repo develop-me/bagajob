@@ -37,7 +37,7 @@ export const addJob = data => {
 // single job patch request
 export const updateJob = data => {
     const { user_id, job_id, job_data, access_token } = data
-    return axios.patch(`user/${user_id}jobs/${job_id}`, job_data, {
+    return axios.patch(`user/${user_id}/jobs/${job_id}`, job_data, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }

@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addJob } from '../../data/Jobs/actions'
+import { addJob, updateJob } from '../../data/Jobs/actions'
+import { addAppNote } from '../../data/AppNotes/actions'
+import { addInterview } from '../../data/Interviews/actions'
 import JobDetailsForm from './JobDetailsForm'
 import ApplicationDetailsForm from './ApplicationDetailsForm'
 import InterviewDetailsForm from './InterviewDetailsForm'
@@ -8,7 +10,8 @@ import InterviewDetailsForm from './InterviewDetailsForm'
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
 const jobFormReducer = (state, action) => {
     switch (action.type) {
-        case 'FIELD_CHANGE':
+        // for values within the job object
+        case 'JOB_FIELD_CHANGE':
             return {
                 ...state,
                 job: {
@@ -16,12 +19,31 @@ const jobFormReducer = (state, action) => {
                     [action.payload.fieldName]: action.payload.value
                 }
             }
-        case 'INTERVIEW_STAGE_CHANGE':
+        // for values within the interview object
+        case 'INTERVIEW_FIELD_CHANGE':
             return {
                 ...state,
-                job: {
-                    ...state.job,
-                    interview_format: action.payload
+                interview : {
+                    ...state.interview,
+                    [action.payload.fieldName]: action.payload.value
+                }
+            }
+        // specifically for the interview.format value    
+        case 'INTERVIEW_FORMAT_CHANGE':
+            return {
+                ...state,
+                interview : {
+                    ...state.interview,
+                    format: action.payload
+                }
+            }
+        // for values within the application_notes object
+        case 'APPLICATION_FIELD_CHANGE':
+            return {
+                ...state,
+                application_notes : {
+                    ...state.application_notes,
+                    [action.payload.fieldName]: action.payload.value
                 }
             }
         case 'NEXT_STEP':
@@ -42,6 +64,14 @@ const jobFormReducer = (state, action) => {
     }
 }
 
+// calculate today's date for application_notes
+let today = new Date()
+let dd = String(today.getDate()).padStart(2, '0')
+let mm = String(today.getMonth() + 1).padStart(2, '0')
+let yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd
+
 // initial state of component
 const initialState = {
     job: {
@@ -52,27 +82,30 @@ const initialState = {
         location: "",
         date_applied: "",
         closing_date: "",
-        recruiter_name: "",
-        recruiter_email: "",
-        recruiter_phone: "",
         cv: "",
         cover_letter: "",
-        application_notes: "",
-        interview_date: "",
-        interview_notes: "",
-        interview_format: "select",
-        interviewer: "",
         active: "1",
         stage: "1"
+    },
+    interview : {
+        interview_date: "",
+        format: "select",
+        interviewer: "",
+        notes: ""
+    },
+    application_notes : {
+        date: today,
+        data: ""
     },
     step: 1
 }
 
 const JobForm = () => {
-    const [state, dispatch] = useReducer(jobFormReducer, initialState);
-    const dispatchAction = useDispatch();
-    const user_id = useSelector(state => state.user.user.id);
-    const access_token = useSelector(state => state.user.access_token);
+    const [state, dispatch] = useReducer(jobFormReducer, initialState)
+    const dispatchAction = useDispatch()
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+    const access_token = useSelector(state => state.user.access_token)
     const {
         job: {
             title,
@@ -84,13 +117,18 @@ const JobForm = () => {
             closing_date,
             cv,
             cover_letter,
-            application_notes,
-            interview_date,
-            interview_notes,
-            interview_format,
-            interviewer,
             active,
             stage
+        },
+        interview : {
+            interview_date,
+            format,
+            interviewer,
+            notes
+        },
+        application_notes : {
+            date,
+            data
         },
         step
     } = state
@@ -110,15 +148,15 @@ const JobForm = () => {
     const secondFormValues = {
         cv,
         cover_letter,
-        application_notes
+        data
     }
 
     // form fields for third step
     const thirdFormValues = {
         interview_date,
-        interview_notes,
-        interview_format,
-        interviewer
+        format,
+        interviewer,
+        notes
     }
 
     // proceed to next step
@@ -132,9 +170,29 @@ const JobForm = () => {
     };
 
     // handles changing input field
-    const handleChange = e => {
+    const handleJobChange = e => {
         dispatch({
-            type: 'FIELD_CHANGE',
+            type: 'JOB_FIELD_CHANGE',
+            payload: {
+                fieldName: e.target.id,
+                value: e.target.value
+            }
+        })
+    }
+
+    const handleAppChange = e => {
+        dispatch({
+            type: 'APPLICATION_FIELD_CHANGE',
+            payload: {
+                fieldName: e.target.id,
+                value: e.target.value
+            }
+        })
+    }
+
+    const handleInterviewChange = e => {
+        dispatch({
+            type: 'INTERVIEW_FIELD_CHANGE',
             payload: {
                 fieldName: e.target.id,
                 value: e.target.value
@@ -145,51 +203,97 @@ const JobForm = () => {
     // handles changing the interview format in the interview details component
     const handleInterviewFormat = e => {
         dispatch({
-            type: 'INTERVIEW_STAGE_CHANGE',
+            type: 'INTERVIEW_FORMAT_CHANGE',
             payload: e.target.value
         })
     }
 
-    const handleSubmit = e => {
+    // Form must submit twice: the job_id is returned after the first submission (POST user/${user_id}/jobs) and is required in the URL of the second submission (POST user/${user_id}/jobs/${job_id}/interviews & POST user/${user_id}/jobs/${job_id}/app-notes)
+    const handleFirstSubmit = e => {
         e.preventDefault()
 
-        // assigns the job object in state to data variable
-        const data = { ...state.job }
 
-        // dispatches object with user id and job data
+        // assigns the job object in state to data variable
+        const job_data = { ...state.job }
+
+
+        // dispatches job_data to API (POST user/${user_id}/jobs)
+        // job_id is returned and stored in global state
         dispatchAction(addJob({
             user_id,
             access_token,
-            job_data: data
+            job_data: job_data,
         }))
 
+    }
+
+    // Second submission now that job_id has been returned from API
+    const handleSecondSubmit = e => {
+        e.preventDefault()
+
+        // assigns the invterview and notes objects in state to data variables
+        const interview_data = { ...state.interview }
+        const notes_data = { ...state.application_notes }
+        const job_data = { ...state.job }
+
+        // dispatches notes_data to API (POST user/${user_id}/jobs/${job_id}/app-notes)
+        dispatchAction(addAppNote({
+            user_id,
+            job_id,
+            access_token,
+            notes_data: notes_data,
+        }))
+
+        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+        dispatchAction(addInterview({
+            user_id,
+            job_id,
+            access_token,
+            interview_data: interview_data,
+        }))
+
+        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+        dispatchAction(updateJob({
+            user_id,
+            job_id,
+            access_token,
+            job_data: job_data,
+        }))
+
+        // resets form fields
         dispatch({ type: 'RESET_FORM' })
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+        <form onSubmit={handleFirstSubmit}>
             <JobDetailsForm
                 currentStep={step === 1}
                 nextStep={nextStep}
-                handleChange={handleChange}
+                handleFirstSubmit={handleFirstSubmit}
+                handleJobChange={handleJobChange}
                 values={firstFormValues}
             />
+        </form>
+        <form onSubmit={handleSecondSubmit}>
             <ApplicationDetailsForm
                 currentStep={step === 2}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                handleChange={handleChange}
+                handleJobChange={handleJobChange}
+                handleAppChange={handleAppChange}
                 values={secondFormValues}
             />
             <InterviewDetailsForm
                 currentStep={step === 3}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
+                handleSecondSubmit={handleSecondSubmit}
+                handleInterviewChange={handleInterviewChange}
                 handleInterviewFormat={handleInterviewFormat}
                 values={thirdFormValues}
             />
         </form>
+        </>
     )
 }
 

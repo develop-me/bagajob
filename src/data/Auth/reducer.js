@@ -112,6 +112,9 @@ export default (state, action) => {
                 errors: {},
                 loaded: true,
                 access_token: null,
+                name: "",
+                email: "",
+                user_id: "",
             }
         default:
             return {}
