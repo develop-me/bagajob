@@ -100,12 +100,16 @@ const getJobFailure = data => dispatch => (
 export const addJob = data => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(addJobRequest())
+        console.log(data)
+        // Jobforms.js Line 175
+        // This will fail because job_data 
         apiAddJob(data)
             .then(successResponse => {
                 dispatch(addJobSuccess(successResponse))
                 resolve(successResponse)
             })
             .catch(errorResponse => {
+                console.log(errorResponse)
                 dispatch(addJobFailure(errorResponse))
             })
     })
@@ -120,7 +124,7 @@ const addJobRequest = () => dispatch => (
 const addJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_POST_SUCCESS,
-        payload: data.data.data
+        payload: data
     })
 )
 
