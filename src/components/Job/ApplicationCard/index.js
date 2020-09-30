@@ -5,8 +5,9 @@ import { addAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
-    const { id: user_id } = useSelector(state => state.user)
-    const { id: job_id } = job
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+    const job_data = job.data
     const dispatch = useDispatch()
 
     // adds new empty note in application card
@@ -16,6 +17,9 @@ const ApplicationCard = ({ job }) => {
             job_id
         }))
     }
+
+    console.log("Application Notes:")
+    console.log(job_data.application_notes)
 
     return (
         <>
@@ -32,7 +36,7 @@ const ApplicationCard = ({ job }) => {
                 <h3>Notes</h3>
                 <button onClick={handleAddAppNote}>Add note</button>
                 {
-                    job.application_notes.map(note => {
+                    job_data.application_notes.map(note => {
                         return (
                             <ApplicationNote key={note.id} applicationNote={note} />
                         )

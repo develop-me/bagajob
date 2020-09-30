@@ -7,15 +7,19 @@ import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
 
 const Job = ({ match }) => {
-    const { job, loaded, user: { id: user_id } } = useSelector(state => state)
+    const { job, loaded } = useSelector(state => state)
+    const job_data = job.data
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+    const access_token = useSelector(state => state.access_token)
     const dispatch = useDispatch()
-    const job_id = match.params.id
 
     // single job is fetched when component renders
     useEffect(() => {
         const data = {
             user_id,
-            job_id
+            job_id,
+            access_token
         }
         dispatch(getSingleJob(data));
     }, []);
@@ -29,9 +33,9 @@ const Job = ({ match }) => {
         : 
         <>
         <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
-            <JobDetailsCard job={job} />
-            <ApplicationCard job={job} />
-            <InterviewCard job={job} />
+            <JobDetailsCard job={job_data} />
+            <ApplicationCard job={job_data} />
+            <InterviewCard job={job_data} />
         </div>
         </>
         }

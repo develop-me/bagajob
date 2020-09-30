@@ -4,8 +4,9 @@ import { addInterview } from '../../../data/Interviews/actions'
 import Interview from './Interview'
 
 const InterviewCard = ({ job }) => {
-    const { id: user_id } = useSelector(state => state.user)
-    const { id: job_id } = job
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+    const job_data = job.data
     const dispatch = useDispatch()
 
     const handleAddInterview = () => {
@@ -15,11 +16,14 @@ const InterviewCard = ({ job }) => {
         }))
     }
 
+    console.log("Interviews:")
+    console.log(job_data.interviews)
+
     return (
         <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
             <h1 className="para_header">Interviews</h1>
             <button onClick={handleAddInterview}>Add interview</button>
-            {job.interviews.map((interview, i) => {
+            {job_data.interviews.map((interview, i) => {
                 return (
                     <Interview key={i} interview={interview} />
                 )

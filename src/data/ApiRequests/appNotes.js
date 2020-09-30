@@ -4,7 +4,6 @@ const token = localStorage.getItem('user')
 
 // application note post request
 export const addAppNote = data => {
-    console.log(data)
     const { user_id, job_id, access_token, notes_data } = data
     return axios.post(`user/${user_id}/jobs/${job_id}/app-notes`, notes_data, {
         headers: {
