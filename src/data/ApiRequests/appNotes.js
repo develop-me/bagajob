@@ -4,8 +4,8 @@ const token = localStorage.getItem('user')
 
 // application note post request
 export const addAppNote = data => {
-    const { user_id, job_id, access_token } = data
-    return axios.post(`user/${user_id}/jobs/${job_id}/app-notes`, null, {
+    const { user_id, job_id, access_token, notes_data } = data
+    return axios.post(`user/${user_id}/jobs/${job_id}/app-notes`, notes_data, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
