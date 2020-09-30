@@ -9,6 +9,8 @@ const InterviewCard = ({ job }) => {
     const job_data = job.data
     const dispatch = useDispatch()
 
+    console.log(job)
+
     const handleAddInterview = () => {
         dispatch(addInterview({
             user_id,

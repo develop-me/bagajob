@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateInterview, deleteInterview } from '../../../data/Interviews/actions'
 
 const Interview = ({ interview }) => {
-    let [editing, setEditing] = useState(true)
-    let [interviewDate, setInterviewDate] = useState(interview.date)
+    let [editing, setEditing] = useState(false)
+    let [interviewDate, setInterviewDate] = useState(interview.interview_date)
     let [format, setFormat] = useState(interview.format)
     let [interviewer, setInterviewer] = useState(interview.interviewer)
     let [notes, setNotes] = useState(interview.notes)
-    const dispatch = useDispatch()
     // the necessary ids to make updateInterview put and delete requests
-    const { id: user_id } = useSelector(state => state.user)
-    const { id: job_id } = useSelector(state => state.job)
-    const { id: interview_id } = interview
+    const user_id = useSelector(state => state.user_id)
+    const job_id = useSelector(state => state.job_id)
+    const access_token = useSelector(state => state.access_token)
+    const interview_id = interview.id
+
+    const dispatch = useDispatch()
 
     const handleUpdateInterview = e => {
         e.preventDefault()
@@ -24,10 +26,13 @@ const Interview = ({ interview }) => {
             notes
         }
 
+        console.log(data)
+
         dispatch(updateInterview({
             user_id,
             job_id,
             interview_id,
+            access_token,
             interview_data: { ...data },
         }))
 
@@ -64,12 +69,17 @@ const Interview = ({ interview }) => {
                     className="label"
                     htmlFor="format"
                 >Format: {editing ?
-                    <input
-                        type="text"
-                        id="format"
-                        value={format}
-                        onChange={e => setFormat(e.target.value)}
-                    />
+
+                <select
+                id="format"
+                value={format}
+                onChange={e => setFormat(e.target.value)}
+                >
+                    <option value="in_person">In person</option>
+                    <option value="telephone">Telephone</option>
+                    <option value="video_call">Video Call</option>
+                    <option value="online_testing">Online Test</option>
+                </select>
                     :
                     format
                     }

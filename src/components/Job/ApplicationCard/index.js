@@ -7,6 +7,7 @@ import ApplicationNote from './ApplicationNote'
 const ApplicationCard = ({ job }) => {
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job_id)
+    const access_token = useSelector(state => state.user.access_token)
     const job_data = job.data
     const dispatch = useDispatch()
 
@@ -17,9 +18,6 @@ const ApplicationCard = ({ job }) => {
             job_id
         }))
     }
-
-    console.log("Application Notes:")
-    console.log(job_data.application_notes)
 
     return (
         <>

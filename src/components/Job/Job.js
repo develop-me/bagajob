@@ -24,6 +24,7 @@ const Job = ({ match }) => {
         dispatch(getSingleJob(data));
     }, []);
 
+
     return (
         <>
         { !loaded ?
