@@ -1,7 +1,5 @@
 import axios from '../axios'
 
-const token = localStorage.getItem('user')
-
 // user patch request
 export const updateAccount = data => {
     const { user_id, account_data, access_token } = data

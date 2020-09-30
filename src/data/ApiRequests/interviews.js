@@ -1,7 +1,5 @@
 import axios from '../axios'
 
-const token = localStorage.getItem('user')
-
 // interview post request
 export const addInterview = data => {
     const { user_id, job_id, access_token, interview_data } = data

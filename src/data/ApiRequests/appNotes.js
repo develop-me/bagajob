@@ -1,7 +1,5 @@
 import axios from '../axios'
 
-const token = localStorage.getItem('user')
-
 // application note post request
 export const addAppNote = data => {
     const { user_id, job_id, access_token, notes_data } = data
