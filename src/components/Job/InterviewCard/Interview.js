@@ -26,7 +26,6 @@ const Interview = ({ interview }) => {
             notes
         }
 
-        console.log(data)
 
         dispatch(updateInterview({
             user_id,
