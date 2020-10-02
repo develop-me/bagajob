@@ -8,11 +8,13 @@ import InterviewCard from './InterviewCard'
 
 const Job = ({ match }) => {
     const { job, loaded } = useSelector(state => state)
-    const job_data = job.data
+    const job_data = job.data.data
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job_id)
     const access_token = useSelector(state => state.access_token)
     const dispatch = useDispatch()
+
+    console.log(job_data)
 
     // single job is fetched when component renders
     useEffect(() => {

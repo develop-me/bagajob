@@ -12,7 +12,7 @@ const JobDetailsCard = ({ job }) => {
         closing_date,
         active,
         stage
-    } = job.data
+    } = job
 
     return (
         <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>

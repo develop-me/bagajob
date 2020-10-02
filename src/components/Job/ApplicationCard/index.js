@@ -8,7 +8,7 @@ const ApplicationCard = ({ job }) => {
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job_id)
     const access_token = useSelector(state => state.user.access_token)
-    const job_data = job.data
+    const job_data = job
     const dispatch = useDispatch()
 
     // adds new empty note in application card

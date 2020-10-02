@@ -6,7 +6,7 @@ import Interview from './Interview'
 const InterviewCard = ({ job }) => {
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job_id)
-    const job_data = job.data
+    const job_data = job
     const dispatch = useDispatch()
 
     const handleAddInterview = () => {
