@@ -252,7 +252,7 @@ const JobForm = () => {
             interview_data: interview_data,
         }))
 
-        // dispatches job_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+        // dispatches job_data to API (PATCH user/${user_id}/jobs/${job_id})
         dispatchAction(updateJob({
             user_id,
             job_id,
