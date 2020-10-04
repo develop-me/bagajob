@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateInterview, deleteInterview } from '../../../data/Interviews/actions'
 
 const Interview = ({ interview }) => {
+
     let [editing, setEditing] = useState(false)
     let [interviewDate, setInterviewDate] = useState(interview.interview_date)
     let [format, setFormat] = useState(interview.format)
@@ -25,7 +26,6 @@ const Interview = ({ interview }) => {
             interviewer,
             notes
         }
-
 
         dispatch(updateInterview({
             user_id,

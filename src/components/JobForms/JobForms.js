@@ -252,13 +252,14 @@ const JobForm = () => {
             interview_data: interview_data,
         }))
 
-        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+        // dispatches job_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
         dispatchAction(updateJob({
             user_id,
             job_id,
             access_token,
-            job_data: job_data,
+            job_data: { ...job_data, cv, cover_letter }
         }))
+
 
         // resets form fields
         dispatch({ type: 'RESET_FORM' })

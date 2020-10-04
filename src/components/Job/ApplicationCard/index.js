@@ -5,11 +5,16 @@ import { addAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
-    const user_id = useSelector(state => state.user_id)
-    const job_id = useSelector(state => state.job_id)
-    const access_token = useSelector(state => state.user.access_token)
+    const user_id = useSelector(state => state.user.user.id)
+    const job_id = useSelector(state => state.job.data.data.id)
+    const access_token = useSelector(state => state.user)
     const job_data = job
     const dispatch = useDispatch()
+
+    // console.log("user ID: ")
+    // console.log(user_id)
+    // console.log("job ID: ")
+    // console.log(job_id)
 
     // adds new empty note in application card
     const handleAddAppNote = () => {

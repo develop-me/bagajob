@@ -12,6 +12,7 @@ import {
 
 export default (state, action) => {
     const { type, payload } = action
+    console.log(payload)
     switch (type) {
         case INTERVIEW_POST_REQUEST:
             return {
@@ -43,7 +44,14 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    interviews: state.job.interviews.map(interview => interview.id === payload.id ? payload : interview)
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            interviews: state.job.data.data.interviews.map(interview => interview.id === payload.id ? payload : interview)
+                        }
+                    },
+
                 },
                 loaded: true
             }

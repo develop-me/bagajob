@@ -100,8 +100,6 @@ const getJobFailure = data => dispatch => (
 export const addJob = data => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(addJobRequest())
-        // Jobforms.js Line 175
-        // This will fail because job_data 
         apiAddJob(data)
             .then(successResponse => {
                 dispatch(addJobSuccess(successResponse))
@@ -135,6 +133,8 @@ const addJobFailure = error => dispatch => (
 
 // updates details for a single job in user's jobs table
 export const updateJob = data => dispatch => {
+    console.log("update job:")
+    console.log(data)
     return new Promise((resolve, reject) => {
         dispatch(updateJobRequest())
         apiUpdateJob(data)

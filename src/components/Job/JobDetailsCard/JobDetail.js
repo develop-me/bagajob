@@ -106,7 +106,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             }
 
             {/*save button for title PATCH request */}
-            {editing && jobProperty == "title" ?
+            {editing && jobProperty === "title" ?
                 <button
                     style={{ height: "2rem" }}
                     type="submit"
@@ -118,7 +118,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             }
 
             {/*save button for company PATCH request */}
-            {editing && jobProperty == "company" ?
+            {editing && jobProperty === "company" ?
                 <button
                     style={{ height: "2rem" }}
                     type="submit"

@@ -9,6 +9,7 @@ const initialState = {
        
 
     ],
+    job: {},
     user: {
         token_type: "Bearer",
         expires_in: "31536000",
