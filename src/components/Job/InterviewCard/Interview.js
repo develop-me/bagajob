@@ -11,9 +11,15 @@ const Interview = ({ interview }) => {
     let [notes, setNotes] = useState(interview.notes)
     // the necessary ids to make updateInterview put and delete requests
     const user_id = useSelector(state => state.user_id)
-    const job_id = useSelector(state => state.job_id)
-    const access_token = useSelector(state => state.access_token)
     const interview_id = interview.id
+
+    // On development branch, data is nested within an extra data object:
+    const job_id = useSelector(state => state.job.data.data.id)
+    // In current deployment, it is not:
+    // const job_id = useSelector(state => state.job.data.id)
+
+    const access_token = useSelector(state => state.access_token)
+
 
     const dispatch = useDispatch()
 
