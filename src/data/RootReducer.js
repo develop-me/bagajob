@@ -4,17 +4,37 @@ import { default as AccountReducer } from './Account/reducer'
 import { default as AppNotesReducer } from './AppNotes/reducer'
 import { default as InterviewsReducer } from './Interviews/reducer'
 
-const initialState = {
+export const initialState = {
     jobs: [
        
 
     ],
-    job: {},
+    // We must define the 'job' object in initial state.
+    // This is because when the user visits the single job page, the Job.js component uses the job object to render, and does not request the API until the component has mounted.
+    // API data (in format determined by laravel API)
+    job: {
+        data: {
+            data: {
+                id: "",
+                title: "",
+                company: "",
+                active: "",
+                location: "",
+                salaray: "",
+                closing_date: "",
+                date_applied: "",
+                description: "",
+                stage: "",
+                interviews: [],
+                application_notes: []
+            }
+        },
+    },
     user: {
         token_type: "Bearer",
         expires_in: "31536000",
-        access_token: "<token>",
-        refresh_token: "<token>",
+        access_token: null,
+        refresh_token: null,
         user: {
             id: "",
             name: "",
@@ -26,7 +46,10 @@ const initialState = {
     loaded: true,
     errors: {},
     name: "",
-    email: ""
+    email: "",
+    job_id: "",
+    user_id: "",
+    access_token: null,
 }
 
 const RootReducer = (state = initialState, action) => ({

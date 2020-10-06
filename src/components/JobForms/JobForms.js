@@ -260,7 +260,6 @@ const JobForm = () => {
             job_data: { ...job_data, cv, cover_letter }
         }))
 
-
         // resets form fields
         dispatch({ type: 'RESET_FORM' })
     }

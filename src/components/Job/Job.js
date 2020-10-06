@@ -21,6 +21,7 @@ const Job = ({ match }) => {
     // console.log(job)
 
 
+    // MUST FETCH BEFORE COMPONENT RENDERS
     // single job is fetched when component renders
     useEffect(() => {
         const data = {
