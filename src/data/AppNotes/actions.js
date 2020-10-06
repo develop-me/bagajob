@@ -18,8 +18,6 @@ import {
 
 // adds new application note for specific job
 export const addAppNote = data => dispatch => {
-    console.log("addappnote")
-    console.log(data)
     return new Promise((resolve, reject) => {
         dispatch(addAppNoteRequest())
         apiAddAppNote(data)

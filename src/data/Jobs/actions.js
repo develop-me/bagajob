@@ -133,8 +133,7 @@ const addJobFailure = error => dispatch => (
 
 // updates details for a single job in user's jobs table
 export const updateJob = data => dispatch => {
-    console.log("update job:")
-    console.log(data)
+
     return new Promise((resolve, reject) => {
         dispatch(updateJobRequest())
         apiUpdateJob(data)

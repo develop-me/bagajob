@@ -28,8 +28,6 @@ const ApplicationInput = ({ appCardInput, jobProperty, title, company, active, s
         setEditing(false)
     }
 
-    console.log(inputValue)
-
     return (
         <>
             <label htmlFor={jobProperty}>

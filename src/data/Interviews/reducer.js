@@ -12,7 +12,6 @@ import {
 
 export default (state, action) => {
     const { type, payload } = action
-    // console.log(payload)
     switch (type) {
         case INTERVIEW_POST_REQUEST:
             return {
