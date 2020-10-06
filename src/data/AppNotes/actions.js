@@ -53,8 +53,6 @@ const addAppNoteFailure = error => dispatch => (
 
 // updates a specific application card note for a specific job
 export const updateAppNote = data => dispatch => {
-    console.log("sent to API:")
-    console.log(data)
     return new Promise((resolve, reject) => {
         dispatch(updateAppNoteRequest())
         apiUpdateAppNote(data)
@@ -75,7 +73,6 @@ const updateAppNoteRequest = () => dispatch => (
 )
 
 const updateAppNoteSuccess = data => dispatch => {
-    console.log(data.data)
     return (
         dispatch({
             type: APPLICATION_NOTE_PATCH_SUCCESS,

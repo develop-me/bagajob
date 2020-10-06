@@ -39,7 +39,6 @@ export default (state, action) => {
                 loaded: false
             }
         case APPLICATION_NOTE_PATCH_SUCCESS:
-            console.log(payload)
             return {
                 ...state,
                 job: {
