@@ -39,11 +39,18 @@ export default (state, action) => {
                 loaded: false
             }
         case APPLICATION_NOTE_PATCH_SUCCESS:
+            console.log(payload)
             return {
                 ...state,
                 job: {
                     ...state.job,
-                    application_notes: state.job.application_notes.map(note => note.id === payload.id ? payload : note)
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            application_notes: state.job.data.data.application_notes.map(note => note.id === payload.id ? payload : note)
+                        }
+                    },
                 },
                 loaded: true
             }

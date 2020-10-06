@@ -4,6 +4,8 @@ import { updateAppNote, deleteAppNote } from '../../../data/AppNotes/actions'
 import dateToday from '../../../helpers/dateToday.js'
 
 const ApplicationNote = ({ applicationNote }) => {
+    console.log("application note:")
+    console.log(applicationNote)
     const [editing, setEditing] = useState(false)
     const [note, setNote] = useState(applicationNote.data)
     const dispatch = useDispatch()
@@ -21,7 +23,7 @@ const ApplicationNote = ({ applicationNote }) => {
     const handleUpdateAppNote = e => {
         e.preventDefault()
 
-        dispatch(updateAppNote({
+        const data = {
             user_id,
             job_id,
             note_id,
@@ -30,7 +32,8 @@ const ApplicationNote = ({ applicationNote }) => {
                 date: today
             },
             access_token
-        }))
+        }
+        dispatch(updateAppNote(data))
         setEditing(false)
     }
 

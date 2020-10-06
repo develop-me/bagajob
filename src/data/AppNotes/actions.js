@@ -40,7 +40,7 @@ const addAppNoteRequest = () => dispatch => (
 const addAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_POST_SUCCESS,
-        payload: data
+        payload: data.data.data
     })
 )
 
@@ -53,6 +53,8 @@ const addAppNoteFailure = error => dispatch => (
 
 // updates a specific application card note for a specific job
 export const updateAppNote = data => dispatch => {
+    console.log("sent to API:")
+    console.log(data)
     return new Promise((resolve, reject) => {
         dispatch(updateAppNoteRequest())
         apiUpdateAppNote(data)
@@ -72,12 +74,15 @@ const updateAppNoteRequest = () => dispatch => (
     })
 )
 
-const updateAppNoteSuccess = data => dispatch => (
-    dispatch({
-        type: APPLICATION_NOTE_PATCH_SUCCESS,
-        payload: data
-    })
-)
+const updateAppNoteSuccess = data => dispatch => {
+    console.log(data.data)
+    return (
+        dispatch({
+            type: APPLICATION_NOTE_PATCH_SUCCESS,
+            payload: data.data
+        })
+    )
+}
 
 const updateAppNoteFailure = error => dispatch => (
     dispatch({
