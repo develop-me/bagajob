@@ -2,28 +2,33 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateJob } from '../../../data/Jobs/actions'
 
-const ApplicationInput = ({ appCardInput, jobProperty }) => {
+const ApplicationInput = ({ appCardInput, jobProperty, title, company, active, stage }) => {
     const [inputValue, setInput] = useState(appCardInput)
     const [editing, setEditing] = useState(false)
-    const access_token = useSelector(state => state.access_token)
-    const job_id = useSelector(state => state.job_id)
-    const user_id = useSelector(state => state.user_id)
+    const user_id = useSelector(state => state.user.user.id)
+    const job_id = useSelector(state => state.job.data.data.id)
+    const access_token = useSelector(state => state.user.access_token)
     const dispatch = useDispatch()
 
     // dispatches action with updated cv or cover letter
     const handleUpdateJob = () => {
-
         const data = {
-            access_token,
-            job_id,
             user_id,
-            job_data : { [jobProperty]: inputValue }
+            job_id,
+            job_data: {
+                [jobProperty]: inputValue,
+                title,
+                company,
+                active,
+                stage
+            },
+            access_token
         }
-
         dispatch(updateJob(data))
-
         setEditing(false)
     }
+
+    console.log(inputValue)
 
     return (
         <>

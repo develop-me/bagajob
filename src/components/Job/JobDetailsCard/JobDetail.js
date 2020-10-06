@@ -5,8 +5,8 @@ import { updateJob } from '../../../data/Jobs/actions'
 const JobDetail = ({ label, inputType, jobProperty, value, title, company, active, stage }) => {
     const [jobInputValue, setJobInputValue] = useState(value)
     const [editing, setEditing] = useState(false)
-    const user_id = useSelector(state => state.user_id)
-    const job_id = useSelector(state => state.job_id)
+    const user_id = useSelector(state => state.user.user.id)
+    const job_id = useSelector(state => state.job.data.data.id)
     const access_token = useSelector(state => state.user.access_token)
     
     const dispatch = useDispatch()

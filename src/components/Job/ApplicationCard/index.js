@@ -7,8 +7,10 @@ import ApplicationNote from './ApplicationNote'
 const ApplicationCard = ({ job }) => {
     const user_id = useSelector(state => state.user.user.id)
     const job_id = useSelector(state => state.job.data.data.id)
-    const access_token = useSelector(state => state.user)
     const job_data = job
+    console.log(job)
+    const access_token = useSelector(state => state.user)
+
     const dispatch = useDispatch()
 
     // console.log("user ID: ")
@@ -29,12 +31,20 @@ const ApplicationCard = ({ job }) => {
             <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
                 <h1 className="para_header">Application</h1>
                 <ApplicationInput
-                    appCardInput={job.cv}
+                    appCardInput="{job.cv}"
                     jobProperty="cv"
+                    title={job.title}
+                    company={job.company}
+                    active={job.active}
+                    stage={job.stage}
                 />
                 <ApplicationInput
-                    appCardInput={job.cover_letter}
+                    appCardInput="{job.cover_letter}"
                     jobProperty="cover_letter"
+                    title={job.title}
+                    company={job.company}
+                    active={job.active}
+                    stage={job.stage}
                 />
                 <h3>Notes</h3>
                 <button onClick={handleAddAppNote}>Add note</button>
