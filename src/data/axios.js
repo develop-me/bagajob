@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "http://homestead.test/api/",
+    baseURL: "https://bagajob-api.developme.space/api/",
     headers: {
         Accept: "application/json",
     },

@@ -257,7 +257,7 @@ const JobForm = () => {
             user_id,
             job_id,
             access_token,
-            job_data: { ...job_data, cv, cover_letter }
+            job_data: { title, company, active, stage, cv, cover_letter }
         }))
 
         // resets form fields

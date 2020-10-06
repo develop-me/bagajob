@@ -5,7 +5,7 @@ import { addAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 
 const ApplicationCard = ({ job }) => {
-    const user_id = useSelector(state => state.user.user.id)
+    const user_id = useSelector(state => state.user.id)
     const job_id = useSelector(state => state.job.data.data.id)
     const job_data = job
     console.log(job)
