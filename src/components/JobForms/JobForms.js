@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addJob, updateJob } from '../../data/Jobs/actions'
 import { addAppNote } from '../../data/AppNotes/actions'
 import { addInterview } from '../../data/Interviews/actions'
+import dateToday from '../../helpers/dateToday.js'
 import JobDetailsForm from './JobDetailsForm'
 import ApplicationDetailsForm from './ApplicationDetailsForm'
 import InterviewDetailsForm from './InterviewDetailsForm'
@@ -65,12 +66,7 @@ const jobFormReducer = (state, action) => {
 }
 
 // calculate today's date for application_notes
-let today = new Date()
-let dd = String(today.getDate()).padStart(2, '0')
-let mm = String(today.getMonth() + 1).padStart(2, '0')
-let yyyy = today.getFullYear();
-
-today = yyyy + '-' + mm + '-' + dd
+let today = dateToday()
 
 // initial state of component
 const initialState = {
