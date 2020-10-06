@@ -7,16 +7,9 @@ import ApplicationNote from './ApplicationNote'
 const ApplicationCard = ({ job }) => {
     const user_id = useSelector(state => state.user.id)
     const job_id = useSelector(state => state.job.data.data.id)
-    const job_data = job
-    console.log(job)
     const access_token = useSelector(state => state.user)
 
     const dispatch = useDispatch()
-
-    // console.log("user ID: ")
-    // console.log(user_id)
-    // console.log("job ID: ")
-    // console.log(job_id)
 
     // adds new empty note in application card
     const handleAddAppNote = () => {
@@ -49,7 +42,7 @@ const ApplicationCard = ({ job }) => {
                 <h3>Notes</h3>
                 <button onClick={handleAddAppNote}>Add note</button>
                 {
-                    job_data.application_notes.map(note => {
+                    job.application_notes.map(note => {
                         return (
                             <ApplicationNote key={note.id} applicationNote={note} />
                         )
