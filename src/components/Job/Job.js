@@ -5,6 +5,7 @@ import Loading from '../Loading'
 import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
+import Nav from '../Nav'
 
 const Job = ({ match }) => {
     const { jobs, job, loaded } = useSelector(state => state)
@@ -27,6 +28,7 @@ const Job = ({ match }) => {
 
     return (
         <>
+        <Nav />
         { !loaded ?
             <> 
             <Loading /> 
