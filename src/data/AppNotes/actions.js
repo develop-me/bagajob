@@ -110,7 +110,6 @@ const deleteAppNoteRequest = () => dispatch => (
 )
 
 const deleteAppNoteSuccess = data => dispatch => {
-    console.log(data)
     return (
         dispatch({
             type: APPLICATION_NOTE_DELETE_SUCCESS,
