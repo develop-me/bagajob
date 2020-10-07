@@ -40,7 +40,7 @@ const addAppNoteRequest = () => dispatch => (
 const addAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_POST_SUCCESS,
-        payload: data.data.data
+        payload: data.data
     })
 )
 
