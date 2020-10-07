@@ -35,7 +35,7 @@ const ApplicationCard = ({ job }) => {
                 <h1 className="para_header">Application</h1>
                 {/* CV */}
                 <ApplicationInput
-                    appCardInput="{job.cv}"
+                    appCardInput={job.cv}
                     jobProperty="cv"
                     title={job.title}
                     company={job.company}
@@ -44,7 +44,7 @@ const ApplicationCard = ({ job }) => {
                 />
                 {/* Cover Letter */}
                 <ApplicationInput
-                    appCardInput="{job.cover_letter}"
+                    appCardInput={job.cover_letter}
                     jobProperty="cover_letter"
                     title={job.title}
                     company={job.company}

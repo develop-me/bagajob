@@ -66,7 +66,7 @@ export default (state, action) => {
                 ...state,
                 jobs: [
                     ...state.jobs,
-                    payload
+                    payload.data.data
                 ],
                 job_id: payload.data.data.id,
                 loaded: true

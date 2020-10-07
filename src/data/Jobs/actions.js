@@ -153,12 +153,14 @@ const updateJobRequest = () => dispatch => (
     })
 )
 
-const updateJobSuccess = data => dispatch => (
-    dispatch({
-        type: SINGLE_JOB_PATCH_SUCCESS,
-        payload: data
-    })
-)
+const updateJobSuccess = data => dispatch => {
+    console.log(data.data.data)
+    return (
+        dispatch({
+            type: SINGLE_JOB_PATCH_SUCCESS,
+            payload: data
+        })
+)}
 
 const updateJobFailure = error => dispatch => (
     dispatch({
