@@ -5,7 +5,7 @@ import { addAppNote } from '../../../data/AppNotes/actions'
 import ApplicationNote from './ApplicationNote'
 import dateToday from '../../../helpers/dateToday.js'
 
-const ApplicationCard = ({ job, handleAppChange }) => {
+const ApplicationCard = ({ job }) => {
     const user_id = useSelector(state => state.user.user.id)
     const job_id = useSelector(state => state.job.data.data.id)
     const { access_token } = useSelector(state => state.user)
