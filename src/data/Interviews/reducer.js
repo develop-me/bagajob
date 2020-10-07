@@ -23,9 +23,15 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    interviews: [...state.interviews, payload]
-                },
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            interviews: [...state.job.data.data.interviews, payload]
+                        }
+                    },
                 loaded: true
+                }
             }
         case INTERVIEW_POST_FAILURE:
             return {
