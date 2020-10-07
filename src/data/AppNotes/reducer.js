@@ -80,7 +80,7 @@ export default (state, action) => {
                         ...state.job.data,
                         data: {
                             ...state.job.data.data,
-                            application_notes: state.job.application_notes.filter(note => note.id !== payload)
+                            application_notes: state.job.data.data.application_notes.filter(note => note.id !== payload)
                         }
                     },
                 },

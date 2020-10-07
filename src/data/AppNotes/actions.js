@@ -18,6 +18,7 @@ import {
 
 // adds new application note for specific job
 export const addAppNote = data => dispatch => {
+    console.log(data)
     return new Promise((resolve, reject) => {
         dispatch(addAppNoteRequest())
         apiAddAppNote(data)
@@ -109,12 +110,15 @@ const deleteAppNoteRequest = () => dispatch => (
     })
 )
 
-const deleteAppNoteSuccess = data => dispatch => (
-    dispatch({
-        type: APPLICATION_NOTE_DELETE_SUCCESS,
-        payload: data
-    })
-)
+const deleteAppNoteSuccess = data => dispatch => {
+    console.log(data)
+    return (
+        dispatch({
+            type: APPLICATION_NOTE_DELETE_SUCCESS,
+            payload: data.data
+        })
+    )
+}
 
 const deleteAppNoteFailure = error => dispatch => (
     dispatch({

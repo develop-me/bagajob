@@ -23,7 +23,7 @@ export const updateAppNote = data => {
 // application note delete request
 export const deleteAppNote = data => {
     const { user_id, job_id, note_id, access_token } = data
-    return axios.delete(`user/${user_id}/jobs/${job_id}/app-notes/${note_id}`, null, {
+    return axios.delete(`user/${user_id}/jobs/${job_id}/app-notes/${note_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
