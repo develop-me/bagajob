@@ -5,6 +5,7 @@ import Loading from '../Loading'
 import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
 import InterviewCard from './InterviewCard'
+import { Link } from "react-router-dom"
 import Nav from '../Nav'
 
 const Job = ({ match }) => {
@@ -44,6 +45,7 @@ const Job = ({ match }) => {
             </>
         : 
         <>
+        <Link to="/mainpage"> <button>Back</button></Link>
         <button onClick={handleDeleteJob}>Delete Job</button>
         <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
             <JobDetailsCard job={job_data} />
