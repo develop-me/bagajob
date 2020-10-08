@@ -40,7 +40,7 @@ export default (state, action) => {
         case SINGLE_JOB_GET_REQUEST:
             return {
                 ...state,
-
+                loaded: false
             }
         case SINGLE_JOB_GET_SUCCESS:
             return {

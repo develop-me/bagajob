@@ -24,7 +24,7 @@ const Job = ({ match }) => {
         }
         dispatch(getSingleJob(data));
     }, []);
-    console.log(access_token)
+
     // deletes single job
     const handleDeleteJob = () => {
         dispatch(deleteJob({

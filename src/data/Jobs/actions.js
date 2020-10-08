@@ -100,7 +100,6 @@ const getJobFailure = data => dispatch => (
 export const addJob = data => dispatch => {
     return new Promise((resolve, reject) => {
         dispatch(addJobRequest())
-        console.log(data)
         apiAddJob(data)
             .then(successResponse => {
                 dispatch(addJobSuccess(successResponse))
@@ -155,7 +154,6 @@ const updateJobRequest = () => dispatch => (
 )
 
 const updateJobSuccess = data => dispatch => {
-    console.log(data.data.data)
     return (
         dispatch({
             type: SINGLE_JOB_PATCH_SUCCESS,
