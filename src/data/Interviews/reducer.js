@@ -27,11 +27,11 @@ export default (state, action) => {
                         ...state.job.data,
                         data: {
                             ...state.job.data.data,
-                            interviews: [...state.job.data.data.interviews, payload]
+                            interviews: [...state.job.data.data.interviews, payload.data.data]
                         }
                     },
+                },
                 loaded: true
-                }
             }
         case INTERVIEW_POST_FAILURE:
             return {
