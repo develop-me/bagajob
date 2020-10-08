@@ -28,8 +28,8 @@ const StageTracker = ({ selected, handleClick, label, value, title, company, act
 
     return (
         <>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-                <div onClick={handleUpdateStage, handleClick} className={"status-circle " + currentStage}></div>
+            <div onClick={handleClick} style={{ display: "flex", flexDirection: "column" }}>
+                <div onClick={handleUpdateStage} className={"status-circle " + currentStage}></div>
                 <small>{label}</small>
             </div>
         </>
