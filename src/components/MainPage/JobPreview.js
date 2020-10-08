@@ -33,6 +33,7 @@ const JobPreview = ({ job }) => {
                         title={title}
                         company={company}
                         active={active}
+                        job_id={job.id}
                     />
                     <StageTracker
                         handleClick={() => setCurrent("2")}
@@ -42,22 +43,27 @@ const JobPreview = ({ job }) => {
                         title={title}
                         company={company}
                         active={active}
+                        job_id={job.id}
                     />
                     <StageTracker
                         handleClick={() => setCurrent("3")}
                         selected={current === "3"}
+                        label="Interview"
                         value="3"
                         title={title}
                         company={company}
                         active={active}
+                        job_id={job.id}
                     />
                     <StageTracker
                         handleClick={() => setCurrent("4")}
                         selected={current === "4"}
+                        label="Offer"
                         value="4"
                         title={title}
                         company={company}
                         active={active}
+                        job_id={job.id}
                     />
                 </div>
                 <Link to={`/jobs/${job.id}`} className="expand_btn">&#8250;</Link>
