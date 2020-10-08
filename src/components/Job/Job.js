@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getSingleJob } from '../../data/Jobs/actions'
+import { getSingleJob, deleteJob } from '../../data/Jobs/actions'
 import Loading from '../Loading'
 import JobDetailsCard from './JobDetailsCard'
 import ApplicationCard from './ApplicationCard'
@@ -24,6 +24,15 @@ const Job = ({ match }) => {
         }
         dispatch(getSingleJob(data));
     }, []);
+    console.log(access_token)
+    // deletes single job
+    const handleDeleteJob = () => {
+        dispatch(deleteJob({
+            user_id,
+            job_id,
+            access_token
+        }))
+    }
 
 
     return (
@@ -35,6 +44,7 @@ const Job = ({ match }) => {
             </>
         : 
         <>
+        <button onClick={handleDeleteJob}>Delete Job</button>
         <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
             <JobDetailsCard job={job_data} />
             <ApplicationCard job={job_data} />

@@ -43,7 +43,7 @@ export const updateJob = data => {
 // single job delete request
 export const deleteJob = data => {
     const { user_id, job_id, access_token } = data
-    return axios.delete(`user/${user_id}/jobs/${job_id}`, null, {
+    return axios.delete(`user/${user_id}/jobs/${job_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
