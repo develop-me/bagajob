@@ -23,7 +23,7 @@ export const updateInterview = data => {
 // interview delete request
 export const deleteInterview = data => {
     const { user_id, job_id, interview_id, access_token } = data
-    return axios.delete(`user/${user_id}/jobs/${job_id}/interviews/${interview_id}`, null, {
+    return axios.delete(`user/${user_id}/jobs/${job_id}/interviews/${interview_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }

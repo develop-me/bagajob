@@ -76,7 +76,13 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    INTERVIEWs: state.job.interviews.filter(interview => interview.id !== payload)
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            interviews: state.job.data.data.interviews.filter(interview => interview.id !== payload)
+                        },
+                    },
                 },
                 loaded: true
             }

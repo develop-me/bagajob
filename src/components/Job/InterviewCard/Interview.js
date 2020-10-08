@@ -48,7 +48,8 @@ const Interview = ({ interview }) => {
         dispatch(deleteInterview({
             user_id,
             job_id,
-            interview_id
+            interview_id,
+            access_token
         }))
     }
 
