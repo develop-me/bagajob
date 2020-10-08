@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addInterview } from '../../../data/Interviews/actions'
 import Interview from './Interview'
+import dateToday from '../../../helpers/dateToday.js'
 
 const InterviewCard = ({ job }) => {
     let [editing, setEditing] = useState(false)
@@ -9,7 +10,6 @@ const InterviewCard = ({ job }) => {
     let [format, setFormat] = useState(job.interviews.format)
     let [interviewer, setInterviewer] = useState(job.interviews.interviewer)
     let [notes, setNotes] = useState(job.interviews.notes)
-    const interview_id = job
 
     const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job.data.data.id)
@@ -17,22 +17,36 @@ const InterviewCard = ({ job }) => {
     const access_token = useSelector(state => state.access_token)
     const dispatch = useDispatch()
 
-    console.log(job)
+    // These fields required by API, assigned values in intial state
+    let today = dateToday()
+    const initialState = {
+        interview_date: today,
+        format: "in_person",
+    }
 
     const handleAddInterview = e => {
         e.preventDefault()
+
+        // if format is undefined, assign it the value from initial state
+        if (!format) {
+            format = initialState.format
+        }
+
+        // if date is undefined, assign it the value from initial state
+        if (!interviewDate) {
+            interviewDate = initialState.interview_date
+        }
 
         const data = {
             interview_date: interviewDate,
             format,
             interviewer,
-            notes
+            notes,
         }
 
         dispatch(addInterview({
             user_id,
             job_id,
-            interview_id,
             access_token,
             interview_data: { ...data },
         }))
@@ -107,8 +121,6 @@ const InterviewCard = ({ job }) => {
             </form>
             
             : null }
-
-
 
 
             {job_data.interviews.map((interview, i) => {
