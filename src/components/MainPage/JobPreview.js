@@ -10,7 +10,7 @@ const JobPreview = ({ job }) => {
             <div className="job-card-container">
                 <div className="job-card-text">
                     <h4 className="para-highlight">
-                        {job.jobTitle}
+                        {job.title}
                     </h4>
                     <h4 className="para-header">
                         {job.company}
