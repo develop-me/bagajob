@@ -28,8 +28,6 @@ const MainPage = () => {
             access_token,
             user_id
         }
-
-        // will have to dispatch 3 actions here, one to get jobs, one to get interviews and one to get application notes
         dispatch(getJobs(data));
     }, []);
 
