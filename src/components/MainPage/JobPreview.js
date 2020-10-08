@@ -3,7 +3,15 @@ import { Link } from "react-router-dom"
 import StageTracker from './StageTracker'
 
 const JobPreview = ({ job }) => {
-    const [active, setActive] = useState(1)
+    
+    const {
+        title,
+        company,
+        active,
+        stage,
+    } = job 
+
+    const [current, setCurrent] = useState(stage)
 
     return (
         <>
@@ -18,24 +26,38 @@ const JobPreview = ({ job }) => {
                 </div>
                 <div className="status-bar">
                     <StageTracker
-                        handleClick={() => setActive(1)}
-                        selected={active === 1}
+                        handleClick={() => setCurrent("1")}
+                        selected={current === "1"}
                         label="Not applied"
+                        value="1"
+                        title={title}
+                        company={company}
+                        active={active}
                     />
                     <StageTracker
-                        handleClick={() => setActive(2)}
-                        selected={active === 2}
+                        handleClick={() => setCurrent("2")}
+                        selected={current === "2"}
                         label="Applied"
+                        value="2"
+                        title={title}
+                        company={company}
+                        active={active}
                     />
                     <StageTracker
-                        handleClick={() => setActive(3)}
-                        selected={active === 3}
-                        label="Interview"
+                        handleClick={() => setCurrent("3")}
+                        selected={current === "3"}
+                        value="3"
+                        title={title}
+                        company={company}
+                        active={active}
                     />
                     <StageTracker
-                        handleClick={() => setActive(4)}
-                        selected={active === 4}
-                        label="Offer"
+                        handleClick={() => setCurrent("4")}
+                        selected={current === "4"}
+                        value="4"
+                        title={title}
+                        company={company}
+                        active={active}
                     />
                 </div>
                 <Link to={`/jobs/${job.id}`} className="expand_btn">&#8250;</Link>
