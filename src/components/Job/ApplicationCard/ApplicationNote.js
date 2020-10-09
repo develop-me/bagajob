@@ -8,11 +8,11 @@ const ApplicationNote = ({ applicationNote }) => {
     const [note, setNote] = useState(applicationNote.data)
     const dispatch = useDispatch()
     // the necessary ids to make updateAppNote patch request
-    const user_id = useSelector(state => state.user.user.id)
     const job_id = useSelector(state => state.job.data.data.id)
     const { id: note_id } = applicationNote
+    const user_id = useSelector(state => state.user_id)
     // access token for Authentication
-    const access_token = useSelector(state => state.user.access_token)
+    const access_token = useSelector(state => state.access_token)
 
     // get today's date for application notes
     let today = dateToday()

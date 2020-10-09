@@ -6,9 +6,9 @@ import ApplicationNote from './ApplicationNote'
 import dateToday from '../../../helpers/dateToday.js'
 
 const ApplicationCard = ({ job }) => {
-    const user_id = useSelector(state => state.user.user.id)
+    const user_id = useSelector(state => state.user_id)
     const job_id = useSelector(state => state.job.data.data.id)
-    const { access_token } = useSelector(state => state.user)
+    const { access_token } = useSelector(state => state)
     const [editing, setEditing] = useState(false)
     const [note, setNote] = useState(job.application_notes.data)
 
