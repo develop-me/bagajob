@@ -254,14 +254,29 @@ const JobForm = () => {
             }))
         }
 
-        // will only PATCH if cv and cover letter fields have been completed
-        if (job_data.cv !== "" && job_data.cv !== "") {
+        let form_data = {}
+
+        // if the cv field is left blank, exclude it from the PATCH request
+        if (job_data.cv === "" && job_data.cover_letter !== "") {
+            form_data = { title, company, active, stage, cover_letter }
+        }
+        // if the cover_letter field is left blank, exclude it from the PATCH request
+        else if (job_data.cv !== "" && job_data.cover_letter === "") {
+            form_data = { title, company, active, stage, cv }
+        }
+        // otherwise, send both
+        else {
+            form_data = { title, company, active, stage, cv, cover_letter }
+        }
+
+        // will not PATCH if eiher the cv or cover letter is left blank
+        if (job_data.cv !== "" || job_data.cover_letter !== "")  {
             // dispatches job_data to API (PATCH user/${user_id}/jobs/${job_id})
             dispatchAction(updateJob({
                 user_id,
                 job_id,
                 access_token,
-                job_data: { title, company, active, stage, cv, cover_letter }
+                job_data: { ...form_data }
             }))
         }
 
