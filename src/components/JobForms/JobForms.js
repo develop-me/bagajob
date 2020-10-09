@@ -84,7 +84,7 @@ const initialState = {
         stage: "1"
     },
     interview : {
-        interview_date: today,
+        interview_date: "",
         format: "in_person",
         interviewer: "",
         notes: ""
@@ -232,31 +232,38 @@ const JobForm = () => {
         const notes_data = { ...state.application_notes }
         const job_data = { ...state.job }
 
-        // dispatches notes_data to API (POST user/${user_id}/jobs/${job_id}/app-notes)
-        dispatchAction(addAppNote({
-            user_id,
-            job_id,
-            access_token,
-            notes_data: notes_data,
-        }))
+        // will only POST if app notes data exists
+        if (notes_data.data !== "") {
+            // dispatches notes_data to API (POST user/${user_id}/jobs/${job_id}/app-notes)
+            dispatchAction(addAppNote({
+                user_id,
+                job_id,
+                access_token,
+                notes_data: notes_data,
+            }))
+        }
 
-        console.log(interview_data)
+        // will only POST if an interview date has been selected
+        if (interview_data.interview_date !== "") {
+            // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
+            dispatchAction(addInterview({
+                user_id,
+                job_id,
+                access_token,
+                interview_data: interview_data,
+            }))
+        }
 
-        // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
-        dispatchAction(addInterview({
-            user_id,
-            job_id,
-            access_token,
-            interview_data: interview_data,
-        }))
-
-        // dispatches job_data to API (PATCH user/${user_id}/jobs/${job_id})
-        dispatchAction(updateJob({
-            user_id,
-            job_id,
-            access_token,
-            job_data: { title, company, active, stage, cv, cover_letter }
-        }))
+        // will only PATCH if cv and cover letter fields have been completed
+        if (job_data.cv !== "" && job_data.cv !== "") {
+            // dispatches job_data to API (PATCH user/${user_id}/jobs/${job_id})
+            dispatchAction(updateJob({
+                user_id,
+                job_id,
+                access_token,
+                job_data: { title, company, active, stage, cv, cover_letter }
+            }))
+        }
 
         // resets form fields
         dispatch({ type: 'RESET_FORM' })
