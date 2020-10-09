@@ -120,7 +120,7 @@ const addJobRequest = () => dispatch => (
 const addJobSuccess = data => dispatch => (
     dispatch({
         type: SINGLE_JOB_POST_SUCCESS,
-        payload: data.data.data
+        payload: data
     })
 )
 
@@ -133,6 +133,7 @@ const addJobFailure = error => dispatch => (
 
 // updates details for a single job in user's jobs table
 export const updateJob = data => dispatch => {
+
     return new Promise((resolve, reject) => {
         dispatch(updateJobRequest())
         apiUpdateJob(data)
@@ -152,12 +153,13 @@ const updateJobRequest = () => dispatch => (
     })
 )
 
-const updateJobSuccess = data => dispatch => (
-    dispatch({
-        type: SINGLE_JOB_PATCH_SUCCESS,
-        payload: data
-    })
-)
+const updateJobSuccess = data => dispatch => {
+    return (
+        dispatch({
+            type: SINGLE_JOB_PATCH_SUCCESS,
+            payload: data
+        })
+)}
 
 const updateJobFailure = error => dispatch => (
     dispatch({

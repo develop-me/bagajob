@@ -72,12 +72,14 @@ const updateInterviewRequest = () => dispatch => (
     })
 )
 
-const updateInterviewSuccess = data => dispatch => (
-    dispatch({
-        type: INTERVIEW_PATCH_SUCCESS,
-        payload: data
-    })
-)
+const updateInterviewSuccess = data => dispatch => {
+    return (
+        dispatch({
+            type: INTERVIEW_PATCH_SUCCESS,
+            payload: data.data.data
+        })
+    )
+} 
 
 const updateInterviewFailure = error => dispatch => (
     dispatch({

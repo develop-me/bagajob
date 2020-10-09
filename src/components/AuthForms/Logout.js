@@ -5,11 +5,6 @@ import { resetAuthResponse, logout } from '../../data/Auth/actions'
 import checkmark from '../../assets/images/done-24px.svg'
 import Nav from '../Nav'
 
-const initialState = {
-    email: "",
-    password: ""
-}
-
 const Logout = () => {
     const { authResponse } = useSelector(state => state)
     const access_token = useSelector(state => state.user.access_token)

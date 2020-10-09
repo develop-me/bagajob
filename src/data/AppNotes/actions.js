@@ -40,7 +40,7 @@ const addAppNoteRequest = () => dispatch => (
 const addAppNoteSuccess = data => dispatch => (
     dispatch({
         type: APPLICATION_NOTE_POST_SUCCESS,
-        payload: data
+        payload: data.data
     })
 )
 
@@ -72,12 +72,14 @@ const updateAppNoteRequest = () => dispatch => (
     })
 )
 
-const updateAppNoteSuccess = data => dispatch => (
-    dispatch({
-        type: APPLICATION_NOTE_PATCH_SUCCESS,
-        payload: data
-    })
-)
+const updateAppNoteSuccess = data => dispatch => {
+    return (
+        dispatch({
+            type: APPLICATION_NOTE_PATCH_SUCCESS,
+            payload: data.data
+        })
+    )
+}
 
 const updateAppNoteFailure = error => dispatch => (
     dispatch({
@@ -107,12 +109,14 @@ const deleteAppNoteRequest = () => dispatch => (
     })
 )
 
-const deleteAppNoteSuccess = data => dispatch => (
-    dispatch({
-        type: APPLICATION_NOTE_DELETE_SUCCESS,
-        payload: data
-    })
-)
+const deleteAppNoteSuccess = data => dispatch => {
+    return (
+        dispatch({
+            type: APPLICATION_NOTE_DELETE_SUCCESS,
+            payload: data
+        })
+    )
+}
 
 const deleteAppNoteFailure = error => dispatch => (
     dispatch({

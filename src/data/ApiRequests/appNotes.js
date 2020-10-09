@@ -1,11 +1,9 @@
 import axios from '../axios'
 
-const token = localStorage.getItem('user')
-
 // application note post request
 export const addAppNote = data => {
-    const { user_id, job_id, access_token } = data
-    return axios.post(`user/${user_id}/jobs/${job_id}/app-notes`, null, {
+    const { user_id, job_id, access_token, notes_data } = data
+    return axios.post(`user/${user_id}/jobs/${job_id}/app-notes`, notes_data, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }
@@ -25,7 +23,7 @@ export const updateAppNote = data => {
 // application note delete request
 export const deleteAppNote = data => {
     const { user_id, job_id, note_id, access_token } = data
-    return axios.delete(`user/${user_id}/jobs/${job_id}/app-notes/${note_id}`, null, {
+    return axios.delete(`user/${user_id}/jobs/${job_id}/app-notes/${note_id}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
         }

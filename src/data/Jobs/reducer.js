@@ -15,6 +15,7 @@ import {
     SINGLE_JOB_DELETE_SUCCESS,
     SINGLE_JOB_DELETE_FAILURE
 } from './constants'
+import { initialState } from '../RootReducer'
 
 export default (state, action) => {
     const { type, payload } = action
@@ -58,15 +59,17 @@ export default (state, action) => {
         case SINGLE_JOB_POST_REQUEST:
             return {
                 ...state,
-                loaded: false
+                loaded: false,
+                job_id: "",
             }
         case SINGLE_JOB_POST_SUCCESS:
             return {
                 ...state,
                 jobs: [
                     ...state.jobs,
-                    ...payload
+                    payload.data.data
                 ],
+                job_id: payload.data.data.id,
                 loaded: true
             }
         case SINGLE_JOB_POST_FAILURE:
@@ -101,7 +104,7 @@ export default (state, action) => {
             return {
                 ...state,
                 jobs: state.jobs.filter(job => job.id !== payload),
-                job: {},
+                job: { ...initialState.job },
                 loaded: true
             }
         case SINGLE_JOB_DELETE_FAILURE:

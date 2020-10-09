@@ -15,6 +15,7 @@ import {
     PASSWORD_RESET_POST_FAILURE,
     LOGOUT
 } from './constants'
+import { initialState } from '../RootReducer'
 
 export default (state, action) => {
     const { type, payload } = action
@@ -107,11 +108,9 @@ export default (state, action) => {
             }
         case LOGOUT:
             return {
+                ...initialState,
                 authResponse: 'Successfully logged out',
-                user: {},
-                errors: {},
                 loaded: true,
-                access_token: null,
             }
         default:
             return {}

@@ -23,7 +23,14 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    application_notes: [...state.application_notes, payload]
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            application_notes: [...state.job.data.data.application_notes, payload]
+                        }
+                        
+                    },
                 },
                 loaded: true
             }
@@ -43,7 +50,13 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    application_notes: state.job.application_notes.map(note => note.id === payload.id ? payload : note)
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            application_notes: state.job.data.data.application_notes.map(note => note.id === payload.id ? payload : note)
+                        }
+                    },
                 },
                 loaded: true
             }
@@ -63,7 +76,13 @@ export default (state, action) => {
                 ...state,
                 job: {
                     ...state.job,
-                    application_notes: state.job.application_notes.filter(note => note.id !== payload)
+                    data: {
+                        ...state.job.data,
+                        data: {
+                            ...state.job.data.data,
+                            application_notes: state.job.data.data.application_notes.filter(note => note.id !== payload)
+                        }
+                    },
                 },
                 loaded: true
             }
