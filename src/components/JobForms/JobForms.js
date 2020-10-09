@@ -269,7 +269,7 @@ const JobForm = () => {
             form_data = { title, company, active, stage, cv, cover_letter }
         }
 
-        // will not PATCH if eiher the cv or cover letter is left blank
+        // will not PATCH if both the cv or cover letter are left blank
         if (job_data.cv !== "" || job_data.cover_letter !== "")  {
             // dispatches job_data to API (PATCH user/${user_id}/jobs/${job_id})
             dispatchAction(updateJob({
