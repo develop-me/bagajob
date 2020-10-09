@@ -23,6 +23,7 @@ const JobDetailsForm = ({
                         id="title"
                         value={values.title}
                         onChange={handleJobChange}
+                        required
                     />
                 </div>
 
@@ -37,6 +38,7 @@ const JobDetailsForm = ({
                         id="company"
                         value={values.company}
                         onChange={handleJobChange}
+                        required
                     />
                 </div>
 
