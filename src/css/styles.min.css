@@ -174,7 +174,6 @@ input {
   width: 50px;
   border-radius: 50%;
   background-color: lightgrey;
-  z-index: 2;
   margin: 25px 5vw 25px 5vw;
 }
 
@@ -696,6 +695,109 @@ input {
     font-size: 1.1rem;
   }
 }
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--beige);
+  font-family: Arial;
+}
+
+/* Navbar Brand text */
+.navbar-brand {
+  font-family: "LatoBlackItalic";
+  color: var(--black);
+  font-size: 32px;
+  margin: 5px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: var(--black);
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.navbar p {
+  color: var(--white);
+  font-family: "LatoLight";
+}
+
+/* The dropdown container */
+.dropdown {
+  float: right;
+  overflow: auto;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  color: var(--black);
+  padding: 8px 12px;
+  background-color: inherit;
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown button */
+.dropbtn {
+  display: flex;
+  align-content: center;
+  border: solid black 1px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 800;
+  outline: none;
+  color: var(--black);
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: var(--white);
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  border: solid black 1px;
+  position: absolute;
+  right: 1px;
+  background-color: var(--red);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: white;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content > a {
+  border: solid black 1px;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 /* templates */
 body {
   padding: 0;
@@ -704,7 +806,7 @@ body {
   line-height: 1.2;
 }
 
-.app {
+.center {
   text-align: center;
 }
 

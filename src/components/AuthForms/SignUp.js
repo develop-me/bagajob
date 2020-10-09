@@ -1,77 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { resetAuthResponse, registerUser } from '../../data/actions/AuthActions';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import useFormValidation from "../../customHooks/useFormValidation"
+import { resetAuthResponse, signUp, resetErrors } from '../../data/Auth/actions'
+import Nav from '../Nav'
+
+const initialState = {
+    name: "",
+    email: "",
+    password: ""
+}
 
 const SignUp = ({ history }) => {
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const { loaded } = useSelector(state => state)
+    const { authResponse } = useSelector(state => state)
+    const authErrors = useSelector(state => state.errors)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // destructuring the properties returned from the custom hook
+    const {
+        handleSubmit,
+        handleChange,
+        values,
+        errors,
+        isSubmitting
+    } = useFormValidation(initialState, signUp, history)
 
-        const state = {
-            fullName: fullName,
-            email: email,
-            password: password,
-        }
-
-        dispatch(registerUser(state, history));
-    }
-
-    // brings in authResponse global state property
-    const authResponse = useSelector(state => state.authResponse)
-
-    // resets authResponse every time component renders
+    // resets authResponse global state property every time component renders
     useEffect(() => {
-        dispatch(resetAuthResponse());
-    }, []);
+        dispatch(resetAuthResponse())
+    }, [])
+
+    // resets errors property in global state every time component renders
+    useEffect(() => {
+        dispatch(resetErrors())
+    }, [])
 
     return (
         <>
-            <h1 className="brand-text">bagajob</h1>
+        <Nav />
             <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="signup-form-input-container">
                         <input
                             type="text"
-                            id="fullname"
-                            name="fullname"
+                            id="name"
+                            name="name"
                             placeholder="Full name"
-                            onChange={e => setFullName(e.target.value)}
+                            value={values.name}
+                            onChange={handleChange}
                         />
                     </div>
+                    {errors.name && <p className="error-text">{errors.name}</p>}
                     <div className="signup-form-input-container">
                         <input
                             type="text"
                             id="email"
                             name="email"
                             placeholder="Email address"
-                            onChange={e => setEmail(e.target.value)}
+                            value={values.email}
+                            onChange={handleChange}
                         />
                     </div>
+                    {errors.email && <p className="error-text">{errors.email}</p>}
                     <div className="signup-form-input-container">
                         <input
                             type="password"
                             id="password"
                             name="password"
                             placeholder="Password"
-                            onChange={e => setPassword(e.target.value)}
+                            value={values.password}
+                            onChange={handleChange}
                         />
                     </div>
-                    <button className="primarybtn createacc-btn" type="submit" id="">
+                    {errors.password && <p className="error-text">{errors.password}</p>}
+                    <button
+                        disabled={isSubmitting}
+                        className="primarybtn createacc-btn"
+                        type="submit"
+                    >
                         CREATE ACCOUNT
                     </button>
-                    <p className="login-prompt">Already have an account? <Link to="/home/login">Log in</Link></p>
-                    <b>{authResponse !== null && authResponse}</b>
+                    {authResponse !== null && loaded === false ? <p>{authResponse}</p> : null}
+                    {/* the below error can be modified later for a more user friendly message */}
+                    {authErrors !== null ? <p>{authErrors.message}</p> : null}
+                    <p className="login-prompt">
+                        Already have an account? <Link to="/home/login">Log in</Link>
+                    </p>
                 </form>
-
             </div>
         </>
-    );
-};
+    )
+}
 
-export default SignUp;
+export default SignUp

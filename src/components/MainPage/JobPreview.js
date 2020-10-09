@@ -1,29 +1,76 @@
-import React from 'react';
-import StageTracker from './StageTracker';
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
+import StageTracker from './StageTracker'
 
-const Job = ({ job }) => {
+const JobPreview = ({ job }) => {
+    
+    const {
+        title,
+        company,
+        active,
+        stage,
+    } = job 
+
+    const [current, setCurrent] = useState(stage)
+
     return (
         <>
-            <div class="job-card-container">
-                <div class="job-card-text">
-                    <h4 class="para-highlight">
-                        {job.jobTitle}
+            <div className="job-card-container">
+                <div className="job-card-text">
+                    <h4 className="para-highlight">
+                        {job.title}
                     </h4>
-                    <h4 class="para-header">
+                    <h4 className="para-header">
                         {job.company}
                     </h4>
                 </div>
-                <div class="status-bar">
-                    <StageTracker active={job.stage === 1} />
-                    <StageTracker active={job.stage === 2} />
-                    <StageTracker active={job.stage === 3} />
+                <div className="status-bar">
+                    <StageTracker
+                        handleClick={() => setCurrent("1")}
+                        selected={current === "1"}
+                        label="Not applied"
+                        value="1"
+                        title={title}
+                        company={company}
+                        active={active}
+                        job_id={job.id}
+                    />
+                    <StageTracker
+                        handleClick={() => setCurrent("2")}
+                        selected={current === "2"}
+                        label="Applied"
+                        value="2"
+                        title={title}
+                        company={company}
+                        active={active}
+                        job_id={job.id}
+                    />
+                    <StageTracker
+                        handleClick={() => setCurrent("3")}
+                        selected={current === "3"}
+                        label="Interview"
+                        value="3"
+                        title={title}
+                        company={company}
+                        active={active}
+                        job_id={job.id}
+                    />
+                    <StageTracker
+                        handleClick={() => setCurrent("4")}
+                        selected={current === "4"}
+                        label="Offer"
+                        value="4"
+                        title={title}
+                        company={company}
+                        active={active}
+                        job_id={job.id}
+                    />
                 </div>
-                <a href="#" class="expand-btn">&#8250;</a>
-
+                <Link to={`/jobs/${job.id}`} className="expand_btn">&#8250;</Link>
             </div>
-            <hr class="status-line"></hr>
+            <hr className="status-line"></hr>
         </>
     );
 };
 
-export default Job;
+export default JobPreview;

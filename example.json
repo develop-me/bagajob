@@ -1,78 +1,56 @@
 {
     "jobs": [
         {
-            "job id": "1",
-            "status": "active",
+            "id": "1",
+            "title": "Software Guru",
             "company": "Awesome Software Inc",
-            "salary": "25000",
-            "location": "Berlin",
-            "closing date": "08/09/2020",
-            "date applied" : "05/09/2020 16:54",
-            "title" : "Software Guru",
-            "description" : "We are looking for a dynamic blah blah",
-            "recruiter name" : "Jimmy",
-            "recruiter email" : "jimmy@jimmy.com",
-            "recruiter phone" : "0729421847",
-            "stage" : "1",
-            "interview" : [
-                {
-                    "date": "05/09/2020 16:00",
-                    "format": "video",
-                    "interviewer": "Elon Musk",
-                    "notes": "Elon Musk is scary and the interview didn't go well" 
-                }
-            ],
-            "Application Notes" : [
-                {
-                    "note id" : "5",
-                    "note category": "text",
-                    "note date": "06/04/2020",
-                    "note data": "I spoke to Ben today and then I had a ham sandwich"
-                },
-                {
-                    "note id" : "17",
-                    "note category": "text",
-                    "note date": "06/04/2020",
-                    "note data": "Interview 06/09/2020 - total flop"
-                }
-            ]
+            "active": true,
+            "stage": 0
         },
         {
-            "job id": "2",
-            "status": "archived",
-            "company": "Melon Husk Software Inc",
-            "salary": "25000",
-            "location": "Atlanta, GA",
-            "closing date": "08/09/2020",
-            "date applied" : "05/09/2020 16:54",
-            "title" : "Software Guru",
-            "description" : "We are looking for a dynamic blah blah",
-            "recruiter name" : "Jimmy",
-            "recruiter email" : "jimmy@jimmy.com",
-            "recruiter phone" : "0729421847",
-            "stage" : "2",
-            "interview" : [
-                {
-                    "date": "05/09/2020 16:00",
-                    "format": "video",
-                    "interviewer": "Elon Musk",
-                    "notes": "Elon Musk is scary and the interview didn't go well" 
-                }
-            ],
-            "Application Notes" : [
-                {
-                    "note id" : "5",
-                    "note category": "text",
-                    "note date": "06/04/2020",
-                    "note data": "I spoke to Ben today and then I had a ham sandwich"
-                },
-                {
-                    "note id" : "17",
-                    "note category": "text",
-                    "note date": "06/04/2020",
-                    "note data": "Interview 06/09/2020 - total flop"
-                }
-            ]
+            "id": "2",
+            "title": "Software Engineer",
+            "company": "Cool Software Inc",
+            "active": false,
+            "stage": 0
         }
-    ]
+    ],
+    "job": {
+        "id": "1",
+        "title": "Software Guru",
+        "company": "Awesome Software Inc",
+        "active": true,
+        "location": "Berlin",
+        "salary": "25000",
+        "description": "We are looking for a dynamic blah blah",
+        "date_applied": "05/09/2020 16:54",
+        "closing_date": "08/09/2020",
+        "cv": "foobar",
+        "cover_letter": "abcd",
+        "interviews": [
+            {
+                "id": 5,
+                "date": "05/09/2020 16:00",
+                "format": "video",
+                "interviewer": "Elon Musk",
+                "notes": "Elon Musk is scary and the interview didn't go well"
+            }
+        ],
+        "application_notes": [
+            {
+                "id": 41,
+                "job_id": 21,
+                "note_name": "distinctio",
+                "date": "1998-06-17",
+                "body": "Illo tempora sequi ea quos. Et ut praesentium aut. Perspiciatis voluptas natus nisi similique. Architecto animi unde eum doloribus voluptatum in."
+            },
+            {
+                "id": 42,
+                "job_id": 21,
+                "note_name": "deleniti",
+                "date": "2008-02-01",
+                "body": "Est totam magnam ratione non ut ut qui. Sequi quia exercitationem ratione iure ullam et in et. Consequatur qui qui enim."
+            }
+        ]
+    }
 }
