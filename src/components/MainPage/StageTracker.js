@@ -4,8 +4,8 @@ import { updateJob } from '../../data/Jobs/actions'
 
 const StageTracker = ({ job_id, selected, handleClick, label, value, title, company, active }) => {
 
-    const user_id = useSelector(state => state.user.user.id)
-    const access_token = useSelector(state => state.user.access_token)
+    const user_id = useSelector(state => state.user_id)
+    const access_token = useSelector(state => state.access_token)
     const dispatch = useDispatch()
 
     const handleUpdateStage = () => {
