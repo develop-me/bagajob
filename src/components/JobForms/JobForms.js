@@ -84,8 +84,8 @@ const initialState = {
         stage: "1"
     },
     interview : {
-        interview_date: "",
-        format: "select",
+        interview_date: today,
+        format: "in_person",
         interviewer: "",
         notes: ""
     },
@@ -239,6 +239,8 @@ const JobForm = () => {
             access_token,
             notes_data: notes_data,
         }))
+
+        console.log(interview_data)
 
         // dispatches interview_data to API (POST user/${user_id}/jobs/${job_id}/interviews)
         dispatchAction(addInterview({
