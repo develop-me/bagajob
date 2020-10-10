@@ -1,10 +1,9 @@
 import axios from "axios";
 
 export default axios.create({
-    // Deployment baseURL:
-    // baseURL: "https://bagajob-api.developme.space/api/",
-    // Development baseURL:
-    baseURL: "http://homestead.test/api",
+    baseURL: (process.env.NODE_ENV === 'production') ?
+    "https://bagajob-api.developme.space/api/" // production
+    : "http://homestead.test/api", // development
     // Headers:
     headers: {
         Accept: "application/json",
