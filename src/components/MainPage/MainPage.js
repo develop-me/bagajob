@@ -34,12 +34,14 @@ const MainPage = () => {
     return (
         <>
         <Nav />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <a href="">Sort by</a>
-                <button onClick={openModal}>Add new application</button>
-
+            <div className="mainpage-header-container">
+                <div>
+                <button className="tertiarybtn sort-btn">Sort by &#9662;</button>
+                <button className="primarybtn addapp-btn" onClick={openModal}>+ Add application</button>
+                </div>
+                <h1 className="mainpage-header-text">My Applications</h1>
             </div>
-            <h1>My Applications</h1>
+
             <div>
                 {jobs.map((job, index) => (
                     job.active && <JobPreview job={job} key={index} />

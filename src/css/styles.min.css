@@ -116,7 +116,6 @@ a {
   text-align: center;
   text-decoration: none;
   font-family: "LatoBold";
-  font-size: 1.2rem;
 }
 
 .secondarybtn {
@@ -127,23 +126,16 @@ a {
   text-align: center;
   text-decoration: none;
   font-family: "LatoBold";
-  font-size: 1.2rem;
 }
 
-.expand-btn {
-  background-color: var(--red);
-  color: var(--white);
-  display: inline-block;
-  border-radius: 50%;
-  margin: 25px;
-  width: 50px;
-  height: 50px;
-  font-size: 38px;
-}
-
-.expand-btn:hover {
-  background-color: #e69e9e;
-  color: var(--white);
+.tertiarybtn {
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Merriweather";
 }
 
 input {
@@ -316,6 +308,32 @@ input {
     height: 10vw;
   }
 }
+.mainpage-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.mainpage-header-text {
+  font-family: "LatoBlack";
+  color: var(--black);
+}
+
+.addapp-btn {
+  font-family: "LatoBold";
+  text-transform: uppercase;
+  height: 35px;
+  margin: 0 0 0 15px;
+  padding: 0 20px;
+}
+
+.sort-btn {
+  height: 35px;
+  margin: 0 15px 0 0;
+  padding: 0 20px;
+}
+
 /* organisms */
 /* Login Container */
 .login-container {
@@ -372,12 +390,14 @@ input {
   margin: 2rem 0 0 0;
   height: 2.5rem;
   width: 100%;
+  font-size: 1.2rem;
 }
 
 .signup-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
   width: 100%;
+  font-size: 1.2rem;
 }
 
 .brand-title-small {
@@ -644,11 +664,13 @@ input {
 .login-rtn-btn {
   margin: 80px 50px 0 50px;
   height: 3rem;
+  font-size: 1.2rem;
 }
 
 .logout-btn {
   height: 2.5rem;
   width: 100%;
+  font-size: 1.2rem;
 }
 
 .logout-prompt {

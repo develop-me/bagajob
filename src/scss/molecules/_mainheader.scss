@@ -1,0 +1,25 @@
+.mainpage-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.mainpage-header-text {
+    font-family: 'LatoBlack';
+    color: var(--black);
+}
+
+.addapp-btn {
+    font-family: 'LatoBold';
+    text-transform: uppercase;
+    height: 35px;
+    margin: 0 0 0 15px;
+    padding: 0 20px;
+}
+
+.sort-btn {
+    height: 35px;
+    margin: 0 15px 0 0;
+    padding: 0 20px;
+}
