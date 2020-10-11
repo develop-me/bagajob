@@ -55,9 +55,19 @@
 .login-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
+  width: 100%;
 }
 
 .signup-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
+  width: 100%;
+}
+
+.brand-title-small {
+  font-family: 'LatoBlackItalic';
+  color: var(--black);
+  text-transform: lowercase;
+  margin: 5rem 0 3rem 0;
+  font-size: 3.5rem,
 }
