@@ -84,9 +84,9 @@ const SignUp = ({ history }) => {
                     >
                         CREATE ACCOUNT
                     </button>
-                    {authResponse !== null && loaded === false ? <p>{authResponse}</p> : null}
+                    {authResponse !== null && loaded === false ? <p className="para-highlight center">{authResponse}</p> : null}
                     {/* the below error can be modified later for a more user friendly message */}
-                    {authErrors !== null ? <p>{authErrors.message}</p> : null}
+                    {authErrors !== null ? <p className="para-highlight center">{authErrors.message}</p> : null}
                 </form>
             </div>
             <p className="login-prompt center mb-3">

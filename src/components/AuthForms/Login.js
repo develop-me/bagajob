@@ -96,7 +96,7 @@ const Login = ({ history }) => {
                             SIGN UP
                         </button>
                     </Link>
-                    <b>{authResponse !== null && authResponse}</b>
+                    <p className="para-highlight center">{authResponse !== null && authResponse}</p>
                 </form>
             </div>
         </>
