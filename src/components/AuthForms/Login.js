@@ -31,7 +31,6 @@ const Login = ({ history }) => {
 
     return (
         <>
-        <Nav />
             <div className="form-container-small login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-form-input-container">

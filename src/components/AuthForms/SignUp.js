@@ -39,7 +39,6 @@ const SignUp = ({ history }) => {
 
     return (
         <>
-        <Nav />
             <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="signup-form-input-container">
