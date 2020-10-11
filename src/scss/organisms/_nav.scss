@@ -79,8 +79,8 @@
     float: none;
     color: white;
     text-decoration: none;
-    display: block;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dropdown-content > a {
@@ -95,4 +95,8 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.nav-icon {
+    align-items: flex-end;
 }
