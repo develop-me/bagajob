@@ -66,9 +66,9 @@ const JobPreview = ({ job }) => {
                         job_id={job.id}
                     />
                 </div>
-                <Link to={`/jobs/${job.id}`} className="expand_btn">&#8250;</Link>
+                <Link to={`/jobs/${job.id}`}><img className="expand-job-btn" src={ require('../../assets/images/arrow_right.svg') }/></Link>
             </div>
-            <hr className="status-line"></hr>
+            {/* <hr className="status-line"></hr> */}
         </>
     );
 };

@@ -174,7 +174,7 @@ input {
   width: 50px;
   border-radius: 50%;
   background-color: lightgrey;
-  margin: 25px 5vw 25px 5vw;
+  margin: 15px 5vw;
 }
 
 /* Mobile screens <768px */
@@ -182,7 +182,7 @@ input {
   .status-circle {
     height: 40px;
     width: 40px;
-    margin: 30px 5vw 30px 5vw;
+    margin: 20px 5vw;
   }
 }
 .status-complete {
@@ -198,6 +198,20 @@ input {
   width: 100%;
 }
 
+.expand-job-btn {
+  height: 50px;
+  width: 50px;
+  margin: 30px 10px 0 10px;
+}
+
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+  .expand-job-btn {
+    height: 40px;
+    width: 40px;
+    margin: 20px 5vw;
+  }
+}
 /* molecules */
 /* Forms: */
 .form-container-small {
@@ -258,6 +272,12 @@ input {
   width: 30vw;
   transform: translate(45px, -70px);
   border: 1.5px solid var(--darkblue);
+}
+
+.status-text {
+  font-size: 0.7rem;
+  font-family: "Merriweather";
+  color: var(--darkblue);
 }
 
 /* Large screens >1200px */
@@ -646,6 +666,8 @@ input {
   height: 100px;
   margin: 20px;
   flex-wrap: wrap;
+  padding: 0 0 10px 0;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
 }
 
 .job-card-text {

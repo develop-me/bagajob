@@ -2,3 +2,18 @@
     height: 100%;
     width: 100%;
 }
+
+.expand-job-btn {
+    height: 50px;
+    width: 50px;
+    margin: 30px 10px 0 10px;
+}
+
+/* Mobile screens <768px */
+@media only screen and (max-width: 888px) {
+    .expand-job-btn {
+        height: 40px;
+        width: 40px;
+        margin: 20px 5vw;
+    }
+}

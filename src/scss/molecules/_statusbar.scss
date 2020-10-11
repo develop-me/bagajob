@@ -10,6 +10,12 @@
     border: 1.5px solid var(--darkblue);
 }
 
+.status-text {
+    font-size: .7rem;
+    font-family: 'Merriweather';
+    color: var(--darkblue);
+}
+
 /* Large screens >1200px */
 @media only screen and (min-width: 1200px) {
     .status-line {
