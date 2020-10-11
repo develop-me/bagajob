@@ -585,13 +585,14 @@ input {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  padding: 5vw 10vw;
-  margin: 10vw 25vw;
+  padding: 5vw 20vw;
+  margin: 10vw 10vw;
 }
 
 @media only screen and (max-width: 767px) {
   .logout-container {
     margin: 10vw;
+    padding: 5vw 10vw;
   }
 
   .logout-prompt {
@@ -601,11 +602,17 @@ input {
 @media only screen and (max-width: 960px) {
   .logout-container {
     margin: 10vw 20vw 10vw 20vw;
+    padding: 5vw 10vw;
   }
 }
 @media only screen and (min-width: 1440px) {
   .logout-container {
-    margin: 10vw 35vw 10vw 35vw;
+    margin: 10vw 30vw;
+    padding: 5vw 10vw;
+  }
+
+  .logout-btn {
+    margin: 0 0px;
   }
 }
 .check-icon {
