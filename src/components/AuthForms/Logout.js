@@ -36,7 +36,7 @@ const Logout = () => {
                 </>
                 :
                 <>
-                <img className="check-icon" src={checkmark} alt="green checkmark"></img>
+                <img className="check-icon filter-green" src={checkmark} alt="green checkmark"></img>
                 <h1 className="headline center">Logged Out</h1>
                 <Link to="/home/login"> 
                     <button className="primarybtn logout-btn">
