@@ -18,6 +18,9 @@
 @import './molecules/mainheader';
 @import './molecules/inputgroups';
 @import './molecules/editbuttons';
+@import './molecules/cards/application';
+@import './molecules/cards/jobdetail';
+@import './molecules/cards/interview';
 
 
 /* organisms */
@@ -30,9 +33,7 @@
 @import './organisms/homeinfo';
 @import './organisms/nav';
 @import './organisms/singlejob';
-@import './organisms/cards/application';
-@import './organisms/cards/jobdetail';
-@import './organisms/cards/interview';
+
 
 /* templates */
 @import './templates/app';
