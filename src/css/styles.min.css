@@ -153,7 +153,7 @@ input {
 }
 
 .label {
-  font-family: "Merriweather";
+  font-family: "LatoBold";
   font-size: 0.8rem;
 }
 
@@ -196,6 +196,14 @@ input {
   margin: 30px 10px 0 10px;
 }
 
+.filter-white {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(127deg) brightness(109%) contrast(102%);
+}
+
+.edit-icon, .delete-icon {
+  height: 15px;
+}
+
 /* Mobile screens <768px */
 @media only screen and (max-width: 888px) {
   .expand-job-btn {
@@ -215,7 +223,6 @@ input {
   justify-content: center;
 }
 
-/* Forms: */
 .form-container-large {
   background-color: var(--white);
   border-radius: 20px;
@@ -332,6 +339,111 @@ input {
   height: 35px;
   margin: 0 15px 0 0;
   padding: 0 20px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+}
+
+.single-job-input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single-job-input {
+  border: none;
+  margin: 1vw 1vw 1vw 0;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.add-note-input {
+  border-radius: 5px;
+  border-color: lightgrey;
+}
+
+.edit-btn {
+  height: 20px;
+  width: 3vw;
+}
+
+.save-btn {
+  height: 20px;
+  width: 4vw;
+}
+
+.delete-note-btn {
+  margin: 10px 0 0 5px;
+}
+
+.edit-note-btn {
+  margin: 10px 5px 0 0;
+}
+
+.add-note-btn {
+  height: 20px;
+  width: 100px;
+  font-family: "LatoLight";
+  font-size: 0.8rem;
+}
+
+.save-note-btn {
+  height: 20px;
+  width: 100px;
+  font-family: "LatoLight";
+  font-size: 0.8rem;
+}
+
+.single-job-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-btn {
+  margin-left: 16px;
+  height: 25px;
+  width: 80px;
+}
+
+.delete-job-btn {
+  margin-right: 16px;
+  height: 25px;
+  width: 120px;
+}
+
+.add-interview-btn {
+  font-family: "LatoLight";
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.save-interview-btn {
+  font-family: "LatoLight";
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.edit-interview-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.edit-interview-btn {
+  margin: 10px 5px 0 0;
+}
+
+.delete-interview-btn {
+  margin: 10px 0 0 5px;
+}
+
+.edit-note-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-appnote-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* organisms */
@@ -341,6 +453,7 @@ input {
   border-radius: 20px;
   display: flex;
   justify-content: center;
+  margin-bottom: 10vw;
 }
 
 @media only screen and (max-width: 767px) {
@@ -620,6 +733,38 @@ input {
   justify-self: start;
 }
 
+.interview-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.interview-list-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+
+.add-interview-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-interview-form > input {
+  margin: 10px 0px;
+}
+
+.add-interview-form > select {
+  margin: 10px 0px;
+  height: 30px;
+}
+
+.add-interview-form > textarea {
+  margin: 10px 0px;
+}
+
 .logout-container {
   background-color: var(--white);
   border-radius: 20px;
@@ -695,6 +840,7 @@ input {
 .job-card-text {
   text-align: left;
   margin-left: 50px;
+  width: 15vw;
 }
 
 @media only screen and (max-width: 888px) {
@@ -880,6 +1026,67 @@ input {
 
 .nav-icon {
   align-items: flex-end;
+}
+
+.single-job-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+}
+
+.application-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 2vw;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+}
+
+.appnote-container {
+  border: 1px solid lightgray;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+
+.appnote-list-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 250px;
+}
+
+.app-note-date {
+  font-family: "LatoBold";
+}
+
+.job-detail-card {
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+  padding: 2rem;
+  background-color: #e4e4e4;
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+}
+
+.interview-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 2vw;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.interview-list-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 400px;
 }
 
 /* templates */

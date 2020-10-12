@@ -16,15 +16,23 @@
 @import './molecules/statusbar';
 @import './molecules/homeimages';
 @import './molecules/mainheader';
+@import './molecules/inputgroups';
+@import './molecules/editbuttons';
+
 
 /* organisms */
 @import './organisms/forms/login';
 @import './organisms/forms/signup';
 @import './organisms/forms/addjob';
+@import './organisms/forms/interview';
 @import './organisms/logout';
 @import './organisms/jobcard';
 @import './organisms/homeinfo';
 @import './organisms/nav';
+@import './organisms/singlejob';
+@import './organisms/cards/application';
+@import './organisms/cards/jobdetail';
+@import './organisms/cards/interview';
 
 /* templates */
 @import './templates/app';
