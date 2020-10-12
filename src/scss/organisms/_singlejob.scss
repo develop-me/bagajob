@@ -1,6 +1,7 @@
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 768px) {
     .single-job-container {
         scroll-snap-type: x mandatory;
+        overflow: scroll;
       }
       
       .job-detail-card, .application-card, .interview-card {
