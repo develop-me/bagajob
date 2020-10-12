@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import Nav from '../Nav'
+
 
 const AccountHeader = () => {
     const { name } = useSelector(state => state) 
@@ -8,7 +8,6 @@ const AccountHeader = () => {
 
     return (
         <>
-        <Nav />
             <div className="account-initial">
                 { initials } 
             </div>
