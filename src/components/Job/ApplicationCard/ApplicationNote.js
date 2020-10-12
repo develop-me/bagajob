@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateAppNote, deleteAppNote } from '../../../data/AppNotes/actions'
 import dateToday from '../../../helpers/dateToday.js'
+import trash from '../../../assets/images/delete.svg'
+import edit from '../../../assets/images/edit.svg'
 
 const ApplicationNote = ({ applicationNote }) => {
     const [editing, setEditing] = useState(false)
@@ -47,21 +49,39 @@ const ApplicationNote = ({ applicationNote }) => {
 
     return (
         <>
+        <div className="appnote-container">
+            <div className="edit-note-button-container">
+                <p className="app-note-date">{applicationNote.date}</p>
+                <div className="edit-note-btn-group">
 
-        {!editing ? <button onClick={() => setEditing(true)}>Edit</button> : <button onClick={handleUpdateAppNote}>Done</button>}
-        
-        {editing ?
-                < textarea
+                    {!editing ?
+                        <button className="primarybtn edit-interview-btn" onClick={() => setEditing(true)}>
+                            <img className="edit-icon filter-white" src={edit} alt="edit interview"></img>
+                        </button>
+                        :
+                        <button className="secondarybtn edit-note-btn" onClick={handleUpdateAppNote}>Save</button>
+                    }
+
+                    <button className="primarybtn delete-note-btn" onClick={handleDeleteAppNote}>
+                        <img className="delete-icon filter-white" src={trash} alt="delete interview"></img>
+                    </button>
+
+                </div>
+            </div>
+            {editing ?
+                <textarea
+                    className="add-note-input"
                     cols="30"
-                    rows="10"
+                    rows="5"
                     value={note}
                     onChange={e => setNote(e.target.value)}
                 />
-            :
-            <p>{note} {applicationNote.date}</p>
-        }
-
-        <button onClick={handleDeleteAppNote}>Delete</button>
+                :
+                <>
+                <p>{note}</p>
+                </>
+            }
+        </div>
         </>
     )
 }

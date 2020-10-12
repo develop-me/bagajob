@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateJob } from '../../../data/Jobs/actions'
+import trash from '../../../assets/images/delete.svg'
+import edit from '../../../assets/images/edit.svg'
 
 const ApplicationInput = ({ appCardInput, jobProperty, title, company, active, stage }) => {
     const [inputValue, setInput] = useState(appCardInput)
@@ -30,20 +32,22 @@ const ApplicationInput = ({ appCardInput, jobProperty, title, company, active, s
 
     return (
         <>
-            <label htmlFor={jobProperty}>
+            <label className="label" htmlFor={jobProperty}>
                 {jobProperty === "cv"
                     ?
-                    "CV:"
+                    "CV"
                     :
-                    "Cover Letter:"
+                    "Cover Letter"
                 }
             </label>
+            <div className="single-job-input-group">
             {editing
                 ?
                 <input
                     type="text"
                     id={jobProperty}
                     value={inputValue}
+                    className="single-job-input"
                     onChange={e => setInput(e.target.value)}
                 />
                 :
@@ -58,10 +62,11 @@ const ApplicationInput = ({ appCardInput, jobProperty, title, company, active, s
             }
             {editing
                 ?
-                <button onClick={handleUpdateJob}>Save</button>
+                <button className="secondarybtn save-btn" onClick={handleUpdateJob}>Save</button>
                 :
-                <button onClick={() => setEditing(true)}>Edit</button>
+                <button className="primarybtn edit-btn" onClick={() => setEditing(true)}><img className="edit-icon filter-white" src={edit} alt="edit interview"></img></button>
             }
+            </div>
         </>
     )
 }
