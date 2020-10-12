@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateAccount } from '../../data/Account/actions'
+import edit from '../../assets/images/edit.svg'
 
 const AccountDetail = ({ accountDetailName, value }) => {
     const [editing, setEditing] = useState(false)
@@ -24,7 +25,7 @@ const AccountDetail = ({ accountDetailName, value }) => {
     }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="account-detail-card">
             {editing ?
                 <input
                     id={accountDetailName}
@@ -37,7 +38,7 @@ const AccountDetail = ({ accountDetailName, value }) => {
             {editing ?
                 <button onClick={handleUpdateAccount}>Save</button>
                 :
-                <button onClick={() => setEditing(true)}>Edit</button>
+                <button className="primarybtn edit-acc-btn" onClick={() => setEditing(true)}><img style={{ marginRight: "5px"}} className="edit-icon filter-white" src={edit} alt="edit account detail"></img>EDIT</button>
             }
         </div>
     )

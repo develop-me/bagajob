@@ -29,18 +29,25 @@ const Account = ( data ) => {
         <>
             <AccountHeader />
             <p>{ errors.message }</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", width: "30rem", margin: "0 auto" }}>
-                <AccountDetail
-                    accountDetailName="email"
-                    value={ email }
-                />
+            <div className="account-container">
                 <AccountDetail
                     accountDetailName="name"
                     value={ name }
                 />
-                <button onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
+                <AccountDetail
+                    accountDetailName="email"
+                    value={ email }
+                />
+               <div className="account-detail-card">
+                    <Link style={{margin: "auto"}} to="/forgot-password">                    <button className="primarybtn reset-pass-btn">RESET PASSWORD</button>
+                    </Link> 
+                </div>
+                <div className="account-detail-card">
+                    <button style={{margin: "auto"}}className="primarybtn del-acc-btn" onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
+                </div>
+                
             </div>
-                            
+        
 
         </>
         :  

@@ -83,3 +83,17 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.edit-acc-btn {
+    display: flex;
+    align-items: center;
+    font-family: 'LatoLight';
+    font-size: .8rem;
+    padding: 5px 20px;
+    margin: 0 10px 0 0;
+}
+
+.del-acc-btn, .reset-pass-btn {
+    height: 30px;
+    padding: 5px 30px;
+}

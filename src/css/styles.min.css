@@ -446,6 +446,116 @@ input {
   align-items: center;
 }
 
+.edit-acc-btn {
+  display: flex;
+  align-items: center;
+  font-family: "LatoLight";
+  font-size: 0.8rem;
+  padding: 5px 20px;
+  margin: 0 10px 0 0;
+}
+
+.del-acc-btn, .reset-pass-btn {
+  height: 30px;
+  padding: 5px 30px;
+}
+
+.application-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 2vw;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+}
+
+.appnote-container {
+  border: 1px solid lightgray;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+
+.appnote-list-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 250px;
+}
+
+.app-note-date {
+  font-family: "LatoBold";
+}
+
+.job-detail-card {
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+  padding: 2rem;
+  background-color: #e4e4e4;
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+}
+
+.interview-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 2vw;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.interview-list-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 400px;
+}
+
+.account-name {
+  text-align: center;
+  font-family: "LatoLight";
+  margin: 2vw;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+  transform: translateY(-40px);
+}
+
+.account-initial {
+  border: solid black 1px;
+  height: 50px;
+  width: 50px;
+  padding: 15px 0 0 15px;
+  margin: auto;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  color: var(--black);
+  background-color: var(--white);
+  font-family: "LatoBlack";
+  position: relative;
+  z-index: 1;
+}
+
+.account-detail-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 33px;
+  box-shadow: 0px 2px 5px 2px #b3b3b3;
+  margin: 3vw 5vw;
+  height: 60px;
+}
+
+.account-detail-card > input, .account-detail-card > p {
+  margin: 0 0 0 30px;
+}
+
 /* organisms */
 /* Login Container */
 .login-container {
@@ -1046,61 +1156,18 @@ input {
   grid-template-rows: 100%;
 }
 
-.application-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  margin: 2vw;
-  background-color: var(--white);
-  border-radius: 33px;
-  box-shadow: 0px 2px 5px 2px #b3b3b3;
+.account-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-.appnote-container {
-  border: 1px solid lightgray;
-  padding: 8px;
-  margin: 8px 0;
-  border-radius: 5px;
+@media only screen and (max-width: 768px) {
+  .account-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
-
-.appnote-list-container {
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 250px;
-}
-
-.app-note-date {
-  font-family: "LatoBold";
-}
-
-.job-detail-card {
-  display: flex;
-  flex-direction: column;
-  margin: 2vw;
-  padding: 2rem;
-  background-color: #e4e4e4;
-  border-radius: 33px;
-  box-shadow: 0px 2px 5px 2px #b3b3b3;
-}
-
-.interview-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  margin: 2vw;
-  background-color: var(--white);
-  border-radius: 33px;
-  box-shadow: 0px 2px 5px 2px #b3b3b3;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.interview-list-container {
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 400px;
-}
-
 /* templates */
 body {
   padding: 0;
