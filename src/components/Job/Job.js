@@ -45,9 +45,11 @@ const Job = ({ match }) => {
             </>
         : 
         <>
-        <Link to="/mainpage"> <button>Back</button></Link>
-        <button onClick={handleDeleteJob}>Delete Job</button>
-        <div style={{ display: "flex", width: "70%", margin: "0 auto", justifyContent: "space-between" }}>
+        <div className="single-job-btn-group">
+            <Link to="/mainpage"><button className="secondarybtn back-btn">Back</button></Link>
+            <button className="primarybtn delete-job-btn" onClick={handleDeleteJob}>Delete Job</button>
+        </div>
+        <div className="single-job-container" >
             <JobDetailsCard job={job_data} />
             <ApplicationCard job={job_data} />
             <InterviewCard job={job_data} />
