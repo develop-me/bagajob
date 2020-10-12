@@ -362,7 +362,7 @@ input {
 
 .edit-btn {
   height: 20px;
-  width: 3vw;
+  width: 40px;
 }
 
 .save-btn {
@@ -1028,6 +1028,17 @@ input {
   align-items: flex-end;
 }
 
+@media only screen and (max-width: 900px) {
+  .test {
+    scroll-snap-type: x mandatory;
+  }
+
+  .job-detail-card, .application-card, .interview-card {
+    height: 100vh;
+    width: 70vw;
+    scroll-snap-align: start;
+  }
+}
 .single-job-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

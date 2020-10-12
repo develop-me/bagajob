@@ -38,6 +38,7 @@ const Job = ({ match }) => {
 
     return (
         <>
+        <div className="test">
         <Nav />
         { !loaded ?
             <> 
@@ -56,6 +57,7 @@ const Job = ({ match }) => {
         </div>
         </>
         }
+        </div>
         </>
     )
 }
