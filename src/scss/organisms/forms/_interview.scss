@@ -1,0 +1,32 @@
+.interview-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.interview-list-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+}
+
+.add-interview-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-interview-form > input {
+    margin: 10px 0px;
+}
+
+.add-interview-form > select {
+    margin: 10px 0px;
+    height: 30px;
+}
+
+.add-interview-form > textarea {
+    margin: 10px 0px;
+}
+

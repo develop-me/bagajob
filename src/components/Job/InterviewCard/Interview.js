@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateInterview, deleteInterview } from '../../../data/Interviews/actions'
+import trash from '../../../assets/images/delete.svg'
+import edit from '../../../assets/images/edit.svg'
 
 const Interview = ({ interview }) => {
 
@@ -55,11 +57,20 @@ const Interview = ({ interview }) => {
 
     return (
         <>
-            <form onSubmit={handleUpdateInterview}>
-                <label
-                    className="label"
-                    htmlFor="date"
-                >Date: {editing ?
+        <div className="interview-container">
+            <form className="interview-list-item" onSubmit={handleUpdateInterview}>
+                <div className="edit-interview-button-container">
+                    <label
+                        className="label"
+                        htmlFor="date"
+                    >Date:
+                    </label>
+                    <div className="edit-interview-btn-group">
+                    {!editing && <button className="primarybtn edit-interview-btn" onClick={() => setEditing(true)}><img className="edit-icon filter-white" src={edit} alt="edit interview"></img></button>}
+                    <button className="primarybtn delete-interview-btn" onClick={handleDeleteInterview}><img className="delete-icon filter-white" src={trash} alt="delete interview"></img></button>
+                    </div>
+                </div>
+                {editing ?
                     <input
                         type="date"
                         id="date"
@@ -69,13 +80,15 @@ const Interview = ({ interview }) => {
                     :
                     interviewDate
                     }
-                </label>
+
 
                 <label
                     className="label"
                     htmlFor="format"
-                >Format: {editing ?
+                >Format:
+                </label> 
 
+                {editing ?
                 <select
                 id="format"
                 value={format}
@@ -89,12 +102,13 @@ const Interview = ({ interview }) => {
                     :
                     format
                     }
-                </label>
 
                 <label
                     className="label"
                     htmlFor="interviewer"
-                >Interviewer: {editing ?
+                >Interviewer:
+                </label>
+                {editing ?
                     <input
                         type="text"
                         id="interviewer"
@@ -104,12 +118,14 @@ const Interview = ({ interview }) => {
                     :
                     interviewer
                     }
-                </label>
+
 
                 <label
                     className="label"
                     htmlFor="notes"
-                >Notes: {editing ?
+                >Notes:
+                </label>
+                {editing ?
                     <textarea
                         cols="30"
                         rows="10"
@@ -120,11 +136,9 @@ const Interview = ({ interview }) => {
                     :
                     notes
                     }
-                </label>
-                <button type="submit">Save</button>
+                {editing ? <button type="submit">Save</button> : null}
             </form>
-            {!editing && <button onClick={() => setEditing(true)}>Edit</button>}
-            <button onClick={handleDeleteInterview}>Delete</button>
+        </div>
         </>
     )
 }

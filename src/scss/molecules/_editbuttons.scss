@@ -1,0 +1,85 @@
+.edit-btn {
+    height: 20px;
+    width: 3vw;
+}
+
+.save-btn {
+    height: 20px;
+    width: 4vw;
+}
+
+.delete-note-btn {
+    margin: 10px 0 0 5px;
+}
+
+.edit-note-btn {
+    margin: 10px 5px 0 0;
+}
+
+.add-note-btn {
+    height: 20px;
+    width: 100px;
+    font-family: 'LatoLight';
+    font-size: .8rem;
+}
+
+.save-note-btn {
+    height: 20px;
+    width: 100px;
+    font-family: 'LatoLight';
+    font-size: .8rem;
+}
+
+.single-job-btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-btn {
+    margin-left: 16px;
+    height: 25px;
+    width: 80px;
+}
+
+.delete-job-btn {
+    margin-right: 16px;
+    height: 25px;
+    width: 120px;
+}
+
+.add-interview-btn {
+    font-family: 'LatoLight';
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.save-interview-btn {
+    font-family: 'LatoLight';
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.edit-interview-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.edit-interview-btn {
+    margin: 10px 5px 0 0;
+}
+
+.delete-interview-btn {
+    margin: 10px 0 0 5px;
+}
+
+.edit-note-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-appnote-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
