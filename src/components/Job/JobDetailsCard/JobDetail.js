@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateJob } from '../../../data/Jobs/actions'
+import edit from '../../../assets/images/edit.svg'
 
 const JobDetail = ({ label, inputType, jobProperty, value, title, company, active, stage }) => {
     const [jobInputValue, setJobInputValue] = useState(value)
@@ -62,16 +63,17 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
     }
 
     return (
-        <div className="input-group" style={{ display: "flex" }}>
-            <div>
-                <label
-                    className="label"
-                    htmlFor={jobProperty}
-                >{label}
-                </label>
+        <>
+            <label
+                className="label"
+                htmlFor={jobProperty}
+            >
+                {label}
+            </label>
+        <div className="single-job-input-group">
                 {editing ?
-
                     <input
+                        className="single-job-input"
                         id={jobProperty}
                         value={jobInputValue}
                         type={inputType}
@@ -80,14 +82,13 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
                     :
                     <p>{jobInputValue}</p>
                 }
-            </div>
 
             {/* if not editing, show the Edit button and set editing variable to true onClick */}
             {!editing ?
                 <button
-                style={{ height: "2rem" }}
+                className="primarybtn edit-btn"
                 onClick={() => setEditing(true)}
-                 >Edit
+                ><img className="edit-icon filter-white" src={edit} alt="edit interview"></img>
                 </button>
                 :
                 null
@@ -96,7 +97,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             {/*save button for PATCH request shows for each field except title and company */}
             {editing && jobProperty !== "title" && jobProperty !== "company" ?
                 <button
-                    style={{ height: "2rem" }}
+                    className="secondarybtn save-btn"
                     type="submit"
                     onClick={handleUpdateJob}
                 >
@@ -108,7 +109,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             {/*save button for title PATCH request */}
             {editing && jobProperty === "title" ?
                 <button
-                    style={{ height: "2rem" }}
+                    className="secondarybtn save-btn"
                     type="submit"
                     onClick={handleUpdateJobTitle}
                 >
@@ -120,7 +121,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             {/*save button for company PATCH request */}
             {editing && jobProperty === "company" ?
                 <button
-                    style={{ height: "2rem" }}
+                    className="secondarybtn save-btn"
                     type="submit"
                     onClick={handleUpdateJobCompany}
                 >
@@ -130,6 +131,7 @@ const JobDetail = ({ label, inputType, jobProperty, value, title, company, activ
             }
 
         </div>
+        </>
     )
 }
 
