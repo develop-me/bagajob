@@ -1029,7 +1029,7 @@ input {
 }
 
 @media only screen and (max-width: 900px) {
-  .test {
+  .single-job-container {
     scroll-snap-type: x mandatory;
   }
 

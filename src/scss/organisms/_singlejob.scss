@@ -1,8 +1,8 @@
 @media only screen and (max-width: 900px) {
-    .test {
+    .single-job-container {
         scroll-snap-type: x mandatory;
       }
-
+      
       .job-detail-card, .application-card, .interview-card {
         height: 100vh;
         width: 70vw;
@@ -10,9 +10,8 @@
       }
 }
 
-
-  .single-job-container { 
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 100%;
-    }
+.single-job-container { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+}
