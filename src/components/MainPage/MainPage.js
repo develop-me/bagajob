@@ -31,15 +31,26 @@ const MainPage = () => {
         dispatch(getJobs(data));
     }, []);
 
+    // Calculate the size of the client's window on component load
+    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    let smallScreen = false;
+
+    if (width < 768) {
+        smallScreen = true;
+    }
+
     return (
         <>
-        <Nav />
-            <div className="mainpage-header-container">
-                <div>
+        <Nav/>
+        
+            <div className={ !smallScreen ? "mainpage-header-container" : "mainpage-header-container-small"}>
+            {smallScreen ? <h1 className="mainpage-header-text-small">My Applications</h1> : null }
+                <div className="mainpage-buttons">
                 <button className="tertiarybtn sort-btn">Sort by &#9662;</button>
                 <button className="primarybtn addapp-btn" onClick={openModal}>+ Add application</button>
                 </div>
-                <h1 className="mainpage-header-text">My Applications</h1>
+            {!smallScreen ? <h1 className="mainpage-header-text">My Applications</h1> : null }
+
             </div>
 
             <div>

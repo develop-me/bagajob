@@ -9,21 +9,41 @@ const JobPreview = ({ job }) => {
         company,
         active,
         stage,
-    } = job 
+    } = job
+
+    // Calculate the size of the client's window on component load
+    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    let smallScreen = false;
+
+    if (width < 768) {
+        smallScreen = true;
+    }
 
     const [current, setCurrent] = useState(stage)
 
     return (
         <>
-            <div className="job-card-container">
+             <div className=  {!smallScreen ? "job-card-container" : "job-card-container-small"}>
+
+                { smallScreen ?                     
+   
+                <div className="job-card-text-small">
+                    <p className="job-card-text-bold">{job.title}</p><p className="job-card-at"> at</p><p className="job-card-text-bold">{job.company}</p>
+                </div> : null
+                }
+
+                <div className={smallScreen ? "job-card-flex-container-small" : "job-card-flex-container" }>
+                { !smallScreen ? 
                 <div className="job-card-text">
-                    <h4 className="para-highlight">
-                        {job.title}
-                    </h4>
-                    <h4 className="para-header">
-                        {job.company}
-                    </h4>
-                </div>
+                        <h4 className="para-highlight">
+                            {job.title}
+                        </h4>
+                        <h4 className="para-header">
+                            {job.company}
+                        </h4>
+                    </div>
+                : null }
+
                 <div className="status-bar">
                     <StageTracker
                         handleClick={() => setCurrent("1")}
@@ -67,6 +87,7 @@ const JobPreview = ({ job }) => {
                     />
                 </div>
                 <Link to={`/jobs/${job.id}`}><img className="expand-job-btn" src={ require('../../assets/images/arrow_right.svg') }/></Link>
+            </div>
             </div>
             {/* <hr className="status-line"></hr> */}
         </>

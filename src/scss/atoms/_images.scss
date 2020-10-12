@@ -22,10 +22,10 @@
 }
 
 /* Mobile screens <768px */
-@media only screen and (max-width: 888px) {
+@media only screen and (max-width: 768px) {
     .expand-job-btn {
         height: 40px;
         width: 40px;
-        margin: 20px 5vw;
+        margin: 30px 5vw;
     }
 }

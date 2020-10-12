@@ -10,6 +10,16 @@
     color: var(--black);
 }
 
+.mainpage-header-text-small {
+    font-family: 'LatoBlack';
+    color: var(--black);
+    text-align: center;
+}
+
+.mainpage-buttons {
+    margin-left: 20px;
+}
+
 .addapp-btn {
     font-family: 'LatoBold';
     text-transform: uppercase;
