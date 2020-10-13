@@ -31,6 +31,7 @@ const Login = ({ history }) => {
 
     return (
         <>
+        <Nav/>
             <Link to="/home/">
                 <h1 className="brand-title-small center">bagajob</h1>
             </Link>
