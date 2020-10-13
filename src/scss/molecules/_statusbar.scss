@@ -16,6 +16,12 @@
     color: var(--darkblue);
 }
 
+.expand-job-btn {
+    height: 40px;
+    width: 40px;
+    margin: 30px 30px 0 0;
+}
+
 /* Large screens >1200px */
 @media only screen and (min-width: 1200px) {
     .status-line {
@@ -23,7 +29,8 @@
     }
 }
 
-/* Mobile screens <768px */
+
+/* Mobile screens <888px */
 @media only screen and (max-width: 888px) {
     .status-line {
         width: 32vw;
@@ -32,4 +39,22 @@
     .status-bar {
         margin: 0 0px 0 0px;
     }
+
+    .expand-job-btn {
+        height: 40px;
+        width: 40px;
+        margin: 30px 30px 0 0;
+    }
 }
+
+/* Mobile screens <600px */
+@media only screen and (max-width: 600px) {
+
+    .expand-job-btn {
+        height: 40px;
+        width: 40px;
+        margin: 20px 20px 0 0;
+    }
+}
+
+
