@@ -242,6 +242,11 @@ input {
   padding: 3vw;
 }
 
+@media only screen and (max-width: 540px) {
+  .form-container-small {
+    margin: 0 20vw 0 20vw;
+  }
+}
 .button-container {
   margin: 0 0 0 0;
   display: flex;
@@ -618,7 +623,7 @@ input {
 
 @media only screen and (max-width: 767px) {
   .login-container {
-    margin: 0 10vw 3vw 10vw;
+    padding: 25px 25px;
   }
 }
 @media only screen and (max-width: 960px) {
