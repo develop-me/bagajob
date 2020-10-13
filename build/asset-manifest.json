@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/bagajob/static/css/main.2aca5599.chunk.css",
-    "main.js": "/bagajob/static/js/main.059b9e37.chunk.js",
-    "main.js.map": "/bagajob/static/js/main.059b9e37.chunk.js.map",
-    "runtime-main.js": "/bagajob/static/js/runtime-main.b0c4014b.js",
-    "runtime-main.js.map": "/bagajob/static/js/runtime-main.b0c4014b.js.map",
-    "static/js/2.c24a221a.chunk.js": "/bagajob/static/js/2.c24a221a.chunk.js",
-    "static/js/2.c24a221a.chunk.js.map": "/bagajob/static/js/2.c24a221a.chunk.js.map",
-    "index.html": "/bagajob/index.html",
-    "precache-manifest.c10bdfc38a99f5b01afb041f92242e57.js": "/bagajob/precache-manifest.c10bdfc38a99f5b01afb041f92242e57.js",
-    "service-worker.js": "/bagajob/service-worker.js",
-    "static/css/main.2aca5599.chunk.css.map": "/bagajob/static/css/main.2aca5599.chunk.css.map",
-    "static/js/2.c24a221a.chunk.js.LICENSE.txt": "/bagajob/static/js/2.c24a221a.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/bagajob/static/media/logo.5d5d9eef.svg"
+    "main.css": "/static/css/main.c5e96f01.chunk.css",
+    "main.js": "/static/js/main.40e9eb94.chunk.js",
+    "main.js.map": "/static/js/main.40e9eb94.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
+    "static/js/2.6719ec92.chunk.js": "/static/js/2.6719ec92.chunk.js",
+    "static/js/2.6719ec92.chunk.js.map": "/static/js/2.6719ec92.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3d09de88ddeb6cdfc090340568243035.js": "/precache-manifest.3d09de88ddeb6cdfc090340568243035.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.c5e96f01.chunk.css.map": "/static/css/main.c5e96f01.chunk.css.map",
+    "static/js/2.6719ec92.chunk.js.LICENSE.txt": "/static/js/2.6719ec92.chunk.js.LICENSE.txt",
+    "static/media/styles.min.css": "/static/media/Merriweather-Regular.c97a9fc2.ttf",
+    "static/media/add-task-24px.svg": "/static/media/add-task-24px.3a6c2396.svg",
+    "static/media/done-24px.svg": "/static/media/done-24px.ce59afd4.svg",
+    "static/media/email_icon.svg": "/static/media/email_icon.6186b4f4.svg",
+    "static/media/lock_icon.svg": "/static/media/lock_icon.1c126a7d.svg",
+    "static/media/timeline-24px.svg": "/static/media/timeline-24px.77caa0ac.svg",
+    "static/media/work-24px.svg": "/static/media/work-24px.a1b47ba4.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b0c4014b.js",
-    "static/js/2.c24a221a.chunk.js",
-    "static/css/main.2aca5599.chunk.css",
-    "static/js/main.059b9e37.chunk.js"
+    "static/js/runtime-main.c8a21426.js",
+    "static/js/2.6719ec92.chunk.js",
+    "static/css/main.c5e96f01.chunk.css",
+    "static/js/main.40e9eb94.chunk.js"
   ]
 }

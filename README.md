@@ -44,6 +44,23 @@ git push origin {branch}
 - To test the front end fully you'll need to set up a local instance of the API on a VM. Follow the instructions on this gitHub repo to install:
   - (https://github.com/develop-me/bagajob-api)
   
+## Deployment
+- The front end is a static site deployed to developme's servers. The site is hosted at https://bagajob.developme.space/ 
+- Once someone has granted you access (by adding your ssh key to the server) you can access the server by running `ssh ubuntu@134.122.103.160` at your command prompt
+
+### Current Steps
+(These could definitely be optimized)
+- Merge any PRs to the master branch
+- Make sure you have the latest master branch on your machine
+- Run `npm run build` to build the production files in the `build` directory
+- Commit any changes to master branch, alternatively you can run `npm run build` before merging in any PRs to master... ensure they are pushed to gitHub.
+- SSH into the server `ssh ubuntu@134.122.103.160`
+- move to the repo directory `cd /var/www/bagajob`
+- Pull the new changes from git `git pull`
+- NGINX (the web server) is set up to serve the production files from `/var/www/bagajob/build/`
+- You may need to reload the web server if you don't see your changes `sudo nginx -s reload`
+
+NOTE: Currently the `deployment` branch is active on the host, you'll want to change this to `master` eventually `git checkout master` which ssh'd into the server
 --
 
 # Create React App Documentation
