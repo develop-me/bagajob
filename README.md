@@ -60,7 +60,7 @@ git push origin {branch}
 - NGINX (the web server) is set up to serve the production files from `/var/www/bagajob/build/`
 - You may need to reload the web server if you don't see your changes `sudo nginx -s reload`
 
-NOTE: Currently the `deployment` branch is active on the host, you'll want to change this to `master` eventually `git checkout master` which ssh'd into the server
+NOTE: Currently the `development` branch is active on the host, you'll want to change this to `master` eventually `git checkout master` which ssh'd into the server
 --
 
 # Create React App Documentation
