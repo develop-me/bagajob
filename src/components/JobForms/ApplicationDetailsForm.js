@@ -10,30 +10,34 @@ const ApplicationDetailsForm = ({
 }) => {
     return currentStep && (
         <>
-        
-            <h1>Step 2: Application</h1>
-            <h3>Here you can upload your CV, Cover Letter and any application notes.</h3>
-            <label htmlFor="cv">Upload my CV</label>
+        <div className="addjob-input-group">
+        <img className="close-icon filter-red" src={ require('../../assets/images/close.svg')} alt="close form"/>
+        <h1 className="addjob-form-headerjob">Step 2: <span style={{ fontFamily: "LatoLight"}}>Application Details</span></h1>
+            <p>Here you can upload your CV, Cover Letter and any application notes.</p>
+            <label className="label" htmlFor="cv">Upload my CV</label>
             <input
                 type="text"
                 id="cv"
                 onChange={handleJobChange}
             />
-            <label htmlFor="cover_letter">Upload my Cover Letter</label>
+            <label className="label" htmlFor="cover_letter">Upload my Cover Letter</label>
             <input
                 type="text"
                 id="cover_letter"
                 onChange={handleJobChange}
             />
-            <label htmlFor="data">Applications Notes:</label>
+            <label className="label" htmlFor="data">Application Notes:</label>
             <input 
                 type="text"
                 id="data"
                 onChange={handleAppChange}
 
             />
-            <button onClick={prevStep}>Go back</button>
-            <button onClick={nextStep}>Next step</button>
+            </div>
+            <div className="addjob-nav-btns">
+                <button onClick={prevStep} className="next-step-btn"><img className="arrow-icon filter-blue" src={ require('../../assets/images/arrow_back.svg')} alt="next step"></img>Go Back</button>
+                <button onClick={nextStep} className="next-step-btn">Next Step<img className="arrow-icon filter-blue" src={ require('../../assets/images/arrow_right.svg')} alt="next step"></img></button>
+            </div>
         </ >
     );
 };
