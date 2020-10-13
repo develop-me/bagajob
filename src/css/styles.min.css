@@ -1031,6 +1031,18 @@ input {
   margin: 10vw;
 }
 
+.login-rtn-btn {
+  margin: 80px 50px 0 50px;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.logout-btn {
+  height: 2.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 767px) {
   .logout-container {
     margin: 10vw;
@@ -1039,6 +1051,10 @@ input {
 
   .logout-prompt {
     font-size: 1.5rem;
+  }
+
+  .login-rtn-btn, .logout-btn {
+    font-size: 0.9rem;
   }
 }
 @media only screen and (max-width: 960px) {
@@ -1061,18 +1077,6 @@ input {
 }
 .check-icon {
   height: 100px;
-}
-
-.login-rtn-btn {
-  margin: 80px 50px 0 50px;
-  height: 3rem;
-  font-size: 1.2rem;
-}
-
-.logout-btn {
-  height: 2.5rem;
-  width: 100%;
-  font-size: 1.2rem;
 }
 
 .logout-prompt {
