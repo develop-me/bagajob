@@ -1,0 +1,17 @@
+.interview-card { 
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 2vw;
+    background-color: var(--white);
+    border-radius: 33px;
+    box-shadow: 0px 2px 5px 2px rgb(179, 179, 179);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.interview-list-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 400px;
+}

@@ -1,0 +1,22 @@
+/* Forms: */
+.form-container-small {
+    background-color: var(--white);
+    border-radius: 20px;
+    margin: 0 32vw 0 32vw;
+    padding: 50px 0 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container-large {
+    background-color: var(--white);
+    border-radius: 20px;
+    margin: 1vw 5vw 1vw 5vw;
+    padding: 3vw;
+}
+
+@media only screen and (max-width: 540px) {
+    .form-container-small {
+        margin: 0 20vw 0 20vw;
+    }
+  }

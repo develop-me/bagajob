@@ -1,0 +1,22 @@
+input {
+    font-family: 'Merriweather';
+    padding: 1rem 1rem .25rem 0rem;
+    margin: 8px 0;
+    border: 0px;
+    border-bottom: 1px solid var(--black);
+    background-color: var(--white);
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    font-family: 'LatoBold';
+    font-size: 0.8rem;
+}
+
+.radio {
+    margin-right: 0.5rem;
+}

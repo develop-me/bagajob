@@ -1,0 +1,29 @@
+.primarybtn {
+    background-color: var(--red);
+    color: white;
+    border-radius: 33px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'LatoBold';
+}
+
+.secondarybtn {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 33px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'LatoBold';
+}
+
+.tertiarybtn {
+    background-color: var(--white);
+    color:var(--black);
+    border-radius: 33px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Merriweather';
+}

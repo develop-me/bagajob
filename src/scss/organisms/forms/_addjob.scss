@@ -1,0 +1,252 @@
+/* On screens smaller than 1024px: */
+.addjob-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.addjob-input-group {
+    margin: 0 1.5vw 2vw 1.5vw;
+    padding: 0 20px;
+    transform: translateX(-5px);
+}
+
+.addjob-input-group > input {
+    background-color: white;
+}
+
+.add-interview-details-input-group > input {
+    background-color: white;
+}
+
+.add-interview-details-input-group {
+    padding-right: 50px;
+}
+
+.addjob-btn {
+    margin: 5vw 10vw 2vw 10vw;
+    padding: 2vw 0 2vw 0;
+}
+
+.next-step-btn {
+    display: flex;
+    background-color: white;
+    border: none;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column-start: 3;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 1;
+    font-family: 'LatoLight';
+}
+
+.arrow-icon {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.add-interview-details-date {
+    margin: 20px 0 0 0;
+}
+
+/* On screens larger than 1024px: */
+@media only screen and (min-width: 1024px) {
+    .addjob-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 30px;
+    }
+
+    .addjob-input-group {
+        margin: 0 1.5vw 2vw 1.5vw;
+        padding: 2vw 0 2vw 0;
+    }
+
+    .addjob-form-headercontact {
+        font-family: 'LatoBlack';
+        font-size: 1.2rem;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 5;
+        grid-row-end: span 1;
+
+    }
+
+    .addjob-form-headerstages {
+        font-family: 'LatoBlack';
+        font-size: 1.2rem;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 8;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-jobtitle {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-company {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-salary {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-location {
+        grid-column-start: 3;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-jobdescription {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        grid-row-start: 3;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-appdate {
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+
+    .addjob-input-closedate {
+        grid-column-start: 3;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+
+    .next-step-btn {
+        display: flex;
+        background-color: white;
+        border: none;
+        align-items: center;
+        justify-content: flex-end;
+        grid-column-start: 3;
+        grid-column-end: span 1;
+        grid-row-start: 4;
+        grid-row-end: span 1;
+        font-family: 'LatoLight';
+    }
+
+    .arrow-icon {
+        height: 60px;
+        margin-left: 20px;
+    }
+
+    .add-interview-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 2 auto;
+    }
+
+    .add-interview-details-date {
+        grid-column-start: 1;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+        margin: 0 10px 0 0;
+    }
+
+    .add-interview-details-format {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        grid-column-start: 2;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .add-interview-details-format > select {
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+    .add-interview-details-interviewer {
+        grid-column-start: 3;
+        grid-column-end: span 1;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+
+    .add-interview-details-notes {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+}
+
+/* On all screens: */
+.addjob-form-headerjob {
+    font-family: 'LatoBlack';
+    font-size: 1.8rem;
+}
+
+.addjob-input-group-stages {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 9;
+    grid-row-end: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.add-interview-details-format > select {
+    margin: 10px 0 30px 0;
+    height: 30px;
+}
+
+.add-interview-details-input-group > input {
+    margin: 0 0 30px 0;
+}
+
+.add-interview-details-format {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addjob-nav-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.close-icon {
+    float: right;
+    height: 50px;
+}
+
+.addjob-input-group-stages label:first-child {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:nth-child(2) {
+    justify-self: start;
+}
+
+.addjob-input-group-stages label:nth-child(3) {
+    justify-self: end;
+}
+
+.addjob-input-group-stages label:last-child {
+    justify-self: start;
+}

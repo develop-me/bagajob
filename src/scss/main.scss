@@ -1,17 +1,42 @@
 /* Atomic Design CSS methodology */
 
 /* setup */
-@import '_settings.scss';
-@import '__temporary.scss';
+@import '_settings';
 
 /* atoms */
-@import '_typography.scss';
-@import '_color.scss'; 
-@import '_buttons.scss';
+@import './atoms/typography';
+@import './atoms/buttons';
+@import './atoms/inputs';
+@import './atoms/shapes';
+@import './atoms/images';
 
 /* molecules */
-@import '_jobheader.scss';
+@import './molecules/forms';
+@import './molecules/homebuttons';
+@import './molecules/statusbar';
+@import './molecules/homeimages';
+@import './molecules/mainheader';
+@import './molecules/inputgroups';
+@import './molecules/editbuttons';
+@import './molecules/cards/application';
+@import './molecules/cards/jobdetail';
+@import './molecules/cards/interview';
+@import './molecules/cards/account';
+@import './molecules/cards/password';
+
 
 /* organisms */
-@import '_job.scss'; 
-@import '_cards.scss'; 
+@import './organisms/forms/login';
+@import './organisms/forms/signup';
+@import './organisms/forms/addjob';
+@import './organisms/forms/interview';
+@import './organisms/logout';
+@import './organisms/jobcard';
+@import './organisms/homeinfo';
+@import './organisms/nav';
+@import './organisms/singlejob';
+@import './organisms/account';
+
+
+/* templates */
+@import './templates/app';

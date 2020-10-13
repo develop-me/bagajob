@@ -1,0 +1,36 @@
+.mainpage-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.mainpage-header-text {
+    font-family: 'LatoBlack';
+    color: var(--black);
+}
+
+.mainpage-header-text-small {
+    font-family: 'LatoBlack';
+    color: var(--black);
+    text-align: center;
+}
+
+.mainpage-buttons {
+    margin-left: 20px;
+}
+
+.addapp-btn {
+    font-family: 'LatoBold';
+    text-transform: uppercase;
+    height: 35px;
+    margin: 0 0 0 15px;
+    padding: 0 20px;
+}
+
+.sort-btn {
+    height: 35px;
+    margin: 0 15px 0 0;
+    padding: 0 20px;
+    box-shadow: 0px 2px 5px 2px rgb(179, 179, 179);
+}

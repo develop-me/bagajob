@@ -1,0 +1,47 @@
+.brand-title {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+    text-transform: lowercase;
+    font-size: 5rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.brand-text {
+    font-family: 'LatoBlackItalic';
+    color: var(--black);
+    margin: 0 1rem 0 0;
+    padding-top: 20px;
+    font-size: 1.5rem;
+}
+
+.headline {
+    font-family: 'LatoBlack';
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.para-header {
+    font-family: 'LatoBold';
+    color: var(--black);
+}
+
+.para-highlight {
+    font-family: 'LatoLight';
+    color: var(--black);
+}
+
+.paragraph, p {
+    font-size: .9rem;
+    font-family: 'Merriweather';
+    color: var(--darkblue);
+}
+
+.login-prompt {
+    font-family: 'Merriweather';
+    color: var(--darkblue);
+    font-size: 0.6rem;
+}
+
+a {
+    text-decoration: none;
+}
