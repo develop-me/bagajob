@@ -34,15 +34,9 @@ const ForgotPassword = () => {
     return (
         <>
         <Nav />
-        <div style={{
-            height: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-            <form onSubmit={handleSubmit}>
-                <h2>Please enter your email, you will then be emailed a link to reset your password.</h2>
+        <div className="pass-reset-card">
+            <form className="pass-reset-form" onSubmit={handleSubmit}>
+                <h2 className="para-header center">Please enter your email, you will then be emailed a link to reset your password.</h2>
                 <input
                     type="email"
                     name="email"
@@ -50,7 +44,7 @@ const ForgotPassword = () => {
                     onChange={handleChange}
                 />
                 {errors.email && <p>{errors.email}</p>}
-                <button
+                <button className="primarybtn pass-reset-btn"
                     type="submit"
                     disabled={isSubmitting}
                 >Submit
