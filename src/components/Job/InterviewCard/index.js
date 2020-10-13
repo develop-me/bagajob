@@ -55,47 +55,54 @@ const InterviewCard = ({ job }) => {
     }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
-            <h1 className="para_header">Interviews</h1>
-            <button onClick={() => setEditing(true)}>Add interview</button>
+        <div className="interview-card">
+            <h1 className="para-highlight">Interviews</h1>
+            { !editing ? 
+                <button className="primarybtn add-interview-btn" onClick={() => setEditing(true)}>&#x2b; ADD INTERVIEW</button>
+            : null}
+            
             
             { editing ?
 
-                <form onSubmit={handleAddInterview}>
-                <label
-                    className="label"
-                    htmlFor="date"
-                >Date:
+                <form className="add-interview-form" onSubmit={handleAddInterview}>
+                    <button className="primarybtn save-interview-btn" type="submit">SAVE</button>
+
+                    <label
+                        className="label"
+                        htmlFor="date"
+                    >Date:
+                    </label>
+
                     <input
-                        type="date"
+                        type="datetime-local"
                         id="date"
                         value={interviewDate}
                         onChange={e => setInterviewDate(e.target.value)}
                     />
-                </label>
 
-                <label
-                    className="label"
-                    htmlFor="format"
-                >Format: 
+                    <label
+                        className="label"
+                        htmlFor="format"
+                    >Format: 
+                    </label>
 
-                <select
-                id="format"
-                value={format}
-                onChange={e => setFormat(e.target.value)}
-                >
-                    <option value="in_person">In person</option>
-                    <option value="telephone">Telephone</option>
-                    <option value="video_call">Video Call</option>
-                    <option value="online_testing">Online Test</option>
-                </select>
+                    <select
+                    id="format"
+                    value={format}
+                    onChange={e => setFormat(e.target.value)}
+                    >
+                        <option value="in_person">In person</option>
+                        <option value="telephone">Telephone</option>
+                        <option value="video_call">Video Call</option>
+                        <option value="online_testing">Online Test</option>
+                    </select>
 
-                </label>
+                    <label
+                        className="label"
+                        htmlFor="interviewer"
+                    >Interviewer:
+                    </label>
 
-                <label
-                    className="label"
-                    htmlFor="interviewer"
-                >Interviewer: 
                     <input
                         type="text"
                         id="interviewer"
@@ -103,31 +110,36 @@ const InterviewCard = ({ job }) => {
                         onChange={e => setInterviewer(e.target.value)}
                     />
 
-                </label>
+                    <label
+                        className="label"
+                        htmlFor="notes"
+                    >Notes:
+                    </label>
 
-                <label
-                    className="label"
-                    htmlFor="notes"
-                >Notes:
                     <textarea
                         cols="30"
-                        rows="10"
+                        rows="5"
                         type="text"
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
                     />
-                </label>
-                <button type="submit">Save</button>
-            </form>
+                </form>
             
             : null }
 
+            {/* interviews will not show when user is adding a new interview */}
+            { !editing ? 
 
-            {job_data.interviews.map((interview, i) => {
-                return (
-                    <Interview key={i} interview={interview} />
-                )
-            })}
+            <div className="interview-list-container">
+                {job_data.interviews.map((interview, i) => {
+                    return (
+                        <Interview key={i} interview={interview} />
+                    )
+                })}
+            </div>
+
+            : null }
+
         </div >
     )
 }

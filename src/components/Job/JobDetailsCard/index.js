@@ -15,8 +15,8 @@ const JobDetailsCard = ({ job }) => {
     } = job
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
-            <h1 className="para_header">Job Details</h1>
+        <div className="job-detail-card">
+            <h1 className="para-highlight">Job Details</h1>
             <JobDetail
                 label="Job Title"
                 inputType="text"

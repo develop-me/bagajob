@@ -6,7 +6,6 @@
     text-align: center;
     text-decoration: none;
     font-family: 'LatoBold';
-    font-size: 1.2rem;
 }
 
 .secondarybtn {
@@ -17,21 +16,14 @@
     text-align: center;
     text-decoration: none;
     font-family: 'LatoBold';
-    font-size: 1.2rem;
 }
 
-.expand-btn {
-    background-color: var(--red);
-    color: var(--white);
-    display: inline-block;
-    border-radius: 50%;
-    margin: 25px;
-    width: 50px;
-    height: 50px;
-    font-size: 38px;
-}
-
-.expand-btn:hover {
-    background-color: rgb(230, 158, 158);
-    color: var(--white);
+.tertiarybtn {
+    background-color: var(--white);
+    color:var(--black);
+    border-radius: 33px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Merriweather';
 }

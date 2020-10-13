@@ -15,15 +15,27 @@
 @import './molecules/homebuttons';
 @import './molecules/statusbar';
 @import './molecules/homeimages';
+@import './molecules/mainheader';
+@import './molecules/inputgroups';
+@import './molecules/editbuttons';
+@import './molecules/cards/application';
+@import './molecules/cards/jobdetail';
+@import './molecules/cards/interview';
+@import './molecules/cards/account';
+
 
 /* organisms */
 @import './organisms/forms/login';
 @import './organisms/forms/signup';
 @import './organisms/forms/addjob';
+@import './organisms/forms/interview';
 @import './organisms/logout';
 @import './organisms/jobcard';
 @import './organisms/homeinfo';
 @import './organisms/nav';
+@import './organisms/singlejob';
+@import './organisms/account';
+
 
 /* templates */
 @import './templates/app';

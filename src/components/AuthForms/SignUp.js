@@ -39,7 +39,9 @@ const SignUp = ({ history }) => {
 
     return (
         <>
-        <Nav />
+            <Link to="/home/">
+                <h1 className="brand-title-small center">bagajob</h1>
+            </Link>
             <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
                     <div className="signup-form-input-container">
@@ -82,14 +84,14 @@ const SignUp = ({ history }) => {
                     >
                         CREATE ACCOUNT
                     </button>
-                    {authResponse !== null && loaded === false ? <p>{authResponse}</p> : null}
+                    {authResponse !== null && loaded === false ? <p className="para-highlight center">{authResponse}</p> : null}
                     {/* the below error can be modified later for a more user friendly message */}
-                    {authErrors !== null ? <p>{authErrors.message}</p> : null}
-                    <p className="login-prompt">
-                        Already have an account? <Link to="/home/login">Log in</Link>
-                    </p>
+                    {authErrors !== null ? <p className="para-highlight center">{authErrors.message}</p> : null}
                 </form>
             </div>
+            <p className="login-prompt center mb-3">
+                Already have an account? <Link style={{ textDecoration: "underline" }} to="/home/login">Log in</Link>
+            </p>
         </>
     )
 }

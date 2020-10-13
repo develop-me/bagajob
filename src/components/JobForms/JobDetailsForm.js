@@ -9,9 +9,10 @@ const JobDetailsForm = ({
 }) => {
     return currentStep && (
         <>
-            <h1 className="addjob-form-headerjob">Step 1: Job Details</h1>
-            <h3>Here you can add details of the job you are applying for.</h3>
-            <form onSubmit={handleFirstSubmit, nextStep}>
+            <img className="close-icon filter-red" src={ require('../../assets/images/close.svg')} alt="close form"/>
+            <h1 className="addjob-form-headerjob">Step 1: <span style={{ fontFamily: "LatoLight"}}>Job Details</span></h1>
+            <p>Here you can add details of the job you are applying for.</p>
+            <form className="addjob-form" onSubmit={handleFirstSubmit, nextStep}>
                 <div className="form-input-group addjob-input-group addjob-input-jobtitle">
                     <label
                         className="label"
@@ -19,6 +20,7 @@ const JobDetailsForm = ({
                     >Job Title
                     </label>
                     <input
+                        placeholder="Job Title"
                         type="text"
                         id="title"
                         value={values.title}
@@ -34,6 +36,7 @@ const JobDetailsForm = ({
                     >Company
                         </label>
                     <input
+                        placeholder="Company"
                         type="text"
                         id="company"
                         value={values.company}
@@ -63,6 +66,7 @@ const JobDetailsForm = ({
                     >Location
                     </label>
                     <input
+                        placeholder="City"
                         type="text"
                         id="location"
                         value={values.location}
@@ -105,13 +109,14 @@ const JobDetailsForm = ({
                     >Job Description
                     </label>
                     <input
+                        placeholder="Job Description"
                         type="text"
                         id="description"
                         value={values.description}
                         onChange={handleJobChange}
                     />
                 </div>
-                <input type="submit" value="Next Step"/>
+                <button className="next-step-btn" type="submit">Next Step<img className="arrow-icon filter-blue" src={ require('../../assets/images/arrow_right.svg')} alt="next step"></img></button>
             </form>
 
         </>

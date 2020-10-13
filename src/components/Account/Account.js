@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { deleteAccount } from '../../data/Account/actions'
 import { resetAuthResponse } from '../../data/Auth/actions'
 import checkmark from '../../assets/images/done-24px.svg'
+import Nav from '../Nav'
 
 const Account = ( data ) => {
     const { user_id, access_token, loaded, name, email } = useSelector(state => state)
@@ -27,25 +28,39 @@ const Account = ( data ) => {
         <>
         { access_token ? 
         <>
+        <Nav />
+        <div className="account-header">
+            <Link to="/mainpage">
+                <button className="secondarybtn home-btn">HOME</button>
+            </Link>
+            <h1 className="headline">My Account</h1>
+        </div>
             <AccountHeader />
             <p>{ errors.message }</p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", width: "30rem", margin: "0 auto" }}>
-                <AccountDetail
-                    accountDetailName="email"
-                    value={ email }
-                />
+            <div className="account-container">
                 <AccountDetail
                     accountDetailName="name"
                     value={ name }
                 />
-                <button onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
+                <AccountDetail
+                    accountDetailName="email"
+                    value={ email }
+                />
+               <div className="account-detail-card">
+                    <Link style={{margin: "auto"}} to="/forgot-password"><button className="primarybtn reset-pass-btn">RESET PASSWORD</button>
+                    </Link> 
+                </div>
+                <div className="account-detail-card">
+                    <button style={{margin: "auto"}}className="primarybtn del-acc-btn" onClick={handleDeleteAccount}>DELETE MY ACCOUNT</button>
+                </div>
+                
             </div>
-                            
+        
 
         </>
         :  
         <>
-            <img className="check-icon" src={checkmark} alt="green checkmark"></img>
+            <img className="check-icon filter-green" src={checkmark} alt="green checkmark"></img>
             <h1 className="headline">Account Deleted</h1>
             <Link to="/home"> 
                 <button className="primarybtn">

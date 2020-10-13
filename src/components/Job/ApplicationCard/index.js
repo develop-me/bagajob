@@ -31,8 +31,8 @@ const ApplicationCard = ({ job }) => {
 
     return (
         <>
-            <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "2rem" }}>
-                <h1 className="para_header">Application</h1>
+            <div className="application-card">
+                <h1 className="para-highlight">Application</h1>
                 {/* CV */}
                 <ApplicationInput
                     appCardInput={job.cv}
@@ -51,13 +51,18 @@ const ApplicationCard = ({ job }) => {
                     active={job.active}
                     stage={job.stage}
                 />
-                {/* Add a new App Note */}
-                <h3>Notes</h3>
-                {!editing ? <button onClick={() => setEditing(true)}>Add Note</button> : <button onClick={handleAddAppNote}>Done</button>}
+
+                <div className="add-appnote-button-container">
+                    <h3 className="para-header">Notes</h3>
+                    {/* Add a note */}
+                    {!editing ? <button className="primarybtn add-note-btn" onClick={() => setEditing(true)}>&#x2b; ADD NOTE</button> : <button className="secondarybtn save-note-btn" onClick={handleAddAppNote}>SAVE</button>}
+                </div>
+
                 {editing ?
-                < textarea
+                <textarea
+                    className="add-note-input"
                     cols="30"
-                    rows="10"
+                    rows="7"
                     value={note}
                     onChange={e => setNote(e.target.value)}
                 />
@@ -65,6 +70,7 @@ const ApplicationCard = ({ job }) => {
                 null
                 }
                 {/* Render all app notes */}
+                <div className="appnote-list-container">
                 {
                     job.application_notes.map(note => {
                         return (
@@ -72,6 +78,7 @@ const ApplicationCard = ({ job }) => {
                         )
                     })
                 }
+                </div>
             </div>
         </>
     )

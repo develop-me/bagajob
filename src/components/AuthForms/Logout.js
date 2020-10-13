@@ -29,24 +29,24 @@ const Logout = () => {
 
             { access_token ? 
             <>
-                <h1 className="para-header">Are you sure you want to log out?</h1>
-                <button className="primarybtn" type="submit" onClick={handleClick}>
+                <h1 className="logout-prompt center">Are you sure you want to log out?</h1>
+                <button className="primarybtn logout-btn" type="submit" onClick={handleClick}>
                     LOG OUT
                 </button>
                 </>
                 :
                 <>
-                <img className="check-icon" src={checkmark} alt="green checkmark"></img>
-                <h1 className="headline">Logged Out</h1>
+                <img className="check-icon filter-green" src={checkmark} alt="green checkmark"></img>
+                <h1 className="headline center">Logged Out</h1>
                 <Link to="/home/login"> 
-                    <button className="primarybtn">
+                    <button className="primarybtn logout-btn">
                         RETURN TO LOGIN
                     </button>
                 </Link>
                 </>
                 }
 
-            <b>{authResponse !== null && authResponse}</b>
+            <p className="para-highlight center">{authResponse !== null && authResponse}</p>
         </div>
     </>
     )

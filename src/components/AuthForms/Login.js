@@ -31,7 +31,10 @@ const Login = ({ history }) => {
 
     return (
         <>
-        <Nav />
+        <Nav/>
+            <Link to="/home/">
+                <h1 className="brand-title-small center">bagajob</h1>
+            </Link>
             <div className="form-container-small login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-form-input-container">
@@ -75,19 +78,26 @@ const Login = ({ history }) => {
                         className="login-prompt password-forgot"
                     >Forgot password?
                     </Link>
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="primarybtn login-btn"
-                    >LOG IN
-                    </button>
+                    <div>
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="primarybtn login-btn"
+                        >LOG IN
+                        </button>
+                    </div>
                     <Link
                         to="/home/signup"
-                        className="secondarybtn signup-btn"
                     >
-                        SIGN UP
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="secondarybtn signup-btn"
+                        >
+                            SIGN UP
+                        </button>
                     </Link>
-                    <b>{authResponse !== null && authResponse}</b>
+                    <p className="para-highlight center">{authResponse !== null && authResponse}</p>
                 </form>
             </div>
         </>

@@ -2,3 +2,38 @@
     height: 100%;
     width: 100%;
 }
+
+.expand-job-btn {
+    height: 50px;
+    width: 50px;
+    margin: 30px 10px 0 10px;
+}
+
+.filter-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(127deg) brightness(109%) contrast(102%);
+}
+
+.filter-green {
+    filter: invert(64%) sepia(51%) saturate(5838%) hue-rotate(84deg) brightness(108%) contrast(126%);
+}
+
+.filter-blue {
+    filter: invert(58%) sepia(79%) saturate(945%) hue-rotate(146deg) brightness(101%) contrast(105%);
+}
+
+.filter-red {
+    filter: invert(15%) sepia(70%) saturate(5666%) hue-rotate(31deg) brightness(109%) contrast(104%);
+}
+
+.edit-icon, .delete-icon {
+    height: 15px;
+}
+
+/* Mobile screens <768px */
+@media only screen and (max-width: 768px) {
+    .expand-job-btn {
+        height: 40px;
+        width: 40px;
+        margin: 30px 5vw;
+    }
+}

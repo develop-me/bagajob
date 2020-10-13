@@ -5,11 +5,10 @@ import Nav from './Nav'
 const Home = () => {
     return (
         <>
-        <Nav />
             <Link to="/home/">
-                <h1 className="brand-title">bagajob</h1>
+                <h1 className="brand-title center">bagajob</h1>
             </Link>
-            <h3 className="brand-text">
+            <h3 className="brand-text center">
                 Track job applications from start to finish
             </h3>
             <div className="button-container">

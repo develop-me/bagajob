@@ -4,6 +4,7 @@
   border-radius: 20px;
   display: flex;
   justify-content: center;
+  margin-bottom: 10vw;
 }
 
 @media only screen and (max-width: 767px) {
@@ -55,9 +56,21 @@
 .login-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
 .signup-btn {
   margin: 2rem 0 0 0;
   height: 2.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.brand-title-small {
+  font-family: 'LatoBlackItalic';
+  color: var(--black);
+  text-transform: lowercase;
+  margin: 2rem 0 3rem 0;
+  font-size: 3.5rem,
 }

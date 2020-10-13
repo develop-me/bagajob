@@ -29,7 +29,7 @@ const StageTracker = ({ job_id, selected, handleClick, label, value, title, comp
         <>
             <div onClick={handleClick} style={{ display: "flex", flexDirection: "column" }}>
                 <div onClick={handleUpdateStage} className={"status-circle " + currentStage}></div>
-                <small>{label}</small>
+                <small className="status-text center">{label}</small>
             </div>
         </>
     );
