@@ -1,5 +1,10 @@
 # Bagajob App
-Job Hunting App built by Develop Me students for Develop Me students.
+Job Hunting Management App built by Develop Me students for Develop Me students.
+
+## Code of Conduct
+
+Available here: https://github.com/develop-me/bagajob/wiki/A-Code-of-Conduct-for-Open-Source-Projects
+
 ## Front-end Architecture - React Redux
 
 ### Collaborating:
