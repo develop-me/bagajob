@@ -45,6 +45,20 @@ git push origin {branch}
 
 1. Visit the local development server in your browser
 
+## Developing Styling
+
+This application is styled using SASS. All `.scss` files (`src/scss/example/_example.scss`) are imported (`@import`) into `src/scss/main.scss`, before being compiled to `src/css/styles.min.css`.
+
+In order to compile SASS to CSS, run the following command in the project root:
+
+`sass src/scss/main.scss src/css/styles.min.css`
+
+In order to configure SASS to compile every time changes are saved to a SASS file, run:
+
+`sass --watch src/scss/main.scss src/css/styles.min.css`
+
+Please note that changes to SASS files will not show in the app until compiled to `src/css/styles.min.css`.
+
 ## API Set Up
 - To test the front end fully you'll need to set up a local instance of the API on a VM. Follow the instructions on this gitHub repo to install:
   - (https://github.com/develop-me/bagajob-api)
