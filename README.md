@@ -9,7 +9,19 @@ Available here: https://github.com/develop-me/bagajob/wiki/A-Code-of-Conduct-for
 
 ### Collaborating:
 
-**Never commit directly to the master branch. Create a new feature branch - (NOW INITIALISED) from the development branch, and make a pull request for a team-mate to review and merge.**
+Our workflow process is as follows:
+1. Create a new feature branch (e.g. `footer-styling`) from the `development` branch
+1. Make your changes on your feature branch
+1. Open a Pull Request to merge the feature branch into `development` describing the changes made
+1. Wait for another collaborator to approve your PR
+1. Merge your completed feature branch into `development`
+1. Branch again from `development` for your next feature (e.g. `header-styling`)
+1. Repeat
+
+**N.B: Never commit directly to the master branch.**
+
+1. The `development` branch should only be merged into `master` once a new build/release and all its features are complete and ready to deploy (see below for deployment instructions)
+1. The `master` branch is deployed to the server. Only merges from `development` should be committed to this branch (excepting edits to documentation)
 
 ### Getting Started:
 
@@ -79,7 +91,7 @@ Please note that changes to SASS files will not show in the app until compiled t
 - NGINX (the web server) is set up to serve the production files from `/var/www/bagajob/build/`
 - You may need to reload the web server if you don't see your changes `sudo nginx -s reload`
 
-NOTE: Currently the `development` branch is active on the host, you'll want to change this to `master` eventually `git checkout master` which ssh'd into the server
+NOTE: The `master` branch is currently deployed to the server. There should be no need to change the branch. Once all feature branches have been merged into `development`, simply merge `development` into `master`, and `git pull` the new changes to the server. As above, reload the server with `sudo nginx -s reload` if changes are not shown.
 --
 
 # Create React App Documentation
