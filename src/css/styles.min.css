@@ -59,6 +59,11 @@
   font-weight: normal;
   src: url("../assets/fonts/Merriweather/Merriweather-BoldItalic.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Lobster";
+  font-weight: normal;
+  src: url("../assets/fonts/Lobster/Lobster-Regular.ttf") format("truetype");
+}
 /* atoms */
 .brand-title {
   font-family: "LatoBlackItalic";
@@ -106,6 +111,18 @@
 
 a {
   text-decoration: none;
+}
+
+.updated-title {
+  font-family: "Lobster";
+  color: var(--white);
+  font-size: 5rem;
+  padding: 2rem 0 2rem 0;
+  margin: 0;
+}
+
+.highlight-text {
+  color: var(--red);
 }
 
 .primarybtn {
@@ -188,6 +205,11 @@ input {
 .home-image {
   height: 100%;
   width: 100%;
+}
+
+.home-background-container {
+  width: 100%;
+  background-color: var(--darkblue);
 }
 
 .filter-white {

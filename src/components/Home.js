@@ -5,6 +5,12 @@ import Nav from './Nav'
 const Home = () => {
     return (
         <>
+            <header>
+                <div className="home-background-container">
+                    <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+                </div>
+            </header>
+
             <Link to="/home/">
                 <h1 className="brand-title center">bagajob</h1>
             </Link>
@@ -12,10 +18,10 @@ const Home = () => {
                 Track job applications from start to finish
             </h3>
             <div className="button-container">
-            <Link to="/home/signup">
+                <Link to="/home/signup">
                     <button className="secondarybtn signup-btn-home" type="submit" id="">
                         SIGN UP
-                    </button>  
+                    </button>
                 </Link>
                 <Link to="/home/login">
                     <button className="primarybtn login-btn-home" type="submit" id="">
@@ -25,19 +31,19 @@ const Home = () => {
             </div>
             <div className="home-info-container">
                 <div className="home-image-container home-image-first">
-                    <img className="home-image" src={ require('../assets/images/add-task-24px.svg') } alt="A simple icon image indicating task management"></img>
+                    <img className="home-image" src={require('../assets/images/add-task-24px.svg')} alt="A simple icon image indicating task management"></img>
                 </div>
                 <div className="home-text-container home-text-first">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
                 </div>
                 <div className="home-image-container home-image-second">
-                    <img className="home-image" src={ require('../assets/images/timeline-24px.svg') } alt="A simple icon image indicating task management"></img>
+                    <img className="home-image" src={require('../assets/images/timeline-24px.svg')} alt="A simple icon image indicating task management"></img>
                 </div>
                 <div className="home-text-container home-text-second">
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 </div>
                 <div className="home-image-container home-image-third">
-                    <img className="home-image" src={ require('../assets/images/work-24px.svg') } alt="A simple icon image indicating task management"></img>
+                    <img className="home-image" src={require('../assets/images/work-24px.svg')} alt="A simple icon image indicating task management"></img>
                 </div>
                 <div className="home-text-container home-text-third">
                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>

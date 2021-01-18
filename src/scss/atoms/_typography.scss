@@ -45,3 +45,15 @@
 a {
     text-decoration: none;
 }
+
+.updated-title {
+    font-family: 'Lobster';
+    color: var(--white);
+    font-size: 5rem;
+    padding: 2rem 0 2rem 0;
+    margin: 0;
+}
+
+.highlight-text {
+    color: var(--red);
+}
