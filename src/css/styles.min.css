@@ -155,6 +155,16 @@ a {
   font-family: "Merriweather";
 }
 
+.quaternarybtn {
+  background-color: var(--darkblue);
+  color: white;
+  border-radius: 33px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-family: "LatoBold";
+}
+
 input {
   font-family: "Merriweather";
   padding: 1rem 1rem 0.25rem 0rem;
@@ -210,6 +220,7 @@ input {
 .home-background-container {
   width: 100%;
   background-color: var(--darkblue);
+  border-bottom: 8px solid var(--red);
 }
 
 .filter-white {

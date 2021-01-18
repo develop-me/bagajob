@@ -1,14 +1,28 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-import Nav from './Nav'
+import React from 'react';
+import { Link } from "react-router-dom";
+import Nav from './Nav';
+import background from "../assets/images/backgroundIcons.svg";
 
 const Home = () => {
     return (
         <>
-            <header>
-                <div className="home-background-container">
-                    <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+            <header className="home-background-container">
+                <div className="home-top-links">
+                    <div style={{ backgroundImage: `url(${background})` }}>
+                        <Link to="/home/signup">
+                            <button className="quaternarybtn" type="submit" id="">
+                                SIGN UP
+                    </button>
+                        </Link>
+                        <Link to="/home/login">
+                            <button className="quaternarybtn" type="submit" id="">
+                                LOG IN
+                    </button>
+                        </Link>
+                        <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+                    </div>
                 </div>
+
             </header>
 
             <Link to="/home/">
