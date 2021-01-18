@@ -73,6 +73,14 @@
   margin: 2rem 0 2rem 0;
 }
 
+h3 {
+  font-family: "LatoBlack";
+  color: var(--white);
+  margin: 0 1rem 0 0;
+  padding-top: 20px;
+  font-size: 1.5rem;
+}
+
 .brand-text {
   font-family: "LatoBlackItalic";
   color: var(--black);
@@ -156,13 +164,33 @@ a {
 }
 
 .quaternarybtn {
-  background-color: var(--darkblue);
+  background-color: transparent;
   color: white;
   border-radius: 33px;
   border: none;
   text-align: center;
   text-decoration: none;
   font-family: "LatoBold";
+  cursor: pointer;
+  padding: 0.7rem 3rem;
+  font-size: 1.2rem;
+}
+
+.home-top-signup {
+  border: 1px solid var(--blue);
+}
+
+.home-top-signup:hover {
+  background-color: var(--blue);
+}
+
+.home-top-login {
+  border: 1px solid var(--red);
+  margin-left: 2rem;
+}
+
+.home-top-login:hover {
+  background-color: var(--red);
 }
 
 input {
@@ -221,6 +249,7 @@ input {
   width: 100%;
   background-color: var(--darkblue);
   border-bottom: 8px solid var(--red);
+  padding-bottom: 4rem;
 }
 
 .filter-white {
@@ -313,6 +342,14 @@ input {
     font-size: 1.2rem;
   }
 }
+.home-top-links {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  height: 3rem;
+}
+
 .status-bar {
   display: flex;
   justify-content: space-between;

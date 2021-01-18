@@ -7,20 +7,25 @@ const Home = () => {
     return (
         <>
             <header className="home-background-container">
-                <div className="home-top-links">
-                    <div style={{ backgroundImage: `url(${background})` }}>
+                <div style={{ resizeMode: 'repeat', backgroundImage: `url(${background})` }}>
+                    <div className="home-top-links">
                         <Link to="/home/signup">
-                            <button className="quaternarybtn" type="submit" id="">
+                            <button className="quaternarybtn home-top-signup" type="submit" id="">
                                 SIGN UP
                     </button>
                         </Link>
                         <Link to="/home/login">
-                            <button className="quaternarybtn" type="submit" id="">
+                            <button className="quaternarybtn home-top-login" type="submit" id="">
                                 LOG IN
                     </button>
                         </Link>
-                        <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+
                     </div>
+                    <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+
+                    <h3 className="center">
+                        All your job applications in one place<span className="highlight-text">.</span>
+                    </h3>
                 </div>
 
             </header>

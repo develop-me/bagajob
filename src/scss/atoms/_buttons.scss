@@ -29,11 +29,31 @@
 }
 
 .quaternarybtn {
-    background-color: var(--darkblue);
+    background-color: transparent;
     color: white;
     border-radius: 33px;
     border: none;
     text-align: center;
     text-decoration: none;
     font-family: 'LatoBold';
+    cursor: pointer;
+    padding: 0.7rem 3rem;
+    font-size: 1.2rem;
+}
+
+.home-top-signup {
+    border: 1px solid var(--blue);
+}
+
+.home-top-signup:hover {
+    background-color: var(--blue);
+}
+
+.home-top-login {
+    border: 1px solid var(--red);
+    margin-left: 2rem;
+}
+
+.home-top-login:hover {
+    background-color: var(--red);
 }
