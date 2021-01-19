@@ -173,7 +173,7 @@ a {
   font-family: "LatoBold";
   cursor: pointer;
   padding: 0.7rem 3rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .home-top-signup {
@@ -345,8 +345,8 @@ input {
 .home-top-links {
   display: flex;
   justify-content: flex-end;
-  padding-right: 2rem;
-  padding-top: 2rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
   height: 3rem;
 }
 
