@@ -21,14 +21,42 @@ const Home = () => {
                         </Link>
 
                     </div>
-                    <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+
+                    <Link to="/home/">
+                        <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
+                    </Link>
 
                     <h3 className="center">
-                        All your job applications in one place<span className="highlight-text">.</span>
+                        Track job applications from start to finish<span className="highlight-text">.</span>
                     </h3>
                 </div>
 
             </header>
+
+            <main className="home-body-container">
+                <section className="home-info-holders">
+                    <div className="home-info-primary">
+                        <h4>All your job applications in one place</h4>
+                        <p>Keep track of all the jobs you want to apply for</p>
+                    </div>
+                    <div className="home-info-secondary">
+                        <h4>Keep important dates to hand</h4>
+                        <p>Never almost miss an interview again</p>
+                    </div>
+                    <div className="home-info-primary">
+                        <h4>Know exactly who to contact</h4>
+                        <p>Keep a record of key contacts, and how to get in touch with them</p>
+                    </div>
+                    <div className="home-info-secondary">
+                        <h4>Store all your paperwork together</h4>
+                        <p>Keep your CVs and cover letters to hand at all times</p>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+
+            </footer>
 
             <Link to="/home/">
                 <h1 className="brand-title center">bagajob</h1>

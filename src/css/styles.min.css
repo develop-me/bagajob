@@ -1317,6 +1317,22 @@ input {
     font-size: 1.1rem;
   }
 }
+.home-body-container {
+  background-color: var(--white);
+  margin: 1rem 2rem;
+  width: 100%;
+}
+
+.home-info-containers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.home-info-primary {
+  background-color: var(--beige);
+}
+
 /* Navbar container */
 .navbar {
   display: flex;
