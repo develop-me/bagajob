@@ -5,6 +5,7 @@
   --darkblue: #303d4d;
   --red: #cc3600;
   --beige: #f5efe0;
+  --midbeige: #E1D9C4;
   --blue: #1c96d9;
   --white: #fafafa;
 }
@@ -111,6 +112,13 @@ h3 {
   color: var(--darkblue);
 }
 
+.para-info {
+  font-size: 1.2rem;
+  font-family: "LatoLight";
+  color: var(--darkblue);
+  text-align: center;
+}
+
 .login-prompt {
   font-family: "Merriweather";
   color: var(--darkblue);
@@ -131,6 +139,14 @@ a {
 
 .highlight-text {
   color: var(--red);
+}
+
+h4 {
+  font-family: "LatoBlack";
+  color: var(--darkblue);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem;
 }
 
 .primarybtn {
@@ -1319,18 +1335,30 @@ input {
 }
 .home-body-container {
   background-color: var(--white);
-  margin: 1rem 2rem;
-  width: 100%;
+  padding: 1rem 2rem;
 }
 
 .home-info-containers {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.home-info-div {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 20rem;
+  height: 20rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .home-info-primary {
   background-color: var(--beige);
+}
+
+.home-info-secondary {
+  background-color: var(--midbeige);
 }
 
 /* Navbar container */

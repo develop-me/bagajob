@@ -35,22 +35,27 @@ const Home = () => {
 
             <main className="home-body-container">
                 <section className="home-info-holders">
-                    <div className="home-info-primary">
+
+                    <div className="home-info-div home-info-primary">
                         <h4>All your job applications in one place</h4>
-                        <p>Keep track of all the jobs you want to apply for</p>
+                        <p className="para-info">Keep track of all the jobs you want to apply for</p>
                     </div>
-                    <div className="home-info-secondary">
+
+                    <div className="home-info-div home-info-secondary">
                         <h4>Keep important dates to hand</h4>
-                        <p>Never almost miss an interview again</p>
+                        <p className="para-info">Never almost miss an interview again</p>
                     </div>
-                    <div className="home-info-primary">
+
+                    <div className="home-info-div home-info-secondary">
                         <h4>Know exactly who to contact</h4>
-                        <p>Keep a record of key contacts, and how to get in touch with them</p>
+                        <p className="para-info">Keep a record of key contacts, and how to get in touch with them</p>
                     </div>
-                    <div className="home-info-secondary">
+
+                    <div className="home-info-div home-info-primary">
                         <h4>Store all your paperwork together</h4>
-                        <p>Keep your CVs and cover letters to hand at all times</p>
+                        <p className="para-info">Keep your CVs and cover letters to hand at all times</p>
                     </div>
+
                 </section>
             </main>
 

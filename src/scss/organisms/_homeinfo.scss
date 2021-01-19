@@ -70,16 +70,28 @@
 
 .home-body-container {
     background-color: var(--white);
-    margin: 1rem 2rem;
-    width: 100%;
+    padding: 1rem 2rem;
 }
 
 .home-info-containers {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.home-info-div {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20rem;
+    height: 20rem;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .home-info-primary {
     background-color: var(--beige);
+}
+
+.home-info-secondary {
+    background-color: var(--midbeige);
 }
