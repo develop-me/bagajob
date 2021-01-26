@@ -1,19 +1,34 @@
 # Bagajob App
 Job Hunting Management App built by Develop Me students for Develop Me students.
 
+---
 ## Code of Conduct
 
 Available here: https://github.com/develop-me/bagajob/wiki/A-Code-of-Conduct-for-Open-Source-Projects
 
+---
 ## Front-end Architecture - React Redux
-
-### Collaborating:
+---
+## Collaborating:
 
 **Never commit directly to the master branch. Create a new feature branch from the development branch, and make a pull request for a team-mate to review and merge.**
 
-#### NOTE: At least ONE (1) other Team Member must approve your Pull Request before merging (whether the merge is  from `feature-branch` to `development`, or from `development` into `master`)
+**NOTE: At least ONE (1) other Team Member must approve your Pull Request before merging (whether the merge is  from `feature-branch` to `development`, or from `development` into `master`)**
 
-### Getting Started:
+Our workflow process is as follows:
+1. Create a new feature branch (e.g. `footer-styling`) from the `development` branch
+1. Make your changes on your feature branch
+1. Open a Pull Request to merge the feature branch into `development` describing the changes made
+1. Wait for another collaborator to approve your PR
+1. Merge your completed feature branch into `development`
+1. Branch again from `development` for your next feature (e.g. `header-styling`)
+1. Repeat
+
+1. The `development` branch should only be merged into `master` once a new build/release and all its features are complete and ready to deploy (see below for deployment instructions)
+1. The `master` branch is deployed to the server. Only merges from `development` should be committed to this branch (excepting edits to documentation)
+
+---
+## Getting Started:
 
 1. Clone the repository to your local machine using the URL in the Repo
 ```bash
@@ -40,13 +55,13 @@ git push origin {branch}
 8. Have a team member review the pull request and merge!
 
 9. Ensure the branch is deleted once its merged
-
+---
 ## Running and using the App locally
 
 1. Run `npm start`
 
 1. Visit the local development server in your browser
-
+---
 ## Developing Styling
 
 This application is styled using SASS. All `.scss` files (`src/scss/example/_example.scss`) are imported (`@import`) into `src/scss/main.scss`, before being compiled to `src/css/styles.min.css`.
@@ -59,12 +74,12 @@ In order to configure SASS to compile every time changes are saved to a SASS fil
 
 `sass --watch src/scss/main.scss src/css/styles.min.css`
 
-Please note that changes to SASS files will not show in the app until compiled to `src/css/styles.min.css`.
-
+#### Please note that changes to SASS files will not show in the app until compiled to `src/css/styles.min.css`.
+---
 ## API Set Up
 - To test the front end fully you'll need to set up a local instance of the API on a VM. Follow the instructions on this gitHub repo to install:
   - (https://github.com/develop-me/bagajob-api)
-  
+---
 ## Deployment
 - The front end is a static site deployed to developme's servers. The site is hosted at https://bagajob.developme.space/ 
 - Once someone has granted you access (by adding your ssh key to the server) you can access the server by running `ssh ubuntu@134.122.103.160` at your command prompt
@@ -82,12 +97,12 @@ Please note that changes to SASS files will not show in the app until compiled t
 - You may need to reload the web server if you don't see your changes `sudo nginx -s reload`
 
 #### NOTE: Currently the `development` branch is active on the host, this will be changed to to `master` (`git checkout master`) upon deployment when ssh'd into the server
---
+---
 
 # Create React App Documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+---
 ## Available Scripts
 
 In the project directory, you can run:
