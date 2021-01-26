@@ -96,7 +96,7 @@ In order to configure SASS to compile every time changes are saved to a SASS fil
 - NGINX (the web server) is set up to serve the production files from `/var/www/bagajob/build/`
 - You may need to reload the web server if you don't see your changes `sudo nginx -s reload`
 
-#### NOTE: Currently the `development` branch is active on the host, this will be changed to to `master` (`git checkout master`) upon deployment when ssh'd into the server
+#### NOTE: Currently the `development` branch is active on the host, this will be changed to to `master` (run `git checkout master`) upon deployment when ssh'd into the server
 ---
 
 # Create React App Documentation
