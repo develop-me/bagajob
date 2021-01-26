@@ -1,8 +1,10 @@
 .button-container {
-    margin: 0 0 0 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 60%;
 }
 
 .button-container > a{
@@ -26,7 +28,7 @@
 @media only screen and (min-width: 960px) {
 
     .button-container {
-        margin: 4rem 0 0 0;
+        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: center;
