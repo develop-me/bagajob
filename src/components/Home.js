@@ -13,7 +13,7 @@ const Home = () => {
         <>
             <header className="home-background-container">
 
-                <div style={{ backgroundImage: `url(${background})` }}>
+                <div style={{ backgroundSize: 'fill', backgroundImage: `url(${background})` }}>
                     <div className="home-top-links">
                         <Link to="/home/signup">
                             <button className="quaternarybtn home-top-signup" type="submit" id="">
@@ -32,7 +32,7 @@ const Home = () => {
                         <h1 className="updated-title center">Bagajob<span className="highlight-text">.</span></h1>
                     </Link>
 
-                    <h3 className="center">
+                    <h3 className="center h3-alternate">
                         Track job applications from start to finish<span className="highlight-text">.</span>
                     </h3>
                 </div>
@@ -86,8 +86,8 @@ const Home = () => {
                 </section>
             </main>
 
-            <footer class="home-footer">
-                <h3 class="footer-text">© 2021</h3>
+            <footer className="home-footer">
+                <h3 className="footer-text">© 2021</h3>
             </footer>
 
             {/* <Link to="/home/">

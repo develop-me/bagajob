@@ -14,6 +14,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+.h3-alternate {
+    padding: 0.5rem 2rem 4rem 2rem;
+}
+
 .brand-text {
     font-family: 'LatoBlackItalic';
     color: var(--black);
@@ -53,6 +57,12 @@ h3 {
     padding-right: 1rem;
 }
 
+@media only screen and (min-width: 280px) {
+    .para-info {
+        font-size: 1rem;
+    }
+}
+
 .login-prompt {
     font-family: 'Merriweather';
     color: var(--darkblue);
@@ -66,7 +76,7 @@ a {
 .updated-title {
     font-family: 'Lobster';
     color: var(--white);
-    font-size: 5rem;
+    font-size: calc(8vw + 4vh + 2vmin);
     padding: 2rem 0 2rem 0;
     margin: 0;
 }
@@ -81,6 +91,13 @@ h4 {
     font-size: 1.5rem;
     text-align: center;
     margin: 2rem;
+}
+
+@media only screen and (min-width: 280px) {
+    h4 {
+        margin: 1rem;
+        font-size: 1.2rem;
+    }   
 }
 
 .footer-text {
