@@ -7,6 +7,8 @@ import email_icon from '../../assets/images/email_icon.svg'
 import lock_icon from '../../assets/images/lock_icon.svg'
 import Nav from '../Nav'
 
+import background from "../../assets/images/backgroundIcons.svg";
+
 const initialState = {
     email: "",
     password: ""
@@ -30,10 +32,10 @@ const Login = ({ history }) => {
     }, [])
 
     return (
-        <>
-        <Nav/>
+        <div className="login-background" style={{ backgroundSize: 'fill', backgroundImage: `url(${background})` }}>
+            <Nav />
             <Link to="/home/">
-                <h1 className="brand-title-small center">bagajob</h1>
+                <h1 className="brand-title center">Bagajob<span className="highlight-text">.</span></h1>
             </Link>
             <div className="form-container-small login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
@@ -100,7 +102,7 @@ const Login = ({ history }) => {
                     <p className="para-highlight center">{authResponse !== null && authResponse}</p>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 

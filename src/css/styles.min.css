@@ -67,11 +67,11 @@
 }
 /* atoms */
 .brand-title {
-  font-family: "LatoBlackItalic";
-  color: var(--black);
-  text-transform: lowercase;
-  font-size: 5rem;
-  margin: 2rem 0 2rem 0;
+  font-family: "Lobster";
+  color: var(--white);
+  font-size: calc(8vw + 4vh + 2vmin);
+  padding: 2rem 0 2rem 0;
+  margin: 0;
 }
 
 h3 {
@@ -340,11 +340,15 @@ input {
   height: 15px;
 }
 
+.login-background {
+  height: 100vh;
+  width: 100vw;
+}
+
 /* molecules */
 /* Forms: */
 .form-container-small {
   background-color: var(--white);
-  border-radius: 20px;
   margin: 0 32vw 0 32vw;
   padding: 50px 0 50px 0;
   display: flex;
@@ -353,7 +357,6 @@ input {
 
 .form-container-large {
   background-color: var(--white);
-  border-radius: 20px;
   margin: 1vw 5vw 1vw 5vw;
   padding: 3vw;
 }
@@ -369,6 +372,7 @@ input {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  max-width: 65%;
 }
 
 .button-container > a {
@@ -824,7 +828,6 @@ footer {
 /* Login Container */
 .login-container {
   background-color: var(--white);
-  border-radius: 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 10vw;
@@ -888,17 +891,16 @@ footer {
 }
 
 .brand-title-small {
-  font-family: "LatoBlackItalic";
-  color: var(--black);
-  text-transform: lowercase;
-  margin: 2rem 0 3rem 0;
-  font-size: 3.5rem;
+  font-family: "Lobster";
+  color: var(--white);
+  font-size: calc(4vw + 4vh + 2vmin);
+  padding: 2rem 0 2rem 0;
+  margin: 0;
 }
 
 /* Sign Up Component */
 .signup-container {
   background-color: var(--white);
-  border-radius: 20px;
   display: flex;
   justify-content: center;
 }
@@ -1646,7 +1648,7 @@ footer {
 body {
   padding: 0;
   margin: 0;
-  background-color: var(--beige);
+  background-color: var(--darkblue);
   line-height: 1.2;
 }
 

@@ -1,7 +1,7 @@
 /* Login Container */
 .login-container {
   background-color: var(--white);
-  border-radius: 20px;
+  // border-radius: 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 10vw;
@@ -68,9 +68,9 @@
 }
 
 .brand-title-small {
-  font-family: 'LatoBlackItalic';
-  color: var(--black);
-  text-transform: lowercase;
-  margin: 2rem 0 3rem 0;
-  font-size: 3.5rem,
+  font-family: 'Lobster';
+    color: var(--white);
+    font-size: calc(4vw + 4vh + 2vmin);
+    padding: 2rem 0 2rem 0;
+    margin: 0;
 }
