@@ -5,6 +5,8 @@ import useFormValidation from "../../customHooks/useFormValidation"
 import { resetAuthResponse, signUp, resetErrors } from '../../data/Auth/actions'
 import Nav from '../Nav'
 
+import background from "../../assets/images/backgroundIcons.svg";
+
 const initialState = {
     name: "",
     email: "",
@@ -38,9 +40,9 @@ const SignUp = ({ history }) => {
     }, [])
 
     return (
-        <>
+        <div className="login-background" style={{ backgroundSize: 'fill', backgroundImage: `url(${background})` }}>
             <Link to="/home/">
-                <h1 className="brand-title-small center">bagajob</h1>
+                <h1 className="brand-title center">Bagajob<span className="highlight-text">.</span></h1>
             </Link>
             <div className="form-container-small signup-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
@@ -92,7 +94,7 @@ const SignUp = ({ history }) => {
             <p className="login-prompt center mb-3">
                 Already have an account? <Link style={{ textDecoration: "underline" }} to="/home/login">Log in</Link>
             </p>
-        </>
+        </div>
     )
 }
 

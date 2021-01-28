@@ -33,7 +33,7 @@ const Login = ({ history }) => {
 
     return (
         <div className="login-background" style={{ backgroundSize: 'fill', backgroundImage: `url(${background})` }}>
-            <Nav />
+            {/* <Nav /> */}
             <Link to="/home/">
                 <h1 className="brand-title center">Bagajob<span className="highlight-text">.</span></h1>
             </Link>

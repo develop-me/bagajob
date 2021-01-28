@@ -13,7 +13,7 @@ const Home = () => {
         <>
             <header className="home-background-container">
 
-                <div style={{ backgroundSize: 'fill', backgroundImage: `url(${background})` }}>
+                <div style={{ backgroundSize: '70%', backgroundImage: `url(${background})` }}>
                     <div className="home-top-links">
                         <Link to="/home/signup">
                             <button className="quaternarybtn home-top-signup" type="submit" id="">
